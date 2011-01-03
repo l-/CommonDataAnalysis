@@ -31,6 +31,10 @@
 <option id="gnu.cpp.compiler.so.debug.option.debugging.level.804822855" name="Debug Level" superClass="gnu.cpp.compiler.so.debug.option.debugging.level" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 <option id="gnu.cpp.compiler.option.include.paths.1565732340" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
 <listOptionValue builtIn="false" value="/opt/intel/ipp/6.1.2.051/ia32/include"/>
+<listOptionValue builtIn="false" value="../include"/>
+<listOptionValue builtIn="false" value="../src"/>
+<listOptionValue builtIn="false" value="&quot;${workspace_loc:/CommonDataAnalysis/CommonDataAnalysis/include}&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${workspace_loc:/CommonDataAnalysis/CommonDataAnalysis/src}&quot;"/>
 <listOptionValue builtIn="false" value="/informatik/home/flick/include"/>
 <listOptionValue builtIn="false" value="/usr/include"/>
 </option>
@@ -41,6 +45,10 @@
 <option id="gnu.c.compiler.so.debug.option.debugging.level.28927952" name="Debug Level" superClass="gnu.c.compiler.so.debug.option.debugging.level" value="gnu.c.debugging.level.max" valueType="enumerated"/>
 <option id="gnu.c.compiler.option.include.paths.6196945" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 <listOptionValue builtIn="false" value="/opt/intel/ipp/6.1.2.051/ia32/include"/>
+<listOptionValue builtIn="false" value="&quot;${workspace_loc:/CommonDataAnalysis/CommonDataAnalysis/include}&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${workspace_loc:/CommonDataAnalysis/CommonDataAnalysis/src}&quot;"/>
+<listOptionValue builtIn="false" value="/informatik/home/flick/include"/>
+<listOptionValue builtIn="false" value="/usr/include"/>
 </option>
 <inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1933159149" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 </tool>
@@ -50,7 +58,7 @@
 <tool id="cdt.managedbuild.tool.gnu.cpp.linker.so.debug.1840370629" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.so.debug">
 <option defaultValue="true" id="gnu.cpp.link.so.debug.option.shared.1597121819" name="Shared (-shared)" superClass="gnu.cpp.link.so.debug.option.shared" valueType="boolean"/>
 <option id="gnu.cpp.link.option.paths.1678396831" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
-<listOptionValue builtIn="false" value="/usr/lib"/>
+<listOptionValue builtIn="false" value="/opt/intel/ipp/6.1.2.051/ia32/lib"/>
 </option>
 <option id="gnu.cpp.link.option.libs.356417265" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs"/>
 <inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.309746172" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
@@ -61,15 +69,19 @@
 <tool id="cdt.managedbuild.tool.gnu.assembler.so.debug.2049994997" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.so.debug">
 <option id="gnu.both.asm.option.include.paths.241122038" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
 <listOptionValue builtIn="false" value="/opt/intel/ipp/6.1.2.051/ia32/include"/>
+<listOptionValue builtIn="false" value="&quot;${workspace_loc:/CommonDataAnalysis/CommonDataAnalysis/include}&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${workspace_loc:/CommonDataAnalysis/CommonDataAnalysis/src}&quot;"/>
+<listOptionValue builtIn="false" value="/informatik/home/flick/include"/>
+<listOptionValue builtIn="false" value="/usr/include"/>
 </option>
 <inputType id="cdt.managedbuild.tool.gnu.assembler.input.170359999" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 </tool>
 </toolChain>
 </folderInfo>
 <sourceEntries>
-<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 <entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="include"/>
-<entry excluding="data|math|src|include" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+<entry excluding="data|include|src|math|expmax" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 </sourceEntries>
 </configuration>
 </storageModule>
@@ -645,11 +657,12 @@
 </toolChain>
 </folderInfo>
 <sourceEntries>
+<entry excluding="expmax|math" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="include/data"/>
+<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/expmax"/>
+<entry excluding="expmax|data|math|src|include" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 <entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/math"/>
 <entry excluding="data" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="include"/>
-<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="include/data"/>
-<entry excluding="math" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
-<entry excluding="data|math|src|include" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 </sourceEntries>
 </configuration>
 </storageModule>
