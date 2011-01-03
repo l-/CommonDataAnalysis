@@ -15,9 +15,9 @@
 #include <gsl/gsl_sf_bessel.h>
 
 // Hell, just fake it
-double wrap(const double phi) {
-    return fmod(phi, 2*M_PI);
-}
+// double wrap2pi(const double phi) {
+    // return fmod(phi, 2*M_PI);
+// }
 
 /**
  * Von Mises PDF and derivatives for circular statistics
@@ -66,16 +66,16 @@ struct VonMises {
         // = M * (-I1/I0 + cos(phi - mu)) ?
     }
 
-    double m_mu;
-    double m_kappa;
-
-    VonMises(const double mu, const double kappa)
-      : m_mu(mu)
-      , m_kappa(kappa) { }
-
-    inline double operator()(const double phi) const {
-        return operator()(m_mu, m_kappa, phi);
-    }
+//    double m_mu;
+//    double m_kappa;
+//
+//    VonMises(const double mu, const double kappa)
+//      : m_mu(mu)
+//      , m_kappa(kappa) { }
+//
+//    inline double operator()(const double phi) const {
+//        return operator()(m_mu, m_kappa, phi);
+//    }
 
 };
 
