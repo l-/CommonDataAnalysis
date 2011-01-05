@@ -221,9 +221,30 @@ public:
         );
     }
 
+    std::pair<dataframe_t::const_iterator, dataframe_t::const_iterator> getIterPair() const {
+        return std::make_pair(m_data.begin(), m_data.end());
+    }
+
     // EnhancedDatasetView projection()
 
-    // std::pair<boost::filter_iterator<> > getFilteredIterPair() const {
+    template<class F>
+    std::pair<boost::filter_iterator<F, dataframe_t::const_iterator>,
+              boost::filter_iterator<F, dataframe_t::const_iterator>
+             > getFilteredIterPair(F& function) const {
+        return std::make_pair(boost::make_filter_iterator(m_data.begin(), function),
+                              boost::make_filter_iterator(m_data.end(), function));
+    }
+
+//    template <class Coll>
+//    std::pair<boost::filter_iterator<boost::function<bool(dataframe_t::value_type)>, dataframe_t::const_iterator>,
+//              boost::filter_iterator<boost::function<bool(dataframe_t::value_type)>, dataframe_t::const_iterator> >
+//        getFilteredIterPair_above(Coll ) const {
+//    // Coll is a  list of thresholds
+//        boost::function<bool(const fvector_t&)> fn
+//                        (boost::bind(std::less<double>,  boost::mem_fn(&EnhancedDataset::normalize), this, _1 ));
+//
+//    }
+    //
 
     //    std::pair<boost::filter_iterator<boost::less>, dataframe_t::iterator>
     //      getFilteredIterPair_UpwardsFromNStddev() const {

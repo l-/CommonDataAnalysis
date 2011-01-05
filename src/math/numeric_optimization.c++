@@ -9,7 +9,7 @@
 
 #include "numeric_optimization.h++"
 
-using namespace CDA;
+namespace CDA {
 
 double findSingleUnivariateRootIntervalSearch(const boost::function<double(double)>& f,
                                               const double xa,
@@ -45,3 +45,5 @@ double findSingleUnivariateRootIntervalSearch(const boost::function<double(doubl
 
     return (upperbound + lowerbound)/2;
 }
+
+} // ns

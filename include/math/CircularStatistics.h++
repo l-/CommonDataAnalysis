@@ -1,5 +1,5 @@
 /**
- * @file vonMises.h++
+ * @file CircularStatistics.h++
  *
  * @author Erik Flick <erik.flick [AETT] informatik.uni-hamburg.de>
  *
@@ -11,14 +11,12 @@
 
 #pragma once
 
-
 // Special functions from GSL
 #include <gsl/gsl_sf_bessel.h>
+#include <cmath>
 
 // Hell, just fake it
-// double wrap2pi(const double phi) {
-    // return fmod(phi, 2*M_PI);
-// }
+double wrap2pi(const double phi);
 
 namespace CDA {
 
