@@ -17,14 +17,19 @@
 #include <sstream>
 #include <boost/numeric/ublas/triangular.hpp>
 
+using namespace CDA;
 
 // template<>
 // size_t EMData<double>::getDataDimensionality() const { return 1; }
 // template<>
 // size_t EMData<fvector_t>::getDataDimensionality() const { return D; }
 
+namespace CDA {
+
 template<> EMData<double>::EMData(const unsigned D_) : D(1) {}; // all's well
 template<> EMData<fvector_t>::EMData(const unsigned D_) : D(D_) {};
+
+} // ns
 
 template class EMData<double>;
 template class EMData<fvector_t>;

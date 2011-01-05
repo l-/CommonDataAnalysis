@@ -9,6 +9,8 @@
 
 #include "numeric_optimization.h++"
 
+using namespace CDA;
+
 double findSingleUnivariateRootIntervalSearch(const boost::function<double(double)>& f,
                                               const double xa,
                                               const double xb,

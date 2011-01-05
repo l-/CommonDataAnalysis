@@ -11,6 +11,7 @@
 
 #pragma once
 
+
 // Special functions from GSL
 #include <gsl/gsl_sf_bessel.h>
 
@@ -18,6 +19,8 @@
 // double wrap2pi(const double phi) {
     // return fmod(phi, 2*M_PI);
 // }
+
+namespace CDA {
 
 /**
  * Von Mises PDF and derivatives for circular statistics
@@ -80,4 +83,4 @@ struct VonMises {
 };
 
 
-
+} // namespace

@@ -9,6 +9,8 @@
 
 #pragma once
 
+namespace CDA {
+
 /**
  * @class compareByVectorElementValue
  *
@@ -41,3 +43,5 @@ struct compareByVectorElementValue {
     }
 
 };
+
+} // namespace

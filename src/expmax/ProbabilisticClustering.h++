@@ -56,6 +56,9 @@ using namespace boost::lambda;
 #include "math/numeric_optimization.h++"
 #include "utils/comparisons.h++"
 
+
+namespace CDA {
+
 /**
  * @brief Common declaration: Vector type.
  */
@@ -1129,3 +1132,5 @@ double det(matrix_t& m) {
 // * Note: Circular and other manifold statistics: Maybe faking them via Gausses
 // * (and specially defined distances) is en
 // */
+
+} // namespace

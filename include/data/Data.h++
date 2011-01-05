@@ -44,6 +44,7 @@
 #include <boost/bind/placeholders.hpp>
 #include <boost/bind/mem_fn.hpp>
 
+namespace CDA {
 
 typedef boost::numeric::ublas::vector<double> fvector_t;
 
@@ -235,3 +236,5 @@ private:
         assert(no_copy_constructor_yet);
     }
 };
+
+} // namespace
