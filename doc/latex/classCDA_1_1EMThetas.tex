@@ -1,0 +1,71 @@
+\hypertarget{classCDA_1_1EMThetas}{
+\section{CDA::EMThetas Klassenreferenz}
+\label{classCDA_1_1EMThetas}\index{CDA::EMThetas@{CDA::EMThetas}}
+}
+
+
+Model parameters for \hyperlink{classCDA_1_1EM}{EM}.  
+
+
+
+
+{\ttfamily \#include $<$EMTheta.h++$>$}
+
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class II $>$ }\\void \hyperlink{classCDA_1_1EMThetas_a1c8058269e4d8a32a2dd58f13ad94369}{setTheta} (std::pair$<$ II, II $>$ thetas\_\-)
+\item 
+\hypertarget{classCDA_1_1EMThetas_aadd9127ef459eda6eb890e1f3bd5a1bc}{
+const std::vector$<$ fvector\_\-t $>$ \& \hyperlink{classCDA_1_1EMThetas_aadd9127ef459eda6eb890e1f3bd5a1bc}{getThetas} () const }
+\label{classCDA_1_1EMThetas_aadd9127ef459eda6eb890e1f3bd5a1bc}
+
+\begin{DoxyCompactList}\small\item\em const getter \item\end{DoxyCompactList}\item 
+\hypertarget{classCDA_1_1EMThetas_ab5cc3d05862d41aa16a38b7c4ec51bd3}{
+std::vector$<$ fvector\_\-t $>$ \& \hyperlink{classCDA_1_1EMThetas_ab5cc3d05862d41aa16a38b7c4ec51bd3}{getModifyThetas} ()}
+\label{classCDA_1_1EMThetas_ab5cc3d05862d41aa16a38b7c4ec51bd3}
+
+\begin{DoxyCompactList}\small\item\em non-\/const getter. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classCDA_1_1EMThetas_a2fb1c00c889f9a5bfe95e65ba1c4b132}{
+std::vector$<$ fvector\_\-t $>$ \hyperlink{classCDA_1_1EMThetas_a2fb1c00c889f9a5bfe95e65ba1c4b132}{thetas}}
+\label{classCDA_1_1EMThetas_a2fb1c00c889f9a5bfe95e65ba1c4b132}
+
+\begin{DoxyCompactList}\small\item\em Model parameters possibly a single vector, or K PDF parameter vectors, one per class =$>$ these belong in the concrete classes? I hate duplication! \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Model parameters for \hyperlink{classCDA_1_1EM}{EM}. \hypertarget{ProbabilisticClustering_8h_09_09_DESCRIPTION}{}\subsection{DESCRIPTION}\label{ProbabilisticClustering_8h_09_09_DESCRIPTION}
+To avoid duplication. Can't just put it into \hyperlink{classCDA_1_1EM}{EM} and inherit because of duplicate class problems\hypertarget{classCDA_1_1EMThetas_ARCHITECTURE}{}\subsection{CAVEAT}\label{classCDA_1_1EMThetas_ARCHITECTURE}
+I dislike having this class around, this should all be in \hyperlink{classCDA_1_1EM}{EM} in any proper programming language, it would be possible. 
+
+\subsection{Dokumentation der Elementfunktionen}
+\hypertarget{classCDA_1_1EMThetas_a1c8058269e4d8a32a2dd58f13ad94369}{
+\index{CDA::EMThetas@{CDA::EMThetas}!setTheta@{setTheta}}
+\index{setTheta@{setTheta}!CDA::EMThetas@{CDA::EMThetas}}
+\subsubsection[{setTheta}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class II $>$ void CDA::EMThetas::setTheta (std::pair$<$ II, II $>$ {\em thetas\_\-})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCDA_1_1EMThetas_a1c8058269e4d8a32a2dd58f13ad94369}
+Initial guess for model parameters -\/-\/ strictly needed
+
+Input data format differs for each individual distribution, be careful and read the documentation.
+
+\begin{Desc}
+\item[\hyperlink{todo__todo000002}{Noch zu erledigen}]random numbers when none given \end{Desc}
+
+
+Hier ist ein Graph der zeigt, was diese Funktion aufruft:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=189pt]{classCDA_1_1EMThetas_a1c8058269e4d8a32a2dd58f13ad94369_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei:\begin{DoxyCompactItemize}
+\item 
+src/expmax/\hyperlink{EMTheta_8h_09_09}{EMTheta.h++}\end{DoxyCompactItemize}

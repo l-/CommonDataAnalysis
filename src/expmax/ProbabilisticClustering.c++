@@ -13,7 +13,7 @@
  *
  */
 
-#include "ProbabilisticClustering.h++"
+#include "include/expmax/ProbabilisticClustering.h++"
 
 #include <sstream>
 #include <boost/numeric/ublas/triangular.hpp>

@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" href="$classCDA_1_1GaussianMixtureModel.html#a89678e8fbc1e6361ff13c68def11b548" title="Get inverse of Sigma of Gaussian no. k." alt="" coords="343,5,612,35"/>
+<area shape="rect" href="$classCDA_1_1GaussianMixtureModel.html#a65065aeca55fef7931c83911ca656a3b" title="CDA::GaussianMixtureModel::getSigmaDet" alt="" coords="341,59,613,88"/>
+<area shape="rect" href="$classCDA_1_1GaussianMixtureModel.html#ad89163c9bc3bdd8565a1fdcd9206d762" title="Evaluate model PDF of cluster k." alt="" coords="663,32,908,61"/>
+<area shape="rect" href="$classCDA_1_1GaussianMixtureModel.html#a5f05d1d0815a3ba669d442bb560711df" title="Get numerical value of derivateive." alt="" coords="959,32,1241,61"/>
+</map>

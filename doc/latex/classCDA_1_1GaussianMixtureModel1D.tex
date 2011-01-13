@@ -1,0 +1,199 @@
+\hypertarget{classCDA_1_1GaussianMixtureModel1D}{
+\section{CDA::GaussianMixtureModel1D Klassenreferenz}
+\label{classCDA_1_1GaussianMixtureModel1D}\index{CDA::GaussianMixtureModel1D@{CDA::GaussianMixtureModel1D}}
+}
+
+
+{\ttfamily \#include $<$GaussianMixtureModel1D.h++$>$}
+
+
+
+Abgeleitet von \hyperlink{classCDA_1_1FitMulticlassByEM}{CDA::FitMulticlassByEM$<$ double $>$}.
+
+
+
+Zusammengehörigkeiten von CDA::GaussianMixtureModel1D:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=400pt]{classCDA_1_1GaussianMixtureModel1D__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Typen}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classCDA_1_1GaussianMixtureModel1D_a72f70fc9a6a659f61bcaf74597d82aa7}{
+typedef double \hyperlink{classCDA_1_1GaussianMixtureModel1D_a72f70fc9a6a659f61bcaf74597d82aa7}{datapoint\_\-t}}
+\label{classCDA_1_1GaussianMixtureModel1D_a72f70fc9a6a659f61bcaf74597d82aa7}
+
+\begin{DoxyCompactList}\small\item\em Propagate the datapoint\_\-t. Why can't I give it the same name? Annoying. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{classCDA_1_1GaussianMixtureModel1D_a0ee83653e92c833951631f300cfe338d}{evalPDF} (const unsigned k, const \hyperlink{classCDA_1_1GaussianMixtureModel1D_a72f70fc9a6a659f61bcaf74597d82aa7}{datapoint\_\-t} \&x) const 
+\begin{DoxyCompactList}\small\item\em Evaluate the cluster model PDF with class parameters $k$ at $\vec{x}$. \item\end{DoxyCompactList}\item 
+\hypertarget{classCDA_1_1GaussianMixtureModel1D_a31a8e94938ebe3e88f66bfbd5a90017f}{
+\hyperlink{classCDA_1_1GaussianMixtureModel1D_a31a8e94938ebe3e88f66bfbd5a90017f}{GaussianMixtureModel1D} (const unsigned K\_\-)}
+\label{classCDA_1_1GaussianMixtureModel1D_a31a8e94938ebe3e88f66bfbd5a90017f}
+
+\begin{DoxyCompactList}\small\item\em Call superclass constructor to fill data fields. \item\end{DoxyCompactList}\item 
+double \hyperlink{classCDA_1_1GaussianMixtureModel1D_abd992452517cd8f0efc8f5408f898e33}{getMean} (const unsigned k) const 
+\begin{DoxyCompactList}\small\item\em Estimated parameter getter. Get current estimated mean vector of class k. \item\end{DoxyCompactList}\item 
+double \hyperlink{classCDA_1_1GaussianMixtureModel1D_aa943f4410a27db1d9530b7c63e45b90b}{getSigma} (const unsigned k) const 
+\begin{DoxyCompactList}\small\item\em Estimated parameter getter Get current estimated sigma of class k. \item\end{DoxyCompactList}\item 
+{\footnotesize template$<$class II $>$ }\\void \hyperlink{classCDA_1_1GaussianMixtureModel1D_ada5a646f31d12697bc0fc66934a54dab}{setData} (std::pair$<$ II, II $>$ data\_\-)
+\begin{DoxyCompactList}\small\item\em Initialize known samples, i.e. your data points. \item\end{DoxyCompactList}\item 
+double \hyperlink{classCDA_1_1GaussianMixtureModel1D_af375c24f37a361437719bfe42b03fd4a}{findDecisionLimit} (const int k1, const int k2) const 
+\begin{DoxyCompactList}\small\item\em Find explicit class boundary. \item\end{DoxyCompactList}\item 
+\hypertarget{classCDA_1_1GaussianMixtureModel1D_a08a734c5b74bccda43429df49db58edf}{
+const std::string \hyperlink{classCDA_1_1GaussianMixtureModel1D_a08a734c5b74bccda43429df49db58edf}{className} () const }
+\label{classCDA_1_1GaussianMixtureModel1D_a08a734c5b74bccda43429df49db58edf}
+
+\begin{DoxyCompactList}\small\item\em Class name for logging ... \item\end{DoxyCompactList}\item 
+\hypertarget{classCDA_1_1GaussianMixtureModel1D_adfb929641e967030e9b63c6e53ea64c0}{
+const std::string \hyperlink{classCDA_1_1GaussianMixtureModel1D_adfb929641e967030e9b63c6e53ea64c0}{getCSVHeader} () const }
+\label{classCDA_1_1GaussianMixtureModel1D_adfb929641e967030e9b63c6e53ea64c0}
+
+\begin{DoxyCompactList}\small\item\em Each class gets its own line, that's the easiest way. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classCDA_1_1GaussianMixtureModel1D_ac8215fdb213641c0cf49eeb2f6d4c045}{
+void \hyperlink{classCDA_1_1GaussianMixtureModel1D_ac8215fdb213641c0cf49eeb2f6d4c045}{update\_\-thetas} ()}
+\label{classCDA_1_1GaussianMixtureModel1D_ac8215fdb213641c0cf49eeb2f6d4c045}
+
+\begin{DoxyCompactList}\small\item\em {\bfseries E-\/step}: update hidden attributes, i.e. class membership probabilities \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+A \hyperlink{classCDA_1_1GaussianMixtureModel}{GaussianMixtureModel} class, with \hyperlink{classCDA_1_1EM}{EM} fitting routine built in 
+
+\subsection{Dokumentation der Elementfunktionen}
+\hypertarget{classCDA_1_1GaussianMixtureModel1D_a0ee83653e92c833951631f300cfe338d}{
+\index{CDA::GaussianMixtureModel1D@{CDA::GaussianMixtureModel1D}!evalPDF@{evalPDF}}
+\index{evalPDF@{evalPDF}!CDA::GaussianMixtureModel1D@{CDA::GaussianMixtureModel1D}}
+\subsubsection[{evalPDF}]{\setlength{\rightskip}{0pt plus 5cm}double CDA::GaussianMixtureModel1D::evalPDF (const unsigned {\em k}, \/  const {\bf datapoint\_\-t} \& {\em x}) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{classCDA_1_1GaussianMixtureModel1D_a0ee83653e92c833951631f300cfe338d}
+
+
+Evaluate the cluster model PDF with class parameters $k$ at $\vec{x}$. 
+
+
+\begin{DoxyParams}{Parameter}
+\item[\mbox{$\leftarrow$} {\em k}]class \item[\mbox{$\leftarrow$} {\em x}]feature vector\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+probability $p(x,k\vert\theta)$ 
+\end{DoxyReturn}
+
+
+Implementiert \hyperlink{classCDA_1_1FitMulticlassByEM_a5853c1889b12e567d2d9ab6c395dfe0d}{CDA::FitMulticlassByEM$<$ T $>$}.
+
+\hypertarget{classCDA_1_1GaussianMixtureModel1D_af375c24f37a361437719bfe42b03fd4a}{
+\index{CDA::GaussianMixtureModel1D@{CDA::GaussianMixtureModel1D}!findDecisionLimit@{findDecisionLimit}}
+\index{findDecisionLimit@{findDecisionLimit}!CDA::GaussianMixtureModel1D@{CDA::GaussianMixtureModel1D}}
+\subsubsection[{findDecisionLimit}]{\setlength{\rightskip}{0pt plus 5cm}double CDA::GaussianMixtureModel1D::findDecisionLimit (const int {\em k1}, \/  const int {\em k2}) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCDA_1_1GaussianMixtureModel1D_af375c24f37a361437719bfe42b03fd4a}
+
+
+Find explicit class boundary. 
+
+
+\begin{DoxyParams}{Parameter}
+\item[\mbox{$\leftarrow$} {\em k1}]Class 1 \item[\mbox{$\leftarrow$} {\em k2}]Class 2\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+x$>$value: in class 2 
+\end{DoxyReturn}
+
+
+Hier ist ein Graph der zeigt, was diese Funktion aufruft:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{classCDA_1_1GaussianMixtureModel1D_af375c24f37a361437719bfe42b03fd4a_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classCDA_1_1GaussianMixtureModel1D_abd992452517cd8f0efc8f5408f898e33}{
+\index{CDA::GaussianMixtureModel1D@{CDA::GaussianMixtureModel1D}!getMean@{getMean}}
+\index{getMean@{getMean}!CDA::GaussianMixtureModel1D@{CDA::GaussianMixtureModel1D}}
+\subsubsection[{getMean}]{\setlength{\rightskip}{0pt plus 5cm}double GaussianMixtureModel1D::getMean (const unsigned {\em k}) const}}
+\label{classCDA_1_1GaussianMixtureModel1D_abd992452517cd8f0efc8f5408f898e33}
+
+
+Estimated parameter getter. Get current estimated mean vector of class k. 
+
+
+\begin{DoxyParams}{Parameter}
+\item[\mbox{$\leftarrow$} {\em k}]class no. \end{DoxyParams}
+
+
+Hier ist ein Graph der zeigt, was diese Funktion aufruft:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{classCDA_1_1GaussianMixtureModel1D_abd992452517cd8f0efc8f5408f898e33_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{classCDA_1_1GaussianMixtureModel1D_abd992452517cd8f0efc8f5408f898e33_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classCDA_1_1GaussianMixtureModel1D_aa943f4410a27db1d9530b7c63e45b90b}{
+\index{CDA::GaussianMixtureModel1D@{CDA::GaussianMixtureModel1D}!getSigma@{getSigma}}
+\index{getSigma@{getSigma}!CDA::GaussianMixtureModel1D@{CDA::GaussianMixtureModel1D}}
+\subsubsection[{getSigma}]{\setlength{\rightskip}{0pt plus 5cm}double GaussianMixtureModel1D::getSigma (const unsigned {\em k}) const}}
+\label{classCDA_1_1GaussianMixtureModel1D_aa943f4410a27db1d9530b7c63e45b90b}
+
+
+Estimated parameter getter Get current estimated sigma of class k. 
+
+
+\begin{DoxyParams}{Parameter}
+\item[\mbox{$\leftarrow$} {\em k}]class no. \end{DoxyParams}
+
+
+Hier ist ein Graph der zeigt, was diese Funktion aufruft:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{classCDA_1_1GaussianMixtureModel1D_aa943f4410a27db1d9530b7c63e45b90b_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classCDA_1_1GaussianMixtureModel1D_ada5a646f31d12697bc0fc66934a54dab}{
+\index{CDA::GaussianMixtureModel1D@{CDA::GaussianMixtureModel1D}!setData@{setData}}
+\index{setData@{setData}!CDA::GaussianMixtureModel1D@{CDA::GaussianMixtureModel1D}}
+\subsubsection[{setData}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class II $>$ void CDA::GaussianMixtureModel1D::setData (std::pair$<$ II, II $>$ {\em data\_\-})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCDA_1_1GaussianMixtureModel1D_ada5a646f31d12697bc0fc66934a54dab}
+
+
+Initialize known samples, i.e. your data points. 
+
+Evaluate the PDF with parameters of class k
+
+
+\begin{DoxyParams}{Parameter}
+\item[\mbox{$\leftarrow$} {\em k}]class no. \item[\mbox{$\leftarrow$} {\em x}]\item[\mbox{$\leftarrow$} {\em data\_\-}]A pair of iterators. \end{DoxyParams}
+\begin{Desc}
+\item[\hyperlink{todo__todo000003}{Noch zu erledigen}]we should check II for compliance. \end{Desc}
+
+
+Erneute Implementation von \hyperlink{classCDA_1_1FitMulticlassByEM_a7381428ebb707dbdd0553d6bc0e7113b}{CDA::FitMulticlassByEM$<$ T $>$}.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien:\begin{DoxyCompactItemize}
+\item 
+src/expmax/\hyperlink{GaussianMixtureModel1D_8h_09_09}{GaussianMixtureModel1D.h++}\item 
+src/expmax/\hyperlink{ProbabilisticClustering_8c_09_09}{ProbabilisticClustering.c++}\end{DoxyCompactItemize}

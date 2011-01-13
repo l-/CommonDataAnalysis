@@ -1,0 +1,112 @@
+<!-- This comment will put IE 6, 7 and 8 in quirks mode -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>CommonDataAnalysis: src/expmax/CircularMixtureModel1D.h++ Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Erzeugt von Doxygen 1.6.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="pages.html"><span>Zusätzliche&nbsp;Informationen</span></a></li>
+      <li><a href="annotated.html"><span>Klassen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <img id="MSearchSelect" src="search/search.png"
+             onmouseover="return searchBox.OnSearchSelectShow()"
+             onmouseout="return searchBox.OnSearchSelectHide()"
+             alt=""/>
+        <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+             onfocus="searchBox.OnSearchFieldFocus(true)" 
+             onblur="searchBox.OnSearchFieldFocus(false)" 
+             onkeyup="searchBox.OnSearchFieldChange(event)"/>
+        <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    </ul>
+  </div>
+<h1>src/expmax/CircularMixtureModel1D.h++</h1><a href="CircularMixtureModel1D_8h_09_09.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00010"></a>00010 <span class="preprocessor">#pragma once</span>
+<a name="l00011"></a>00011 <span class="preprocessor"></span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="CircularStatistics_8h_09_09.html" title="Special functions for circular statistics.">math/CircularStatistics.h++</a>&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="FitMultivariateMulticlassByEM_8h_09_09.html">FitMultivariateMulticlassByEM.h++</a>&quot;</span>
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 <span class="keyword">namespace </span>CDA {
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017 
+<a name="l00024"></a>00024 <span class="keyword">class </span>CircularMixtureModel1D : <span class="keyword">public</span> FitUnivariateMulticlassByEM {
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026     <span class="keyword">typedef</span> <span class="keywordtype">double</span> datapoint_t;
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028     <span class="keyword">using</span> EM&lt;datapoint_t&gt;::m_theta;
+<a name="l00029"></a>00029     <span class="keyword">using</span> EM&lt;datapoint_t&gt;::m_data;
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031     <span class="keyword">using</span> <a class="code" href="classCDA_1_1FitMulticlassByEM.html#a85afbb296883c5de3364b161151d9e38" title="Number of individual Distributions.">FitUnivariateMulticlassByEM::K</a>;
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033 <span class="keyword">protected</span>:
+<a name="l00034"></a>00034 
+<a name="l00038"></a>00038     <span class="keywordtype">void</span> <a class="code" href="classCDA_1_1CircularMixtureModel1D.html#acbbb280523436bb1231bc111fcc95bac" title="E-step: update hidden attributes, i.e. class membership probabilities">update_thetas</a>();
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040 <span class="keyword">public</span>:
+<a name="l00041"></a>00041 
+<a name="l00050"></a>00050     <span class="keywordtype">double</span> <a class="code" href="classCDA_1_1CircularMixtureModel1D.html#a975b92938beb21d0233e5a52ff017dc5" title="Evaluate the cluster model PDF with class parameters  at .">evalPDF</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> k, <span class="keyword">const</span> datapoint_t&amp; x) <span class="keyword">const</span>;
+<a name="l00051"></a>00051 
+<a name="l00055"></a>00055     <a class="code" href="classCDA_1_1CircularMixtureModel1D.html#a3fe7def5d8f1007c598325625575d3e7" title="Call superclass constructor to fill data fields.">CircularMixtureModel1D</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> K_)
+<a name="l00056"></a>00056     : FitUnivariateMulticlassByEM(K_)
+<a name="l00057"></a>00057     {  }
+<a name="l00058"></a>00058 
+<a name="l00065"></a>00065     <span class="keywordtype">double</span> <a class="code" href="classCDA_1_1CircularMixtureModel1D.html#aca9e252cb363b74f6ef2bacb7eb505f6" title="Estimated parameter getter. Get current estimated mean vector of class k.">getMu</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> k) <span class="keyword">const</span>;
+<a name="l00066"></a>00066 
+<a name="l00073"></a>00073     <span class="keywordtype">double</span> <a class="code" href="classCDA_1_1CircularMixtureModel1D.html#a1e29228c5ebe57babcf4857991b36a47" title="Estimated parameter getter Get current estimated sigma of class k.">getKappa</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> k) <span class="keyword">const</span>;
+<a name="l00074"></a>00074 
+<a name="l00081"></a>00081     <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="classCDA_1_1CircularMixtureModel1D.html#a975b92938beb21d0233e5a52ff017dc5" title="Evaluate the cluster model PDF with class parameters  at .">evalPDF</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> k, <span class="keyword">const</span> <span class="keywordtype">double</span> x) <span class="keyword">const</span>;
+<a name="l00082"></a>00082 
+<a name="l00086"></a><a class="code" href="classCDA_1_1CircularMixtureModel1D.html#a17c7d5dbf3571b3e48f5dff7598b03ca">00086</a>     <span class="keyword">template</span>&lt;<span class="keyword">class</span> II&gt;
+<a name="l00087"></a>00087     <span class="keywordtype">void</span> <a class="code" href="classCDA_1_1CircularMixtureModel1D.html#a17c7d5dbf3571b3e48f5dff7598b03ca" title="Initialize known samples, i.e. your data points.">setData</a>(std::pair&lt;II, II&gt; data_) {
+<a name="l00088"></a>00088         <a class="code" href="classCDA_1_1CircularMixtureModel1D.html#a17c7d5dbf3571b3e48f5dff7598b03ca" title="Initialize known samples, i.e. your data points.">FitUnivariateMulticlassByEM::setData</a>(data_);
+<a name="l00089"></a>00089     }
+<a name="l00090"></a>00090 
+<a name="l00094"></a>00094     <span class="keyword">const</span> std::string <a class="code" href="classCDA_1_1CircularMixtureModel1D.html#a6dfd28b80e707506892f02709ccd6604" title="Class name for logging ...">className</a>() <span class="keyword">const</span>;
+<a name="l00095"></a>00095 
+<a name="l00099"></a>00099     <span class="keyword">const</span> std::string <a class="code" href="classCDA_1_1CircularMixtureModel1D.html#a873461378d347c8c7da44d6d403613e4" title="Each class gets its own line, that&amp;#39;s the easiest way.">getCSVHeader</a>() <span class="keyword">const</span>;
+<a name="l00100"></a>00100 
+<a name="l00101"></a>00101 };
+<a name="l00102"></a>00102 
+<a name="l00103"></a>00103 
+<a name="l00104"></a>00104 } <span class="comment">//namespace</span>
+</pre></div></div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>Alle</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Klassen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Dateien</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Funktionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&nbsp;</span>Variablen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&nbsp;</span>Typdefinitionen</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address style="text-align: right;"><small>Erzeugt am Thu Jan 6 09:53:46 2011 für CommonDataAnalysis von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

@@ -1,0 +1,147 @@
+\hypertarget{classCDA_1_1EMMbyGradientDescent}{
+\section{CDA::EMMbyGradientDescent Klassenreferenz}
+\label{classCDA_1_1EMMbyGradientDescent}\index{CDA::EMMbyGradientDescent@{CDA::EMMbyGradientDescent}}
+}
+
+
+\hyperlink{classCDA_1_1EM}{EM} whose M-\/step is done by gradient descent.  
+
+
+
+
+{\ttfamily \#include $<$EMCustomOptimization.h++$>$}
+
+
+
+Abgeleitet von \hyperlink{classCDA_1_1EMGenericMixtureModelCore}{CDA::EMGenericMixtureModelCore}.
+
+
+
+Basisklasse für \hyperlink{classCDA_1_1GaussianMixtureModel}{CDA::GaussianMixtureModel}.
+
+
+
+Zusammengehörigkeiten von CDA::EMMbyGradientDescent:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{classCDA_1_1EMMbyGradientDescent__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classCDA_1_1EMMbyGradientDescent_a82aceae146cbddfd123f8acfce0929bd}{
+\hyperlink{classCDA_1_1EMMbyGradientDescent_a82aceae146cbddfd123f8acfce0929bd}{EMMbyGradientDescent} (const unsigned D\_\-, const unsigned K\_\-, const unsigned P\_\-)}
+\label{classCDA_1_1EMMbyGradientDescent_a82aceae146cbddfd123f8acfce0929bd}
+
+\begin{DoxyCompactList}\small\item\em Call superclass constructor only. \item\end{DoxyCompactList}\item 
+void \hyperlink{classCDA_1_1EMMbyGradientDescent_ae948fd6ba3080c1f484b3fb5a262f587}{improveClusterModelParameters} ()
+\begin{DoxyCompactList}\small\item\em The quasi-\/MLE step (the not-\/so-\/easy part). \item\end{DoxyCompactList}\item 
+virtual void \hyperlink{classCDA_1_1EMMbyGradientDescent_ad089403a73bd611cec7b40da92e4adb9}{preparations\_\-for\_\-evalPDFderivP} ()=0
+\begin{DoxyCompactList}\small\item\em if there are any values which are needed later \item\end{DoxyCompactList}\item 
+\hypertarget{classCDA_1_1EMMbyGradientDescent_ab78ea4c1993c56d9995aede4e6d02a65}{
+virtual double {\bfseries evalPDFderivP} (const unsigned k, const \hyperlink{classCDA_1_1EMGenericMixtureModelCore_a59c8aa9101530e99b1392d848fd50357}{datapoint\_\-t} \&x, const unsigned p) const =0}
+\label{classCDA_1_1EMMbyGradientDescent_ab78ea4c1993c56d9995aede4e6d02a65}
+
+\item 
+double \hyperlink{classCDA_1_1EMMbyGradientDescent_a9069cb24c24f1c6021d749bd4e0dd7e6}{improvementOnTheta} (const unsigned p) const 
+\begin{DoxyCompactList}\small\item\em Now if we are able to evaluate the PDF, even better: calculate a gradient, we can actually do something. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+\hyperlink{classCDA_1_1EM}{EM} whose M-\/step is done by gradient descent. 
+
+\subsection{Dokumentation der Elementfunktionen}
+\hypertarget{classCDA_1_1EMMbyGradientDescent_ae948fd6ba3080c1f484b3fb5a262f587}{
+\index{CDA::EMMbyGradientDescent@{CDA::EMMbyGradientDescent}!improveClusterModelParameters@{improveClusterModelParameters}}
+\index{improveClusterModelParameters@{improveClusterModelParameters}!CDA::EMMbyGradientDescent@{CDA::EMMbyGradientDescent}}
+\subsubsection[{improveClusterModelParameters}]{\setlength{\rightskip}{0pt plus 5cm}void EMMbyGradientDescent::improveClusterModelParameters ()\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classCDA_1_1EMMbyGradientDescent_ae948fd6ba3080c1f484b3fb5a262f587}
+
+
+The quasi-\/MLE step (the not-\/so-\/easy part). 
+
+Implemented here. 
+
+Implementiert \hyperlink{classCDA_1_1EMGenericMixtureModelCore_a5a7545c679b386086bf3776315e26435}{CDA::EMGenericMixtureModelCore}.
+
+
+
+Hier ist ein Graph der zeigt, was diese Funktion aufruft:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=420pt]{classCDA_1_1EMMbyGradientDescent_ae948fd6ba3080c1f484b3fb5a262f587_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classCDA_1_1EMMbyGradientDescent_a9069cb24c24f1c6021d749bd4e0dd7e6}{
+\index{CDA::EMMbyGradientDescent@{CDA::EMMbyGradientDescent}!improvementOnTheta@{improvementOnTheta}}
+\index{improvementOnTheta@{improvementOnTheta}!CDA::EMMbyGradientDescent@{CDA::EMMbyGradientDescent}}
+\subsubsection[{improvementOnTheta}]{\setlength{\rightskip}{0pt plus 5cm}double EMMbyGradientDescent::improvementOnTheta (const unsigned {\em p}) const\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classCDA_1_1EMMbyGradientDescent_a9069cb24c24f1c6021d749bd4e0dd7e6}
+
+
+Now if we are able to evaluate the PDF, even better: calculate a gradient, we can actually do something. 
+
+\hypertarget{GaussianMixtureModel1D_8h_09_09_NOTE}{}\subsection{NOTE}\label{GaussianMixtureModel1D_8h_09_09_NOTE}
+This is used in the M-\/step to improve on all parameters.
+
+
+\begin{DoxyParams}{Parameter}
+\item[\mbox{$\leftarrow$} {\em p}]0$<$=p$<$P\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+The component of the gradient $\frac{\partial L}{\partial p}$ {\bfseries (nicht wahr?)} 
+\end{DoxyReturn}
+
+
+Hier ist ein Graph der zeigt, was diese Funktion aufruft:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{classCDA_1_1EMMbyGradientDescent_a9069cb24c24f1c6021d749bd4e0dd7e6_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{classCDA_1_1EMMbyGradientDescent_a9069cb24c24f1c6021d749bd4e0dd7e6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classCDA_1_1EMMbyGradientDescent_ad089403a73bd611cec7b40da92e4adb9}{
+\index{CDA::EMMbyGradientDescent@{CDA::EMMbyGradientDescent}!preparations\_\-for\_\-evalPDFderivP@{preparations\_\-for\_\-evalPDFderivP}}
+\index{preparations\_\-for\_\-evalPDFderivP@{preparations\_\-for\_\-evalPDFderivP}!CDA::EMMbyGradientDescent@{CDA::EMMbyGradientDescent}}
+\subsubsection[{preparations\_\-for\_\-evalPDFderivP}]{\setlength{\rightskip}{0pt plus 5cm}virtual void CDA::EMMbyGradientDescent::preparations\_\-for\_\-evalPDFderivP ()\hspace{0.3cm}{\ttfamily  \mbox{[}protected, pure virtual\mbox{]}}}}
+\label{classCDA_1_1EMMbyGradientDescent_ad089403a73bd611cec7b40da92e4adb9}
+
+
+if there are any values which are needed later 
+
+\begin{Desc}
+\item[\hyperlink{todo__todo000001}{Noch zu erledigen}]refactor! \end{Desc}
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=335pt]{classCDA_1_1EMMbyGradientDescent_ad089403a73bd611cec7b40da92e4adb9_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien:\begin{DoxyCompactItemize}
+\item 
+src/expmax/\hyperlink{EMCustomOptimization_8h_09_09}{EMCustomOptimization.h++}\item 
+src/expmax/\hyperlink{ProbabilisticClustering_8c_09_09}{ProbabilisticClustering.c++}\end{DoxyCompactItemize}

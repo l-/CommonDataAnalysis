@@ -1,0 +1,98 @@
+<!-- This comment will put IE 6, 7 and 8 in quirks mode -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>CommonDataAnalysis: CDA::compareByVectorElementValue&lt; vector_t, idx_t, LT &gt; Template-Klassenreferenz</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Erzeugt von Doxygen 1.6.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="pages.html"><span>Zusätzliche&nbsp;Informationen</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Klassen</span></a></li>
+      <li><a href="files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <img id="MSearchSelect" src="search/search.png"
+             onmouseover="return searchBox.OnSearchSelectShow()"
+             onmouseout="return searchBox.OnSearchSelectHide()"
+             alt=""/>
+        <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+             onfocus="searchBox.OnSearchFieldFocus(true)" 
+             onblur="searchBox.OnSearchFieldFocus(false)" 
+             onkeyup="searchBox.OnSearchFieldChange(event)"/>
+        <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="annotated.html"><span>Auflistung&nbsp;der&nbsp;Klassen</span></a></li>
+      <li><a href="hierarchy.html"><span>Klassenhierarchie</span></a></li>
+      <li><a href="functions.html"><span>Klassen-Elemente</span></a></li>
+    </ul>
+  </div>
+  <div class="navpath"><b>CDA</b>::<a class="el" href="structCDA_1_1compareByVectorElementValue.html">compareByVectorElementValue</a>
+  </div>
+</div>
+<div class="contents">
+<h1>CDA::compareByVectorElementValue&lt; vector_t, idx_t, LT &gt; Template-Klassenreferenz</h1><!-- doxytag: class="CDA::compareByVectorElementValue" -->
+<p>Use this as a <b>functor</b> to compare numbers a and b by the values v[a] and v[b].  
+<a href="#_details">Mehr ...</a></p>
+
+<p><code>#include &lt;<a class="el" href="comparisons_8h_09_09_source.html">comparisons.h++</a>&gt;</code></p>
+
+<p><a href="classCDA_1_1compareByVectorElementValue-members.html">Aufstellung aller Elemente</a></p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Öffentliche Methoden</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9fa53a4855d6f8aeae5e14f63a53bdc2"></a><!-- doxytag: member="CDA::compareByVectorElementValue::compareByVectorElementValue" ref="a9fa53a4855d6f8aeae5e14f63a53bdc2" args="(const vector_t &amp;v)" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCDA_1_1compareByVectorElementValue.html#a9fa53a4855d6f8aeae5e14f63a53bdc2">compareByVectorElementValue</a> (const vector_t &amp;v)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Keep a reference of the vector, use it locally. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a80b11bd2729685221e5ed63b664d36b3"></a><!-- doxytag: member="CDA::compareByVectorElementValue::operator()" ref="a80b11bd2729685221e5ed63b664d36b3" args="(const idx_t a, const idx_t b)" -->
+bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCDA_1_1compareByVectorElementValue.html#a80b11bd2729685221e5ed63b664d36b3">operator()</a> (const idx_t a, const idx_t b)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">What do you expect? <br/></td></tr>
+<tr><td colspan="2"><h2>Öffentliche Attribute</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a845fefe0fa9c3ac7df6f968a92711920"></a><!-- doxytag: member="CDA::compareByVectorElementValue::m_v" ref="a845fefe0fa9c3ac7df6f968a92711920" args="" -->
+const vector_t &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCDA_1_1compareByVectorElementValue.html#a845fefe0fa9c3ac7df6f968a92711920">m_v</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">*reference* to the vector <br/></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+<h3>template&lt;class vector_t, class idx_t = size_t, class LT = std::less&lt;typename vector_t::value_type&gt;&gt;<br/>
+ class CDA::compareByVectorElementValue&lt; vector_t, idx_t, LT &gt;</h3>
+
+<p>Use this as a <b>functor</b> to compare numbers a and b by the values v[a] and v[b]. </p>
+<p>A "strict weak ordering", as per STL </p>
+<hr/>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei:<ul>
+<li>include/utils/<a class="el" href="comparisons_8h_09_09_source.html">comparisons.h++</a></li>
+</ul>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>Alle</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Klassen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Dateien</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Funktionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&nbsp;</span>Variablen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&nbsp;</span>Typdefinitionen</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address style="text-align: right;"><small>Erzeugt am Thu Jan 6 09:53:47 2011 für CommonDataAnalysis von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

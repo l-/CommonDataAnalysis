@@ -1,0 +1,64 @@
+\hypertarget{ProbabilisticClustering_8h_09_09}{
+\section{src/expmax/ProbabilisticClustering.h++-\/Dateireferenz}
+\label{ProbabilisticClustering_8h_09_09}\index{src/expmax/ProbabilisticClustering.h++@{src/expmax/ProbabilisticClustering.h++}}
+}
+{\ttfamily \#include $<$typeinfo$>$}\par
+{\ttfamily \#include $<$boost/foreach.hpp$>$}\par
+{\ttfamily \#include $<$boost/optional.hpp$>$}\par
+{\ttfamily \#include $<$boost/mpl/equal.hpp$>$}\par
+{\ttfamily \#include $<$boost/function.hpp$>$}\par
+{\ttfamily \#include $<$boost/lambda/bind.hpp$>$}\par
+{\ttfamily \#include $<$boost/lambda/lambda.hpp$>$}\par
+{\ttfamily \#include $<$algorithm$>$}\par
+{\ttfamily \#include $<$boost/iterator/counting\_\-iterator.hpp$>$}\par
+{\ttfamily \#include $<$boost/algorithm/minmax\_\-element.hpp$>$}\par
+{\ttfamily \#include $<$boost/shared\_\-ptr.hpp$>$}\par
+{\ttfamily \#include $<$boost/numeric/ublas/matrix.hpp$>$}\par
+{\ttfamily \#include $<$boost/numeric/ublas/symmetric.hpp$>$}\par
+{\ttfamily \#include $<$boost/numeric/ublas/vector.hpp$>$}\par
+{\ttfamily \#include $<$boost/numeric/ublas/vector\_\-proxy.hpp$>$}\par
+{\ttfamily \#include $<$boost/numeric/ublas/io.hpp$>$}\par
+{\ttfamily \#include $<$boost/numeric/ublas/lu.hpp$>$}\par
+{\ttfamily \#include $<$limits$>$}\par
+{\ttfamily \#include $<$iostream$>$}\par
+{\ttfamily \#include \char`\"{}math/CircularStatistics.h++\char`\"{}}\par
+{\ttfamily \#include \char`\"{}math/numeric\_\-optimization.h++\char`\"{}}\par
+{\ttfamily \#include \char`\"{}utils/comparisons.h++\char`\"{}}\par
+{\ttfamily \#include \char`\"{}common\_\-definitions.h++\char`\"{}}\par
+{\ttfamily \#include \char`\"{}GaussianMixtureModel1D.h++\char`\"{}}\par
+{\ttfamily \#include \char`\"{}GaussianMixtureModelND.h++\char`\"{}}\par
+{\ttfamily \#include \char`\"{}CircularMixtureModel1D.h++\char`\"{}}\par
+Include-\/Abhängigkeitsdiagramm für ProbabilisticClustering.h++:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=420pt]{ProbabilisticClustering_8h_09_09__incl}
+\end{center}
+\end{figure}
+\subsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespaceCDA_a9e95468a6824e9e9ad95d61d47105664}{
+{\footnotesize template$<$class Iter $>$ }\\boost::shared\_\-ptr$<$ GaussianMixtureModel1D $>$ \hyperlink{namespaceCDA_a9e95468a6824e9e9ad95d61d47105664}{CDA::thresholdFinder} (const std::pair$<$ Iter, Iter $>$ input, const boost::optional$<$ std::ostream $\ast$ $>$ output\_\-csv=boost::none)}
+\label{namespaceCDA_a9e95468a6824e9e9ad95d61d47105664}
+
+\begin{DoxyCompactList}\small\item\em Use univariate mixture model to determine a threshold The classical application, from BV1 lecture actually! \item\end{DoxyCompactList}\item 
+\hypertarget{namespaceCDA_a5ef8a67c215c1b5d7b23192c5336b536}{
+{\footnotesize template$<$class matrix\_\-t $>$ }\\double \hyperlink{namespaceCDA_a5ef8a67c215c1b5d7b23192c5336b536}{CDA::det} (matrix\_\-t \&m)}
+\label{namespaceCDA_a5ef8a67c215c1b5d7b23192c5336b536}
+
+\begin{DoxyCompactList}\small\item\em Calculate the determinant of a small matrix. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+\begin{DoxyAuthor}{Autor}
+Erik Flick $<$erik.flick \mbox{[}AETT\mbox{]} informatik.uni-\/hamburg.de$>$ 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.1
+\end{DoxyVersion}
+\hypertarget{ProbabilisticClustering_8h_09_09_LICENSE}{}\subsection{LICENSE}\label{ProbabilisticClustering_8h_09_09_LICENSE}
+This file is released under LGPL v3.0.\hypertarget{ProbabilisticClustering_8h_09_09_DESCRIPTION}{}\subsection{DESCRIPTION}\label{ProbabilisticClustering_8h_09_09_DESCRIPTION}
+Gaussian Mixture Model for fitting of a known number of Gaussians; and other probabilistic models of use in the processing of images.
+
+Common patterns are extracted afap to build a hierarchy of classes. 

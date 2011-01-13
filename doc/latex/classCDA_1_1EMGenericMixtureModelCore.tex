@@ -1,0 +1,264 @@
+\hypertarget{classCDA_1_1EMGenericMixtureModelCore}{
+\section{CDA::EMGenericMixtureModelCore Klassenreferenz}
+\label{classCDA_1_1EMGenericMixtureModelCore}\index{CDA::EMGenericMixtureModelCore@{CDA::EMGenericMixtureModelCore}}
+}
+
+
+Ideally, each model knows its data layout, parameter estimators and stuff. There could be a general blueprint for dealing with models which cannot be handled analytically, prompting a gradient search for the MLE step.  
+
+
+
+
+{\ttfamily \#include $<$EMGenericMixtureModelCore.h++$>$}
+
+
+
+Abgeleitet von \hyperlink{classCDA_1_1FitMultivariateMulticlassByEM}{CDA::FitMultivariateMulticlassByEM}.
+
+
+
+Basisklasse für \hyperlink{classCDA_1_1EMMbyGradientDescent}{CDA::EMMbyGradientDescent}.
+
+
+
+Zusammengehörigkeiten von CDA::EMGenericMixtureModelCore:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{classCDA_1_1EMGenericMixtureModelCore__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Typen}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classCDA_1_1EMGenericMixtureModelCore_a59c8aa9101530e99b1392d848fd50357}{
+typedef \hyperlink{classCDA_1_1FitMultivariateMulticlassByEM_a1da490e479036c62f0cbf55dd06201a6}{FitMultivariateMulticlassByEM::datapoint\_\-t} \hyperlink{classCDA_1_1EMGenericMixtureModelCore_a59c8aa9101530e99b1392d848fd50357}{datapoint\_\-t}}
+\label{classCDA_1_1EMGenericMixtureModelCore_a59c8aa9101530e99b1392d848fd50357}
+
+\begin{DoxyCompactList}\small\item\em Propagate the datapoint\_\-t. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCDA_1_1EMGenericMixtureModelCore_abbba5d71163475e49ac5334d32dce5ad}{EMGenericMixtureModelCore} (const unsigned K\_\-, const unsigned D\_\-, const unsigned P\_\-)
+\begin{DoxyCompactList}\small\item\em Constructor to be called by implementer, please. \item\end{DoxyCompactList}\item 
+virtual double \hyperlink{classCDA_1_1EMGenericMixtureModelCore_a3f291b20f5345b1e302bf46338d2f5f3}{evalPDF} (const unsigned k, const \hyperlink{classCDA_1_1EMGenericMixtureModelCore_a59c8aa9101530e99b1392d848fd50357}{datapoint\_\-t} \&x) const =0
+\begin{DoxyCompactList}\small\item\em The individual way of evaluating the PDF. \item\end{DoxyCompactList}\item 
+\hypertarget{classCDA_1_1EMGenericMixtureModelCore_a6e444765b04615888d41c4ab6c82ae61}{
+virtual const std::string \hyperlink{classCDA_1_1EMGenericMixtureModelCore_a6e444765b04615888d41c4ab6c82ae61}{className} () const }
+\label{classCDA_1_1EMGenericMixtureModelCore_a6e444765b04615888d41c4ab6c82ae61}
+
+\begin{DoxyCompactList}\small\item\em Class name for logging ... \item\end{DoxyCompactList}\item 
+virtual const std::string \hyperlink{classCDA_1_1EMGenericMixtureModelCore_a1200a3cfc4c19ddff0c6a7eb1f5d5b2f}{paramName} (const unsigned p) const =0
+\begin{DoxyCompactList}\small\item\em Name of a parameter p=$\theta_p$ (For output). \item\end{DoxyCompactList}\item 
+const std::string \hyperlink{classCDA_1_1EMGenericMixtureModelCore_a10bd69fd4b420a274aee5f10e09ed5fe}{getCSVHeader} () const 
+\begin{DoxyCompactList}\small\item\em Each class gets its own line, that's the easiest way Assume iteration no. is to be shown always. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classCDA_1_1EMGenericMixtureModelCore_a12c68e86652d9a723ca0716f7676b360}{update\_\-thetas} ()
+\begin{DoxyCompactList}\small\item\em {\bfseries M-\/step}: update parameters of model PDF \item\end{DoxyCompactList}\item 
+virtual void \hyperlink{classCDA_1_1EMGenericMixtureModelCore_a5a7545c679b386086bf3776315e26435}{improveClusterModelParameters} ()=0
+\begin{DoxyCompactList}\small\item\em The quasi-\/MLE step. Since this may be done in different-\/different ways, it can be mixed in from a separate class. \item\end{DoxyCompactList}\item 
+unsigned int \hyperlink{classCDA_1_1EMGenericMixtureModelCore_a8cc9f7feff2bc07e5e493a3ef7e01ceb}{getP} () const 
+\begin{DoxyCompactList}\small\item\em Get param space dimensionality. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+const unsigned \hyperlink{classCDA_1_1EMGenericMixtureModelCore_a591c27390e7a8f84249f27d88c10d2b7}{P}
+\begin{DoxyCompactList}\small\item\em Parameter space dimensionality. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Ideally, each model knows its data layout, parameter estimators and stuff. There could be a general blueprint for dealing with models which cannot be handled analytically, prompting a gradient search for the MLE step. \hypertarget{GaussianMixtureModel1D_8h_09_09_NOTE}{}\subsection{NOTE}\label{GaussianMixtureModel1D_8h_09_09_NOTE}
+for multivariate. 
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\hypertarget{classCDA_1_1EMGenericMixtureModelCore_abbba5d71163475e49ac5334d32dce5ad}{
+\index{CDA::EMGenericMixtureModelCore@{CDA::EMGenericMixtureModelCore}!EMGenericMixtureModelCore@{EMGenericMixtureModelCore}}
+\index{EMGenericMixtureModelCore@{EMGenericMixtureModelCore}!CDA::EMGenericMixtureModelCore@{CDA::EMGenericMixtureModelCore}}
+\subsubsection[{EMGenericMixtureModelCore}]{\setlength{\rightskip}{0pt plus 5cm}CDA::EMGenericMixtureModelCore::EMGenericMixtureModelCore (const unsigned {\em K\_\-}, \/  const unsigned {\em D\_\-}, \/  const unsigned {\em P\_\-})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCDA_1_1EMGenericMixtureModelCore_abbba5d71163475e49ac5334d32dce5ad}
+
+
+Constructor to be called by implementer, please. 
+
+
+\begin{DoxyParams}{Parameter}
+\item[\mbox{$\leftarrow$} {\em K\_\-}]\item[\mbox{$\leftarrow$} {\em D\_\-}]this way round because of default param further up \item[\mbox{$\leftarrow$} {\em P\_\-}]specific to the model. \end{DoxyParams}
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\hypertarget{classCDA_1_1EMGenericMixtureModelCore_a3f291b20f5345b1e302bf46338d2f5f3}{
+\index{CDA::EMGenericMixtureModelCore@{CDA::EMGenericMixtureModelCore}!evalPDF@{evalPDF}}
+\index{evalPDF@{evalPDF}!CDA::EMGenericMixtureModelCore@{CDA::EMGenericMixtureModelCore}}
+\subsubsection[{evalPDF}]{\setlength{\rightskip}{0pt plus 5cm}virtual double CDA::EMGenericMixtureModelCore::evalPDF (const unsigned {\em k}, \/  const {\bf datapoint\_\-t} \& {\em x}) const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classCDA_1_1EMGenericMixtureModelCore_a3f291b20f5345b1e302bf46338d2f5f3}
+
+
+The individual way of evaluating the PDF. 
+
+
+\begin{DoxyParams}{Parameter}
+\item[{\em k}]class no. \item[{\em x}]\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+probability $p(x,k\vert\theta)$ 
+\end{DoxyReturn}
+
+
+Implementiert in \hyperlink{classCDA_1_1GaussianMixtureModel_ad89163c9bc3bdd8565a1fdcd9206d762}{CDA::GaussianMixtureModel}.
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=420pt]{classCDA_1_1EMGenericMixtureModelCore_a3f291b20f5345b1e302bf46338d2f5f3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classCDA_1_1EMGenericMixtureModelCore_a10bd69fd4b420a274aee5f10e09ed5fe}{
+\index{CDA::EMGenericMixtureModelCore@{CDA::EMGenericMixtureModelCore}!getCSVHeader@{getCSVHeader}}
+\index{getCSVHeader@{getCSVHeader}!CDA::EMGenericMixtureModelCore@{CDA::EMGenericMixtureModelCore}}
+\subsubsection[{getCSVHeader}]{\setlength{\rightskip}{0pt plus 5cm}const std::string EMGenericMixtureModelCore::getCSVHeader () const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classCDA_1_1EMGenericMixtureModelCore_a10bd69fd4b420a274aee5f10e09ed5fe}
+
+
+Each class gets its own line, that's the easiest way Assume iteration no. is to be shown always. 
+
+\begin{DoxyReturn}{Rückgabe}
+String the parameter names together. 
+\end{DoxyReturn}
+
+
+Implementiert \hyperlink{classCDA_1_1FitMulticlassByEM_a6d7bf7ba4d3421d5dfef7bffb91d85c7}{CDA::FitMulticlassByEM$<$ fvector\_\-t $>$}.
+
+
+
+Hier ist ein Graph der zeigt, was diese Funktion aufruft:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{classCDA_1_1EMGenericMixtureModelCore_a10bd69fd4b420a274aee5f10e09ed5fe_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classCDA_1_1EMGenericMixtureModelCore_a8cc9f7feff2bc07e5e493a3ef7e01ceb}{
+\index{CDA::EMGenericMixtureModelCore@{CDA::EMGenericMixtureModelCore}!getP@{getP}}
+\index{getP@{getP}!CDA::EMGenericMixtureModelCore@{CDA::EMGenericMixtureModelCore}}
+\subsubsection[{getP}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int CDA::EMGenericMixtureModelCore::getP () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, protected\mbox{]}}}}
+\label{classCDA_1_1EMGenericMixtureModelCore_a8cc9f7feff2bc07e5e493a3ef7e01ceb}
+
+
+Get param space dimensionality. 
+
+\begin{DoxyReturn}{Rückgabe}
+If it is still zero, there's a programming error! 
+\end{DoxyReturn}
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{classCDA_1_1EMGenericMixtureModelCore_a8cc9f7feff2bc07e5e493a3ef7e01ceb_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classCDA_1_1EMGenericMixtureModelCore_a5a7545c679b386086bf3776315e26435}{
+\index{CDA::EMGenericMixtureModelCore@{CDA::EMGenericMixtureModelCore}!improveClusterModelParameters@{improveClusterModelParameters}}
+\index{improveClusterModelParameters@{improveClusterModelParameters}!CDA::EMGenericMixtureModelCore@{CDA::EMGenericMixtureModelCore}}
+\subsubsection[{improveClusterModelParameters}]{\setlength{\rightskip}{0pt plus 5cm}virtual void CDA::EMGenericMixtureModelCore::improveClusterModelParameters ()\hspace{0.3cm}{\ttfamily  \mbox{[}protected, pure virtual\mbox{]}}}}
+\label{classCDA_1_1EMGenericMixtureModelCore_a5a7545c679b386086bf3776315e26435}
+
+
+The quasi-\/MLE step. Since this may be done in different-\/different ways, it can be mixed in from a separate class. 
+
+It is called by update\_\-thetas 
+
+Implementiert in \hyperlink{classCDA_1_1EMMbyGradientDescent_ae948fd6ba3080c1f484b3fb5a262f587}{CDA::EMMbyGradientDescent}.
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{classCDA_1_1EMGenericMixtureModelCore_a5a7545c679b386086bf3776315e26435_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classCDA_1_1EMGenericMixtureModelCore_a1200a3cfc4c19ddff0c6a7eb1f5d5b2f}{
+\index{CDA::EMGenericMixtureModelCore@{CDA::EMGenericMixtureModelCore}!paramName@{paramName}}
+\index{paramName@{paramName}!CDA::EMGenericMixtureModelCore@{CDA::EMGenericMixtureModelCore}}
+\subsubsection[{paramName}]{\setlength{\rightskip}{0pt plus 5cm}virtual const std::string CDA::EMGenericMixtureModelCore::paramName (const unsigned {\em p}) const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classCDA_1_1EMGenericMixtureModelCore_a1200a3cfc4c19ddff0c6a7eb1f5d5b2f}
+
+
+Name of a parameter p=$\theta_p$ (For output). 
+
+
+\begin{DoxyParams}{Parameter}
+\item[\mbox{$\leftarrow$} {\em p}]0$<$=p$<$P \end{DoxyParams}
+
+
+Implementiert in \hyperlink{classCDA_1_1GaussianMixtureModel_ace9d6f0ae0c45734c78be74b2c15d36b}{CDA::GaussianMixtureModel}.
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{classCDA_1_1EMGenericMixtureModelCore_a1200a3cfc4c19ddff0c6a7eb1f5d5b2f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classCDA_1_1EMGenericMixtureModelCore_a12c68e86652d9a723ca0716f7676b360}{
+\index{CDA::EMGenericMixtureModelCore@{CDA::EMGenericMixtureModelCore}!update\_\-thetas@{update\_\-thetas}}
+\index{update\_\-thetas@{update\_\-thetas}!CDA::EMGenericMixtureModelCore@{CDA::EMGenericMixtureModelCore}}
+\subsubsection[{update\_\-thetas}]{\setlength{\rightskip}{0pt plus 5cm}void EMGenericMixtureModelCore::update\_\-thetas ()\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classCDA_1_1EMGenericMixtureModelCore_a12c68e86652d9a723ca0716f7676b360}
+
+
+{\bfseries M-\/step}: update parameters of model PDF 
+
+It calls improveClusterModelParameters, where the implementer specifies how the other parameters (beside a priori class probabilities) are updated. 
+
+Implementiert \hyperlink{classCDA_1_1EM_a58f0d0cf682d55a53e827744e03516e2}{CDA::EM$<$ fvector\_\-t $>$}.
+
+
+
+Hier ist ein Graph der zeigt, was diese Funktion aufruft:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{classCDA_1_1EMGenericMixtureModelCore_a12c68e86652d9a723ca0716f7676b360_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Dokumentation der Datenelemente}
+\hypertarget{classCDA_1_1EMGenericMixtureModelCore_a591c27390e7a8f84249f27d88c10d2b7}{
+\index{CDA::EMGenericMixtureModelCore@{CDA::EMGenericMixtureModelCore}!P@{P}}
+\index{P@{P}!CDA::EMGenericMixtureModelCore@{CDA::EMGenericMixtureModelCore}}
+\subsubsection[{P}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned {\bf CDA::EMGenericMixtureModelCore::P}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classCDA_1_1EMGenericMixtureModelCore_a591c27390e7a8f84249f27d88c10d2b7}
+
+
+Parameter space dimensionality. 
+
+\hypertarget{classCDA_1_1GaussianMixtureModel_NOTA}{}\subsection{BENE}\label{classCDA_1_1GaussianMixtureModel_NOTA}
+We don't count the class probability here, as it is handled differently. 
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien:\begin{DoxyCompactItemize}
+\item 
+src/expmax/\hyperlink{EMGenericMixtureModelCore_8h_09_09}{EMGenericMixtureModelCore.h++}\item 
+src/expmax/\hyperlink{ProbabilisticClustering_8c_09_09}{ProbabilisticClustering.c++}\end{DoxyCompactItemize}

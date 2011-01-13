@@ -1,0 +1,90 @@
+<!-- This comment will put IE 6, 7 and 8 in quirks mode -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>CommonDataAnalysis: src/expmax/EMTheta.h++ Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Erzeugt von Doxygen 1.6.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="pages.html"><span>Zusätzliche&nbsp;Informationen</span></a></li>
+      <li><a href="annotated.html"><span>Klassen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <img id="MSearchSelect" src="search/search.png"
+             onmouseover="return searchBox.OnSearchSelectShow()"
+             onmouseout="return searchBox.OnSearchSelectHide()"
+             alt=""/>
+        <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+             onfocus="searchBox.OnSearchFieldFocus(true)" 
+             onblur="searchBox.OnSearchFieldFocus(false)" 
+             onkeyup="searchBox.OnSearchFieldChange(event)"/>
+        <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    </ul>
+  </div>
+<h1>src/expmax/EMTheta.h++</h1><a href="EMTheta_8h_09_09.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00010"></a>00010 <span class="preprocessor">#pragma once</span>
+<a name="l00011"></a>00011 <span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="common__definitions_8h_09_09.html">common_definitions.h++</a>&quot;</span>
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 <span class="keyword">namespace </span>CDA {
+<a name="l00014"></a>00014 
+<a name="l00028"></a><a class="code" href="classCDA_1_1EMThetas.html">00028</a> <span class="keyword">class </span><a class="code" href="classCDA_1_1EMThetas.html" title="Model parameters for EM.">EMThetas</a> {
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 <span class="keyword">protected</span>:
+<a name="l00036"></a><a class="code" href="classCDA_1_1EMThetas.html#a2fb1c00c889f9a5bfe95e65ba1c4b132">00036</a>     std::vector&lt;fvector_t&gt; <a class="code" href="classCDA_1_1EMThetas.html#a2fb1c00c889f9a5bfe95e65ba1c4b132" title="Model parameters possibly a single vector, or K PDF parameter vectors, one per class...">thetas</a>;
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038 <span class="keyword">public</span>:
+<a name="l00047"></a>00047     <span class="keyword">template</span>&lt;<span class="keyword">class</span> II&gt;
+<a name="l00048"></a><a class="code" href="classCDA_1_1EMThetas.html#a1c8058269e4d8a32a2dd58f13ad94369">00048</a>     <span class="keywordtype">void</span> <a class="code" href="classCDA_1_1EMThetas.html#a1c8058269e4d8a32a2dd58f13ad94369">setTheta</a>(std::pair&lt;II, II&gt; thetas_) {
+<a name="l00049"></a>00049         std::copy(thetas_.first, thetas_.second, std::back_inserter(<a class="code" href="classCDA_1_1EMThetas.html#ab5cc3d05862d41aa16a38b7c4ec51bd3" title="non-const getter.">getModifyThetas</a>()));
+<a name="l00050"></a>00050     }
+<a name="l00051"></a>00051 
+<a name="l00055"></a><a class="code" href="classCDA_1_1EMThetas.html#aadd9127ef459eda6eb890e1f3bd5a1bc">00055</a>     <span class="keyword">const</span> std::vector&lt;fvector_t&gt;&amp; <a class="code" href="classCDA_1_1EMThetas.html#aadd9127ef459eda6eb890e1f3bd5a1bc" title="const getter">getThetas</a>()<span class="keyword"> const </span>{
+<a name="l00056"></a>00056         <span class="keywordflow">return</span> <a class="code" href="classCDA_1_1EMThetas.html#a2fb1c00c889f9a5bfe95e65ba1c4b132" title="Model parameters possibly a single vector, or K PDF parameter vectors, one per class...">thetas</a>;
+<a name="l00057"></a>00057     }
+<a name="l00058"></a>00058 
+<a name="l00062"></a><a class="code" href="classCDA_1_1EMThetas.html#ab5cc3d05862d41aa16a38b7c4ec51bd3">00062</a>     std::vector&lt;fvector_t&gt;&amp; <a class="code" href="classCDA_1_1EMThetas.html#ab5cc3d05862d41aa16a38b7c4ec51bd3" title="non-const getter.">getModifyThetas</a>() {
+<a name="l00063"></a>00063         <span class="keywordflow">return</span> <a class="code" href="classCDA_1_1EMThetas.html#a2fb1c00c889f9a5bfe95e65ba1c4b132" title="Model parameters possibly a single vector, or K PDF parameter vectors, one per class...">thetas</a>;
+<a name="l00064"></a>00064     }
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066 };
+<a name="l00067"></a>00067 } <span class="comment">//ns</span>
+</pre></div></div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>Alle</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Klassen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Dateien</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Funktionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&nbsp;</span>Variablen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&nbsp;</span>Typdefinitionen</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address style="text-align: right;"><small>Erzeugt am Thu Jan 6 09:53:46 2011 für CommonDataAnalysis von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

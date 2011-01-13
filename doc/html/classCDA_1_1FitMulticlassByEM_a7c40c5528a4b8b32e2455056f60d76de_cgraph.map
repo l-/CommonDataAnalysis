@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" href="$classCDA_1_1EM.html#a3508ac170afdf1034134d7764a3cd016" title="Implementer should overwrite this method, since typeid(this).name() returns crap..." alt="" coords="335,5,513,35"/>
+<area shape="rect" href="$classCDA_1_1FitMulticlassByEM.html#a5853c1889b12e567d2d9ab6c395dfe0d" title="Evaluate the cluster model PDF with class parameters &#160;at ." alt="" coords="312,59,536,88"/>
+<area shape="rect" href="$classCDA_1_1FitMulticlassByEM.html#a869530b76ee4b40d38d3fb80ea0932aa" title="Get current estimated class weight." alt="" coords="320,112,528,141"/>
+<area shape="rect" href="$classCDA_1_1EMThetas.html#aadd9127ef459eda6eb890e1f3bd5a1bc" title="const getter" alt="" coords="584,112,765,141"/>
+</map>

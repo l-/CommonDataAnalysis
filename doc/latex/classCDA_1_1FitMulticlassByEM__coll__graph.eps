@@ -1,0 +1,795 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%Creator: Graphviz version 2.20.2 (Tue Mar  2 21:46:26 UTC 2010)
+%%For: (flick) Erik Flick
+%%Title: G
+%%Pages: (atend)
+%%BoundingBox: (atend)
+%%EndComments
+save
+%%BeginProlog
+/DotDict 200 dict def
+DotDict begin
+
+/setupLatin1 {
+mark
+/EncodingVector 256 array def
+ EncodingVector 0
+
+ISOLatin1Encoding 0 255 getinterval putinterval
+EncodingVector 45 /hyphen put
+
+% Set up ISO Latin 1 character encoding
+/starnetISO {
+        dup dup findfont dup length dict begin
+        { 1 index /FID ne { def }{ pop pop } ifelse
+        } forall
+        /Encoding EncodingVector def
+        currentdict end definefont
+} def
+/Times-Roman starnetISO def
+/Times-Italic starnetISO def
+/Times-Bold starnetISO def
+/Times-BoldItalic starnetISO def
+/Helvetica starnetISO def
+/Helvetica-Oblique starnetISO def
+/Helvetica-Bold starnetISO def
+/Helvetica-BoldOblique starnetISO def
+/Courier starnetISO def
+/Courier-Oblique starnetISO def
+/Courier-Bold starnetISO def
+/Courier-BoldOblique starnetISO def
+cleartomark
+} bind def
+
+%%BeginResource: procset graphviz 0 0
+/coord-font-family /Times-Roman def
+/default-font-family /Times-Roman def
+/coordfont coord-font-family findfont 8 scalefont def
+
+/InvScaleFactor 1.0 def
+/set_scale {
+       dup 1 exch div /InvScaleFactor exch def
+       scale
+} bind def
+
+% styles
+/solid { [] 0 setdash } bind def
+/dashed { [9 InvScaleFactor mul dup ] 0 setdash } bind def
+/dotted { [1 InvScaleFactor mul 6 InvScaleFactor mul] 0 setdash } bind def
+/invis {/fill {newpath} def /stroke {newpath} def /show {pop newpath} def} bind def
+/bold { 2 setlinewidth } bind def
+/filled { } bind def
+/unfilled { } bind def
+/rounded { } bind def
+/diagonals { } bind def
+
+% hooks for setting color 
+/nodecolor { sethsbcolor } bind def
+/edgecolor { sethsbcolor } bind def
+/graphcolor { sethsbcolor } bind def
+/nopcolor {pop pop pop} bind def
+
+/beginpage {	% i j npages
+	/npages exch def
+	/j exch def
+	/i exch def
+	/str 10 string def
+	npages 1 gt {
+		gsave
+			coordfont setfont
+			0 0 moveto
+			(\() show i str cvs show (,) show j str cvs show (\)) show
+		grestore
+	} if
+} bind def
+
+/set_font {
+	findfont exch
+	scalefont setfont
+} def
+
+% draw text fitted to its expected width
+/alignedtext {			% width text
+	/text exch def
+	/width exch def
+	gsave
+		width 0 gt {
+			[] 0 setdash
+			text stringwidth pop width exch sub text length div 0 text ashow
+		} if
+	grestore
+} def
+
+/boxprim {				% xcorner ycorner xsize ysize
+		4 2 roll
+		moveto
+		2 copy
+		exch 0 rlineto
+		0 exch rlineto
+		pop neg 0 rlineto
+		closepath
+} bind def
+
+/ellipse_path {
+	/ry exch def
+	/rx exch def
+	/y exch def
+	/x exch def
+	matrix currentmatrix
+	newpath
+	x y translate
+	rx ry scale
+	0 0 1 0 360 arc
+	setmatrix
+} bind def
+
+/endpage { showpage } bind def
+/showpage { } def
+
+/layercolorseq
+	[	% layer color sequence - darkest to lightest
+		[0 0 0]
+		[.2 .8 .8]
+		[.4 .8 .8]
+		[.6 .8 .8]
+		[.8 .8 .8]
+	]
+def
+
+/layerlen layercolorseq length def
+
+/setlayer {/maxlayer exch def /curlayer exch def
+	layercolorseq curlayer 1 sub layerlen mod get
+	aload pop sethsbcolor
+	/nodecolor {nopcolor} def
+	/edgecolor {nopcolor} def
+	/graphcolor {nopcolor} def
+} bind def
+
+/onlayer { curlayer ne {invis} if } def
+
+/onlayers {
+	/myupper exch def
+	/mylower exch def
+	curlayer mylower lt
+	curlayer myupper gt
+	or
+	{invis} if
+} def
+
+/curlayer 0 def
+
+%%EndResource
+%%EndProlog
+%%BeginSetup
+14 default-font-family set_font
+1 setmiterlimit
+% /arrowlength 10 def
+% /arrowwidth 5 def
+
+% make sure pdfmark is harmless for PS-interpreters other than Distiller
+/pdfmark where {pop} {userdict /pdfmark /cleartomark load put} ifelse
+% make '<<' and '>>' safe on PS Level 1 devices
+/languagelevel where {pop languagelevel}{1} ifelse
+2 lt {
+    userdict (<<) cvn ([) cvn load put
+    userdict (>>) cvn ([) cvn load put
+} if
+
+%%EndSetup
+setupLatin1
+%%Page: 1 1
+%%PageBoundingBox: 36 36 308 1332
+%%PageOrientation: Portrait
+0 0 1 beginpage
+gsave
+36 36 272 1296 boxprim clip newpath
+1 1 set_scale 0 rotate 40 40 translate
+% Node1
+gsave
+0.000 0.000 0.749 nodecolor
+newpath 17 0 moveto
+17 276 lineto
+165 276 lineto
+165 0 lineto
+closepath fill
+1 setlinewidth
+filled
+0.000 0.000 0.000 nodecolor
+newpath 17 0 moveto
+17 276 lineto
+165 276 lineto
+165 0 lineto
+closepath stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+25 263 moveto 132 (CDA::FitMulticlassByEM< T >) alignedtext
+1 setlinewidth
+filled
+0.000 0.000 0.000 nodecolor
+newpath 17 254 moveto
+165 254 lineto
+stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+25 241 moveto 15 (# K) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+25 227 moveto 37 (# classif) alignedtext
+1 setlinewidth
+filled
+0.000 0.000 0.000 nodecolor
+newpath 17 218 moveto
+165 218 lineto
+stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+25 205 moveto 98 (+ FitMulticlassByEM\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+25 191 moveto 89 (+ dumpParameters\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+25 177 moveto 89 (+ dumpParameters\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+25 163 moveto 56 (+ getParam\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+25 149 moveto 79 (+ getCSVHeader\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+25 135 moveto 71 (+ logLikelihood\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+25 121 moveto 125 (+ getHiddenParamEstimate\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+25 107 moveto 35 (+ getK\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+25 93 moveto 74 (+ getBestClass\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+25 79 moveto 74 (+ getClassifList\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+25 65 moveto 41 (+ getPk\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+25 51 moveto 49 (+ setData\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+25 37 moveto 58 (+ initClassif\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+25 23 moveto 53 (+ evalPDF\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+25 9 moveto 77 (# update_hidden\(\)) alignedtext
+grestore
+% Node2
+gsave
+[ /Rect [ 21 314 161 548 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($classCDA_1_1EM.html) >>
+  /Subtype /Link
+/ANN pdfmark
+0.000 0.000 1.000 nodecolor
+newpath 21 314 moveto
+21 548 lineto
+162 548 lineto
+162 314 lineto
+closepath fill
+1 setlinewidth
+filled
+0.000 0.000 0.000 nodecolor
+newpath 21 314 moveto
+21 548 lineto
+162 548 lineto
+162 314 lineto
+closepath stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+58.5 535 moveto 65 (CDA::EM< T >) alignedtext
+1 setlinewidth
+filled
+0.000 0.000 0.000 nodecolor
+newpath 21 526 moveto
+162 526 lineto
+stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+28.5 513 moveto 44 (# m_theta) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+28.5 499 moveto 41 (# m_data) alignedtext
+1 setlinewidth
+filled
+0.000 0.000 0.000 nodecolor
+newpath 21 490 moveto
+162 490 lineto
+stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+28.5 477 moveto 30 (+ EM\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+28.5 463 moveto 125 (+ getHiddenParamEstimate\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+28.5 449 moveto 53 (+ setTheta\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+28.5 435 moveto 44 (+ EMrun\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+28.5 421 moveto 89 (+ dumpParameters\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+28.5 407 moveto 79 (+ getCSVHeader\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+28.5 393 moveto 49 (+ setData\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+28.5 379 moveto 48 (# EMstep\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+28.5 365 moveto 77 (# update_hidden\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+28.5 351 moveto 76 (# update_thetas\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+28.5 337 moveto 71 (# logLikelihood\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+28.5 323 moveto 63 (# className\(\)) alignedtext
+grestore
+% Node2->Node1
+gsave
+1 setlinewidth
+solid
+0.667 0.776 0.439 edgecolor
+newpath 91 304 moveto
+91 295 91 285 91 276 curveto
+stroke
+1 setlinewidth
+solid
+0.667 0.776 0.439 edgecolor
+newpath 87.5 304 moveto
+91 314 lineto
+94.5 304 lineto
+closepath stroke
+grestore
+% Node3
+gsave
+[ /Rect [ 0 917 104 1011 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($classCDA_1_1EMThetas.html) >>
+  /Subtype /Link
+/ANN pdfmark
+0.000 0.000 1.000 nodecolor
+newpath 0 917 moveto
+0 1011 lineto
+104 1011 lineto
+104 917 lineto
+closepath fill
+1 setlinewidth
+filled
+0.000 0.000 0.000 nodecolor
+newpath 0 917 moveto
+0 1011 lineto
+104 1011 lineto
+104 917 lineto
+closepath stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+16.5 998 moveto 71 (CDA::EMThetas) alignedtext
+1 setlinewidth
+filled
+0.000 0.000 0.000 nodecolor
+newpath 0 989 moveto
+104 989 lineto
+stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+8 976 moveto 35 (# thetas) alignedtext
+1 setlinewidth
+filled
+0.000 0.000 0.000 nodecolor
+newpath 0 967 moveto
+104 967 lineto
+stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+8 954 moveto 53 (+ setTheta\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+8 940 moveto 59 (+ getThetas\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+8 926 moveto 88 (+ getModifyThetas\(\)) alignedtext
+grestore
+% Node3->Node2
+gsave
+1 setlinewidth
+dashed
+0.776 0.753 0.804 edgecolor
+newpath 51 907 moveto
+50 834 51 707 61 598 curveto
+62 582 65 565 67 548 curveto
+stroke
+0.776 0.753 0.804 edgecolor
+newpath 51 917 moveto
+46.5 907 lineto
+51 912 lineto
+51 907 lineto
+51 907 lineto
+51 907 lineto
+51 912 lineto
+55.5 907 lineto
+51 917 lineto
+closepath fill
+1 setlinewidth
+solid
+0.776 0.753 0.804 edgecolor
+newpath 51 917 moveto
+46.5 907 lineto
+51 912 lineto
+51 907 lineto
+51 907 lineto
+51 907 lineto
+51 912 lineto
+55.5 907 lineto
+51 917 lineto
+closepath stroke
+0.000 0.000 0.000 edgecolor
+10 /FreeSans set_font
+60.5 713 moveto 35 (m_theta) alignedtext
+grestore
+% Node4
+gsave
+[ /Rect [ 105 598 245 832 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($classCDA_1_1EM.html) >>
+  /Subtype /Link
+/ANN pdfmark
+0.000 0.000 1.000 nodecolor
+newpath 105 598 moveto
+105 832 lineto
+246 832 lineto
+246 598 lineto
+closepath fill
+1 setlinewidth
+filled
+0.000 0.000 0.000 nodecolor
+newpath 105 598 moveto
+105 832 lineto
+246 832 lineto
+246 598 lineto
+closepath stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+121.5 819 moveto 107 (CDA::EM< datapoint_t >) alignedtext
+1 setlinewidth
+filled
+0.000 0.000 0.000 nodecolor
+newpath 105 810 moveto
+246 810 lineto
+stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+112.5 797 moveto 44 (# m_theta) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+112.5 783 moveto 41 (# m_data) alignedtext
+1 setlinewidth
+filled
+0.000 0.000 0.000 nodecolor
+newpath 105 774 moveto
+246 774 lineto
+stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+112.5 761 moveto 30 (+ EM\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+112.5 747 moveto 125 (+ getHiddenParamEstimate\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+112.5 733 moveto 53 (+ setTheta\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+112.5 719 moveto 44 (+ EMrun\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+112.5 705 moveto 89 (+ dumpParameters\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+112.5 691 moveto 79 (+ getCSVHeader\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+112.5 677 moveto 49 (+ setData\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+112.5 663 moveto 48 (# EMstep\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+112.5 649 moveto 77 (# update_hidden\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+112.5 635 moveto 76 (# update_thetas\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+112.5 621 moveto 71 (# logLikelihood\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+112.5 607 moveto 63 (# className\(\)) alignedtext
+grestore
+% Node3->Node4
+gsave
+1 setlinewidth
+dashed
+0.776 0.753 0.804 edgecolor
+newpath 79 908 moveto
+91 886 104 858 117 832 curveto
+stroke
+0.776 0.753 0.804 edgecolor
+newpath 75 917 moveto
+74.95 906.03 lineto
+77.03 912.43 lineto
+79.06 907.86 lineto
+79.06 907.86 lineto
+79.06 907.86 lineto
+77.03 912.43 lineto
+83.17 909.69 lineto
+75 917 lineto
+closepath fill
+1 setlinewidth
+solid
+0.776 0.753 0.804 edgecolor
+newpath 75 917 moveto
+74.95 906.03 lineto
+77.03 912.43 lineto
+79.06 907.86 lineto
+79.06 907.86 lineto
+79.06 907.86 lineto
+77.03 912.43 lineto
+83.17 909.69 lineto
+75 917 lineto
+closepath stroke
+0.000 0.000 0.000 edgecolor
+10 /FreeSans set_font
+104.5 855 moveto 35 (m_theta) alignedtext
+grestore
+% Node4->Node2
+gsave
+1 setlinewidth
+dashed
+0.106 1.000 1.000 edgecolor
+newpath 137 588 moveto
+133 575 129 562 125 548 curveto
+stroke
+0.106 1.000 1.000 edgecolor
+newpath 133.77 589.43 moveto
+140 598 lineto
+140.48 587.42 lineto
+closepath fill
+1 setlinewidth
+solid
+0.106 1.000 1.000 edgecolor
+newpath 133.77 589.43 moveto
+140 598 lineto
+140.48 587.42 lineto
+closepath stroke
+0.000 0.000 0.000 edgecolor
+10 /FreeSans set_font
+134 571 moveto 24 (< T >) alignedtext
+grestore
+% Node5
+gsave
+[ /Rect [ 122 882 264 1046 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($classCDA_1_1EMData.html) >>
+  /Subtype /Link
+/ANN pdfmark
+0.000 0.000 1.000 nodecolor
+newpath 122 882 moveto
+122 1046 lineto
+265 1046 lineto
+265 882 lineto
+closepath fill
+1 setlinewidth
+filled
+0.000 0.000 0.000 nodecolor
+newpath 122 882 moveto
+122 1046 lineto
+265 1046 lineto
+265 882 lineto
+closepath stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+129.5 1033 moveto 127 (CDA::EMData< datapoint_t >) alignedtext
+1 setlinewidth
+filled
+0.000 0.000 0.000 nodecolor
+newpath 122 1024 moveto
+265 1024 lineto
+stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+129.5 1011 moveto 15 (# D) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+129.5 997 moveto 27 (# data) alignedtext
+1 setlinewidth
+filled
+0.000 0.000 0.000 nodecolor
+newpath 122 988 moveto
+265 988 lineto
+stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+129.5 975 moveto 50 (+ EMData\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+129.5 961 moveto 49 (+ getData\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+129.5 947 moveto 49 (+ getData\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+129.5 933 moveto 49 (+ getData\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+129.5 919 moveto 35 (+ getN\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+129.5 905 moveto 113 (+ getDataDimensionality\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+129.5 891 moveto 77 (+ setDataProper\(\)) alignedtext
+grestore
+% Node5->Node4
+gsave
+1 setlinewidth
+dashed
+0.776 0.753 0.804 edgecolor
+newpath 186 872 moveto
+186 859 185 845 184 832 curveto
+stroke
+0.776 0.753 0.804 edgecolor
+newpath 187 882 moveto
+181.53 872.5 lineto
+186.5 877.02 lineto
+186 872.05 lineto
+186 872.05 lineto
+186 872.05 lineto
+186.5 877.02 lineto
+190.48 871.6 lineto
+187 882 lineto
+closepath fill
+1 setlinewidth
+solid
+0.776 0.753 0.804 edgecolor
+newpath 187 882 moveto
+181.53 872.5 lineto
+186.5 877.02 lineto
+186 872.05 lineto
+186 872.05 lineto
+186 872.05 lineto
+186.5 877.02 lineto
+190.48 871.6 lineto
+187 882 lineto
+closepath stroke
+0.000 0.000 0.000 edgecolor
+10 /FreeSans set_font
+185 855 moveto 32 (m_data) alignedtext
+grestore
+% Node6
+gsave
+[ /Rect [ 129 1096 257 1288 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($classCDA_1_1EMData.html) >>
+  /Subtype /Link
+/ANN pdfmark
+0.000 0.000 1.000 nodecolor
+newpath 129 1096 moveto
+129 1288 lineto
+258 1288 lineto
+258 1096 lineto
+closepath fill
+1 setlinewidth
+filled
+0.000 0.000 0.000 nodecolor
+newpath 129 1096 moveto
+129 1288 lineto
+258 1288 lineto
+258 1096 lineto
+closepath stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+150.5 1275 moveto 85 (CDA::EMData< T >) alignedtext
+1 setlinewidth
+filled
+0.000 0.000 0.000 nodecolor
+newpath 129 1266 moveto
+258 1266 lineto
+stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+136.5 1253 moveto 15 (# D) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+136.5 1239 moveto 27 (# data) alignedtext
+1 setlinewidth
+filled
+0.000 0.000 0.000 nodecolor
+newpath 129 1230 moveto
+258 1230 lineto
+stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+136.5 1217 moveto 50 (+ EMData\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+136.5 1203 moveto 49 (+ getData\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+136.5 1189 moveto 49 (+ getData\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+136.5 1175 moveto 49 (+ getData\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+136.5 1161 moveto 35 (+ getN\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+136.5 1147 moveto 113 (+ getDataDimensionality\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+136.5 1133 moveto 77 (+ setDataProper\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+136.5 1119 moveto 50 (+ EMData\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+136.5 1105 moveto 50 (+ EMData\(\)) alignedtext
+grestore
+% Node6->Node5
+gsave
+1 setlinewidth
+dashed
+0.106 1.000 1.000 edgecolor
+newpath 193 1086 moveto
+193 1072 193 1059 193 1046 curveto
+stroke
+0.106 1.000 1.000 edgecolor
+newpath 189.5 1086 moveto
+193 1096 lineto
+196.5 1086 lineto
+closepath fill
+1 setlinewidth
+solid
+0.106 1.000 1.000 edgecolor
+newpath 189.5 1086 moveto
+193 1096 lineto
+196.5 1086 lineto
+closepath stroke
+0.000 0.000 0.000 edgecolor
+10 /FreeSans set_font
+193 1069 moveto 66 (< datapoint_t >) alignedtext
+grestore
+endpage
+showpage
+grestore
+%%PageTrailer
+%%EndPage: 1
+%%Trailer
+%%Pages: 1
+%%BoundingBox: 36 36 308 1332
+end
+restore
+%%EOF

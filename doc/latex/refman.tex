@@ -1,0 +1,103 @@
+\documentclass[a4paper]{book}
+\usepackage{a4wide}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{textcomp}
+\usepackage{alltt}
+\usepackage{times}
+\usepackage{ifpdf}
+\ifpdf
+\usepackage[pdftex,
+            pagebackref=true,
+            colorlinks=true,
+            linkcolor=blue,
+            unicode
+           ]{hyperref}
+\else
+\usepackage[ps2pdf,
+            pagebackref=true,
+            colorlinks=true,
+            linkcolor=blue,
+            unicode
+           ]{hyperref}
+\usepackage{pspicture}
+\fi
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+
+\usepackage{doxygen}
+\lstset{language=C++,inputencoding=utf8,basicstyle=\footnotesize,breaklines=true,breakatwhitespace=true,tabsize=4,numbers=left }
+\makeindex
+\setcounter{tocdepth}{3}
+\renewcommand{\footrulewidth}{0.4pt}
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\vspace*{7cm}
+\begin{center}
+{\Large CommonDataAnalysis \\[1ex]\large 0.04i }\\
+\vspace*{1cm}
+{\large Erzeugt von Doxygen 1.6.3}\\
+\vspace*{0.5cm}
+{\small Thu Jan 6 09:53:46 2011}\\
+\end{center}
+\end{titlepage}
+\clearemptydoublepage
+\pagenumbering{roman}
+\tableofcontents
+\clearemptydoublepage
+\pagenumbering{arabic}
+\hypersetup{pageanchor=true}
+\chapter{UHH/vTI SliceLab Documentation}
+\label{index}\hypertarget{index}{}\input{index}
+\chapter{Ausstehende Aufgaben}
+\label{todo}
+\hypertarget{todo}{}
+\include{todo}
+\chapter{Klassen-\/Verzeichnis}
+\input{hierarchy}
+\chapter{Klassen-\/Verzeichnis}
+\input{annotated}
+\chapter{Datei-\/Verzeichnis}
+\input{files}
+\chapter{Klassen-\/Dokumentation}
+\input{classCDA_1_1CircularMixtureModel1D}
+\include{structCDA_1_1compareByVectorElementValue}
+\include{classCDA_1_1EM}
+\include{classCDA_1_1EMData}
+\include{classCDA_1_1EMGenericMixtureModelCore}
+\include{classCDA_1_1EMMbyGradientDescent}
+\include{classCDA_1_1EMThetas}
+\include{classCDA_1_1EnhancedDataset}
+\include{classCDA_1_1EnhancedDatasetView}
+\include{classCDA_1_1FitMulticlassByEM}
+\include{classCDA_1_1FitMultivariateMulticlassByEM}
+\include{classCDA_1_1GaussianMixtureModel}
+\include{classCDA_1_1GaussianMixtureModel1D}
+\include{structCDA_1_1VonMises}
+\chapter{Datei-\/Dokumentation}
+\input{common__definitions_8h_09_09}
+\include{Data_8h_09_09}
+\include{CircularStatistics_8c_09_09}
+\include{CircularStatistics_8h_09_09}
+\include{comparisons_8h_09_09}
+\include{CircularMixtureModel1D_8h_09_09}
+\include{EM_8h_09_09}
+\include{EMCustomOptimization_8h_09_09}
+\include{EMData_8h_09_09}
+\include{EMGenericMixtureModelCore_8h_09_09}
+\include{EMTheta_8h_09_09}
+\include{FitMulticlassByEM_8h_09_09}
+\include{FitMultivariateMulticlassByEM_8h_09_09}
+\include{GaussianMixtureModel1D_8h_09_09}
+\include{GaussianMixtureModelND_8h_09_09}
+\include{ProbabilisticClustering_8c_09_09}
+\include{ProbabilisticClustering_8h_09_09}
+\include{numeric__optimization_8c_09_09}
+\include{numeric__optimization_8h_09_09}
+\printindex
+\end{document}

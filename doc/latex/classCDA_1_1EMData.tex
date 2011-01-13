@@ -1,0 +1,135 @@
+\hypertarget{classCDA_1_1EMData}{
+\section{CDA::EMData$<$ T $>$ Template-\/Klassenreferenz}
+\label{classCDA_1_1EMData}\index{CDA::EMData@{CDA::EMData}}
+}
+
+
+Any concrete \hyperlink{classCDA_1_1EM}{EM} subclass \char`\"{}has\_\-a\char`\"{} \hyperlink{classCDA_1_1EMData}{EMData} of the appropriate type (i.e. mono-\/ or multivariate).  
+
+
+
+
+{\ttfamily \#include $<$EMData.h++$>$}
+
+\subsection*{Öffentliche Typen}
+\begin{DoxyCompactItemize}
+\item 
+typedef T \hyperlink{classCDA_1_1EMData_a320dfbd3ad13091a99602a140688a05d}{datapoint\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCDA_1_1EMData_ae81ba273dcb87842699fcc1f6bd7b62a}{EMData} (const unsigned D\_\-=1)
+\begin{DoxyCompactList}\small\item\em Constructor. \item\end{DoxyCompactList}\item 
+\hypertarget{classCDA_1_1EMData_a0f776db698fe3871ed20a6e9af2a37ad}{
+const std::vector$<$ \hyperlink{classCDA_1_1EMData_a320dfbd3ad13091a99602a140688a05d}{datapoint\_\-t} $>$ \& \hyperlink{classCDA_1_1EMData_a0f776db698fe3871ed20a6e9af2a37ad}{getData} () const }
+\label{classCDA_1_1EMData_a0f776db698fe3871ed20a6e9af2a37ad}
+
+\begin{DoxyCompactList}\small\item\em Const getter. \item\end{DoxyCompactList}\item 
+const \hyperlink{classCDA_1_1EMData_a320dfbd3ad13091a99602a140688a05d}{datapoint\_\-t} \& \hyperlink{classCDA_1_1EMData_ab1acf83827d4595d2cb68c90bf7fa175}{getData} (const unsigned n) const 
+\begin{DoxyCompactList}\small\item\em Get one data point. \item\end{DoxyCompactList}\item 
+\hypertarget{classCDA_1_1EMData_aaab989fb0f59c828ce0c82ffaa36aace}{
+std::vector$<$ \hyperlink{classCDA_1_1EMData_a320dfbd3ad13091a99602a140688a05d}{datapoint\_\-t} $>$ \& \hyperlink{classCDA_1_1EMData_aaab989fb0f59c828ce0c82ffaa36aace}{getData} ()}
+\label{classCDA_1_1EMData_aaab989fb0f59c828ce0c82ffaa36aace}
+
+\begin{DoxyCompactList}\small\item\em Const getter. \item\end{DoxyCompactList}\item 
+\hypertarget{classCDA_1_1EMData_ac0839f5918bd704f111fc96183422c17}{
+size\_\-t \hyperlink{classCDA_1_1EMData_ac0839f5918bd704f111fc96183422c17}{getN} () const }
+\label{classCDA_1_1EMData_ac0839f5918bd704f111fc96183422c17}
+
+\begin{DoxyCompactList}\small\item\em Get number of data points. \item\end{DoxyCompactList}\item 
+size\_\-t \hyperlink{classCDA_1_1EMData_afa10d17ad30e4f69523ae38f83e31d43}{getDataDimensionality} () const 
+\begin{DoxyCompactList}\small\item\em Get D (or 1 for univariate instances). \item\end{DoxyCompactList}\item 
+\hypertarget{classCDA_1_1EMData_afb77ebc6925ea093d9845404eb7a655a}{
+{\footnotesize template$<$class II $>$ }\\void \hyperlink{classCDA_1_1EMData_afb77ebc6925ea093d9845404eb7a655a}{setDataProper} (std::pair$<$ II, II $>$ data\_\-)}
+\label{classCDA_1_1EMData_afb77ebc6925ea093d9845404eb7a655a}
+
+\begin{DoxyCompactList}\small\item\em Call this from setData. \item\end{DoxyCompactList}\item 
+\hypertarget{classCDA_1_1EMData_ace81aa73248341304cc5c3f07b393d2f}{
+{\footnotesize template$<$$>$ }\\{\bfseries EMData} (const unsigned D\_\-)}
+\label{classCDA_1_1EMData_ace81aa73248341304cc5c3f07b393d2f}
+
+\item 
+\hypertarget{classCDA_1_1EMData_a2e60deb860b4b777b439cbd1d96829e7}{
+{\footnotesize template$<$$>$ }\\{\bfseries EMData} (const unsigned D\_\-)}
+\label{classCDA_1_1EMData_a2e60deb860b4b777b439cbd1d96829e7}
+
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classCDA_1_1EMData_a6cf6b6652a2cd7a236823a6d46b9b2ca}{
+const int \hyperlink{classCDA_1_1EMData_a6cf6b6652a2cd7a236823a6d46b9b2ca}{D}}
+\label{classCDA_1_1EMData_a6cf6b6652a2cd7a236823a6d46b9b2ca}
+
+\begin{DoxyCompactList}\small\item\em Data dimensionality. \item\end{DoxyCompactList}\item 
+std::vector$<$ \hyperlink{classCDA_1_1EMData_a320dfbd3ad13091a99602a140688a05d}{datapoint\_\-t} $>$ \hyperlink{classCDA_1_1EMData_a2c3eec1a4ba1476128790235bf814a21}{data}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+\subsubsection*{template$<$class T$>$ class CDA::EMData$<$ T $>$}
+
+Any concrete \hyperlink{classCDA_1_1EM}{EM} subclass \char`\"{}has\_\-a\char`\"{} \hyperlink{classCDA_1_1EMData}{EMData} of the appropriate type (i.e. mono-\/ or multivariate). template param datapoint\_\-t 
+
+\subsection{Dokumentation der benutzerdefinierten Datentypen}
+\hypertarget{classCDA_1_1EMData_a320dfbd3ad13091a99602a140688a05d}{
+\index{CDA::EMData@{CDA::EMData}!datapoint\_\-t@{datapoint\_\-t}}
+\index{datapoint\_\-t@{datapoint\_\-t}!CDA::EMData@{CDA::EMData}}
+\subsubsection[{datapoint\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ typedef T {\bf CDA::EMData}$<$ T $>$::{\bf datapoint\_\-t}}}
+\label{classCDA_1_1EMData_a320dfbd3ad13091a99602a140688a05d}
+double or fvector\_\-t 
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\hypertarget{classCDA_1_1EMData_ae81ba273dcb87842699fcc1f6bd7b62a}{
+\index{CDA::EMData@{CDA::EMData}!EMData@{EMData}}
+\index{EMData@{EMData}!CDA::EMData@{CDA::EMData}}
+\subsubsection[{EMData}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf CDA::EMData}$<$ T $>$::{\bf EMData} (const unsigned {\em D\_\-} = {\ttfamily 1})}}
+\label{classCDA_1_1EMData_ae81ba273dcb87842699fcc1f6bd7b62a}
+
+
+Constructor. 
+
+param\mbox{[}in\mbox{]} D\_\- data dimensionality 
+
+\subsection{Dokumentation der Elementfunktionen}
+\hypertarget{classCDA_1_1EMData_ab1acf83827d4595d2cb68c90bf7fa175}{
+\index{CDA::EMData@{CDA::EMData}!getData@{getData}}
+\index{getData@{getData}!CDA::EMData@{CDA::EMData}}
+\subsubsection[{getData}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ const {\bf datapoint\_\-t}\& {\bf CDA::EMData}$<$ T $>$::getData (const unsigned {\em n}) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCDA_1_1EMData_ab1acf83827d4595d2cb68c90bf7fa175}
+
+
+Get one data point. 
+
+
+\begin{DoxyParams}{Parameter}
+\item[\mbox{$\leftarrow$} {\em n}]which one (0$<$=n$<$\hyperlink{classCDA_1_1EMData_ac0839f5918bd704f111fc96183422c17}{getN()})\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+the data point 
+\end{DoxyReturn}
+\hypertarget{classCDA_1_1EMData_afa10d17ad30e4f69523ae38f83e31d43}{
+\index{CDA::EMData@{CDA::EMData}!getDataDimensionality@{getDataDimensionality}}
+\index{getDataDimensionality@{getDataDimensionality}!CDA::EMData@{CDA::EMData}}
+\subsubsection[{getDataDimensionality}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ size\_\-t {\bf CDA::EMData}$<$ T $>$::getDataDimensionality () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCDA_1_1EMData_afa10d17ad30e4f69523ae38f83e31d43}
+
+
+Get D (or 1 for univariate instances). 
+
+\begin{DoxyReturn}{Rückgabe}
+D 
+\end{DoxyReturn}
+
+
+\subsection{Dokumentation der Datenelemente}
+\hypertarget{classCDA_1_1EMData_a2c3eec1a4ba1476128790235bf814a21}{
+\index{CDA::EMData@{CDA::EMData}!data@{data}}
+\index{data@{data}!CDA::EMData@{CDA::EMData}}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ std::vector$<${\bf datapoint\_\-t}$>$ {\bf CDA::EMData}$<$ T $>$::{\bf data}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classCDA_1_1EMData_a2c3eec1a4ba1476128790235bf814a21}
+Reimplemented for all univariate variants 
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei:\begin{DoxyCompactItemize}
+\item 
+src/expmax/\hyperlink{EMData_8h_09_09}{EMData.h++}\end{DoxyCompactItemize}

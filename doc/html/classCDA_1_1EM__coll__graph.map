@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" href="$classCDA_1_1EMData.html" title="{CDA::EMData\&lt; datapoint_t \&gt;\n|# D\l# data\l|+ EMData()\l+ getData()\l+ getData()\l+ getData()\l+ getN()\l+ getDataDimensionality()\l+ setDataProper()\l}" alt="" coords="5,328,195,547"/>
+<area shape="rect" href="$classCDA_1_1EMData.html" title="Any concrete EM subclass &quot;has_a&quot; EMData of the appropriate type (i.e. mono&#45;..." alt="" coords="15,5,185,261"/>
+<area shape="rect" href="$classCDA_1_1EMThetas.html" title="Model parameters for EM." alt="" coords="219,375,357,500"/>
+</map>

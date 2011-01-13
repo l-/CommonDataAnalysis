@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CC="ccache g++ -Iinclude -Isrc -I/informatik/home/flick/include -I/usr/include -c -fmessage-length=0"
+CC="ccache g++ -I. -Iinclude -Isrc -I/informatik/home/flick/include -I/usr/include -c -fmessage-length=0"
 LD="g++ -L/usr/lib -shared"
 
 # Verzeichnisbaum für .o-Dateien erzeugen (weiß der Geier, habe ich von eclipse CDT übernommen)

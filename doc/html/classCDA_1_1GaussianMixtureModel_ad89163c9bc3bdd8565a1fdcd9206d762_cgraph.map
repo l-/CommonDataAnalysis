@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" href="$classCDA_1_1FitMultivariateMulticlassByEM.html#a61354d086a158b075beccd1a956eb1f8" title="Convenience getter for D, same format as getN() and getP()." alt="" coords="976,116,1243,145"/>
+<area shape="rect" href="$classCDA_1_1GaussianMixtureModel.html#a89678e8fbc1e6361ff13c68def11b548" title="Get inverse of Sigma of Gaussian no. k." alt="" coords="303,143,572,172"/>
+<area shape="rect" href="$classCDA_1_1GaussianMixtureModel.html#a46342603d7c1d04354bdbf7664655cd4" title="Get Mean vector of Gaussian no. k." alt="" coords="315,39,560,68"/>
+<area shape="rect" href="$classCDA_1_1GaussianMixtureModel.html#a65065aeca55fef7931c83911ca656a3b" title="CDA::GaussianMixtureModel::getSigmaDet" alt="" coords="301,196,573,225"/>
+<area shape="rect" href="$classCDA_1_1GaussianMixtureModel.html#a0950a8909e82521c0919f337d18dbe04" title="Extract the covariance matrix of Gaussian no. k." alt="" coords="621,193,909,223"/>
+<area shape="rect" href="$classCDA_1_1FitMulticlassByEM.html#a4185d0f323087ef9112e903a2782fdfd" title="Conveniently encapsulate access ofm_theta." alt="" coords="957,193,1261,223"/>
+<area shape="rect" href="$classCDA_1_1EMThetas.html#aadd9127ef459eda6eb890e1f3bd5a1bc" title="const getter" alt="" coords="675,39,856,68"/>
+</map>

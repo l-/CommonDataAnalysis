@@ -1,0 +1,85 @@
+<!-- This comment will put IE 6, 7 and 8 in quirks mode -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>CommonDataAnalysis: include/utils/comparisons.h++ Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Erzeugt von Doxygen 1.6.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="pages.html"><span>Zusätzliche&nbsp;Informationen</span></a></li>
+      <li><a href="annotated.html"><span>Klassen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <img id="MSearchSelect" src="search/search.png"
+             onmouseover="return searchBox.OnSearchSelectShow()"
+             onmouseout="return searchBox.OnSearchSelectHide()"
+             alt=""/>
+        <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+             onfocus="searchBox.OnSearchFieldFocus(true)" 
+             onblur="searchBox.OnSearchFieldFocus(false)" 
+             onkeyup="searchBox.OnSearchFieldChange(event)"/>
+        <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    </ul>
+  </div>
+<h1>include/utils/comparisons.h++</h1><a href="comparisons_8h_09_09.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00010"></a>00010 <span class="preprocessor">#pragma once</span>
+<a name="l00011"></a>00011 <span class="preprocessor"></span>
+<a name="l00012"></a>00012 <span class="keyword">namespace </span>CDA {
+<a name="l00013"></a>00013 
+<a name="l00022"></a>00022 <span class="keyword">template</span>&lt;<span class="keyword">class</span> vector_t, <span class="keyword">class</span> <span class="keywordtype">id</span>x_t = <span class="keywordtype">size_t</span>, <span class="keyword">class</span> LT = std::less&lt;<span class="keyword">typename</span> vector_t::value_type&gt; &gt;
+<a name="l00023"></a><a class="code" href="structCDA_1_1compareByVectorElementValue.html">00023</a> <span class="keyword">struct </span><a class="code" href="structCDA_1_1compareByVectorElementValue.html" title="Use this as a functor to compare numbers a and b by the values v[a] and v[b].">compareByVectorElementValue</a> {
+<a name="l00024"></a>00024 
+<a name="l00028"></a><a class="code" href="structCDA_1_1compareByVectorElementValue.html#a845fefe0fa9c3ac7df6f968a92711920">00028</a>     <span class="keyword">const</span> vector_t&amp; <a class="code" href="structCDA_1_1compareByVectorElementValue.html#a845fefe0fa9c3ac7df6f968a92711920" title="*reference* to the vector">m_v</a>;
+<a name="l00029"></a>00029 
+<a name="l00033"></a><a class="code" href="structCDA_1_1compareByVectorElementValue.html#a9fa53a4855d6f8aeae5e14f63a53bdc2">00033</a>     <a class="code" href="structCDA_1_1compareByVectorElementValue.html#a9fa53a4855d6f8aeae5e14f63a53bdc2" title="Keep a reference of the vector, use it locally.">compareByVectorElementValue</a>(<span class="keyword">const</span> vector_t&amp; v)
+<a name="l00034"></a>00034     : <a class="code" href="structCDA_1_1compareByVectorElementValue.html#a845fefe0fa9c3ac7df6f968a92711920" title="*reference* to the vector">m_v</a>(v) {
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036     }
+<a name="l00037"></a>00037 
+<a name="l00041"></a><a class="code" href="structCDA_1_1compareByVectorElementValue.html#a80b11bd2729685221e5ed63b664d36b3">00041</a>     <span class="keywordtype">bool</span> <a class="code" href="structCDA_1_1compareByVectorElementValue.html#a80b11bd2729685221e5ed63b664d36b3" title="What do you expect?">operator()</a>(<span class="keyword">const</span> idx_t a, <span class="keyword">const</span> idx_t b) {
+<a name="l00042"></a>00042         <span class="keywordflow">return</span> LT()(<a class="code" href="structCDA_1_1compareByVectorElementValue.html#a845fefe0fa9c3ac7df6f968a92711920" title="*reference* to the vector">m_v</a>(a), <a class="code" href="structCDA_1_1compareByVectorElementValue.html#a845fefe0fa9c3ac7df6f968a92711920" title="*reference* to the vector">m_v</a>(b));
+<a name="l00043"></a>00043     }
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045 };
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047 } <span class="comment">// namespace</span>
+</pre></div></div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>Alle</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Klassen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Dateien</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Funktionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&nbsp;</span>Variablen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&nbsp;</span>Typdefinitionen</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address style="text-align: right;"><small>Erzeugt am Thu Jan 6 09:53:46 2011 für CommonDataAnalysis von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!-- This comment will put IE 6, 7 and 8 in quirks mode -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>CommonDataAnalysis: src/expmax/EM.h++ Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Erzeugt von Doxygen 1.6.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="pages.html"><span>Zusätzliche&nbsp;Informationen</span></a></li>
+      <li><a href="annotated.html"><span>Klassen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <img id="MSearchSelect" src="search/search.png"
+             onmouseover="return searchBox.OnSearchSelectShow()"
+             onmouseout="return searchBox.OnSearchSelectHide()"
+             alt=""/>
+        <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+             onfocus="searchBox.OnSearchFieldFocus(true)" 
+             onblur="searchBox.OnSearchFieldFocus(false)" 
+             onkeyup="searchBox.OnSearchFieldChange(event)"/>
+        <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    </ul>
+  </div>
+<h1>src/expmax/EM.h++</h1><a href="EM_8h_09_09.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00010"></a>00010 <span class="preprocessor">#pragma once</span>
+<a name="l00011"></a>00011 <span class="preprocessor"></span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="EMData_8h_09_09.html">EMData.h++</a>&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="EMTheta_8h_09_09.html">EMTheta.h++</a>&quot;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &quot;<a class="code" href="common__definitions_8h_09_09.html">common_definitions.h++</a>&quot;</span>
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 <span class="keyword">namespace </span>CDA {
+<a name="l00017"></a>00017 
+<a name="l00025"></a>00025 <span class="keyword">template</span>&lt;<span class="keyword">class</span> datapo<span class="keywordtype">int</span>_t&gt;
+<a name="l00026"></a><a class="code" href="classCDA_1_1EM.html">00026</a> <span class="keyword">class </span><a class="code" href="classCDA_1_1EM.html" title="A generic EM model fitting class. Contains the general outline of EM algorithm, details...">EM</a> {
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028 <span class="keyword">protected</span>:
+<a name="l00029"></a>00029 
+<a name="l00033"></a><a class="code" href="classCDA_1_1EM.html#ad1b13cd77ab036d88042a38056bdbc2b">00033</a>     <a class="code" href="classCDA_1_1EMThetas.html" title="Model parameters for EM.">EMThetas</a> <a class="code" href="classCDA_1_1EM.html#ad1b13cd77ab036d88042a38056bdbc2b" title="In C++, _always_ works better than inheritance. I should have remembered ...">m_theta</a>;
+<a name="l00034"></a>00034 
+<a name="l00038"></a><a class="code" href="classCDA_1_1EM.html#a3b79ed53bf886cd90128883e1b7132c4">00038</a>     <a class="code" href="classCDA_1_1EMData.html">EMData&lt;datapoint_t&gt;</a> <a class="code" href="classCDA_1_1EM.html#a3b79ed53bf886cd90128883e1b7132c4" title="In C++, _always_ works better than inheritance.">m_data</a>;
+<a name="l00039"></a>00039 
+<a name="l00043"></a><a class="code" href="classCDA_1_1EM.html#a27a47f19ff387ae50df6b3022a36d85b">00043</a>     <span class="keywordtype">double</span> <a class="code" href="classCDA_1_1EM.html#a27a47f19ff387ae50df6b3022a36d85b" title="One iteration.">EMstep</a>() {
+<a name="l00044"></a>00044         <a class="code" href="classCDA_1_1EM.html#af116066dfe282586d4219fb588a021d7" title="E-step: update hidden attributes, i.e. class membership probabilities">update_hidden</a>();
+<a name="l00045"></a>00045         <a class="code" href="classCDA_1_1EM.html#a58f0d0cf682d55a53e827744e03516e2" title="M-step: update parameters of model PDF">update_thetas</a>();
+<a name="l00046"></a>00046         <span class="keywordflow">return</span> <a class="code" href="classCDA_1_1EM.html#a8aa35411fba9041160319403163e92f6" title="Important. This is being optimized.">logLikelihood</a>();
+<a name="l00047"></a>00047     }
+<a name="l00048"></a>00048 
+<a name="l00052"></a>00052     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCDA_1_1EM.html#af116066dfe282586d4219fb588a021d7" title="E-step: update hidden attributes, i.e. class membership probabilities">update_hidden</a>() = 0;
+<a name="l00053"></a>00053 
+<a name="l00057"></a>00057     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCDA_1_1EM.html#a58f0d0cf682d55a53e827744e03516e2" title="M-step: update parameters of model PDF">update_thetas</a>() = 0;
+<a name="l00058"></a>00058 
+<a name="l00062"></a>00062     <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classCDA_1_1EM.html#a8aa35411fba9041160319403163e92f6" title="Important. This is being optimized.">logLikelihood</a>() <span class="keyword">const</span> = 0;
+<a name="l00063"></a>00063 
+<a name="l00067"></a><a class="code" href="classCDA_1_1EM.html#a3508ac170afdf1034134d7764a3cd016">00067</a>     <span class="keyword">virtual</span> <span class="keyword">const</span> std::string <a class="code" href="classCDA_1_1EM.html#a3508ac170afdf1034134d7764a3cd016" title="Implementer should overwrite this method, since typeid(this).name() returns crap...">className</a>()<span class="keyword"> const </span>{
+<a name="l00068"></a>00068         <span class="keywordflow">return</span> <span class="keyword">typeid</span>(<span class="keyword">this</span>).name();
+<a name="l00069"></a>00069     }
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071 <span class="keyword">public</span>:
+<a name="l00072"></a>00072 
+<a name="l00076"></a><a class="code" href="classCDA_1_1EM.html#ad18a674dbf206303ba61571d5b385732">00076</a>     <a class="code" href="classCDA_1_1EM.html#ad18a674dbf206303ba61571d5b385732" title="Constructor, to be called explicitly in multivariate case.">EM</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> D_ = 1)
+<a name="l00077"></a>00077     : <a class="code" href="classCDA_1_1EM.html#a3b79ed53bf886cd90128883e1b7132c4" title="In C++, _always_ works better than inheritance.">m_data</a>(D_) { }
+<a name="l00078"></a>00078 
+<a name="l00082"></a>00082     <span class="keyword">virtual</span> <span class="keyword">const</span> fvector_t&amp; <a class="code" href="classCDA_1_1EM.html#a8fa4fea4987c54f6ae1499492cc9130c" title="Getter for estimate.">getHiddenParamEstimate</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> n) <span class="keyword">const</span> = 0;
+<a name="l00083"></a>00083 
+<a name="l00092"></a>00092     <span class="keyword">template</span>&lt;<span class="keyword">class</span> II&gt;
+<a name="l00093"></a><a class="code" href="classCDA_1_1EM.html#a9e02e070fa25ab5bd9c2badbbd157f13">00093</a>     <span class="keywordtype">void</span> <a class="code" href="classCDA_1_1EM.html#a9e02e070fa25ab5bd9c2badbbd157f13" title="Initial guess for model parameters -- strictly needed.">setTheta</a>(std::pair&lt;II, II&gt; thetas) {
+<a name="l00094"></a>00094         <a class="code" href="classCDA_1_1EM.html#ad1b13cd77ab036d88042a38056bdbc2b" title="In C++, _always_ works better than inheritance. I should have remembered ...">m_theta</a> . <a class="code" href="classCDA_1_1EM.html#a9e02e070fa25ab5bd9c2badbbd157f13" title="Initial guess for model parameters -- strictly needed.">setTheta</a>(thetas);
+<a name="l00095"></a>00095     }
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097 
+<a name="l00106"></a>00106     <span class="keywordtype">void</span> <a class="code" href="classCDA_1_1EM.html#a1c8fa9008da1f168f211f48c578dce5f" title="Run Expectation Maximization.">EMrun</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> MAXITER, <span class="keyword">const</span> <span class="keywordtype">double</span> thresh, <span class="keyword">const</span> boost::optional&lt;std::ostream*&gt; output_csv = boost::none);
+<a name="l00107"></a>00107 
+<a name="l00114"></a>00114     <span class="keyword">virtual</span> <span class="keyword">const</span> std::string <a class="code" href="classCDA_1_1EM.html#ad2655bd878821e73ba18beff576a2b4a" title="Output CSV.">dumpParameters</a>(<span class="keyword">const</span> boost::optional&lt;unsigned int&gt; iteration) <span class="keyword">const</span> = 0;
+<a name="l00115"></a>00115 
+<a name="l00120"></a>00120     <span class="keyword">virtual</span> <span class="keyword">const</span> std::string <a class="code" href="classCDA_1_1EM.html#ad29bbf755c6a32215881efca2d90d6a9" title="Möchte es nicht zu kompliziert machen (14/12/2010), daher bekommen die ganzen Klassen...">getCSVHeader</a>() <span class="keyword">const</span> = 0;
+<a name="l00121"></a>00121 
+<a name="l00126"></a>00126     <span class="keyword">template</span>&lt;<span class="keyword">class</span> II&gt;
+<a name="l00127"></a><a class="code" href="classCDA_1_1EM.html#a8f779d18072975dc994bd4370f19a238">00127</a>     <span class="keywordtype">void</span> <a class="code" href="classCDA_1_1EM.html#a8f779d18072975dc994bd4370f19a238" title="Initialize known samples, i.e. your data points Also initialize the classif vector...">setData</a>(std::pair&lt;II, II&gt; data_) {
+<a name="l00128"></a>00128 
+<a name="l00129"></a>00129         <span class="comment">// II must iterate over datapoint_t elements</span>
+<a name="l00130"></a>00130         BOOST_MPL_ASSERT_MSG((boost::mpl::equal&lt;datapoint_t, typename II::value_type&gt;::type::value), UnsupportedDatavectorType, (<span class="keyword">typename</span> II::value_type));
+<a name="l00131"></a>00131 
+<a name="l00132"></a>00132         <a class="code" href="classCDA_1_1EM.html#a3b79ed53bf886cd90128883e1b7132c4" title="In C++, _always_ works better than inheritance.">m_data</a> . setDataProper(data_);
+<a name="l00133"></a>00133     }
+<a name="l00134"></a>00134 };
+<a name="l00135"></a>00135 
+<a name="l00136"></a>00136 
+<a name="l00137"></a>00137 
+<a name="l00138"></a>00138 } <span class="comment">//ns</span>
+</pre></div></div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>Alle</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Klassen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Dateien</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Funktionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&nbsp;</span>Variablen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&nbsp;</span>Typdefinitionen</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address style="text-align: right;"><small>Erzeugt am Thu Jan 6 09:53:46 2011 für CommonDataAnalysis von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

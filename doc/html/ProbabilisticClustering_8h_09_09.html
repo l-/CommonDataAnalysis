@@ -1,0 +1,122 @@
+<!-- This comment will put IE 6, 7 and 8 in quirks mode -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>CommonDataAnalysis: src/expmax/ProbabilisticClustering.h++-Dateireferenz</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Erzeugt von Doxygen 1.6.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="pages.html"><span>Zusätzliche&nbsp;Informationen</span></a></li>
+      <li><a href="annotated.html"><span>Klassen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <img id="MSearchSelect" src="search/search.png"
+             onmouseover="return searchBox.OnSearchSelectShow()"
+             onmouseout="return searchBox.OnSearchSelectHide()"
+             alt=""/>
+        <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+             onfocus="searchBox.OnSearchFieldFocus(true)" 
+             onblur="searchBox.OnSearchFieldFocus(false)" 
+             onkeyup="searchBox.OnSearchFieldChange(event)"/>
+        <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>src/expmax/ProbabilisticClustering.h++-Dateireferenz</h1><code>#include &lt;typeinfo&gt;</code><br/>
+<code>#include &lt;boost/foreach.hpp&gt;</code><br/>
+<code>#include &lt;boost/optional.hpp&gt;</code><br/>
+<code>#include &lt;boost/mpl/equal.hpp&gt;</code><br/>
+<code>#include &lt;boost/function.hpp&gt;</code><br/>
+<code>#include &lt;boost/lambda/bind.hpp&gt;</code><br/>
+<code>#include &lt;boost/lambda/lambda.hpp&gt;</code><br/>
+<code>#include &lt;algorithm&gt;</code><br/>
+<code>#include &lt;boost/iterator/counting_iterator.hpp&gt;</code><br/>
+<code>#include &lt;boost/algorithm/minmax_element.hpp&gt;</code><br/>
+<code>#include &lt;boost/shared_ptr.hpp&gt;</code><br/>
+<code>#include &lt;boost/numeric/ublas/matrix.hpp&gt;</code><br/>
+<code>#include &lt;boost/numeric/ublas/symmetric.hpp&gt;</code><br/>
+<code>#include &lt;boost/numeric/ublas/vector.hpp&gt;</code><br/>
+<code>#include &lt;boost/numeric/ublas/vector_proxy.hpp&gt;</code><br/>
+<code>#include &lt;boost/numeric/ublas/io.hpp&gt;</code><br/>
+<code>#include &lt;boost/numeric/ublas/lu.hpp&gt;</code><br/>
+<code>#include &lt;limits&gt;</code><br/>
+<code>#include &lt;iostream&gt;</code><br/>
+<code>#include &quot;<a class="el" href="CircularStatistics_8h_09_09_source.html">math/CircularStatistics.h++</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="numeric__optimization_8h_09_09_source.html">math/numeric_optimization.h++</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="comparisons_8h_09_09_source.html">utils/comparisons.h++</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="common__definitions_8h_09_09_source.html">common_definitions.h++</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="GaussianMixtureModel1D_8h_09_09_source.html">GaussianMixtureModel1D.h++</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="GaussianMixtureModelND_8h_09_09_source.html">GaussianMixtureModelND.h++</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="CircularMixtureModel1D_8h_09_09_source.html">CircularMixtureModel1D.h++</a>&quot;</code><br/>
+<div class="dynheader">
+Include-Abhängigkeitsdiagramm für ProbabilisticClustering.h++:</div>
+<div class="dynsection">
+<div class="center"><img src="ProbabilisticClustering_8h_09_09__incl.png" border="0" usemap="#src_2expmax_2ProbabilisticClustering_8h_09_09_map" alt=""/></div>
+<map name="src_2expmax_2ProbabilisticClustering_8h_09_09_map" id="src_2expmax_2ProbabilisticClustering_8h_09_09">
+<area shape="rect" href="CircularStatistics_8h_09_09.html" title="Special functions for circular statistics." alt="" coords="3448,160,3627,189"/><area shape="rect" href="numeric__optimization_8h_09_09.html" title="math/numeric_optimization.h++" alt="" coords="611,83,813,112"/><area shape="rect" href="comparisons_8h_09_09.html" title="utils/comparisons.h++" alt="" coords="4157,83,4307,112"/><area shape="rect" href="common__definitions_8h_09_09.html" title="common_definitions.h++" alt="" coords="3828,547,3991,576"/><area shape="rect" href="GaussianMixtureModel1D_8h_09_09.html" title="GaussianMixtureModel1D.h++" alt="" coords="3859,160,4056,189"/><area shape="rect" href="GaussianMixtureModelND_8h_09_09.html" title="GaussianMixtureModelND.h++" alt="" coords="3909,83,4109,112"/><area shape="rect" href="CircularMixtureModel1D_8h_09_09.html" title="CircularMixtureModel1D.h++" alt="" coords="3573,83,3760,112"/><area shape="rect" href="FitMultivariateMulticlassByEM_8h_09_09.html" title="FitMultivariateMulticlassByEM.h++" alt="" coords="3885,237,4109,267"/><area shape="rect" href="FitMulticlassByEM_8h_09_09.html" title="FitMulticlassByEM.h++" alt="" coords="3919,315,4076,344"/><area shape="rect" href="EM_8h_09_09.html" title="EM.h++" alt="" coords="3964,392,4031,421"/><area shape="rect" href="EMData_8h_09_09.html" title="EMData.h++" alt="" coords="4035,469,4131,499"/><area shape="rect" href="EMTheta_8h_09_09.html" title="EMTheta.h++" alt="" coords="3859,469,3960,499"/><area shape="rect" href="EMGenericMixtureModelCore_8h_09_09.html" title="EMGenericMixtureModelCore.h++" alt="" coords="4080,160,4299,189"/></map>
+</div>
+
+<p><a href="ProbabilisticClustering_8h_09_09_source.html">gehe zum Quellcode dieser Datei</a></p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Funktionen</h2></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a9e95468a6824e9e9ad95d61d47105664"></a><!-- doxytag: member="ProbabilisticClustering.h++::thresholdFinder" ref="a9e95468a6824e9e9ad95d61d47105664" args="(const std::pair&lt; Iter, Iter &gt; input, const boost::optional&lt; std::ostream * &gt; output_csv=boost::none)" -->
+template&lt;class Iter &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::shared_ptr<br class="typebreak"/>
+&lt; GaussianMixtureModel1D &gt;&nbsp;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceCDA.html#a9e95468a6824e9e9ad95d61d47105664">CDA::thresholdFinder</a> (const std::pair&lt; Iter, Iter &gt; input, const boost::optional&lt; std::ostream * &gt; output_csv=boost::none)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Use univariate mixture model to determine a threshold The classical application, from BV1 lecture actually! <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a5ef8a67c215c1b5d7b23192c5336b536"></a><!-- doxytag: member="ProbabilisticClustering.h++::det" ref="a5ef8a67c215c1b5d7b23192c5336b536" args="(matrix_t &amp;m)" -->
+template&lt;class matrix_t &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">double&nbsp;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceCDA.html#a5ef8a67c215c1b5d7b23192c5336b536">CDA::det</a> (matrix_t &amp;m)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Calculate the determinant of a small matrix. <br/></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+<dl class="author"><dt><b>Autor:</b></dt><dd>Erik Flick &lt;erik.flick [AETT] informatik.uni-hamburg.de&gt; </dd></dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>0.1</dd></dl>
+<h2><a class="anchor" id="LICENSE">
+LICENSE</a></h2>
+<p>This file is released under LGPL v3.0.</p>
+<h2><a class="anchor" id="DESCRIPTION">
+DESCRIPTION</a></h2>
+<p>Gaussian Mixture Model for fitting of a known number of Gaussians; and other probabilistic models of use in the processing of images.</p>
+<p>Common patterns are extracted afap to build a hierarchy of classes. </p>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>Alle</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Klassen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Dateien</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Funktionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&nbsp;</span>Variablen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&nbsp;</span>Typdefinitionen</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address style="text-align: right;"><small>Erzeugt am Thu Jan 6 09:53:47 2011 für CommonDataAnalysis von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

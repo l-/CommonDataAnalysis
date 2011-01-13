@@ -1,0 +1,140 @@
+\hypertarget{classCDA_1_1EnhancedDataset}{
+\section{CDA::EnhancedDataset Klassenreferenz}
+\label{classCDA_1_1EnhancedDataset}\index{CDA::EnhancedDataset@{CDA::EnhancedDataset}}
+}
+
+
+aware of basic statistics for normalization etc.  
+
+
+
+
+{\ttfamily \#include $<$Data.h++$>$}
+
+\subsection*{Öffentliche Typen}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classCDA_1_1EnhancedDataset_ac48f706bc85385da7b78ff9229666475}{
+typedef std::vector$<$ fvector\_\-t $>$ {\bfseries dataframe\_\-t}}
+\label{classCDA_1_1EnhancedDataset_ac48f706bc85385da7b78ff9229666475}
+
+\item 
+\hypertarget{classCDA_1_1EnhancedDataset_ad01be5e014bc9a5232102fae6759caad}{
+typedef fvector\_\-t {\bfseries row\_\-t}}
+\label{classCDA_1_1EnhancedDataset_ad01be5e014bc9a5232102fae6759caad}
+
+\item 
+\hypertarget{classCDA_1_1EnhancedDataset_ad125a62150f81238cd207baaa057b4ff}{
+typedef accumulator\_\-set$<$ double, stats$<$ tag::mean, tag::variance, tag::max, tag::min $>$ $>$ {\bfseries boost\_\-statistics\_\-t}}
+\label{classCDA_1_1EnhancedDataset_ad125a62150f81238cd207baaa057b4ff}
+
+\item 
+\hypertarget{classCDA_1_1EnhancedDataset_adecd4f314f8fc01ba75b08ca053ba561}{
+typedef boost::transform\_\-iterator$<$ boost::function$<$ const fvector\_\-t \&(const fvector\_\-t \&)$>$, dataframe\_\-t::const\_\-iterator $>$ {\bfseries vtrit\_\-t}}
+\label{classCDA_1_1EnhancedDataset_adecd4f314f8fc01ba75b08ca053ba561}
+
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classCDA_1_1EnhancedDataset_a38188f6537aecfdb93351da5d0814b4a}{
+{\bfseries EnhancedDataset} (unsigned D\_\-)}
+\label{classCDA_1_1EnhancedDataset_a38188f6537aecfdb93351da5d0814b4a}
+
+\item 
+\hypertarget{classCDA_1_1EnhancedDataset_a396c10698c80b47cd23be67c95dce5d4}{
+void {\bfseries addRow} (const fvector\_\-t \&datarow)}
+\label{classCDA_1_1EnhancedDataset_a396c10698c80b47cd23be67c95dce5d4}
+
+\item 
+\hypertarget{classCDA_1_1EnhancedDataset_abb24dc80e0c2f2e6c2031e4093d6a460}{
+const dataframe\_\-t \& {\bfseries getData} () const }
+\label{classCDA_1_1EnhancedDataset_abb24dc80e0c2f2e6c2031e4093d6a460}
+
+\item 
+\hypertarget{classCDA_1_1EnhancedDataset_aa15349d7a7c21254a2aeb529fba1ecb3}{
+size\_\-t {\bfseries N} () const }
+\label{classCDA_1_1EnhancedDataset_aa15349d7a7c21254a2aeb529fba1ecb3}
+
+\item 
+\hypertarget{classCDA_1_1EnhancedDataset_a922889380d5f8ea30102266a0d1e7a7e}{
+{\footnotesize template$<$class boost\_\-accumtag $>$ }\\fvector\_\-t {\bfseries getStatistics} () const }
+\label{classCDA_1_1EnhancedDataset_a922889380d5f8ea30102266a0d1e7a7e}
+
+\item 
+\hypertarget{classCDA_1_1EnhancedDataset_a664e728858339f8729a5c154d3dbe519}{
+double \hyperlink{classCDA_1_1EnhancedDataset_a664e728858339f8729a5c154d3dbe519}{getMinOfAny} () const }
+\label{classCDA_1_1EnhancedDataset_a664e728858339f8729a5c154d3dbe519}
+
+\begin{DoxyCompactList}\small\item\em Handy for quick normalization, all dimensions scaled by same factor. \item\end{DoxyCompactList}\item 
+\hypertarget{classCDA_1_1EnhancedDataset_a7d063419540f0da32bf6a242e9c0b513}{
+double \hyperlink{classCDA_1_1EnhancedDataset_a7d063419540f0da32bf6a242e9c0b513}{getMaxOfAny} () const }
+\label{classCDA_1_1EnhancedDataset_a7d063419540f0da32bf6a242e9c0b513}
+
+\begin{DoxyCompactList}\small\item\em Handy for quick normalization, all dimensions scaled by same factor. \item\end{DoxyCompactList}\item 
+\hypertarget{classCDA_1_1EnhancedDataset_af3fa7167971e2ac2eda248c849de722d}{
+fvector\_\-t {\bfseries getNormalized} (unsigned idx) const }
+\label{classCDA_1_1EnhancedDataset_af3fa7167971e2ac2eda248c849de722d}
+
+\item 
+\hypertarget{classCDA_1_1EnhancedDataset_a6e5b4a6f8a8a220aed9fbc6c834e0b38}{
+const fvector\_\-t \& {\bfseries normalize} (const fvector\_\-t \&in) const }
+\label{classCDA_1_1EnhancedDataset_a6e5b4a6f8a8a220aed9fbc6c834e0b38}
+
+\item 
+\hypertarget{classCDA_1_1EnhancedDataset_a781f6fe7714713bb70ad6a50b9b08731}{
+{\footnotesize template$<$class indexcoll\_\-t $>$ }\\fvector\_\-t {\bfseries normalize\_\-selective} (const fvector\_\-t \&in, indexcoll\_\-t \&slc) const }
+\label{classCDA_1_1EnhancedDataset_a781f6fe7714713bb70ad6a50b9b08731}
+
+\item 
+\hypertarget{classCDA_1_1EnhancedDataset_a683ee6b03fc4ce6766d45cb05d5cb855}{
+{\footnotesize template$<$class indexcoll\_\-t $>$ }\\boost::shared\_\-ptr$<$ \hyperlink{classCDA_1_1EnhancedDataset}{EnhancedDataset} $>$ \hyperlink{classCDA_1_1EnhancedDataset_a683ee6b03fc4ce6766d45cb05d5cb855}{normalized} (indexcoll\_\-t \&slc) const }
+\label{classCDA_1_1EnhancedDataset_a683ee6b03fc4ce6766d45cb05d5cb855}
+
+\begin{DoxyCompactList}\small\item\em Normalize only the selected fields. \item\end{DoxyCompactList}\item 
+\hypertarget{classCDA_1_1EnhancedDataset_a6159b71320f3e076639b72d202817c30}{
+{\footnotesize template$<$class indexcoll\_\-t $>$ }\\boost::shared\_\-ptr$<$ \hyperlink{classCDA_1_1EnhancedDataset}{EnhancedDataset} $>$ {\bfseries projected} (indexcoll\_\-t \&slc) const }
+\label{classCDA_1_1EnhancedDataset_a6159b71320f3e076639b72d202817c30}
+
+\item 
+\hypertarget{classCDA_1_1EnhancedDataset_a27f451c43eb9ca54b10b2463047af559}{
+std::pair$<$ vtrit\_\-t, vtrit\_\-t $>$ {\bfseries getNormalizedIterPair} () const }
+\label{classCDA_1_1EnhancedDataset_a27f451c43eb9ca54b10b2463047af559}
+
+\item 
+\hypertarget{classCDA_1_1EnhancedDataset_a7545c4c91dff1ccea71b02b5acdba507}{
+std::pair$<$ dataframe\_\-t::const\_\-iterator, dataframe\_\-t::const\_\-iterator $>$ {\bfseries getIterPair} () const }
+\label{classCDA_1_1EnhancedDataset_a7545c4c91dff1ccea71b02b5acdba507}
+
+\item 
+\hypertarget{classCDA_1_1EnhancedDataset_a52334e7e5f1fb68e0414a42cbb4a6d6d}{
+{\footnotesize template$<$class F $>$ }\\std::pair$<$ boost::filter\_\-iterator$<$ F, dataframe\_\-t::const\_\-iterator $>$, boost::filter\_\-iterator$<$ F, dataframe\_\-t::const\_\-iterator $>$ $>$ {\bfseries getFilteredIterPair} (F \&function) const }
+\label{classCDA_1_1EnhancedDataset_a52334e7e5f1fb68e0414a42cbb4a6d6d}
+
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classCDA_1_1EnhancedDataset_a10e8496988b39465453b93894c1532d1}{
+dataframe\_\-t {\bfseries m\_\-data}}
+\label{classCDA_1_1EnhancedDataset_a10e8496988b39465453b93894c1532d1}
+
+\item 
+\hypertarget{classCDA_1_1EnhancedDataset_ae2e4868942ed33abf9d495b59525933b}{
+unsigned {\bfseries D}}
+\label{classCDA_1_1EnhancedDataset_ae2e4868942ed33abf9d495b59525933b}
+
+\item 
+\hypertarget{classCDA_1_1EnhancedDataset_a0a2a1d4c3eda234c49cc8192b5924045}{
+std::vector$<$ boost\_\-statistics\_\-t $>$ \hyperlink{classCDA_1_1EnhancedDataset_a0a2a1d4c3eda234c49cc8192b5924045}{accs}}
+\label{classCDA_1_1EnhancedDataset_a0a2a1d4c3eda234c49cc8192b5924045}
+
+\begin{DoxyCompactList}\small\item\em One for each dimension. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+aware of basic statistics for normalization etc. 
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei:\begin{DoxyCompactItemize}
+\item 
+include/data/\hyperlink{Data_8h_09_09}{Data.h++}\end{DoxyCompactItemize}

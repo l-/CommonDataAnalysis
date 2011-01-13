@@ -31,6 +31,7 @@
 <option id="gnu.cpp.compiler.so.debug.option.debugging.level.804822855" name="Debug Level" superClass="gnu.cpp.compiler.so.debug.option.debugging.level" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 <option id="gnu.cpp.compiler.option.include.paths.1565732340" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
 <listOptionValue builtIn="false" value="/opt/intel/ipp/6.1.2.051/ia32/include"/>
+<listOptionValue builtIn="false" value=".."/>
 <listOptionValue builtIn="false" value="../include"/>
 <listOptionValue builtIn="false" value="../src"/>
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/CommonDataAnalysis/CommonDataAnalysis/include}&quot;"/>
@@ -60,7 +61,7 @@
 <option id="gnu.cpp.link.option.paths.1678396831" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
 <listOptionValue builtIn="false" value="/opt/intel/ipp/6.1.2.051/ia32/lib"/>
 </option>
-<option id="gnu.cpp.link.option.libs.356417265" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs"/>
+<option id="gnu.cpp.link.option.libs.356417265" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs"/>
 <inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.309746172" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 <additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 <additionalInput kind="additionalinput" paths="$(LIBS)"/>

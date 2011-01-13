@@ -7,7 +7,7 @@
  *
  */
 
-#include "numeric_optimization.h++"
+#include "include/math/numeric_optimization.h++"
 
 namespace CDA {
 

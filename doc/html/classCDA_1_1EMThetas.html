@@ -1,0 +1,135 @@
+<!-- This comment will put IE 6, 7 and 8 in quirks mode -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>CommonDataAnalysis: CDA::EMThetas Klassenreferenz</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Erzeugt von Doxygen 1.6.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="pages.html"><span>Zusätzliche&nbsp;Informationen</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Klassen</span></a></li>
+      <li><a href="files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <img id="MSearchSelect" src="search/search.png"
+             onmouseover="return searchBox.OnSearchSelectShow()"
+             onmouseout="return searchBox.OnSearchSelectHide()"
+             alt=""/>
+        <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+             onfocus="searchBox.OnSearchFieldFocus(true)" 
+             onblur="searchBox.OnSearchFieldFocus(false)" 
+             onkeyup="searchBox.OnSearchFieldChange(event)"/>
+        <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="annotated.html"><span>Auflistung&nbsp;der&nbsp;Klassen</span></a></li>
+      <li><a href="hierarchy.html"><span>Klassenhierarchie</span></a></li>
+      <li><a href="functions.html"><span>Klassen-Elemente</span></a></li>
+    </ul>
+  </div>
+  <div class="navpath"><b>CDA</b>::<a class="el" href="classCDA_1_1EMThetas.html">EMThetas</a>
+  </div>
+</div>
+<div class="contents">
+<h1>CDA::EMThetas Klassenreferenz</h1><!-- doxytag: class="CDA::EMThetas" -->
+<p>Model parameters for <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class. Contains the general outline of EM algorithm, details...">EM</a>.  
+<a href="#_details">Mehr ...</a></p>
+
+<p><code>#include &lt;<a class="el" href="EMTheta_8h_09_09_source.html">EMTheta.h++</a>&gt;</code></p>
+
+<p><a href="classCDA_1_1EMThetas-members.html">Aufstellung aller Elemente</a></p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Öffentliche Methoden</h2></td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class II &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&nbsp;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMThetas.html#a1c8058269e4d8a32a2dd58f13ad94369">setTheta</a> (std::pair&lt; II, II &gt; thetas_)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aadd9127ef459eda6eb890e1f3bd5a1bc"></a><!-- doxytag: member="CDA::EMThetas::getThetas" ref="aadd9127ef459eda6eb890e1f3bd5a1bc" args="() const " -->
+const std::vector&lt; fvector_t &gt; &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMThetas.html#aadd9127ef459eda6eb890e1f3bd5a1bc">getThetas</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">const getter <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab5cc3d05862d41aa16a38b7c4ec51bd3"></a><!-- doxytag: member="CDA::EMThetas::getModifyThetas" ref="ab5cc3d05862d41aa16a38b7c4ec51bd3" args="()" -->
+std::vector&lt; fvector_t &gt; &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMThetas.html#ab5cc3d05862d41aa16a38b7c4ec51bd3">getModifyThetas</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">non-const getter. <br/></td></tr>
+<tr><td colspan="2"><h2>Geschützte Attribute</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2fb1c00c889f9a5bfe95e65ba1c4b132"></a><!-- doxytag: member="CDA::EMThetas::thetas" ref="a2fb1c00c889f9a5bfe95e65ba1c4b132" args="" -->
+std::vector&lt; fvector_t &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMThetas.html#a2fb1c00c889f9a5bfe95e65ba1c4b132">thetas</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Model parameters possibly a single vector, or K PDF parameter vectors, one per class =&gt; these belong in the concrete classes? I hate duplication! <br/></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+<p>Model parameters for <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class. Contains the general outline of EM algorithm, details...">EM</a>. </p>
+<h2><a class="anchor" id="DESCRIPTION">
+DESCRIPTION</a></h2>
+<p>To avoid duplication. Can't just put it into <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class. Contains the general outline of EM algorithm, details...">EM</a> and inherit because of duplicate class problems</p>
+<h2><a class="anchor" id="ARCHITECTURE">
+CAVEAT</a></h2>
+<p>I dislike having this class around, this should all be in <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class. Contains the general outline of EM algorithm, details...">EM</a> in any proper programming language, it would be possible. </p>
+<hr/><h2>Dokumentation der Elementfunktionen</h2>
+<a class="anchor" id="a1c8058269e4d8a32a2dd58f13ad94369"></a><!-- doxytag: member="CDA::EMThetas::setTheta" ref="a1c8058269e4d8a32a2dd58f13ad94369" args="(std::pair&lt; II, II &gt; thetas_)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class II &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void CDA::EMThetas::setTheta </td>
+          <td>(</td>
+          <td class="paramtype">std::pair&lt; II, II &gt;&nbsp;</td>
+          <td class="paramname"> <em>thetas_</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Initial guess for model parameters -- strictly needed</p>
+<p>Input data format differs for each individual distribution, be careful and read the documentation.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Noch zu erledigen:</a></b></dt><dd>random numbers when none given </dd></dl>
+
+<p><div class="dynheader">
+Hier ist ein Graph der zeigt, was diese Funktion aufruft:</div>
+<div class="dynsection">
+<div class="center"><img src="classCDA_1_1EMThetas_a1c8058269e4d8a32a2dd58f13ad94369_cgraph.png" border="0" usemap="#classCDA_1_1EMThetas_a1c8058269e4d8a32a2dd58f13ad94369_cgraph_map" alt=""></div>
+<map name="classCDA_1_1EMThetas_a1c8058269e4d8a32a2dd58f13ad94369_cgraph_map" id="classCDA_1_1EMThetas_a1c8058269e4d8a32a2dd58f13ad94369_cgraph">
+<area shape="rect" href="classCDA_1_1EMThetas.html#ab5cc3d05862d41aa16a38b7c4ec51bd3" title="non&#45;const getter." alt="" coords="231,5,449,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<hr/>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei:<ul>
+<li>src/expmax/<a class="el" href="EMTheta_8h_09_09_source.html">EMTheta.h++</a></li>
+</ul>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>Alle</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Klassen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Dateien</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Funktionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&nbsp;</span>Variablen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&nbsp;</span>Typdefinitionen</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address style="text-align: right;"><small>Erzeugt am Thu Jan 6 09:53:47 2011 für CommonDataAnalysis von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

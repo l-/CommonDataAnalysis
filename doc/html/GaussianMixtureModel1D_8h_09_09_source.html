@@ -1,0 +1,153 @@
+<!-- This comment will put IE 6, 7 and 8 in quirks mode -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>CommonDataAnalysis: src/expmax/GaussianMixtureModel1D.h++ Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Erzeugt von Doxygen 1.6.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="pages.html"><span>Zusätzliche&nbsp;Informationen</span></a></li>
+      <li><a href="annotated.html"><span>Klassen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <img id="MSearchSelect" src="search/search.png"
+             onmouseover="return searchBox.OnSearchSelectShow()"
+             onmouseout="return searchBox.OnSearchSelectHide()"
+             alt=""/>
+        <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+             onfocus="searchBox.OnSearchFieldFocus(true)" 
+             onblur="searchBox.OnSearchFieldFocus(false)" 
+             onkeyup="searchBox.OnSearchFieldChange(event)"/>
+        <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    </ul>
+  </div>
+<h1>src/expmax/GaussianMixtureModel1D.h++</h1><a href="GaussianMixtureModel1D_8h_09_09.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00015"></a>00015 <span class="preprocessor">#pragma once</span>
+<a name="l00016"></a>00016 <span class="preprocessor"></span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &quot;<a class="code" href="FitMultivariateMulticlassByEM_8h_09_09.html">FitMultivariateMulticlassByEM.h++</a>&quot;</span>
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019 
+<a name="l00020"></a>00020 <span class="keyword">namespace </span>CDA {
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022 
+<a name="l00029"></a><a class="code" href="classCDA_1_1GaussianMixtureModel1D.html">00029</a> <span class="keyword">class </span><a class="code" href="classCDA_1_1GaussianMixtureModel1D.html">GaussianMixtureModel1D</a> : <span class="keyword">public</span> <a class="code" href="classCDA_1_1FitMulticlassByEM.html">FitUnivariateMulticlassByEM</a> {
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031 <span class="keyword">public</span>:
+<a name="l00032"></a><a class="code" href="classCDA_1_1GaussianMixtureModel1D.html#a72f70fc9a6a659f61bcaf74597d82aa7">00032</a>     <span class="keyword">typedef</span> <span class="keywordtype">double</span> <a class="code" href="classCDA_1_1GaussianMixtureModel1D.html#a72f70fc9a6a659f61bcaf74597d82aa7" title="Propagate the datapoint_t. Why can&amp;#39;t I give it the same name? Annoying.">datapoint_t</a>;
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034 <span class="keyword">private</span>:
+<a name="l00035"></a>00035     <span class="keyword">using</span> <a class="code" href="classCDA_1_1EM.html" title="A generic EM model fitting class. Contains the general outline of EM algorithm, details...">EM&lt;datapoint_t&gt;::m_theta</a>;
+<a name="l00036"></a>00036     <span class="keyword">using</span> <a class="code" href="classCDA_1_1EM.html" title="A generic EM model fitting class. Contains the general outline of EM algorithm, details...">EM&lt;datapoint_t&gt;::m_data</a>;
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038     <span class="keyword">using</span> <a class="code" href="classCDA_1_1FitMulticlassByEM.html#a85afbb296883c5de3364b161151d9e38" title="Number of individual Distributions.">FitUnivariateMulticlassByEM::K</a>;
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040     <span class="keyword">inline</span> <span class="keywordtype">double</span> squaredDistanceToMean(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> k, <span class="keyword">const</span> <a class="code" href="classCDA_1_1GaussianMixtureModel1D.html#a72f70fc9a6a659f61bcaf74597d82aa7" title="Propagate the datapoint_t. Why can&amp;#39;t I give it the same name? Annoying.">datapoint_t</a> x)<span class="keyword"> const </span>{
+<a name="l00041"></a>00041         <span class="keywordflow">return</span> fabs(x - <a class="code" href="classCDA_1_1GaussianMixtureModel1D.html#abd992452517cd8f0efc8f5408f898e33" title="Estimated parameter getter. Get current estimated mean vector of class k.">getMean</a>(k)); <span class="comment">// OBS! fabs!</span>
+<a name="l00042"></a>00042     }
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044 <span class="keyword">protected</span>:
+<a name="l00045"></a>00045 
+<a name="l00049"></a>00049     <span class="keywordtype">void</span> <a class="code" href="classCDA_1_1GaussianMixtureModel1D.html#ac8215fdb213641c0cf49eeb2f6d4c045" title="E-step: update hidden attributes, i.e. class membership probabilities">update_thetas</a>();
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051 <span class="keyword">public</span>:
+<a name="l00052"></a>00052 
+<a name="l00061"></a>00061     <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="classCDA_1_1GaussianMixtureModel1D.html#a0ee83653e92c833951631f300cfe338d" title="Evaluate the cluster model PDF with class parameters  at .">evalPDF</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> k, <span class="keyword">const</span> <a class="code" href="classCDA_1_1GaussianMixtureModel1D.html#a72f70fc9a6a659f61bcaf74597d82aa7" title="Propagate the datapoint_t. Why can&amp;#39;t I give it the same name? Annoying.">datapoint_t</a>&amp; x) <span class="keyword">const</span>;
+<a name="l00062"></a>00062 
+<a name="l00066"></a><a class="code" href="classCDA_1_1GaussianMixtureModel1D.html#a31a8e94938ebe3e88f66bfbd5a90017f">00066</a>     <a class="code" href="classCDA_1_1GaussianMixtureModel1D.html#a31a8e94938ebe3e88f66bfbd5a90017f" title="Call superclass constructor to fill data fields.">GaussianMixtureModel1D</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> K_)
+<a name="l00067"></a>00067     : <a class="code" href="classCDA_1_1FitMulticlassByEM.html">FitUnivariateMulticlassByEM</a>(K_)
+<a name="l00068"></a>00068     {  }
+<a name="l00069"></a>00069 
+<a name="l00076"></a>00076     <span class="keywordtype">double</span> <a class="code" href="classCDA_1_1GaussianMixtureModel1D.html#abd992452517cd8f0efc8f5408f898e33" title="Estimated parameter getter. Get current estimated mean vector of class k.">getMean</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> k) <span class="keyword">const</span>;
+<a name="l00077"></a>00077 
+<a name="l00084"></a>00084     <span class="keywordtype">double</span> <a class="code" href="classCDA_1_1GaussianMixtureModel1D.html#aa943f4410a27db1d9530b7c63e45b90b" title="Estimated parameter getter Get current estimated sigma of class k.">getSigma</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> k) <span class="keyword">const</span>;
+<a name="l00085"></a>00085     <span class="comment">//</span>
+<a name="l00086"></a>00086     <span class="comment">//    /**</span>
+<a name="l00087"></a>00087     <span class="comment">//     * Evaluate the PDF with parameters of class k</span>
+<a name="l00088"></a>00088     <span class="comment">//     *</span>
+<a name="l00089"></a>00089     <span class="comment">//     * @param[in] k class no.</span>
+<a name="l00090"></a>00090     <span class="comment">//     * @param[in] x</span>
+<a name="l00091"></a>00091     <span class="comment">//     */</span>
+<a name="l00092"></a>00092     <span class="comment">//    inline double evalPDF(const unsigned k, const double x) const;</span>
+<a name="l00093"></a>00093 
+<a name="l00100"></a>00100     <span class="keyword">template</span>&lt;<span class="keyword">class</span> II&gt;
+<a name="l00101"></a><a class="code" href="classCDA_1_1GaussianMixtureModel1D.html#ada5a646f31d12697bc0fc66934a54dab">00101</a>     <span class="keywordtype">void</span> <a class="code" href="classCDA_1_1GaussianMixtureModel1D.html#ada5a646f31d12697bc0fc66934a54dab" title="Initialize known samples, i.e. your data points.">setData</a>(std::pair&lt;II, II&gt; data_) {
+<a name="l00102"></a>00102         <a class="code" href="classCDA_1_1GaussianMixtureModel1D.html#ada5a646f31d12697bc0fc66934a54dab" title="Initialize known samples, i.e. your data points.">FitUnivariateMulticlassByEM::setData</a>(data_);
+<a name="l00103"></a>00103     }
+<a name="l00104"></a>00104 
+<a name="l00113"></a>00113     boost::function&lt;double(const double)&gt;
+<a name="l00114"></a>00114     getDiscriminantFunction(<span class="keyword">const</span> <span class="keywordtype">int</span> k1, <span class="keyword">const</span> <span class="keywordtype">int</span> k2)<span class="keyword"> const </span>{
+<a name="l00115"></a>00115         <span class="comment">// @todo double-check</span>
+<a name="l00116"></a>00116 
+<a name="l00117"></a>00117         assert(k1 != k2);
+<a name="l00118"></a>00118 
+<a name="l00119"></a>00119         <span class="keywordflow">return</span> boost::function&lt;double(const double)&gt;(
+<a name="l00120"></a>00120                 boost::lambda::bind(fabs, (boost::lambda::_1 - <a class="code" href="classCDA_1_1GaussianMixtureModel1D.html#abd992452517cd8f0efc8f5408f898e33" title="Estimated parameter getter. Get current estimated mean vector of class k.">getMean</a>(k1))) * pow(<a class="code" href="classCDA_1_1GaussianMixtureModel1D.html#aa943f4410a27db1d9530b7c63e45b90b" title="Estimated parameter getter Get current estimated sigma of class k.">getSigma</a>(k2),2)
+<a name="l00121"></a>00121                 - boost::lambda::bind(fabs, (boost::lambda::_1 - <a class="code" href="classCDA_1_1GaussianMixtureModel1D.html#abd992452517cd8f0efc8f5408f898e33" title="Estimated parameter getter. Get current estimated mean vector of class k.">getMean</a>(k2)))  * pow(<a class="code" href="classCDA_1_1GaussianMixtureModel1D.html#aa943f4410a27db1d9530b7c63e45b90b" title="Estimated parameter getter Get current estimated sigma of class k.">getSigma</a>(k1),2)
+<a name="l00122"></a>00122                 - 2 * log ( <a class="code" href="classCDA_1_1GaussianMixtureModel1D.html#aa943f4410a27db1d9530b7c63e45b90b" title="Estimated parameter getter Get current estimated sigma of class k.">getSigma</a>(k2) / <a class="code" href="classCDA_1_1GaussianMixtureModel1D.html#aa943f4410a27db1d9530b7c63e45b90b" title="Estimated parameter getter Get current estimated sigma of class k.">getSigma</a>(k1) ) * pow(<a class="code" href="classCDA_1_1GaussianMixtureModel1D.html#aa943f4410a27db1d9530b7c63e45b90b" title="Estimated parameter getter Get current estimated sigma of class k.">getSigma</a>(k2),2) * pow(<a class="code" href="classCDA_1_1GaussianMixtureModel1D.html#aa943f4410a27db1d9530b7c63e45b90b" title="Estimated parameter getter Get current estimated sigma of class k.">getSigma</a>(k1),2));
+<a name="l00123"></a>00123         <span class="comment">//          &lt; 0  ? k1 : k2 );</span>
+<a name="l00124"></a>00124 
+<a name="l00125"></a>00125         <span class="comment">// eh? ist auch falsch ...</span>
+<a name="l00126"></a>00126     }
+<a name="l00127"></a>00127 
+<a name="l00136"></a><a class="code" href="classCDA_1_1GaussianMixtureModel1D.html#af375c24f37a361437719bfe42b03fd4a">00136</a>     <span class="keywordtype">double</span> <a class="code" href="classCDA_1_1GaussianMixtureModel1D.html#af375c24f37a361437719bfe42b03fd4a" title="Find explicit class boundary.">findDecisionLimit</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> k1, <span class="keyword">const</span> <span class="keywordtype">int</span> k2)<span class="keyword"> const </span>{
+<a name="l00137"></a>00137 
+<a name="l00138"></a>00138         <span class="keywordtype">double</span> min = <a class="code" href="classCDA_1_1GaussianMixtureModel1D.html#abd992452517cd8f0efc8f5408f898e33" title="Estimated parameter getter. Get current estimated mean vector of class k.">getMean</a>(k1);
+<a name="l00139"></a>00139         <span class="keywordtype">double</span> max = <a class="code" href="classCDA_1_1GaussianMixtureModel1D.html#abd992452517cd8f0efc8f5408f898e33" title="Estimated parameter getter. Get current estimated mean vector of class k.">getMean</a>(k2);
+<a name="l00140"></a>00140 
+<a name="l00141"></a>00141         <span class="keywordflow">if</span> (max &gt; min)
+<a name="l00142"></a>00142             <span class="keywordflow">return</span>
+<a name="l00143"></a>00143             findSingleUnivariateRootIntervalSearch(getDiscriminantFunction(k1, k2), min, max,1e-7);
+<a name="l00144"></a>00144         <span class="keywordflow">else</span>
+<a name="l00145"></a>00145             <span class="keywordflow">return</span>
+<a name="l00146"></a>00146             findSingleUnivariateRootIntervalSearch(getDiscriminantFunction(k2, k1), max, min, 1e-7);
+<a name="l00147"></a>00147 
+<a name="l00148"></a>00148         <span class="comment">// @muß getestet werden</span>
+<a name="l00149"></a>00149     }
+<a name="l00150"></a>00150 
+<a name="l00154"></a>00154     <span class="keyword">const</span> std::string <a class="code" href="classCDA_1_1GaussianMixtureModel1D.html#a08a734c5b74bccda43429df49db58edf" title="Class name for logging ...">className</a>() <span class="keyword">const</span>;
+<a name="l00155"></a>00155 
+<a name="l00159"></a>00159     <span class="keyword">const</span> std::string <a class="code" href="classCDA_1_1GaussianMixtureModel1D.html#adfb929641e967030e9b63c6e53ea64c0" title="Each class gets its own line, that&amp;#39;s the easiest way.">getCSVHeader</a>() <span class="keyword">const</span>;
+<a name="l00160"></a>00160 
+<a name="l00161"></a>00161 };
+<a name="l00162"></a>00162 
+<a name="l00163"></a>00163 } <span class="comment">// ns</span>
+</pre></div></div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>Alle</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Klassen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Dateien</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Funktionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&nbsp;</span>Variablen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&nbsp;</span>Typdefinitionen</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address style="text-align: right;"><small>Erzeugt am Thu Jan 6 09:53:46 2011 für CommonDataAnalysis von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

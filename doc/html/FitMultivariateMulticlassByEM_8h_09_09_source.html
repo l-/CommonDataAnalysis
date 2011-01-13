@@ -1,0 +1,89 @@
+<!-- This comment will put IE 6, 7 and 8 in quirks mode -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>CommonDataAnalysis: src/expmax/FitMultivariateMulticlassByEM.h++ Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Erzeugt von Doxygen 1.6.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="pages.html"><span>Zusätzliche&nbsp;Informationen</span></a></li>
+      <li><a href="annotated.html"><span>Klassen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <img id="MSearchSelect" src="search/search.png"
+             onmouseover="return searchBox.OnSearchSelectShow()"
+             onmouseout="return searchBox.OnSearchSelectHide()"
+             alt=""/>
+        <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+             onfocus="searchBox.OnSearchFieldFocus(true)" 
+             onblur="searchBox.OnSearchFieldFocus(false)" 
+             onkeyup="searchBox.OnSearchFieldChange(event)"/>
+        <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    </ul>
+  </div>
+<h1>src/expmax/FitMultivariateMulticlassByEM.h++</h1><a href="FitMultivariateMulticlassByEM_8h_09_09.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00010"></a>00010 <span class="preprocessor">#pragma once</span>
+<a name="l00011"></a>00011 <span class="preprocessor"></span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="FitMulticlassByEM_8h_09_09.html">FitMulticlassByEM.h++</a>&quot;</span>
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 <span class="keyword">namespace </span>CDA {
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 
+<a name="l00020"></a>00020 <span class="keyword">typedef</span> FitMulticlassByEM&lt;double&gt; FitUnivariateMulticlassByEM;
+<a name="l00021"></a>00021 
+<a name="l00025"></a><a class="code" href="classCDA_1_1FitMultivariateMulticlassByEM.html">00025</a> <span class="keyword">class </span><a class="code" href="classCDA_1_1FitMultivariateMulticlassByEM.html" title="It&amp;#39;s been demoted to a typedef.">FitMultivariateMulticlassByEM</a> : <span class="keyword">public</span> <a class="code" href="classCDA_1_1FitMulticlassByEM.html">FitMulticlassByEM</a>&lt;fvector_t&gt; {
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027 <span class="keyword">public</span>:
+<a name="l00028"></a>00028 
+<a name="l00032"></a><a class="code" href="classCDA_1_1FitMultivariateMulticlassByEM.html#a1da490e479036c62f0cbf55dd06201a6">00032</a>     <span class="keyword">typedef</span> fvector_t <a class="code" href="classCDA_1_1FitMultivariateMulticlassByEM.html#a1da490e479036c62f0cbf55dd06201a6" title="Define the datapoint_t.">datapoint_t</a>;
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034 <span class="keyword">public</span>:
+<a name="l00035"></a>00035 
+<a name="l00042"></a><a class="code" href="classCDA_1_1FitMultivariateMulticlassByEM.html#a8d6225a029e5e06f09e9820abe538286">00042</a>     <a class="code" href="classCDA_1_1FitMultivariateMulticlassByEM.html#a8d6225a029e5e06f09e9820abe538286" title="Constructor.">FitMultivariateMulticlassByEM</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> K_, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> D_)
+<a name="l00043"></a>00043     : <a class="code" href="classCDA_1_1FitMulticlassByEM.html">FitMulticlassByEM</a>&lt;fvector_t&gt;(K_, D_) {}
+<a name="l00044"></a>00044     <span class="comment">// , EM&lt;fvector_t&gt;(D_) {}</span>
+<a name="l00045"></a>00045 
+<a name="l00049"></a>00049     <span class="keywordtype">unsigned</span> <a class="code" href="classCDA_1_1FitMultivariateMulticlassByEM.html#a61354d086a158b075beccd1a956eb1f8" title="Convenience getter for D, same format as getN() and getP().">getD</a>() <span class="keyword">const</span>;
+<a name="l00050"></a>00050 };
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052 } <span class="comment">// ns</span>
+</pre></div></div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>Alle</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Klassen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Dateien</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Funktionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&nbsp;</span>Variablen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&nbsp;</span>Typdefinitionen</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address style="text-align: right;"><small>Erzeugt am Thu Jan 6 09:53:46 2011 für CommonDataAnalysis von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>
