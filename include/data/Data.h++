@@ -36,7 +36,7 @@
 #include <boost/iterator/transform_iterator.hpp>
 #include <boost/function.hpp>
 // #include <boost/lambda/lambda.hpp>
-#include <boost/lambda/bind.hpp>
+// #include <boost/lambda/bind.hpp>
 #include <boost/mem_fn.hpp>
 
 #include <boost/bind.hpp>
@@ -235,7 +235,9 @@ public:
         //        // http://stackoverflow.com/questions/3413044/declaring-and-defining-a-function-object-inside-a-class-member-function
 
         boost::function<fvector_t::value_type(const fvector_t&)> fn
-                (boost::bind(boost::mem_fn(&fvector::operator()), _1, i ));
+                (boost::bind(
+                        boost::mem_fn(&fvector_t::operator()), _1, i ));
+                        // boost::mem_fn((const fvector_t::value_type&(const fvector_t&, unsigned int))(&fvector_t::operator())), _1, i ));
 
         return std::make_pair(
                 boost::make_transform_iterator(m_data.begin(), fn),
