@@ -10,6 +10,7 @@
 #pragma once
 
 #include "EM.h++"
+#include <vector>
 
 namespace CDA {
 

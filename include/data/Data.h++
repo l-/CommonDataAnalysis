@@ -35,7 +35,7 @@
 #include <boost/iterator/filter_iterator.hpp>
 #include <boost/iterator/transform_iterator.hpp>
 #include <boost/function.hpp>
-#include <boost/lambda/lambda.hpp>
+// #include <boost/lambda/lambda.hpp>
 #include <boost/lambda/bind.hpp>
 #include <boost/mem_fn.hpp>
 
@@ -44,9 +44,9 @@
 #include <boost/bind/placeholders.hpp>
 #include <boost/bind/mem_fn.hpp>
 
-namespace CDA {
+#include "common_definitions.h++"
 
-typedef boost::numeric::ublas::vector<double> fvector_t;
+namespace CDA {
 
 using namespace boost::accumulators;
 namespace ublas = boost::numeric::ublas;
@@ -220,6 +220,29 @@ public:
                 boost::make_transform_iterator(m_data.end(), fn)
         );
     }
+
+
+    typedef boost::transform_iterator<boost::function<fvector_t::value_type(const fvector_t&)>,
+            dataframe_t::const_iterator
+            > vtrit_1d_t;
+    /**
+     * @brief Extract one dimension only, in case the user needs a simple list of scalars
+     *
+     * @param[in] i select this dimension.
+     */
+    std::pair<vtrit_1d_t, vtrit_1d_t> getScalarIterPair(const int i) const {
+        //
+        //        // http://stackoverflow.com/questions/3413044/declaring-and-defining-a-function-object-inside-a-class-member-function
+
+        boost::function<fvector_t::value_type(const fvector_t&)> fn
+                (boost::bind(boost::mem_fn(&fvector::operator()), _1, i ));
+
+        return std::make_pair(
+                boost::make_transform_iterator(m_data.begin(), fn),
+                boost::make_transform_iterator(m_data.end(), fn)
+        );
+    }
+
 
     std::pair<dataframe_t::const_iterator, dataframe_t::const_iterator> getIterPair() const {
         return std::make_pair(m_data.begin(), m_data.end());
