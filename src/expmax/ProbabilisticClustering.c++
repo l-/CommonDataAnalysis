@@ -421,8 +421,12 @@ double GaussianMixtureModel::getSigmaDet(const unsigned k) const {
     return det(getSigmaMatrix(k));
 }
 
+
 const boost::numeric::ublas::symmetric_matrix<double, boost::numeric::ublas::upper>
-GaussianMixtureModel::getInvSigma(const unsigned k) const {
+GaussianMixtureModelNDCommon::getInvSigma(const unsigned k) const {
+
+    // @todo "calculateInvSigma"
+
     namespace ublas = boost::numeric::ublas;
     // @todo avoid recalculations. but first get it right
 
@@ -447,12 +451,12 @@ GaussianMixtureModel::getInvSigma(const unsigned k) const {
 }
 
 const boost::numeric::ublas::vector_range<const fvector_t>
-GaussianMixtureModel::getMean(const unsigned k) const {
+GaussianMixtureModelNDCommon::getMean(const unsigned k) const {
     using namespace boost::numeric::ublas;
     return project(m_theta.getThetas()[k], range(1, 1+getD()));
 }
 
-double GaussianMixtureModel::evalPDF(const unsigned k, const datapoint_t& x) const {
+double GaussianMixtureModelNDCommon::evalPDF(const unsigned k, const datapoint_t& x) const {
 
     assert(m_theta . getThetas() . size() > 0);
 
