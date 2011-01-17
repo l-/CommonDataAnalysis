@@ -42,11 +42,11 @@ void GaussianMixtureModel::improveClusterModelParameters() {
     // Optimize all you like, someday
 
     std::vector<fvector_t> means;
-    std::vector<boost::numeric::ublas::symmetric_matrix<double> > sigmas;
+    std::vector<sym_mtx_t> sigmas;
     for (unsigned k=0; k<K; ++k) {
         means.push_back(boost::numeric::ublas::zero_vector<double>(getDataDimensionality()));
         sigmas.push_back(
-                boost::numeric::ublas::symmetric_matrix<double>(
+                sym_mtx_t(
                         boost::numeric::ublas::zero_matrix<double>(getDataDimensionality(), getDataDimensionality())));
     }
 
@@ -76,7 +76,7 @@ void GaussianMixtureModel::improveClusterModelParameters() {
     // Calculate weighted sample covariance matrix, in effect
     for (unsigned n=0; n<getN(); ++n) {
         for (unsigned d=0; d<getDataDimensionality(); ++d) {
-            for (unsigned e=0; e<getDataDimensionality(); ++e) {
+            for (unsigned e=d; e<getDataDimensionality(); ++e) {
                 for (unsigned k=0; k<getK(); ++k) {
                     sigmas[k](d,e) += classif[n](k) *
                            ((getData(n)(d) - means[k](d)) * (getData(n)(e) - means[k](e)));
@@ -88,9 +88,13 @@ void GaussianMixtureModel::improveClusterModelParameters() {
     // Somehow, I doubt this is correct ...
     for (unsigned k=0; k<getK(); ++k) {
         for (unsigned d=0; d<getDataDimensionality(); ++d) {
-            for (unsigned e=0; e<getDataDimensionality(); ++e) {
+            for (unsigned e=d; e<getDataDimensionality(); ++e) {
 
-                m_theta.getModifyThetas()[k][1+a(d,e)] = sigmas[k](d,e) / sumclassif[k];
+#ifdef EXTRA_VERBOSE
+                std::cerr << d << " " << e << " " << 1 + getDataDimensionality() + a(e,d) << std::endl;
+#endif
+
+                m_theta.getModifyThetas()[k][1 + getDataDimensionality() + a(e,d)] = sigmas[k](d,e) / sumclassif[k];
 
             }
         }

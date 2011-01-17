@@ -69,13 +69,16 @@ protected:
 
     /**
      * @brief Get param index - D of covariance parameter sigma(i,j) ;-)
+     * i.e. does not take into account the other parameters, so the
+     * offset still has to be added. clear?
      *
      * @section NOTA BENE
-     * <b> \f$i < j\f$ always! </b>
+     * <b> \f$i <= j\f$ always! </b>
      * So the upper triangular part of the matrix is stored.
      */
     inline unsigned a(const unsigned i, const unsigned j) const {
-        return i*getDataDimensionality() - j - (i*(i+1))/2;
+        if (i>j) { return a(j,i); } // stupid me
+        return i*getDataDimensionality() + j - (i*(i+1))/2;
     }
 
     /**
