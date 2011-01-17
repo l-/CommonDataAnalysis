@@ -1,100 +1,96 @@
-///**
-// * @file GaussianMixtureModelND.h++
-// *
-// * @author Erik Flick <erik.flick [AETT] informatik.uni-hamburg.de>
-// *
-// *  Created on: Jan 5, 2011
-// *
-// */
-//
-//
-//#pragma once
-//
-//#include "EMGenericMixtureModelCore.h++"
+/**
+ * @file GaussianMixtureModelND.h++
+ *
+ * @author Erik Flick <erik.flick [AETT] informatik.uni-hamburg.de>
+ *
+ *  Created on: Jan 5, 2011
+ *
+ */
+
+#pragma once
+
+#include "EMData.h++"
+#include "EMGenericMixtureModelCore.h++"
 //#include "EMCustomOptimization.h++"
-//
-//namespace CDA {
-//
-///**
-// * @class GaussianMixtureModelNDCommon
-// *
-// * @brief A heteroscedastic N-dimensional Gaussian Mixture Model
-// * minus the parameter optimization part, which is left purevirtual
-// */
-//class GaussianMixtureModelNDCommon : public EMData<fvector_t>, EMGenericMixtureModelCore { // hmk
-//
-//public:
-//    typedef fvector_t datapoint_t;
-//
-//    /**
-//     * @brief In C++, "has-a" _always_ works better than inheritance. Anyway:
-//     */
-//    // EMData<datapoint_t> m_data;
-//
-//protected:
-//
-//    /**
-//     * Anyway: let's introduce a new version here
-//     *
-//     * @return this
-//     */
-//    virtual EMData<datapoint_t>& getData();
-//
-//    typedef boost::numeric::ublas::symmetric_matrix<double, boost::numeric::ublas::upper> sym_mtx_t;
-//    std::vector<sym_mtx_t> m_cached_invsigmas;
-//
-//    /**
-//     * @brief Get param index - D of covariance parameter sigma(i,j) ;-)
-//     *
-//     * @section NOTA BENE
-//     * <b> \f$i < j\f$ always! </b>
-//     * So the upper triangular part of the matrix is stored.
-//     */
-//    inline unsigned a(const unsigned i, const unsigned j) const {
-//        return i*getData().getDataDimensionality() - j - (i*(i+1))/2;
-//    }
-//
-//    /**
-//     * @brief Get i index of covariance parameter ;-)
-//     */
-//    inline unsigned i(const unsigned a, const unsigned iter = 1) const {
-//        const unsigned D = getData() . getDataDimensionality();
-//        if (a>=D) { return i(a-D+iter, iter+1); }
-//        else { return a; }
-//    }
-//
-//    /**
-//     * @brief Get j index of covariance parameter ;-)
-//     */
-//    inline unsigned j(const unsigned a, const unsigned iter = 1) const {
-//        const unsigned D = m_data . getDataDimensionality();
-//        if (a>=D) { return j(a-D+iter, iter+1); }
-//        else { return iter-1; }
-//    }
-//
-//public:
-//
-//    /**
-//     * @brief Constructor
-//     *
-//     * @param[in] K_
-//     * @param[in] D_
-//     *
-//     * @section Parameter space dimensionality
-//     * P = D + D(D+1)/2 (mean + covariances)
-//     *
-//     * @section WARNING
-//     * Be careful with the parameter order!
-//     *
-//     */
-//    GaussianMixtureModelNDCommon(const unsigned K_, const unsigned D_) {
-//        // @todo
-//    }
-//
-//    /**
-//     * @brief Construct names of parameters, e.g. for output
-//     */
-//    const std::string paramName(const unsigned p) const;
+
+namespace CDA {
+
+/**
+ * @class GaussianMixtureModelNDCommon
+ *
+ * @brief A heteroscedastic N-dimensional Gaussian Mixture Model
+ * minus the parameter optimization part, which is left purevirtual
+ * thus a replacement for the EMData<fvector_t> class.
+ */
+class GaussianMixtureModelNDCommon : public EMData<fvector_t>, EMGenericMixtureModelCore { // hmk
+
+public:
+    typedef fvector_t datapoint_t;
+
+protected:
+
+    /**
+     * Anyway: let's introduce a new version here
+     *
+     * @return this
+     */
+    virtual EMData<datapoint_t>& getDataObj();
+
+    typedef boost::numeric::ublas::symmetric_matrix<double, boost::numeric::ublas::upper> sym_mtx_t;
+    std::vector<sym_mtx_t> m_cached_invsigmas;
+
+    /**
+     * @brief Get param index - D of covariance parameter sigma(i,j) ;-)
+     *
+     * @section NOTA BENE
+     * <b> \f$i < j\f$ always! </b>
+     * So the upper triangular part of the matrix is stored.
+     */
+    inline unsigned a(const unsigned i, const unsigned j) const {
+        return i*getData().getDataDimensionality() - j - (i*(i+1))/2;
+    }
+
+    /**
+     * @brief Get i index of covariance parameter ;-)
+     */
+    inline unsigned i(const unsigned a, const unsigned iter = 1) const {
+        const unsigned D = getData() . getDataDimensionality();
+        if (a>=D) { return i(a-D+iter, iter+1); }
+        else { return a; }
+    }
+
+    /**
+     * @brief Get j index of covariance parameter ;-)
+     */
+    inline unsigned j(const unsigned a, const unsigned iter = 1) const {
+        const unsigned D = m_data . getDataDimensionality();
+        if (a>=D) { return j(a-D+iter, iter+1); }
+        else { return iter-1; }
+    }
+
+public:
+
+    /**
+     * @brief Constructor
+     *
+     * @param[in] K_
+     * @param[in] D_
+     *
+     * @section Parameter space dimensionality
+     * P = D + D(D+1)/2 (mean + covariances)
+     *
+     * @section WARNING
+     * Be careful with the parameter order!
+     *
+     */
+    GaussianMixtureModelNDCommon(const unsigned K_, const unsigned D_) {
+        // @todo
+    }
+
+    /**
+     * @brief Construct names of parameters, e.g. for output
+     */
+    const std::string paramName(const unsigned p) const;
 //
 //    /**
 //     * @brief Evaluate model PDF of cluster k

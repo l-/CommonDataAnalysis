@@ -5,8 +5,6 @@
  *
  *  Created on: Jan 5, 2011
  *
- * @brief
- * No EM.C++ file to compile, header-only for the moment.
  */
 
 #pragma once
@@ -52,7 +50,7 @@ protected:
      *
      * @return m_data
      */
-    virtual EMData<datapoint_t>& getData();
+    virtual EMData<datapoint_t>& getDataObj();
 
     /**
      * @brief One iteration.

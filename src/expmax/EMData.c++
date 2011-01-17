@@ -11,6 +11,11 @@
 
 using namespace CDA;
 
+namespace CDA{
+template<> EMData<double>::EMData(const unsigned D_) : D(1) {}; // all's well
+template<> EMData<fvector_t>::EMData(const unsigned D_) : D(D_) {};
+} // namespace
+
 template <class datapoint_t>
 const datapoint_t& EMData<datapoint_t>::getData(const unsigned n) const {
     return data[n];

@@ -236,7 +236,10 @@ public:
 
         boost::function<fvector_t::value_type(const fvector_t&)> fn
                 (boost::bind(
-                        boost::mem_fn(&fvector_t::operator()), _1, i ));
+                        boost::mem_fn(
+                             // This way it is not a "non-member function type"
+                             static_cast<const fvector_t::value_type&(const fvector_t::*)(unsigned int)const>(
+                             &fvector_t::operator()), _1, i )));
                         // boost::mem_fn((const fvector_t::value_type&(const fvector_t&, unsigned int))(&fvector_t::operator())), _1, i ));
 
         return std::make_pair(
@@ -246,6 +249,11 @@ public:
     }
 
 
+    /**
+     * @brief Get a simple iterator pair
+     *
+     * @return
+     */
     std::pair<dataframe_t::const_iterator, dataframe_t::const_iterator> getIterPair() const {
         return std::make_pair(m_data.begin(), m_data.end());
     }
