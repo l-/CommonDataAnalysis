@@ -45,11 +45,12 @@ void GaussianMixtureModel::improveClusterModelParameters() {
     std::vector<boost::numeric::ublas::symmetric_matrix<double> > sigmas;
     for (unsigned k=0; k<K; ++k) {
         means.push_back(boost::numeric::ublas::zero_vector<double>(getDataDimensionality()));
-        sigmas.push_back(boost::numeric::ublas::zero_matrix<double>(getDataDimensionality(), getDataDimensionality()));
+        sigmas.push_back(
+                boost::numeric::ublas::symmetric_matrix<double>(
+                        boost::numeric::ublas::zero_matrix<double>(getDataDimensionality(), getDataDimensionality())));
     }
 
-    // TODO
-
+    // Preparation
     for (unsigned n=0; n<getN(); ++n) {
         for (unsigned k=0; k<getK(); ++k) {
             sumclassif[k] += classif[n](k);
@@ -57,6 +58,7 @@ void GaussianMixtureModel::improveClusterModelParameters() {
         }
     }
 
+    // Calculate weighted sample mean, in effect
     for (unsigned k=0; k<K; ++k) {
         means[k] /= sumclassif[k];
 
@@ -65,28 +67,42 @@ void GaussianMixtureModel::improveClusterModelParameters() {
             m_theta.getModifyThetas()[k][1+d] = means[k](d);
 
 #ifdef VERBOSE
-        std::cout << "Mean_" << d << " " << k << " now " << m_theta.getThetas()[k](0) << std::endl;
+        std::cout << "Mean_" << d << " " << k << " now " << m_theta.getThetas()[k](1+d) << std::endl;
 #endif
-
 
         }
     }
 
+    // Calculate weighted sample covariance matrix, in effect
+    for (unsigned n=0; n<getN(); ++n) {
+        for (unsigned d=0; d<getDataDimensionality(); ++d) {
+            for (unsigned e=0; e<getDataDimensionality(); ++e) {
+                for (unsigned k=0; k<getK(); ++k) {
+                    sigmas[k](d,e) += classif[n](k) *
+                           ((getData(n)(d) - means[k](d)) * (getData(n)(e) - means[k](e)));
+                }
+            }
+        }
+    }
 
-//    for (unsigned n=0; n<m_data.getN(); ++n) {
-//        for (unsigned k=0; k<K; ++k) {
-//            // using NEW mean, thus in extra step.
-//
-//            // @todo: effizienter und numerisch besser berechnen ... aber erstmal das ganze verfahren geradebiegen.
-//            m_theta.getModifyThetas()[k](2) +=
-//                classif[n](k) * squaredDistanceToMean(k, m_data.getData(n));
-//        }
-//    }
-//
-//    for (unsigned k=0; k<K; ++k) {
-//        m_theta.getModifyThetas()[k](2) = sqrt(m_theta.getModifyThetas()[k](2) / sumclassif[k]);
-//        m_theta.getModifyThetas()[k](0) = 1/((double)(m_data.getN())) * sumclassif[k];
-//    }
+    // Somehow, I doubt this is correct ...
+    for (unsigned k=0; k<getK(); ++k) {
+        for (unsigned d=0; d<getDataDimensionality(); ++d) {
+            for (unsigned e=0; e<getDataDimensionality(); ++e) {
+
+                m_theta.getModifyThetas()[k][1+a(d,e)] = sigmas[k](d,e) / sumclassif[k];
+
+            }
+        }
+
+    #ifdef VERBOSE
+            std::cout << "Sigmas" << " " << k << " now " << sigmas[k]/sumclassif[k] << std::endl;
+    #endif
+    }
+
+
+
+    // @todo: effizienter und numerisch besser berechnen ... aber erstmal das ganze verfahren geradebiegen.
 
     // @todo atomic
 }
