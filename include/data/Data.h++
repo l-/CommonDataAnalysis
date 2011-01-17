@@ -234,12 +234,16 @@ public:
         //
         //        // http://stackoverflow.com/questions/3413044/declaring-and-defining-a-function-object-inside-a-class-member-function
 
-        boost::function<fvector_t::value_type(const fvector_t&)> fn
+        typedef const fvector_t::value_type& crap;
+        // what kind of unsightly stuff is this???
+        typedef crap (fvector_t::*ttt)(unsigned int) const;
+
+        boost::function<crap(const fvector_t&)> fn
                 (boost::bind(
                         boost::mem_fn(
                              // This way it is not a "non-member function type"
-                             static_cast<const fvector_t::value_type&(const fvector_t::*)(unsigned int)const>(
-                             &fvector_t::operator()), _1, i )));
+                             static_cast<ttt>(
+                             &fvector_t::operator())), _1, i ));
                         // boost::mem_fn((const fvector_t::value_type&(const fvector_t&, unsigned int))(&fvector_t::operator())), _1, i ));
 
         return std::make_pair(
