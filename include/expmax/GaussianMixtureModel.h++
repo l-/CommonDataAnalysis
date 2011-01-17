@@ -47,16 +47,12 @@ public:
 protected:
 
     /**
-     * @brief The quasi-MLE step.
+     * @brief The quasi-MLE step, part of <b>E-step</b>.
      *
-     * It is called from update_thetas
+     * It is called from update_thetas, which is already defined
+     * in EMGenericMixtureModelCore.c++
      */
     virtual void improveClusterModelParameters();
-
-    /**
-     * @brief <b>E-step</b>: update hidden attributes, i.e. class membership probabilities
-     */
-    void update_thetas();
 
     /**
      * @brief Construct names of parameters, e.g. for output

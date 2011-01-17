@@ -17,5 +17,6 @@ do
 done
 
 # Linken
+echo "Linking ..."
 ${LD} $(find Debug -name *.o) -o Debug/libCommonDataAnalysis.so
 

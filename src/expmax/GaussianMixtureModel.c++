@@ -22,7 +22,7 @@ const std::string GaussianMixtureModel::paramName(const unsigned p) const {
     return GaussianMixtureModelNDCommon::paramName(p);
 }
 
-void GaussianMixtureModel::update_thetas() {
+void GaussianMixtureModel::improveClusterModelParameters() {
 
 #ifdef VERBOSE
     std::cout << className() << ": M step.\n";
