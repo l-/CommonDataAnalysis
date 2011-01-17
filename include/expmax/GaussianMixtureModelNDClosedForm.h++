@@ -25,6 +25,27 @@ class GaussianMixtureModelNDClosedForm : public FitMultivariateMulticlassByEM, p
     using GaussianMixtureModelNDCommon::sym_mtx_t;
     using GaussianMixtureModelNDCommon::m_cached_invsigmas;
 
+    typedef FitMultivariateMulticlassByEM::datapoint_t datapoint_t;
+
+public:
+
+    /**
+     * @brief Constructor
+     *
+     * @param[in] K_ this way round, because of default parameter in superclass
+     * @param[in] D_
+     */
+    GaussianMixtureModelNDClosedForm(const unsigned K_, const unsigned D_)
+        : FitMultivariateMulticlassByEM(K_, D_), GaussianMixtureModelNDCommon(K_, D_) {}
+    // , EM<fvector_t>(D_) {}
+
+    /**
+     * @brief The quasi-MLE step.
+     *
+     * It is called from update_thetas
+     */
+    virtual void improveClusterModelParameters();
+
 };
 
 

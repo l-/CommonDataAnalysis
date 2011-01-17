@@ -11,6 +11,8 @@
 
 #include "common_definitions.h++"
 
+#include <typeinfo>
+
 namespace CDA {
 
 /**
@@ -19,6 +21,7 @@ namespace CDA {
  * template param datapoint_t
  *
  * @brief Any concrete EM subclass "has_a" EMData of the appropriate type (i.e. mono- or multivariate)
+ * It encapsulates access to the original data points.
  */
 template<class T>
 class EMData {
@@ -47,7 +50,7 @@ public:
     /**
      * @brief Constructor.
      *
-     * param[in] D_ data dimensionality
+     * @param[in] D_ data dimensionality
      *
      */
     EMData(const unsigned D_ = 1);
@@ -55,9 +58,7 @@ public:
     /**
      * @brief Const getter
      */
-    const std::vector<datapoint_t>& getData() const {
-        return data;
-    }
+    const std::vector<datapoint_t>& getData() const;
 
     /**
      * @brief Get one data point
@@ -66,30 +67,24 @@ public:
      *
      * @return the data point
      */
-    const datapoint_t& getData(const unsigned n) const {
-        return data[n];
-    }
+    const datapoint_t& getData(const unsigned n) const;
 
     /**
      * @brief Const getter
      */
-    std::vector<datapoint_t>& getData() {
-        return data;
-    }
+    std::vector<datapoint_t>& getData();
 
     /**
      * @brief Get number of data points
      */
-    size_t getN() const {
-        return data.size();
-    }
+    size_t getN() const;
 
     /**
      * @brief Get D (or 1 for univariate instances)
      *
      * @return D
      */
-    size_t getDataDimensionality() const { return D; }
+    size_t getDataDimensionality() const;
 
     /**
      * @brief Call this from setData

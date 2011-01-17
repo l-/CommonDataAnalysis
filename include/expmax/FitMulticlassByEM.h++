@@ -9,8 +9,11 @@
 
 #pragma once
 
-#include "EM.h++"
+#include "expmax/EM.h++"
 #include <vector>
+
+#include <boost/mpl/assert.hpp>
+#include <boost/mpl/equal.hpp>
 
 namespace CDA {
 
@@ -19,7 +22,7 @@ namespace CDA {
  *
  * An abstract model fitting class
  *
- * template param: the datapoint_t
+ * template param: the datapoint_t (fvector_t or double)
  *
  */
 template<class T>
@@ -42,7 +45,7 @@ protected:
     const unsigned K;
 
     /**
-     * @brief N stück: class appartenance probabilities
+     * @brief N classes: class appartenance probabilities
      */
     std::vector<fvector_t> classif;
 
@@ -53,7 +56,8 @@ protected:
      * @brief <b>E-step</b>: update hidden attributes, i.e. classification
      *
      * @section NOTE
-     * It is common to all multiclass (mixture model) problem formulations.
+     * It is common to all multiclass (mixture model) problem formulations,
+     * thus not redefined in subclasses.
      */
     void update_hidden();
 
@@ -106,6 +110,8 @@ public:
 
     /**
      * @brief Implemented here.
+     *
+     * @return If you really wanna know the logLikelihood value at current iteration.
      */
     double logLikelihood() const;
 
@@ -114,9 +120,7 @@ public:
      *
      * @param[in] n Point number n
      */
-    const fvector_t& getHiddenParamEstimate(const unsigned n) const {
-        return classif[n];
-    }
+    const fvector_t& getHiddenParamEstimate(const unsigned n) const;
 
     /**
      * @brief Better have a getter for this too
@@ -130,13 +134,7 @@ public:
      *
      * @param[in] n Point number n
      */
-    unsigned int getBestClass(const unsigned n) const {
-        const fvector_t& cs = getHiddenParamEstimate(n);
-        return *( std::max_element<boost::counting_iterator<int>, compareByVectorElementValue<fvector_t, size_t> >
-        (boost::counting_iterator<int>(0),
-                boost::counting_iterator<int>(getK()),
-                compareByVectorElementValue<fvector_t>(cs)) );
-    }
+    unsigned int getBestClass(const unsigned n) const;
 
     /**
      * @brief Read classification results (1)
@@ -145,18 +143,7 @@ public:
      * as the points were entered (so you can just access 'em by index,
      * as everywhere)
      */
-    std::vector<unsigned int> getClassifList() const {
-        std::vector<unsigned int> result;
-        std::for_each(boost::counting_iterator<int>(0),
-                boost::counting_iterator<int>(m_data.getN()),
-                boost::lambda::bind(boost::mem_fn(&std::vector<unsigned int>::push_back),
-                        &result,
-                        boost::lambda::bind(
-                                boost::mem_fn(&FitMulticlassByEM<datapoint_t>::getBestClass),
-                                this,
-                                boost::lambda::_1)));
-        return result;
-    }
+    std::vector<unsigned int> getClassifList() const;
 
     /**
      * @brief Get current estimated class weight
@@ -186,13 +173,7 @@ public:
      * setData of derived classes must call this
      * => done, defined setData here. can one be "using" a template fn?
      */
-    void initClassif() {
-        classif . clear();
-
-        for (unsigned i=0; i<m_data.getN(); ++i) {
-            classif . push_back ( fvector_t(K, 1/(double)K) );
-        }
-    }
+    void initClassif();
 
     /**
      * @brief Evaluate the cluster model PDF with class parameters \f$k\f$ at \f$\vec{x}\f$
@@ -207,4 +188,4 @@ public:
 };
 
 
-} // ns
+} // namespace

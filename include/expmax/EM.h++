@@ -5,6 +5,8 @@
  *
  *  Created on: Jan 5, 2011
  *
+ * @brief
+ * No EM.C++ file to compile, header-only for the moment.
  */
 
 #pragma once
@@ -13,14 +15,22 @@
 #include "EMTheta.h++"
 #include "common_definitions.h++"
 
+#include <boost/optional.hpp>
+
+// Type assertions to check input types
+#include <boost/mpl/equal.hpp>
+#include <boost/mpl/assert.hpp>
+
 namespace CDA {
 
 /**
  * @class EM
  *
  * @brief A generic EM model fitting class.
+ *
+ * @section Description
  * Contains the general outline of EM algorithm,
- * details to be filled in by implementations (not that easy in C++ ...)
+ * details to be filled in by implementations
  */
 template<class datapoint_t>
 class EM {
@@ -33,12 +43,29 @@ protected:
     EMThetas m_theta;
 
     /**
-     * @brief In C++, _always_ works better than inheritance
+     * @brief In C++, has-a works better than is-a ...
      */
     EMData<datapoint_t> m_data;
 
     /**
+     * Might be redefined by a subclass in case it wants its own version of EMData ...
+     *
+     * @return m_data
+     */
+    virtual EMData<datapoint_t>& getData();
+
+    /**
      * @brief One iteration.
+     *
+     * @section DESCRIPTION
+     * This is the basic EM (not extended EM etc.) algorithm,
+     * by virtue of calls to virtual functions you can adapt
+     * the procedure to your problem.
+     *
+     * @section SIDE-EFFECTS
+     * This will update the model parameters stored in the EMThetas class.
+     *
+     * @return The new log-likelihood value after performing the iteration.
      */
     double EMstep() {
         update_hidden();
@@ -47,12 +74,12 @@ protected:
     }
 
     /**
-     * @brief <b>E-step</b>: update hidden attributes, i.e. class membership probabilities
+     * @brief <b>E-step</b>: update hidden attributes
      */
     virtual void update_hidden() = 0;
 
     /**
-     * @brief <b>M-step</b>: update parameters of model PDF
+     * @brief <b>M-step</b>: update accessible parameters of model PDF
      */
     virtual void update_thetas() = 0;
 
@@ -71,10 +98,10 @@ protected:
 public:
 
     /**
-     * @brief Constructor, to be called explicitly in multivariate case
+     * @brief Constructor, to be called explicitly in multivariate case only
      */
     EM(const unsigned D_ = 1)
-    : m_data(D_) { }
+      : m_data(D_) { }
 
     /**
      * @brief Getter for estimate
@@ -93,7 +120,6 @@ public:
     void setTheta(std::pair<II, II> thetas) {
         m_theta . setTheta(thetas);
     }
-
 
     /**
      * @brief Run Expectation Maximization
@@ -126,7 +152,7 @@ public:
     template<class II>
     void setData(std::pair<II, II> data_) {
 
-        // II must iterate over datapoint_t elements
+        /// II must iterate over datapoint_t elements:
         BOOST_MPL_ASSERT_MSG((boost::mpl::equal<datapoint_t, typename II::value_type>::type::value), UnsupportedDatavectorType, (typename II::value_type));
 
         m_data . setDataProper(data_);
@@ -134,5 +160,4 @@ public:
 };
 
 
-
-} //ns
+} // namespace

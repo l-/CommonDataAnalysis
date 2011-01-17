@@ -22,8 +22,12 @@ namespace CDA {
  * because of duplicate class problems
  *
  * @section ARCHITECTURE CAVEAT
- * I dislike having this class around, this should all be in EM
- * in any proper programming language, it would be possible.
+ * I dislike having this class around
+ *
+ * @section ANYWAY
+ * TODO it should be possible to subclass this an handle all
+ * the parameter management (i.e. extraction of the right fields,
+ * some calculations) in here.
  */
 class EMThetas {
 
@@ -37,12 +41,14 @@ protected:
 
 public:
     /**
-     * Initial guess for model parameters -- strictly needed
+     * @brief Initial guess for model parameters -- strictly needed
      *
+     * @section CAREFUL
      * Input data format differs for each individual distribution,
      * be careful and read the documentation.
+     * => will be solved by subclassing and creating specific setters/getters
      *
-     * @todo random numbers when none given
+     * @todo random numbers or something when none given
      */
     template<class II>
     void setTheta(std::pair<II, II> thetas_) {
@@ -64,4 +70,5 @@ public:
     }
 
 };
-} //ns
+
+} // namespace

@@ -10,36 +10,47 @@
  *
  */
 
-
-
 #pragma once
 
-#include "FitMultivariateMulticlassByEM.h++"
+#include "FitUnivariateMulticlassByEM.h++"
 
+#include <boost/function.hpp>
 
 namespace CDA {
-
 
 /**
  * @class GaussianMixtureModel1D
  *
- * A GaussianMixtureModel class, with EM fitting routine built in
+ * @author flick
  *
+ * @brief
+ * A GaussianMixtureModel class, with EM fitting routine built in
  */
 class GaussianMixtureModel1D : public FitUnivariateMulticlassByEM {
 
 public:
+    /**
+     * @brief Re-define datapoint type
+     */
     typedef double datapoint_t;
 
 private:
     using EM<datapoint_t>::m_theta;
     using EM<datapoint_t>::m_data;
 
+    /**
+     * @brief Number of clusters
+     */
     using FitUnivariateMulticlassByEM::K;
 
-    inline double squaredDistanceToMean(const unsigned k, const datapoint_t x) const {
-        return fabs(x - getMean(k)); // OBS! fabs!
-    }
+    /**
+     * Get distance to mean
+     *
+     * @param k class no.
+     * @param x
+     * @return \f$\left|x-m_k\right|\f$
+     */
+    inline double squaredDistanceToMean(const unsigned k, const datapoint_t x) const;
 
 protected:
 
@@ -82,14 +93,6 @@ public:
      * @param[in] k class no.
      */
     double getSigma(const unsigned k) const;
-    //
-    //    /**
-    //     * Evaluate the PDF with parameters of class k
-    //     *
-    //     * @param[in] k class no.
-    //     * @param[in] x
-    //     */
-    //    inline double evalPDF(const unsigned k, const double x) const;
 
     /**
      * @brief Initialize known samples, i.e. your data points
@@ -109,44 +112,20 @@ public:
      * @param[in] k2 a class
      *
      * At least this. Is there an easier way?
+     *         // @todo double-check
      */
     boost::function<double(const double)>
-    getDiscriminantFunction(const int k1, const int k2) const {
-        // @todo double-check
-
-        assert(k1 != k2);
-
-        return boost::function<double(const double)>(
-                boost::lambda::bind(fabs, (boost::lambda::_1 - getMean(k1))) * pow(getSigma(k2),2)
-                - boost::lambda::bind(fabs, (boost::lambda::_1 - getMean(k2)))  * pow(getSigma(k1),2)
-                - 2 * log ( getSigma(k2) / getSigma(k1) ) * pow(getSigma(k2),2) * pow(getSigma(k1),2));
-        //          < 0  ? k1 : k2 );
-
-        // eh? ist auch falsch ...
-    }
+    getDiscriminantFunction(const int k1, const int k2) const;
 
     /**
-     * @brief Find explicit class boundary
+     * @brief Calculate explicit class boundary
      *
      * @param[in] k1 Class 1
      * @param[in] k2 Class 2
      *
      * @return x>value: in class 2
      */
-    double findDecisionLimit(const int k1, const int k2) const {
-
-        double min = getMean(k1);
-        double max = getMean(k2);
-
-        if (max > min)
-            return
-            findSingleUnivariateRootIntervalSearch(getDiscriminantFunction(k1, k2), min, max,1e-7);
-        else
-            return
-            findSingleUnivariateRootIntervalSearch(getDiscriminantFunction(k2, k1), max, min, 1e-7);
-
-        // @muß getestet werden
-    }
+    double findDecisionLimit(const int k1, const int k2) const;
 
     /**
      * @brief Class name for logging ...
@@ -160,4 +139,4 @@ public:
 
 };
 
-} // ns
+} // namespace
