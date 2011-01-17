@@ -1,11 +1,11 @@
 /**
- * @file FitMulticlassByEM.c++
- *
- * @author Erik Flick <erik.flick [AETT] informatik.uni-hamburg.de>
- *
- *  Created on: Jan 17, 2011
- *
- */
+* @file FitMulticlassByEM.c++
+*
+* @author Erik Flick <erik.flick [AETT] informatik.uni-hamburg.de>
+*
+*  Created on: Jan 17, 2011
+*
+*/
 
 #include "expmax/FitMulticlassByEM.h++"
 
@@ -76,7 +76,7 @@ template<class datapoint_t>
 unsigned int FitMulticlassByEM<datapoint_t>::getBestClass(const unsigned n) const {
     const fvector_t& cs = getHiddenParamEstimate(n);
     return *( std::max_element<boost::counting_iterator<int>, compareByVectorElementValue<fvector_t, size_t> >
-        (boost::counting_iterator<int>(0),
+    (boost::counting_iterator<int>(0),
             boost::counting_iterator<int>(getK()),
             compareByVectorElementValue<fvector_t>(cs)) );
 }
@@ -144,6 +144,13 @@ template<class datapoint_t>
 double FitMulticlassByEM<datapoint_t>::getParam(const unsigned k, const unsigned p) const {
     return m_theta.getThetas()[k][p+1];
 }
+
+template<class datapoint_t>
+unsigned int FitMulticlassByEM<datapoint_t>::getK() const
+{
+    return K;
+}
+
 
 // Without these two declarations, the file would be useless ;-)
 template class FitMulticlassByEM<double>;

@@ -21,59 +21,7 @@
 
 using namespace CDA;
 
-//unsigned FitMultivariateMulticlassByEM::getD() const {
-//    return m_data . getDataDimensionality();
-//}
-//
-//
-//void GaussianMixtureModel1D::update_thetas() {
-//
-//#ifdef VERBOSE
-//    std::cout << className() << ": M step.\n";
-//#endif
-//
-//    double sumclassif[K];
-//    for (unsigned k=0; k<K; ++k) {
-//        sumclassif[k] = 0.0;
-//    }
-//
-//    // Use thetas[k] as accumulators, since in effect the estimates are based on simple sample statistics.
-//    for (unsigned k=0; k<K; ++k) {
-//        m_theta.getModifyThetas()[k](2) = 0;
-//        m_theta.getModifyThetas()[k](1) = 0;
-//        m_theta.getModifyThetas()[k](0) = 0;
-//    }
-//
-//    for (unsigned n=0; n<m_data.getN(); ++n) {
-//        for (unsigned k=0; k<K; ++k) {
-//            sumclassif[k] += classif[n](k);
-//            m_theta.getModifyThetas()[k](1) += (classif[n](k) * m_data.getData(n));
-//        }
-//    }
-//
-//    for (unsigned k=0; k<K; ++k) {
-//        m_theta.getModifyThetas()[k](1) /= sumclassif[k];
-//    }
-//
-//    for (unsigned n=0; n<m_data.getN(); ++n) {
-//        for (unsigned k=0; k<K; ++k) {
-//            // using NEW mean, thus in extra step.
-//
-//            // @todo: effizienter und numerisch besser berechnen ... aber erstmal das ganze verfahren geradebiegen.
-//            m_theta.getModifyThetas()[k](2) +=
-//                classif[n](k) * squaredDistanceToMean(k, m_data.getData(n));
-//        }
-//    }
-//
-//    for (unsigned k=0; k<K; ++k) {
-//        m_theta.getModifyThetas()[k](2) = sqrt(m_theta.getModifyThetas()[k](2) / sumclassif[k]);
-//        m_theta.getModifyThetas()[k](0) = 1/((double)(m_data.getN())) * sumclassif[k];
-//    }
-//
-//    // @todo atomic
-//}
-//
-//
+
 //const std::string CircularMixtureModel1D::className() const {
 //    return std::string("CircularMixtureModel1D");
 //}
@@ -122,51 +70,6 @@ using namespace CDA;
 //    // Estimate of mu
 //
 //    // @todo FINISH THIS!!! DEC28
-//}
-//
-//const std::string EMGenericMixtureModelCore::className() const {
-//    return std::string("EMGenericMixtureModelCore"); // shouldn't occur, class is still abstract
-//}
-//
-//void EMGenericMixtureModelCore::update_thetas() {
-//
-//#ifdef VERBOSE
-//    std::cout << className() << ": M step.\n";
-//#endif
-//
-//    // The common part: updating of overall class probabilities
-//    double sumclassif[K];
-//    for (unsigned k=0; k<K; ++k) {
-//        sumclassif[k] = 0.0; }
-//
-//    for (unsigned n=0; n<m_data.getN(); ++n) {
-//        for (unsigned k=0; k<K; ++k) {
-//            sumclassif[k] += classif[n](k);
-//        }
-//    }
-//
-//    for (unsigned k=0; k<K; ++k) {
-//        m_theta.getModifyThetas()[k](0) = 1/((double)(m_data.getN())) * sumclassif[k]; }
-//
-//    improveClusterModelParameters();
-//}
-//
-//const std::string EMGenericMixtureModelCore::getCSVHeader() const {
-//    std::stringstream out;
-//
-//    out << "iteration" << ";";
-//    out << "k" << ";";
-//    out << "p" << ";";
-//    for (unsigned p=0; p<P; ++p) {
-//        out << paramName(p);
-//        if (p < P - 1) {
-//            out << ";";
-//        } else {
-//            out << "\n";
-//        }
-//    }
-//
-//    return out.str();
 //}
 //
 //void EMMbyGradientDescent::improveClusterModelParameters() {
@@ -232,17 +135,6 @@ using namespace CDA;
 //    }
 //
 //    return (isnan(result) || isinf(result) ? 0.0 : result / (double)m_data.getN()); // Yes???
-//}
-//
-//const std::string GaussianMixtureModel::paramName(const unsigned p) const {
-//    std::stringstream out;
-//    if (p <= m_data . getDataDimensionality()) {
-//        out << "m_" << p;
-//    } else {
-//        int a = p - m_data . getDataDimensionality();
-//        out << "s_" << i(a) << "_" << j(a) << std::endl;
-//    }
-//    return out.str();
 //}
 //
 //const boost::numeric::ublas::symmetric_matrix<double, boost::numeric::ublas::upper> GaussianMixtureModel::getSigmaMatrix(const unsigned k) const {

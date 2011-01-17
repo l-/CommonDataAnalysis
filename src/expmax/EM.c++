@@ -55,5 +55,11 @@ void EM<datapoint_t>::EMrun(const unsigned MAXITER, const double thresh, const b
     std::cout << "Done, with log-likelihood " << q_likelihood << std::endl << std::flush;
 }
 
+template<class datapoint_t>
+EM<datapoint_t>::EM(const unsigned D_)
+  : m_data(D_) { }
+
+
+
 template class EM<double>;
 template class EM<fvector_t>;

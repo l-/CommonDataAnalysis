@@ -33,6 +33,8 @@ public:
 
 protected:
 
+    using FitMultivariateMulticlassByEM::classif;
+
     /**
      * @brief Parameter space dimensionality.
      *

@@ -98,8 +98,7 @@ public:
     /**
      * @brief Constructor, to be called explicitly in multivariate case only
      */
-    EM(const unsigned D_ = 1)
-      : m_data(D_) { }
+    EM(const unsigned D_ = 1);
 
     /**
      * @brief Getter for estimate
@@ -109,6 +108,7 @@ public:
     /**
      * @brief Initial guess for model parameters -- strictly needed
      *
+     * @section NOTA
      * Input data format differs for each individual distribution,
      * be careful and read the documentation.
      *

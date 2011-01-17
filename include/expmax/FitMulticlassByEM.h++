@@ -125,9 +125,7 @@ public:
     /**
      * @brief Better have a getter for this too
      */
-    unsigned int getK() const {
-        return K;
-    }
+    unsigned int getK() const;
 
     /**
      * @brief Get class with best estimated membership probability

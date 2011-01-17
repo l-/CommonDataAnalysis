@@ -13,7 +13,7 @@ done
 for i in $(find src -name *.c++)
 do
    echo $i
-   ${CC} -O0 -g3 -Wall $i -o Debug/`echo $i | sed s/.c++//`.o
+   ${CC} -O0 -g3 -Wall $i -o Debug/`echo $i | sed s/.c++//`.o 
 done
 
 # Linken

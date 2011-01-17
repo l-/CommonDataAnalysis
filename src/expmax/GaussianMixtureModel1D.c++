@@ -42,6 +42,54 @@ double GaussianMixtureModel1D::evalPDF(const unsigned k, const double& x) const 
     return 1.0/(sqrt(2*M_PI) * getSigma(k)) * exp(-0.5 * squaredDistanceToMean(k, x) * pow(1 / getSigma(k), 2 ));
 }
 
+void GaussianMixtureModel1D::update_thetas() {
+
+#ifdef VERBOSE
+    std::cout << className() << ": M step.\n";
+#endif
+
+    double sumclassif[K];
+    for (unsigned k=0; k<K; ++k) {
+        sumclassif[k] = 0.0;
+    }
+
+    // Use thetas[k] as accumulators, since in effect the estimates are based on simple sample statistics.
+    for (unsigned k=0; k<K; ++k) {
+        m_theta.getModifyThetas()[k](2) = 0;
+        m_theta.getModifyThetas()[k](1) = 0;
+        m_theta.getModifyThetas()[k](0) = 0;
+    }
+
+    for (unsigned n=0; n<m_data.getN(); ++n) {
+        for (unsigned k=0; k<K; ++k) {
+            sumclassif[k] += classif[n](k);
+            m_theta.getModifyThetas()[k](1) += (classif[n](k) * m_data.getData(n));
+        }
+    }
+
+    for (unsigned k=0; k<K; ++k) {
+        m_theta.getModifyThetas()[k](1) /= sumclassif[k];
+    }
+
+    for (unsigned n=0; n<m_data.getN(); ++n) {
+        for (unsigned k=0; k<K; ++k) {
+            // using NEW mean, thus in extra step.
+
+            // @todo: effizienter und numerisch besser berechnen ... aber erstmal das ganze verfahren geradebiegen.
+            m_theta.getModifyThetas()[k](2) +=
+                classif[n](k) * squaredDistanceToMean(k, m_data.getData(n));
+        }
+    }
+
+    for (unsigned k=0; k<K; ++k) {
+        m_theta.getModifyThetas()[k](2) = sqrt(m_theta.getModifyThetas()[k](2) / sumclassif[k]);
+        m_theta.getModifyThetas()[k](0) = 1/((double)(m_data.getN())) * sumclassif[k];
+    }
+
+    // @todo atomic
+}
+
+
 boost::function<double(const double)>
 GaussianMixtureModel1D::getDiscriminantFunction(const int k1, const int k2) const {
     // @todo double-check

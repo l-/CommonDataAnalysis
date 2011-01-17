@@ -58,9 +58,7 @@
 //#include "common_definitions.h++"
 
 #include "GaussianMixtureModel1D.h++"
-
-//#include "GaussianMixtureModelND.h++"
-//#include "GaussianMixtureModelNDClosedForm.h++"
+#include "GaussianMixtureModel.h++"
 //#include "CircularMixtureModel1D.h++"
 //
 namespace CDA {
