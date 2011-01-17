@@ -22,14 +22,19 @@ void EMGenericMixtureModelCore::update_thetas() {
     for (unsigned k=0; k<K; ++k) {
         sumclassif[k] = 0.0; }
 
-    for (unsigned n=0; n<m_data.getN(); ++n) {
-        for (unsigned k=0; k<K; ++k) {
+    for (unsigned n=0; n<getN(); ++n) {
+        for (unsigned k=0; k<getK(); ++k) {
             sumclassif[k] += classif[n](k);
         }
     }
 
     for (unsigned k=0; k<K; ++k) {
-        m_theta.getModifyThetas()[k](0) = 1/((double)(m_data.getN())) * sumclassif[k]; }
+        m_theta.getModifyThetas()[k](0) = 1/((double)(getN())) * sumclassif[k];
+
+#ifdef VERBOSE
+        std::cout << "Alpha " << k << " now " << m_theta.getThetas()[k](0) << std::endl;
+#endif
+    }
 
     improveClusterModelParameters();
 }

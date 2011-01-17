@@ -60,8 +60,8 @@ void GaussianMixtureModel1D::update_thetas() {
         m_theta.getModifyThetas()[k](0) = 0;
     }
 
-    for (unsigned n=0; n<m_data.getN(); ++n) {
-        for (unsigned k=0; k<K; ++k) {
+    for (unsigned n=0; n<getN(); ++n) {
+        for (unsigned k=0; k<getK(); ++k) {
             sumclassif[k] += classif[n](k);
             m_theta.getModifyThetas()[k](1) += (classif[n](k) * m_data.getData(n));
         }
@@ -71,8 +71,8 @@ void GaussianMixtureModel1D::update_thetas() {
         m_theta.getModifyThetas()[k](1) /= sumclassif[k];
     }
 
-    for (unsigned n=0; n<m_data.getN(); ++n) {
-        for (unsigned k=0; k<K; ++k) {
+    for (unsigned n=0; n<getN(); ++n) {
+        for (unsigned k=0; k<getK(); ++k) {
             // using NEW mean, thus in extra step.
 
             // @todo: effizienter und numerisch besser berechnen ... aber erstmal das ganze verfahren geradebiegen.
@@ -83,7 +83,7 @@ void GaussianMixtureModel1D::update_thetas() {
 
     for (unsigned k=0; k<K; ++k) {
         m_theta.getModifyThetas()[k](2) = sqrt(m_theta.getModifyThetas()[k](2) / sumclassif[k]);
-        m_theta.getModifyThetas()[k](0) = 1/((double)(m_data.getN())) * sumclassif[k];
+        m_theta.getModifyThetas()[k](0) = 1/((double)(getN())) * sumclassif[k];
     }
 
     // @todo atomic

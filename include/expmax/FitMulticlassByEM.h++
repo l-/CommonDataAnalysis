@@ -37,6 +37,11 @@ public:
 
     using EM<datapoint_t>::className;
 
+    /**
+     * @brief We need this all over.
+     */
+    using EM<datapoint_t>::getN;
+
 protected:
 
     /**

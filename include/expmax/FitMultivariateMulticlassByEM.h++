@@ -22,6 +22,7 @@ class FitMultivariateMulticlassByEM : public FitMulticlassByEM<fvector_t> {
 
 protected:
     using FitMulticlassByEM<fvector_t>::classif;
+    using FitMulticlassByEM<fvector_t>::getN;
 
 public:
 

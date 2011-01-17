@@ -18,6 +18,16 @@ EMData<datapoint_t>& EM<datapoint_t>::getDataObj() {
 }
 
 template<class datapoint_t>
+const EMData<datapoint_t>& EM<datapoint_t>::getDataObj() const {
+    return m_data;
+}
+
+template<class datapoint_t>
+unsigned int EM<datapoint_t>::getN() const {
+    return getDataObj() . getNumberOfDataPoints();
+}
+
+template<class datapoint_t>
 void EM<datapoint_t>::EMrun(const unsigned MAXITER, const double thresh, const boost::optional<std::ostream*> output_csv) {
 
     assert(m_theta . getThetas() . size() > 0);

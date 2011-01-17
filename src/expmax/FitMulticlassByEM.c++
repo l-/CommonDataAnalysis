@@ -57,7 +57,7 @@ const std::string FitMulticlassByEM<datapoint_t>::dumpParameters(const boost::op
 template<class datapoint_t>
 double FitMulticlassByEM<datapoint_t>::logLikelihood() const {
     double res = 0;
-    for (unsigned n=0; n<m_data.getN(); ++n) {
+    for (unsigned n=0; n<getN(); ++n) {
         double beitraege = 0;
         for (unsigned k=0; k<m_theta.getThetas().size(); ++k) {
             beitraege += getPk(k) * evalPDF(k, m_data.getData(n));
@@ -85,7 +85,7 @@ template<class datapoint_t>
 std::vector<unsigned int> FitMulticlassByEM<datapoint_t>::getClassifList() const {
     std::vector<unsigned int> result;
     std::for_each(boost::counting_iterator<int>(0),
-            boost::counting_iterator<int>(m_data.getN()),
+            boost::counting_iterator<int>(getN()),
             boost::lambda::bind(boost::mem_fn(&std::vector<unsigned int>::push_back),
                     &result,
                     boost::lambda::bind(
@@ -99,7 +99,7 @@ template<class datapoint_t>
 void FitMulticlassByEM<datapoint_t>::initClassif() {
     classif . clear();
 
-    for (unsigned i=0; i<m_data.getN(); ++i) {
+    for (unsigned i=0; i<getN(); ++i) {
         classif . push_back ( fvector_t(K, 1/(double)K) );
     }
 }
@@ -119,12 +119,18 @@ void FitMulticlassByEM<datatype_t>::update_hidden() {
 
     // @todo triple-check everything
 
-    for (unsigned n=0; n<m_data.getN(); ++n) {
-        for (unsigned k=0; k<K; ++k) { // m_theta.getThetas().size()
-            // std::cout << "Paramset number " << k << " -- " << getPk(k) << " " << evalPDF(k, data[n]) << " " << classif[n](k) << std::endl;
+    for (unsigned n=0; n<getN(); ++n) {
+        for (unsigned k=0; k<getK(); ++k) { // m_theta.getThetas().size()
+
+#ifdef EXTRA_VERBOSE
+            // maybe only the first time
+             std::cout << "Paramset number " << k << " -- " << getPk(k) << " " << evalPDF(k, data[n]) << " " << classif[n](k) << std::endl;
+#endif
             classif[n](k) = getPk(k) * evalPDF(k, m_data.getData(n));
-            if (isnan(classif[n](k))) { classif[n](k) = 0.0;
-#ifdef EXTRA_VERBOSE // maybe only the first time
+            if (isnan(classif[n](k))) {
+                classif[n](k) = 0.0;
+#ifdef EXTRA_VERBOSE
+                // maybe only the first time
             std::cerr << "Error: encountered NaN\n";
 #endif
             } // wtf?

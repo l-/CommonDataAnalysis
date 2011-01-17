@@ -42,15 +42,32 @@ protected:
 
     /**
      * @brief In C++, has-a works better than is-a ...
+     *
+     * @section NOTA
+     * Careful, only access via accessor
      */
     EMData<datapoint_t> m_data;
 
     /**
-     * Might be redefined by a subclass in case it wants its own version of EMData ...
+     * @brief Might be redefined by a subclass in case it wants its own version of EMData ...
+     * so be careful, ONLY access it via accessor
      *
      * @return m_data
      */
     virtual EMData<datapoint_t>& getDataObj();
+
+    /**
+     * @brief Same in const
+     * @return reference to datapoints-holding object
+     */
+    virtual const EMData<datapoint_t>& getDataObj() const;
+
+    /**
+     * @brief Return getDataObj() . getN()
+     *
+     * @return Number of data points
+     */
+    unsigned int getN() const;
 
     /**
      * @brief One iteration.

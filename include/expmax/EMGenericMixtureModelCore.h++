@@ -34,6 +34,7 @@ public:
 protected:
 
     using FitMultivariateMulticlassByEM::classif;
+    using FitMultivariateMulticlassByEM::getN;
 
     /**
      * @brief Parameter space dimensionality.

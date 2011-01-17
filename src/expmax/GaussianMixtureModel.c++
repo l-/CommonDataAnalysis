@@ -47,16 +47,28 @@ void GaussianMixtureModel::improveClusterModelParameters() {
     // TODO
 
     for (unsigned n=0; n<getN(); ++n) {
-        for (unsigned k=0; k<K; ++k) {
+        for (unsigned k=0; k<getK(); ++k) {
             sumclassif[k] += classif[n](k);
             means[k] += classif[n](k) * getData(n);
         }
     }
-//
-//    for (unsigned k=0; k<K; ++k) {
-//        m_theta.getModifyThetas()[k](1) /= sumclassif[k];
-//    }
-//
+
+    for (unsigned k=0; k<K; ++k) {
+        means[k] /= sumclassif[k];
+
+        for (unsigned d=0; d<getDataDimensionality(); ++d) {
+
+            m_theta.getModifyThetas()[k][1+d] = means[k](d);
+
+#ifdef VERBOSE
+        std::cout << "Mean_" << d << " " << k << " now " << m_theta.getThetas()[k](0) << std::endl;
+#endif
+
+
+        }
+    }
+
+
 //    for (unsigned n=0; n<m_data.getN(); ++n) {
 //        for (unsigned k=0; k<K; ++k) {
 //            // using NEW mean, thus in extra step.

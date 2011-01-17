@@ -76,8 +76,10 @@ public:
 
     /**
      * @brief Get number of data points
+     *
+     * formerly getN(); this is now a function in the class possessing this one
      */
-    size_t getN() const;
+    size_t getNumberOfDataPoints() const;
 
     /**
      * @brief Get D (or 1 for univariate instances)

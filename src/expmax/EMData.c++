@@ -32,7 +32,7 @@ std::vector<datapoint_t>& EMData<datapoint_t>::getData() {
 }
 
 template <class datapoint_t>
-size_t EMData<datapoint_t>::getN() const {
+size_t EMData<datapoint_t>::getNumberOfDataPoints() const {
     return data.size();
 }
 
