@@ -122,7 +122,7 @@ void FitMulticlassByEM<datatype_t>::update_hidden() {
     for (unsigned n=0; n<getN(); ++n) {
         for (unsigned k=0; k<getK(); ++k) { // m_theta.getThetas().size()
 
-#ifdef EXTRA_VERBOSE
+#ifdef DETAIL_VERBOSE
             // maybe only the first time
              std::cout << "Paramset number " << k << " -- " << getPk(k) << " " << evalPDF(k, getDataObj().getData(n)) << " " << classif[n](k) << std::endl;
 #endif

@@ -49,8 +49,7 @@ protected:
     EMThetas m_theta;
 
     /**
-     * @brief Might be redefined by a subclass in case it wants its own version of EMData ...
-     * so be careful, ONLY access it via accessor
+     * @brief redefined by EMData
      *
      * @return m_data
      */

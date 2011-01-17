@@ -36,7 +36,24 @@ public:
 
 private:
     using EM<datapoint_t>::m_theta;
-    using EM<datapoint_t>::getDataObj; // rather than m_data
+    // won't work ... using EMData<datapoint_t>::getDataObj; // rather than m_data and rather than EM::'s
+
+    /**
+     * @brief What a pity, we can't just pull it in from the OTHER base class
+     * @return
+     */
+    virtual EMData<datapoint_t>& getDataObj() {
+        return EMData<datapoint_t>::getDataObj();
+    }
+
+    /**
+     * @brief Same in const
+     * @return reference to datapoints-holding object
+     */
+    virtual const EMData<datapoint_t>& getDataObj() const {
+        return EMData<datapoint_t>::getDataObj();
+    }
+
 
     /**
      * @brief Number of clusters

@@ -61,13 +61,13 @@ public:
      *
      * @return m_data
      */
-    virtual EMData<datapoint_t>& getDataObj();
+    EMData<datapoint_t>& getDataObj();
 
     /**
      * @brief Same in const
      * @return reference to datapoints-holding object
      */
-    virtual const EMData<datapoint_t>& getDataObj() const;
+    const EMData<datapoint_t>& getDataObj() const;
 
     /**
      * @brief Const getter
@@ -104,6 +104,8 @@ public:
 
     /**
      * @brief Call this from setData
+     *
+     * @param[in] iterators on data entries to copy
      */
     template<class II>
     void setDataProper(std::pair<II, II> data_) {

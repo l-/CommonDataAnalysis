@@ -46,11 +46,6 @@ GaussianMixtureModelNDCommon::getMean(const unsigned k) const {
     return project(m_theta.getThetas()[k], range(1, 1+getD()));
 }
 
-EMData<GaussianMixtureModelNDCommon::datapoint_t>& GaussianMixtureModelNDCommon::getDataObj() {
-    // Let's hope it worx
-    return *this;
-}
-
 const boost::numeric::ublas::symmetric_matrix<double, boost::numeric::ublas::upper>
 GaussianMixtureModelNDCommon::getInvSigma(const unsigned k) const {
 
