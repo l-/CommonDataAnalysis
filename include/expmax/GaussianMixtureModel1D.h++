@@ -26,7 +26,7 @@ namespace CDA {
  * @brief
  * A GaussianMixtureModel class, with EM fitting routine built in
  */
-class GaussianMixtureModel1D : public FitUnivariateMulticlassByEM {
+class GaussianMixtureModel1D : public EMData<double>, public FitUnivariateMulticlassByEM {
 
 public:
     /**
@@ -36,7 +36,7 @@ public:
 
 private:
     using EM<datapoint_t>::m_theta;
-    using EM<datapoint_t>::m_data;
+    using EM<datapoint_t>::getDataObj; // rather than m_data
 
     /**
      * @brief Number of clusters
@@ -74,10 +74,7 @@ public:
     /**
      * @brief Call superclass constructor to fill data fields
      */
-    GaussianMixtureModel1D(const unsigned K_)
-    : FitUnivariateMulticlassByEM(K_)
-    {  }
-
+    GaussianMixtureModel1D(const unsigned K_);
     /**
      * @brief Estimated parameter getter.
      * Get current estimated mean vector of class k

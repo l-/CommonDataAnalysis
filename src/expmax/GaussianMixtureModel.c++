@@ -22,6 +22,10 @@ const std::string GaussianMixtureModel::paramName(const unsigned p) const {
     return GaussianMixtureModelNDCommon::paramName(p);
 }
 
+const std::string GaussianMixtureModel::className() const {
+    return std::string("GaussianMixtureModel(NDClosedForm)");
+}
+
 void GaussianMixtureModel::improveClusterModelParameters() {
 
 #ifdef VERBOSE

@@ -11,16 +11,18 @@
 
 using namespace CDA;
 
-// templates may not be virtual ...
-template<class datapoint_t>
-EMData<datapoint_t>& EM<datapoint_t>::getDataObj() {
-    return m_data;
-}
-
-template<class datapoint_t>
-const EMData<datapoint_t>& EM<datapoint_t>::getDataObj() const {
-    return m_data;
-}
+// => EMData itself.
+//
+//// templates may not be virtual ...
+//template<class datapoint_t>
+//EMData<datapoint_t>& EM<datapoint_t>::getDataObj() {
+//    return m_data;
+//}
+//
+//template<class datapoint_t>
+//const EMData<datapoint_t>& EM<datapoint_t>::getDataObj() const {
+//    return m_data;
+//}
 
 template<class datapoint_t>
 unsigned int EM<datapoint_t>::getN() const {
@@ -66,10 +68,8 @@ void EM<datapoint_t>::EMrun(const unsigned MAXITER, const double thresh, const b
 }
 
 template<class datapoint_t>
-EM<datapoint_t>::EM(const unsigned D_)
-  : m_data(D_) { }
-
-
+EM<datapoint_t>::EM()
+  {  }
 
 template class EM<double>;
 template class EM<fvector_t>;

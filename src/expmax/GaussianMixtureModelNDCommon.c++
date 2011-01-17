@@ -22,7 +22,7 @@ using namespace CDA;
 GaussianMixtureModelNDCommon::
 GaussianMixtureModelNDCommon(const unsigned K_, const unsigned D_)
     : EMData<fvector_t>(D_) // <-- don't forget!!!
-    , EMGenericMixtureModelCore(K_, D_, D_+D_*(D_+1)/2)
+    , EMGenericMixtureModelCore(K_, D_+D_*(D_+1)/2)
 
 {
 

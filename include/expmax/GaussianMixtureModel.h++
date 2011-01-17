@@ -49,6 +49,7 @@ protected:
     /**
      * @brief The quasi-MLE step, part of <b>E-step</b>.
      *
+     * @section CALLED-FROM
      * It is called from update_thetas, which is already defined
      * in EMGenericMixtureModelCore.c++
      */
@@ -59,6 +60,12 @@ protected:
      * calls same function from ...Common
      */
     virtual const std::string paramName(const unsigned p) const;
+
+    /**
+     * @brief Class name for logging
+     * @return
+     */
+    const std::string className() const;
 
 };
 

@@ -12,5 +12,5 @@
 using namespace CDA;
 
 unsigned FitMultivariateMulticlassByEM::getD() const {
-    return m_data . getDataDimensionality();
+    return getDataObj() . getDataDimensionality();
 }

@@ -55,7 +55,7 @@ protected:
     std::vector<fvector_t> classif;
 
     using EM<datapoint_t>::m_theta;
-    using EM<datapoint_t>::m_data;
+    using EM<datapoint_t>::getDataObj; // which is virtual, rather that m_data
 
     /**
      * @brief <b>E-step</b>: update hidden attributes, i.e. classification
@@ -73,13 +73,12 @@ public:
      *
      * To be called by subclasses
      *
-     * @param[in] D_ Data Dimensionality
      * @param[in] K_ Number of Classes (~)
      *
      */
-    FitMulticlassByEM(const unsigned K_, const unsigned D_ = 1)
-    : EM<datapoint_t>(D_)
-      , K(K_)
+    FitMulticlassByEM(const unsigned K_)
+    : EM<datapoint_t>()
+    , K(K_)
       { }
 
     /**
@@ -165,7 +164,11 @@ public:
         // II must iterate over datapoint_t elements
         BOOST_MPL_ASSERT_MSG((boost::mpl::equal<datapoint_t, typename II::value_type>::type::value), UnsupportedDatavectorType, (typename II::value_type));
 
-        m_data . setDataProper(data_);
+#ifdef VERBOSE
+        std::cerr << "FitMulticlassByEM: setData called\n";
+#endif
+
+        getDataObj() . setDataProper(data_);
         initClassif();
     }
 

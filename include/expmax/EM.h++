@@ -33,6 +33,14 @@ namespace CDA {
 template<class datapoint_t>
 class EM {
 
+//    /**
+//     * @brief In C++, has-a works better than is-a ...
+//     *
+//     * @section NOTA
+//     * Careful, only access via accessor
+//     */
+//    EMData<datapoint_t> m_data;
+
 protected:
 
     /**
@@ -41,26 +49,18 @@ protected:
     EMThetas m_theta;
 
     /**
-     * @brief In C++, has-a works better than is-a ...
-     *
-     * @section NOTA
-     * Careful, only access via accessor
-     */
-    EMData<datapoint_t> m_data;
-
-    /**
      * @brief Might be redefined by a subclass in case it wants its own version of EMData ...
      * so be careful, ONLY access it via accessor
      *
      * @return m_data
      */
-    virtual EMData<datapoint_t>& getDataObj();
+    virtual EMData<datapoint_t>& getDataObj() = 0;
 
     /**
      * @brief Same in const
      * @return reference to datapoints-holding object
      */
-    virtual const EMData<datapoint_t>& getDataObj() const;
+    virtual const EMData<datapoint_t>& getDataObj() const = 0;
 
     /**
      * @brief Return getDataObj() . getN()
@@ -113,9 +113,9 @@ protected:
 public:
 
     /**
-     * @brief Constructor, to be called explicitly in multivariate case only
+     * @brief
      */
-    EM(const unsigned D_ = 1);
+    EM();
 
     /**
      * @brief Getter for estimate
@@ -170,7 +170,7 @@ public:
         /// II must iterate over datapoint_t elements:
         BOOST_MPL_ASSERT_MSG((boost::mpl::equal<datapoint_t, typename II::value_type>::type::value), UnsupportedDatavectorType, (typename II::value_type));
 
-        m_data . setDataProper(data_);
+        getDataObj() . setDataProper(data_);
     }
 };
 

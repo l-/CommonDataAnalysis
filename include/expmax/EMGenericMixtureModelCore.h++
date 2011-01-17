@@ -75,11 +75,10 @@ public:
      * @brief Constructor to be called by implementer, please
      *
      * @param[in] K_
-     * @param[in] D_ this way round because of default param further up
      * @param[in] P_ specific to the model.
      */
-    EMGenericMixtureModelCore(const unsigned K_, const unsigned D_, const unsigned P_)
-      : FitMultivariateMulticlassByEM(K_, D_), P(P_) {}
+    EMGenericMixtureModelCore(const unsigned K_, const unsigned P_)
+      : FitMultivariateMulticlassByEM(K_), P(P_) {}
 
     /**
      * @brief The individual way of evaluating the PDF

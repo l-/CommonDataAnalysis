@@ -60,7 +60,7 @@ double FitMulticlassByEM<datapoint_t>::logLikelihood() const {
     for (unsigned n=0; n<getN(); ++n) {
         double beitraege = 0;
         for (unsigned k=0; k<m_theta.getThetas().size(); ++k) {
-            beitraege += getPk(k) * evalPDF(k, m_data.getData(n));
+            beitraege += getPk(k) * evalPDF(k, getDataObj().getData(n));
         }
         res += log(beitraege);
     }
@@ -124,12 +124,12 @@ void FitMulticlassByEM<datatype_t>::update_hidden() {
 
 #ifdef EXTRA_VERBOSE
             // maybe only the first time
-             std::cout << "Paramset number " << k << " -- " << getPk(k) << " " << evalPDF(k, data[n]) << " " << classif[n](k) << std::endl;
+             std::cout << "Paramset number " << k << " -- " << getPk(k) << " " << evalPDF(k, getDataObj().getData(n)) << " " << classif[n](k) << std::endl;
 #endif
-            classif[n](k) = getPk(k) * evalPDF(k, m_data.getData(n));
+            classif[n](k) = getPk(k) * evalPDF(k, getDataObj().getData(n));
             if (isnan(classif[n](k))) {
                 classif[n](k) = 0.0;
-#ifdef EXTRA_VERBOSE
+#ifdef VERBOSE
                 // maybe only the first time
             std::cerr << "Error: encountered NaN\n";
 #endif

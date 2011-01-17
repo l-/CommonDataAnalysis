@@ -42,10 +42,9 @@ public:
      * @brief Constructor
      *
      * @param[in] K_ this way round, because of default parameter in superclass
-     * @param[in] D_
      */
-    FitMultivariateMulticlassByEM(const unsigned K_, const unsigned D_)
-    : FitMulticlassByEM<fvector_t>(K_, D_) {}
+    FitMultivariateMulticlassByEM(const unsigned K_)
+    : FitMulticlassByEM<fvector_t>(K_) {}
     // , EM<fvector_t>(D_) {}
 
     /**
