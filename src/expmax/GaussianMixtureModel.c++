@@ -104,7 +104,7 @@ void GaussianMixtureModel::improveClusterModelParameters() {
     #endif
     }
 
-
+    updateCached();
 
     // @todo: effizienter und numerisch besser berechnen ... aber erstmal das ganze verfahren geradebiegen.
 

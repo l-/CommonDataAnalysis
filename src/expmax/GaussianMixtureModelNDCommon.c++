@@ -15,6 +15,9 @@
 #include <boost/numeric/ublas/vector_proxy.hpp> // for vector_range
 #include <boost/numeric/ublas/triangular.hpp>
 #include <boost/numeric/ublas/lu.hpp>
+#include <boost/numeric/ublas/matrix_expression.hpp>
+#include <boost/numeric/ublas/matrix.hpp>
+#include <boost/numeric/ublas/triangular.hpp>
 #include "math/matrix_functions.h++"
 
 #include <cmath> // hallo?
@@ -51,6 +54,31 @@ GaussianMixtureModelNDCommon::getMean(const unsigned k) const {
 }
 
 const boost::numeric::ublas::symmetric_matrix<double, boost::numeric::ublas::upper>
+GaussianMixtureModelNDCommon::getCachedInvSigma(const unsigned k) const {
+    return m_cached_invsigmas[k];
+}
+
+double
+GaussianMixtureModelNDCommon::getCachedSigmaDet(const unsigned k) const {
+    return m_cached_sigmadet[k];
+}
+
+void GaussianMixtureModelNDCommon::updateCached() {
+    m_cached_invsigmas.clear();
+    m_cached_sigmadet.clear();
+    for (unsigned k=0; k<getK(); ++k) {
+        m_cached_invsigmas.push_back(getInvSigma(k));
+        m_cached_sigmadet.push_back(getSigmaDet(k));
+        // Now only once per turn
+#ifdef VERBOSE
+        std::cerr << "SIGMA " << getSigmaMatrix(k) << std::endl;
+        std::cerr << "INV SIGMA " << getInvSigma(k) << std::endl;
+        std::cerr << "DET(SIGMA)" << getSigmaDet(k) << std::endl;
+#endif
+    }
+}
+
+const boost::numeric::ublas::symmetric_matrix<double, boost::numeric::ublas::upper>
 GaussianMixtureModelNDCommon::getInvSigma(const unsigned k) const {
 
     // @todo "calculateInvSigma"
@@ -74,8 +102,30 @@ GaussianMixtureModelNDCommon::getInvSigma(const unsigned k) const {
     inverse.assign(ublas::identity_matrix<double>(A.size1()));
 
     // backsubstitute to get the inverse
-    lu_substitute(A, pm, inverse);
-    return inverse;
+
+    try {
+        try {
+            lu_substitute(A, pm, inverse);
+        } catch ( boost::numeric::ublas::internal_logic& e ) {
+            std::cerr << e.what() << std::endl;
+        }
+    } catch ( std::logic_error& e ) {
+        std::cerr << e.what() << "\n";
+    }
+
+    // Zufrieden?
+
+    sym_mtx_t result;
+    try {
+        result = boost::numeric::ublas::triangular_adaptor<boost::numeric::ublas::matrix<double>, boost::numeric::ublas::upper>(inverse);
+        // Is there a problem? Just give ZERO
+    } catch ( boost::numeric::ublas::external_logic& e ) {
+        std::cerr << e.what() << std::endl;
+        // result = boost::numeric::ublas::identity_matrix<double>(getD());
+        result = boost::numeric::ublas::zero_matrix<double>(getD(), getD());
+    }
+
+    return result;
 }
 
 double GaussianMixtureModelNDCommon::getSigmaDet(const unsigned k) const {
@@ -109,19 +159,20 @@ double GaussianMixtureModelNDCommon::evalPDF(const unsigned k, const fvector_t& 
 
     ublas::vector<double> zwe(getD()); // vector Zwischenergebnis
     ublas::vector<double> xmu = x - getMean(k);
-    zwe = ublas::prod(getInvSigma(k), xmu);
+    zwe = ublas::prod(getCachedInvSigma(k), xmu);
 
-    double res = pow(2*M_PI, -0.5*(double)getD()) * pow(getSigmaDet(k), -0.5) * exp(- 0.5 *  ublas::inner_prod(xmu, zwe));
+    double res = pow(2*M_PI, -0.5*(double)getD()) *
+                    pow(getCachedSigmaDet(k), -0.5) * exp(- 0.5 *  ublas::inner_prod(xmu, zwe));
 
-#ifdef DETAIL_VERBOSE
+#ifdef DETAIL_VERBOSE_2
     if (isnan(res)) {
         std::cout << "Asked to evalPDF at sigma " << getSigmaMatrix(k) << ", mean " << getMean(k) << std::endl;
-        std::cout << "(1) " << pow(2*M_PI, -0.5*(double)getD()) << " " << pow(getSigmaDet(k), -0.5) << std::endl;
+        std::cout << "(1) " << pow(2*M_PI, -0.5*(double)getD()) << " " << pow(getCachedSigmaDet(k), -0.5) << std::endl;
         std::cout << "(1) " << xmu << std::endl;
-        std::cout << "(1) " << getSigmaDet(k) << " " << getD() << std::endl;
+        std::cout << "(1) " << getCachedSigmaDet(k) << " " << getD() << std::endl;
         std::cout << "(1) " << zwe << std::endl;
         std::cout << "(2) " << exp(- 0.5 *  ublas::inner_prod(xmu, zwe)) << std::endl;
-        std::cout << pow(2*M_PI, -0.5*(double)getD()) * pow(getSigmaDet(k), -0.5) * exp(- 0.5 *  ublas::inner_prod(xmu, zwe)) << std::endl;
+        std::cout << pow(2*M_PI, -0.5*(double)getD()) * pow(getCachedSigmaDet(k), -0.5) * exp(- 0.5 *  ublas::inner_prod(xmu, zwe)) << std::endl;
     }
 #endif
 

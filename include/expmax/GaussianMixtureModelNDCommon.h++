@@ -53,6 +53,7 @@ protected:
 
     typedef boost::numeric::ublas::symmetric_matrix<double, boost::numeric::ublas::upper> sym_mtx_t;
     std::vector<sym_mtx_t> m_cached_invsigmas;
+    std::vector<double> m_cached_sigmadet;
 
 public: // why shouldn't they? parameters are set from the outside now
     /**
@@ -151,9 +152,29 @@ public:
     double getSigmaDet(const unsigned k) const;
 
     /**
+     * @brief
+     *
+     * @return det(S), if up to date
+     */
+    double getCachedSigmaDet(const unsigned k) const;
+
+    /**
      * @brief Get inverse of Sigma of Gaussian no. k
+     *
+     * @return a fresh matrix
      */
     const boost::numeric::ublas::symmetric_matrix<double, boost::numeric::ublas::upper> getInvSigma(const unsigned k) const;
+
+    /**
+     * @brief Get inverse of Sigma of Gaussian no. k
+     */
+    const boost::numeric::ublas::symmetric_matrix<double, boost::numeric::ublas::upper>
+    getCachedInvSigma(const unsigned k) const;
+
+    /**
+     * @brief Update the cached functions of PDF parameters
+     */
+    void updateCached();
 
     /**
      * @brief Get Mean vector of Gaussian no. k

@@ -58,6 +58,13 @@ public:
     GaussianMixtureModel(const unsigned K_, const unsigned D_)
         : GaussianMixtureModelNDCommon(K_, D_) {}
 
+    template<class II>
+    void initializeClusters(std::pair<II, II> thetas_) {
+        m_theta . setTheta(thetas_);
+        updateCached();
+    }
+
+
 protected:
 
     /**

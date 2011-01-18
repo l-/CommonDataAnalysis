@@ -129,7 +129,7 @@ void FitMulticlassByEM<datatype_t>::update_hidden() {
             classif[n](k) = getPk(k) * evalPDF(k, getDataObj()->getData(n));
             if (isnan(classif[n](k))) {
                 classif[n](k) = 0.0;
-#ifdef VERBOSE
+#ifdef VERBOSE_2
                 // maybe only the first time
             std::cerr << "Error: encountered NaN\n";
 #endif

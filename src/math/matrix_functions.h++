@@ -39,6 +39,11 @@ double det(matrix_t& m) {
     double res = 1.0;
     for (unsigned i=0; i<A.size1(); ++i) {
         res *= A(i,i);
+        if (i != pm(i)) { // all the madness was my own fault???
+           res *= -1; }
+#ifdef DETAIL_VERBOSE_2
+        std::cerr << i << " ===> " << A(i,i) << " ===> " << res << std::endl;
+#endif
     }
 
 #ifdef DETAIL_VERBOSE_2
