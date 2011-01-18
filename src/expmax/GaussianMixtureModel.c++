@@ -54,7 +54,7 @@ void GaussianMixtureModel::improveClusterModelParameters() {
     for (unsigned n=0; n<getN(); ++n) {
         for (unsigned k=0; k<getK(); ++k) {
             sumclassif[k] += classif[n](k);
-            means[k] += classif[n](k) * getData(n);
+            means[k] += classif[n](k) * getDataObj() -> getData(n);
         }
     }
 
@@ -66,7 +66,7 @@ void GaussianMixtureModel::improveClusterModelParameters() {
 
             m_theta.getModifyThetas()[k][1+d] = means[k](d);
 
-#ifdef VERBOSE
+#ifdef DETAIL_VERBOSE_2
         std::cout << "Mean_" << d << " " << k << " now " << m_theta.getThetas()[k](1+d) << std::endl;
 #endif
 
@@ -79,7 +79,7 @@ void GaussianMixtureModel::improveClusterModelParameters() {
             for (unsigned e=d; e<getD(); ++e) {
                 for (unsigned k=0; k<getK(); ++k) {
                     sigmas[k](d,e) += classif[n](k) *
-                           ((getData(n)(d) - means[k](d)) * (getData(n)(e) - means[k](e)));
+                           ((getDataObj()->getData(n)(d) - means[k](d)) * (getDataObj()->getData(n)(e) - means[k](e)));
                 }
             }
         }
@@ -87,10 +87,10 @@ void GaussianMixtureModel::improveClusterModelParameters() {
 
     // Somehow, I doubt this is correct ...
     for (unsigned k=0; k<getK(); ++k) {
-        for (unsigned d=0; d<getDataDimensionality(); ++d) {
-            for (unsigned e=d; e<getDataDimensionality(); ++e) {
+        for (unsigned d=0; d<getD(); ++d) {
+            for (unsigned e=d; e<getD(); ++e) {
 
-#ifdef EXTRA_VERBOSE
+#ifdef DETAIL_VERBOSE_2
                 std::cerr << d << " " << e << " " << 1 + getD() + a(e,d) << std::endl;
 #endif
 
@@ -99,7 +99,7 @@ void GaussianMixtureModel::improveClusterModelParameters() {
             }
         }
 
-    #ifdef VERBOSE
+    #ifdef DETAIL_VERBOSE_2
             std::cout << "Sigmas" << " " << k << " now " << sigmas[k]/sumclassif[k] << std::endl;
     #endif
     }

@@ -76,7 +76,7 @@ public:
      */
     EMGenericMixtureModelCore(const unsigned K_, const unsigned P_, const unsigned D_)
       : FitMultivariateMulticlassByEM(K_, D_), P(P_) {
-#ifdef VERBOSE
+#ifdef VERBOSE_2
         std::cerr << "EMGenericMixtureModelCore Constructor called, P should equal " << P << std::endl;
 #endif
         }

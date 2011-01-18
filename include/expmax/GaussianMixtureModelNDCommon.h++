@@ -24,7 +24,8 @@ namespace CDA {
  * minus the parameter optimization part, which is left purevirtual
  * thus a replacement for the EMData<fvector_t> class.
  */
-class GaussianMixtureModelNDCommon : public EMData<fvector_t>, public EMGenericMixtureModelCore { // hmk
+class GaussianMixtureModelNDCommon : public EMGenericMixtureModelCore { // hmk
+    // NOT public EMData<fvector_t>, anymore !!!
 
 public:
     typedef fvector_t datapoint_t;

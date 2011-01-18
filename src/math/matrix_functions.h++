@@ -40,6 +40,11 @@ double det(matrix_t& m) {
     for (unsigned i=0; i<A.size1(); ++i) {
         res *= A(i,i);
     }
+
+#ifdef DETAIL_VERBOSE_2
+    std::cerr << "Determinant = " << res << std::endl;
+#endif
+
     return res;
 }
 

@@ -103,7 +103,7 @@ public:
     /**
      * @brief Conveniently encapsulate access ofm_theta
      *
-     * all parameters except the outer probability
+     * all parameters!
      */
     double getParam(const unsigned k, const unsigned p) const;
 

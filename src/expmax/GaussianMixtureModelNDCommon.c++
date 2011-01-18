@@ -17,6 +17,8 @@
 #include <boost/numeric/ublas/lu.hpp>
 #include "math/matrix_functions.h++"
 
+#include <cmath> // hallo?
+
 using namespace CDA;
 
 GaussianMixtureModelNDCommon::
@@ -25,7 +27,7 @@ GaussianMixtureModelNDCommon(const unsigned K_, const unsigned D_)
     : EMGenericMixtureModelCore(K_, 1+D_+(D_*(D_+1))/2, D_)
 {
 
-#ifdef VERBOSE
+#ifdef DETAIL_VERBOSE_2
         std::cerr << "GaussianMixtureModelNDCommon: constructor was called. P=" << getP() << " " << getK() << " " << getD() << std::endl;
 #endif
 }
@@ -89,7 +91,13 @@ GaussianMixtureModelNDCommon::getSigmaMatrix(const unsigned k) const {
         unsigned i_ = i(a);
         unsigned j_ = j(a);
         Sigma(i_,j_) = getParam(k, p);
+#ifdef DETAIL_VERBOSE_2
+        std::cerr << a << " " << i_ << " " << j_ << " " << k << " " << p <<" " << getParam(k,p) << std::endl;
+#endif
     }
+#ifdef DETAIL_VERBOSE_2
+    std::cerr << Sigma;
+#endif
     return Sigma;
 }
 
@@ -103,21 +111,26 @@ double GaussianMixtureModelNDCommon::evalPDF(const unsigned k, const fvector_t& 
     ublas::vector<double> xmu = x - getMean(k);
     zwe = ublas::prod(getInvSigma(k), xmu);
 
-//    std::cout << "Asked to evalPDF at sigma " << getSigmaMatrix(k) << ", mean " << getMean(k) << std::endl;
-//    std::cout << "(1) " << pow(2*M_PI, -0.5*(double)getD()) * 1/sqrt(getSigmaDet(k)) << std::endl;
-//    std::cout << "(1) " << xmu << std::endl;
-//    std::cout << "(1) " << getSigmaDet(k) << std::endl;
-//    std::cout << "(1) " << zwe << std::endl;
-//    std::cout << "(2) " << exp(- 0.5 *  ublas::inner_prod(xmu, zwe)) << std::endl;
-//    std::cout << pow(2*M_PI, -0.5*(double)getD()) * 1/sqrt(getSigmaDet(k)) * exp(- 0.5 *  ublas::inner_prod(xmu, zwe)) << std::endl;
+    double res = pow(2*M_PI, -0.5*(double)getD()) * pow(getSigmaDet(k), -0.5) * exp(- 0.5 *  ublas::inner_prod(xmu, zwe));
 
-    return pow(2*M_PI, -0.5*(double)getD()) * 1/sqrt(getSigmaDet(k)) * exp(- 0.5 *  ublas::inner_prod(xmu, zwe));
+#ifdef DETAIL_VERBOSE
+    if (isnan(res)) {
+        std::cout << "Asked to evalPDF at sigma " << getSigmaMatrix(k) << ", mean " << getMean(k) << std::endl;
+        std::cout << "(1) " << pow(2*M_PI, -0.5*(double)getD()) << " " << pow(getSigmaDet(k), -0.5) << std::endl;
+        std::cout << "(1) " << xmu << std::endl;
+        std::cout << "(1) " << getSigmaDet(k) << " " << getD() << std::endl;
+        std::cout << "(1) " << zwe << std::endl;
+        std::cout << "(2) " << exp(- 0.5 *  ublas::inner_prod(xmu, zwe)) << std::endl;
+        std::cout << pow(2*M_PI, -0.5*(double)getD()) * pow(getSigmaDet(k), -0.5) * exp(- 0.5 *  ublas::inner_prod(xmu, zwe)) << std::endl;
+    }
+#endif
 
+    return res;
     // Seems OK
 }
 
 size_t GaussianMixtureModelNDCommon::getD() const {
-#ifdef DETAIL_DEBUG_VERBOSE
+#ifdef DETAIL_VERBOSE_2
         std::cerr << "GaussianMixtureModelNDCommon: getD() called.\n" << std::flush;
 #endif
     return getDataObj() -> getDataDimensionality();

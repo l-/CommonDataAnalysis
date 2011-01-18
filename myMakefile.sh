@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CCDEBUG="ccache g++ -I. -Iinclude -Isrc -I/informatik/home/flick/include -I/usr/include -c -fmessage-length=0 -DVERBOSE -DEXTRA_VERBOSE"
+CCDEBUG="ccache g++ -I. -Iinclude -Isrc -I/informatik/home/flick/include -I/usr/include -c -fmessage-length=0 -DVERBOSE -DEXTRA_VERBOSE -DDETAIL_VERBOSE"
 CC=${CCDEBUG}
 LD="g++ -L/usr/lib -shared"
 

@@ -122,9 +122,9 @@ void FitMulticlassByEM<datatype_t>::update_hidden() {
     for (unsigned n=0; n<getN(); ++n) {
         for (unsigned k=0; k<getK(); ++k) { // m_theta.getThetas().size()
 
-#ifdef DETAIL_VERBOSE
+#ifdef DETAIL_VERBOSE_2
             // maybe only the first time
-             std::cout << "Paramset number " << k << " -- " << getPk(k) << " " << evalPDF(k, getDataObj().getData(n)) << " " << classif[n](k) << std::endl;
+             std::cout << "Paramset number " << k << " -- " << getPk(k) << " " << evalPDF(k, getDataObj()->getData(n)) << " " << classif[n](k) << std::endl;
 #endif
             classif[n](k) = getPk(k) * evalPDF(k, getDataObj()->getData(n));
             if (isnan(classif[n](k))) {
@@ -137,7 +137,8 @@ void FitMulticlassByEM<datatype_t>::update_hidden() {
             // @todo better error handling
         }
 
-        classif[n] /= norm_1(classif[n]);
+        if (norm_1(classif[n]) != 0)
+            classif[n] /= norm_1(classif[n]);
 
         //                            classif[n] = FLT_EPSILON; // make sense?
         //                        }
@@ -148,7 +149,7 @@ void FitMulticlassByEM<datatype_t>::update_hidden() {
 
 template<class datapoint_t>
 double FitMulticlassByEM<datapoint_t>::getParam(const unsigned k, const unsigned p) const {
-    return m_theta.getThetas()[k][p+1];
+    return m_theta.getThetas()[k][p];
 }
 
 template<class datapoint_t>
