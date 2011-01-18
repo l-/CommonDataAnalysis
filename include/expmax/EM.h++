@@ -61,6 +61,14 @@ protected:
      */
     virtual const EMData<datapoint_t>& getDataObj() const = 0;
 
+//    /**
+//     * @brief It is an ugly construction which allows the original EMData
+//     * object to be replaced.
+//     */
+//    void setDataObj(EMData<datapoint_t>* other) {
+//
+//    }
+
     /**
      * @brief Return getDataObj() . getN()
      *

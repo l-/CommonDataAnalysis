@@ -44,10 +44,10 @@ void GaussianMixtureModel::improveClusterModelParameters() {
     std::vector<fvector_t> means;
     std::vector<sym_mtx_t> sigmas;
     for (unsigned k=0; k<K; ++k) {
-        means.push_back(boost::numeric::ublas::zero_vector<double>(getDataDimensionality()));
+        means.push_back(boost::numeric::ublas::zero_vector<double>(getD()));
         sigmas.push_back(
                 sym_mtx_t(
-                        boost::numeric::ublas::zero_matrix<double>(getDataDimensionality(), getDataDimensionality())));
+                        boost::numeric::ublas::zero_matrix<double>(getD(), getD())));
     }
 
     // Preparation
@@ -62,7 +62,7 @@ void GaussianMixtureModel::improveClusterModelParameters() {
     for (unsigned k=0; k<K; ++k) {
         means[k] /= sumclassif[k];
 
-        for (unsigned d=0; d<getDataDimensionality(); ++d) {
+        for (unsigned d=0; d<getD(); ++d) {
 
             m_theta.getModifyThetas()[k][1+d] = means[k](d);
 
@@ -75,8 +75,8 @@ void GaussianMixtureModel::improveClusterModelParameters() {
 
     // Calculate weighted sample covariance matrix, in effect
     for (unsigned n=0; n<getN(); ++n) {
-        for (unsigned d=0; d<getDataDimensionality(); ++d) {
-            for (unsigned e=d; e<getDataDimensionality(); ++e) {
+        for (unsigned d=0; d<getD(); ++d) {
+            for (unsigned e=d; e<getD(); ++e) {
                 for (unsigned k=0; k<getK(); ++k) {
                     sigmas[k](d,e) += classif[n](k) *
                            ((getData(n)(d) - means[k](d)) * (getData(n)(e) - means[k](e)));
@@ -91,10 +91,10 @@ void GaussianMixtureModel::improveClusterModelParameters() {
             for (unsigned e=d; e<getDataDimensionality(); ++e) {
 
 #ifdef EXTRA_VERBOSE
-                std::cerr << d << " " << e << " " << 1 + getDataDimensionality() + a(e,d) << std::endl;
+                std::cerr << d << " " << e << " " << 1 + getD() + a(e,d) << std::endl;
 #endif
 
-                m_theta.getModifyThetas()[k][1 + getDataDimensionality() + a(e,d)] = sigmas[k](d,e) / sumclassif[k];
+                m_theta.getModifyThetas()[k][1 + getD() + a(e,d)] = sigmas[k](d,e) / sumclassif[k];
 
             }
         }

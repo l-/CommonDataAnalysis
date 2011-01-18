@@ -40,6 +40,7 @@ public:
      */
     using GaussianMixtureModelNDCommon::getP;
     using GaussianMixtureModelNDCommon::getK;
+    using GaussianMixtureModelNDCommon::getD;
 
     /**
      * @even those ...

@@ -56,23 +56,9 @@ public:
     EMData(const unsigned D_ = 1);
 
     /**
-     * @brief Might be redefined by a subclass in case it wants its own version of EMData ...
-     * so be careful, ONLY access it via accessor
-     *
-     * @return m_data
-     */
-    EMData<datapoint_t>& getDataObj();
-
-    /**
-     * @brief Same in const
-     * @return reference to datapoints-holding object
-     */
-    const EMData<datapoint_t>& getDataObj() const;
-
-    /**
      * @brief Const getter
      */
-    const std::vector<datapoint_t>& getData() const;
+    virtual const std::vector<datapoint_t>& getData() const;
 
     /**
      * @brief Get one data point
@@ -100,7 +86,12 @@ public:
      *
      * @return D
      */
-    virtual size_t getDataDimensionality() const;
+    size_t getDataDimensionality() const;
+
+    /**
+    * @return D
+    */
+    size_t getD() const;
 
     /**
      * @brief Call this from setData

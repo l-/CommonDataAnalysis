@@ -21,8 +21,8 @@ using namespace CDA;
 
 GaussianMixtureModelNDCommon::
 GaussianMixtureModelNDCommon(const unsigned K_, const unsigned D_)
-    : EMData<fvector_t>(D_) // <-- don't forget!!!
-    , EMGenericMixtureModelCore(K_, D_+(D_*(D_+1))/2)
+    // : EMData<fvector_t>(D_) // <-- don't forget!!!
+    : EMGenericMixtureModelCore(K_, D_+(D_*(D_+1))/2, D_)
 {
 
 }
@@ -113,6 +113,6 @@ double GaussianMixtureModelNDCommon::evalPDF(const unsigned k, const fvector_t& 
     // Seems OK
 }
 
-size_t GaussianMixtureModelNDCommon::getDataDimensionality() const {
-    return D;
+size_t GaussianMixtureModelNDCommon::getD() const {
+    return getDataObj() . getDataDimensionality();
 }

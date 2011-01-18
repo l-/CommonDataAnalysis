@@ -16,19 +16,6 @@ template<> EMData<double>::EMData(const unsigned D_) : D(1) {}; // all's well
 template<> EMData<fvector_t>::EMData(const unsigned D_) : D(D_) {};
 } // namespace
 
-
-// templates may not be virtual ...
-template<class datapoint_t>
-EMData<datapoint_t>& EMData<datapoint_t>::getDataObj() {
-    return *this; // m_data;
-}
-
-template<class datapoint_t>
-const EMData<datapoint_t>& EMData<datapoint_t>::getDataObj() const {
-    return *this; // m_data;
-}
-
-
 template <class datapoint_t>
 const datapoint_t& EMData<datapoint_t>::getData(const unsigned n) const {
     return data[n];
@@ -51,6 +38,9 @@ size_t EMData<datapoint_t>::getNumberOfDataPoints() const {
 
 template <class datapoint_t>
 size_t EMData<datapoint_t>::getDataDimensionality() const { return D; }
+
+template <class datapoint_t>
+size_t EMData<datapoint_t>::getD() const { return D; }
 
 // Again, without these two declarations, the file would be useless ;-)
 template class EMData<double>;

@@ -38,7 +38,6 @@ protected:
      * @brief get number of classes
      */
     using EMGenericMixtureModelCore::P;
-    using EMData<fvector_t>::D;
     using EMGenericMixtureModelCore::K;
 //
 //    /**
@@ -48,22 +47,24 @@ protected:
 //     */
 //    virtual EMData<datapoint_t>& getDataObj();
 
-    using EMData<datapoint_t>::getDataObj; // rather than m_data and rather than EM::'s
+    // using EMData<datapoint_t>::getDataObj; // rather than m_data and rather than EM::'s
 
     /**
      * @brief What a pity, we can't just pull it in from the OTHER base class
      * @return
      */
-    virtual EMData<datapoint_t>& getDataObj() {
-        return EMData<datapoint_t>::getDataObj();
+    EMData<datapoint_t>& getDataObj() {
+        std::cerr << "proper getDataObj called" << std::endl;
+        return *this; // EMData<datapoint_t>::getDataObj();
     }
 
     /**
      * @brief Same in const
      * @return reference to datapoints-holding object
      */
-    virtual const EMData<datapoint_t>& getDataObj() const {
-        return EMData<datapoint_t>::getDataObj();
+    const EMData<datapoint_t>& getDataObj() const {
+        std::cerr << "proper getDataObj called" << std::endl;
+        return *this; // EMData<datapoint_t>::getDataObj();
     }
 
     typedef boost::numeric::ublas::symmetric_matrix<double, boost::numeric::ublas::upper> sym_mtx_t;
@@ -105,7 +106,6 @@ public: // why shouldn't they? parameters are set from the outside now
     using EMGenericMixtureModelCore::getK;
     using EMGenericMixtureModelCore::getP;
     using EMGenericMixtureModelCore::getD;
-    using EMData<fvector_t>::getDataDimensionality;
 
 public:
 
@@ -166,12 +166,8 @@ public:
      */
     const boost::numeric::ublas::vector_range<const fvector_t> getMean(const unsigned k) const;
 
-    /**
-     * @brief Get D
-     *
-     * @return D
-     */
-    size_t getDataDimensionality() const;
+    size_t getD() const;
+
 };
 
 

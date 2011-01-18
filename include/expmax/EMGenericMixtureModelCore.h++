@@ -35,6 +35,7 @@ protected:
 
     using FitMultivariateMulticlassByEM::classif;
     using FitMultivariateMulticlassByEM::getN;
+    using FitMultivariateMulticlassByEM::getD;
 
     /**
      * @brief Parameter space dimensionality.
@@ -69,9 +70,10 @@ public:
      *
      * @param[in] K_
      * @param[in] P_ specific to the model.
+     * @param[in] D_ // really belongs here? don't think so.
      */
-    EMGenericMixtureModelCore(const unsigned K_, const unsigned P_)
-      : FitMultivariateMulticlassByEM(K_), P(P_) {}
+    EMGenericMixtureModelCore(const unsigned K_, const unsigned P_, const unsigned D_)
+      : FitMultivariateMulticlassByEM(K_, D_), P(P_) {}
 
     /**
      * @brief The individual way of evaluating the PDF
