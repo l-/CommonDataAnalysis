@@ -38,6 +38,8 @@ protected:
      * @brief get number of classes
      */
     using EMGenericMixtureModelCore::P;
+    using EMData<fvector_t>::D;
+    using EMGenericMixtureModelCore::K;
 //
 //    /**
 //     * @brief Anyway: let's introduce a new version here
@@ -79,14 +81,14 @@ public: // why shouldn't they? parameters are set from the outside now
      */
     inline unsigned a(const unsigned i, const unsigned j) const {
         if (i>j) { return a(j,i); } // stupid me
-        return i*getDataDimensionality() + j - (i*(i+1))/2;
+        return i*getD() + j - (i*(i+1))/2;
     }
 
     /**
      * @brief Get i index of covariance parameter ;-)
      */
     inline unsigned i(const unsigned a, const unsigned iter = 1) const {
-        const unsigned D = getDataDimensionality();
+        const unsigned D = getD();
         if (a>=D) { return i(a-D+iter, iter+1); }
         else { return a; }
     }
@@ -95,13 +97,15 @@ public: // why shouldn't they? parameters are set from the outside now
      * @brief Get j index of covariance parameter ;-)
      */
     inline unsigned j(const unsigned a, const unsigned iter = 1) const {
-        const unsigned D = getDataDimensionality();
+        const unsigned D = getD();
         if (a>=D) { return j(a-D+iter, iter+1); }
         else { return iter-1; }
     }
 
     using EMGenericMixtureModelCore::getK;
     using EMGenericMixtureModelCore::getP;
+    using EMGenericMixtureModelCore::getD;
+    using EMData<fvector_t>::getDataDimensionality;
 
 public:
 
