@@ -31,6 +31,8 @@ class GaussianMixtureModel: public GaussianMixtureModelNDCommon {
 
     using GaussianMixtureModelNDCommon::classif;
 
+    using GaussianMixtureModelNDCommon::P; // zufrieden?
+
 public:
 
     /**
@@ -38,6 +40,13 @@ public:
      */
     using GaussianMixtureModelNDCommon::getP;
     using GaussianMixtureModelNDCommon::getK;
+
+    /**
+     * @even those ...
+     */
+    using GaussianMixtureModelNDCommon::a;
+    using GaussianMixtureModelNDCommon::i;
+    using GaussianMixtureModelNDCommon::j;
 
     /**
      * @brief Constructor

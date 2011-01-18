@@ -100,7 +100,7 @@ public:
      *
      * @return D
      */
-    size_t getDataDimensionality() const;
+    virtual size_t getDataDimensionality() const;
 
     /**
      * @brief Call this from setData

@@ -37,8 +37,7 @@ protected:
     /**
      * @brief get number of classes
      */
-    using EMGenericMixtureModelCore::getK;
-    using EMGenericMixtureModelCore::getP;
+    using EMGenericMixtureModelCore::P;
 //
 //    /**
 //     * @brief Anyway: let's introduce a new version here
@@ -68,6 +67,7 @@ protected:
     typedef boost::numeric::ublas::symmetric_matrix<double, boost::numeric::ublas::upper> sym_mtx_t;
     std::vector<sym_mtx_t> m_cached_invsigmas;
 
+public: // why shouldn't they? parameters are set from the outside now
     /**
      * @brief Get param index - D of covariance parameter sigma(i,j) ;-)
      * i.e. does not take into account the other parameters, so the
@@ -99,6 +99,9 @@ protected:
         if (a>=D) { return j(a-D+iter, iter+1); }
         else { return iter-1; }
     }
+
+    using EMGenericMixtureModelCore::getK;
+    using EMGenericMixtureModelCore::getP;
 
 public:
 
@@ -159,6 +162,12 @@ public:
      */
     const boost::numeric::ublas::vector_range<const fvector_t> getMean(const unsigned k) const;
 
+    /**
+     * @brief Get D
+     *
+     * @return D
+     */
+    size_t getDataDimensionality() const;
 };
 
 
