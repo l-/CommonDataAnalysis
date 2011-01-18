@@ -62,13 +62,6 @@ protected:
      */
     virtual void improveClusterModelParameters() = 0;
 
-    /**
-     * @brief Get param space dimensionality.
-     *
-     * @return If it is still zero, there's a programming error!
-     */
-    unsigned int getP() const { assert(P!=0); return P; }
-
 public:
 
     /**
@@ -110,6 +103,13 @@ public:
      * @return String the parameter names together.
      */
     const std::string getCSVHeader() const;
+
+    /**
+     * @brief Get param space dimensionality.
+     *
+     * @return If it is still zero, there's a programming error!
+     */
+    unsigned int getP() const { assert(P!=0); return P; }
 
 };
 

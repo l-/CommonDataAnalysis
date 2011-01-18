@@ -32,6 +32,7 @@ namespace CDA {
  */
 template<class Iter>
 boost::shared_ptr<GaussianMixtureModel1D> thresholdFinder(const std::pair<Iter, Iter> input,
+        double bgprob = 0.5,
         const boost::optional<std::ostream*> output_csv = boost::none
 ) {
     std::vector<fvector_t> init_theta_bimodal;
@@ -43,7 +44,7 @@ boost::shared_ptr<GaussianMixtureModel1D> thresholdFinder(const std::pair<Iter, 
             boost::minmax_element(input.first, input.second);
 
     // Init prob.
-    hintergrund(0) = 0.5; // if you know differently, please initialize it accordingly
+    hintergrund(0) = bgprob; // if you know differently, please initialize it accordingly
     vordergrund(0) = 1 - hintergrund(0);
 
     // Init mean

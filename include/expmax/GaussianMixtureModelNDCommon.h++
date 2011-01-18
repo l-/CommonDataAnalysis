@@ -38,6 +38,7 @@ protected:
      * @brief get number of classes
      */
     using EMGenericMixtureModelCore::getK;
+    using EMGenericMixtureModelCore::getP;
 //
 //    /**
 //     * @brief Anyway: let's introduce a new version here

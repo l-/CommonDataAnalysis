@@ -202,9 +202,11 @@ public:
         return result;
     }
 
+    typedef boost::function<const fvector_t&(const fvector_t&)> vector_transform_t;
+
     // vv mit ublas::slice
     //
-    typedef boost::transform_iterator<boost::function<const fvector_t&(const fvector_t&)>,
+    typedef boost::transform_iterator<vector_transform_t,
             dataframe_t::const_iterator
             > vtrit_t;
     //
@@ -218,6 +220,16 @@ public:
         return std::make_pair(
                 boost::make_transform_iterator(m_data.begin(), fn),
                 boost::make_transform_iterator(m_data.end(), fn)
+        );
+    }
+
+    /**
+     * Transform data vectors by user-defined function!
+     */
+    std::pair<vtrit_t, vtrit_t> getTransformedIterPair(boost::function<const fvector_t&(const fvector_t&)>& f) const {
+        return std::make_pair(
+                boost::make_transform_iterator(m_data.begin(), f),
+                boost::make_transform_iterator(m_data.end(), f)
         );
     }
 

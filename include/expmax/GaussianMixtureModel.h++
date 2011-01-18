@@ -34,6 +34,12 @@ class GaussianMixtureModel: public GaussianMixtureModelNDCommon {
 public:
 
     /**
+     * @brief Should be accessible from outside
+     */
+    using GaussianMixtureModelNDCommon::getP;
+    using GaussianMixtureModelNDCommon::getK;
+
+    /**
      * @brief Constructor
      *
      * @param[in] K_ this way round, because of default parameter in superclass
@@ -41,8 +47,6 @@ public:
      */
     GaussianMixtureModel(const unsigned K_, const unsigned D_)
         : GaussianMixtureModelNDCommon(K_, D_) {}
-    // FitMultivariateMulticlassByEM(K_, D_),
-    // , EM<fvector_t>(D_) {}
 
 protected:
 
