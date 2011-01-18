@@ -22,9 +22,12 @@ using namespace CDA;
 GaussianMixtureModelNDCommon::
 GaussianMixtureModelNDCommon(const unsigned K_, const unsigned D_)
     // : EMData<fvector_t>(D_) // <-- don't forget!!!
-    : EMGenericMixtureModelCore(K_, D_+(D_*(D_+1))/2, D_)
+    : EMGenericMixtureModelCore(K_, 1+D_+(D_*(D_+1))/2, D_)
 {
 
+#ifdef VERBOSE
+        std::cerr << "GaussianMixtureModelNDCommon: constructor was called. P=" << getP() << " " << getK() << " " << getD() << std::endl;
+#endif
 }
 
 const std::string GaussianMixtureModelNDCommon::paramName(const unsigned p) const {
@@ -81,8 +84,8 @@ const boost::numeric::ublas::symmetric_matrix<double, boost::numeric::ublas::upp
 GaussianMixtureModelNDCommon::getSigmaMatrix(const unsigned k) const {
     boost::numeric::ublas::symmetric_matrix<double, boost::numeric::ublas::upper> Sigma(getD(), getD());
     // @todo c'mon, just copy the memory
-    for (unsigned p = getD(); p < P; ++p) {
-        unsigned a = p - getD();
+    for (unsigned p = getD() + 1; p < getP(); ++p) {
+        unsigned a = p;
         unsigned i_ = i(a);
         unsigned j_ = j(a);
         Sigma(i_,j_) = getParam(k, p);
@@ -114,5 +117,8 @@ double GaussianMixtureModelNDCommon::evalPDF(const unsigned k, const fvector_t& 
 }
 
 size_t GaussianMixtureModelNDCommon::getD() const {
-    return getDataObj() . getDataDimensionality();
+#ifdef DETAIL_DEBUG_VERBOSE
+        std::cerr << "GaussianMixtureModelNDCommon: getD() called.\n" << std::flush;
+#endif
+    return getDataObj() -> getDataDimensionality();
 }

@@ -20,7 +20,23 @@ class FitUnivariateMulticlassByEM : public FitMulticlassByEM<double> {
 
     EMData<double> m_data;
 
+    typedef double datapoint_t;
+
 public:
+
+    /**
+     * @brief hmk ...
+     *
+     * @return m_data
+     */
+    EMData<datapoint_t>* getDataObj() { return &m_data; }
+
+    /**
+     * @brief Same in const
+     * @return reference to datapoints-holding object
+     */
+    const EMData<datapoint_t>* getDataObj() const { return &m_data; }
+
 
     /**
      * @brief Constructor

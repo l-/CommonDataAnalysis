@@ -60,7 +60,7 @@ double FitMulticlassByEM<datapoint_t>::logLikelihood() const {
     for (unsigned n=0; n<getN(); ++n) {
         double beitraege = 0;
         for (unsigned k=0; k<m_theta.getThetas().size(); ++k) {
-            beitraege += getPk(k) * evalPDF(k, getDataObj().getData(n));
+            beitraege += getPk(k) * evalPDF(k, getDataObj()->getData(n));
         }
         res += log(beitraege);
     }
@@ -126,7 +126,7 @@ void FitMulticlassByEM<datatype_t>::update_hidden() {
             // maybe only the first time
              std::cout << "Paramset number " << k << " -- " << getPk(k) << " " << evalPDF(k, getDataObj().getData(n)) << " " << classif[n](k) << std::endl;
 #endif
-            classif[n](k) = getPk(k) * evalPDF(k, getDataObj().getData(n));
+            classif[n](k) = getPk(k) * evalPDF(k, getDataObj()->getData(n));
             if (isnan(classif[n](k))) {
                 classif[n](k) = 0.0;
 #ifdef VERBOSE

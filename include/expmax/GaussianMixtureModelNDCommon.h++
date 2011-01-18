@@ -48,24 +48,7 @@ protected:
 //    virtual EMData<datapoint_t>& getDataObj();
 
     // using EMData<datapoint_t>::getDataObj; // rather than m_data and rather than EM::'s
-
-    /**
-     * @brief What a pity, we can't just pull it in from the OTHER base class
-     * @return
-     */
-    EMData<datapoint_t>& getDataObj() {
-        std::cerr << "proper getDataObj called" << std::endl;
-        return *this; // EMData<datapoint_t>::getDataObj();
-    }
-
-    /**
-     * @brief Same in const
-     * @return reference to datapoints-holding object
-     */
-    const EMData<datapoint_t>& getDataObj() const {
-        std::cerr << "proper getDataObj called" << std::endl;
-        return *this; // EMData<datapoint_t>::getDataObj();
-    }
+    using FitMultivariateMulticlassByEM::getDataObj;
 
     typedef boost::numeric::ublas::symmetric_matrix<double, boost::numeric::ublas::upper> sym_mtx_t;
     std::vector<sym_mtx_t> m_cached_invsigmas;
@@ -86,21 +69,31 @@ public: // why shouldn't they? parameters are set from the outside now
     }
 
     /**
-     * @brief Get i index of covariance parameter ;-)
+     * @brief Get i index of covariance parameter ;-) VERT
+     * W/ OFFSET
      */
-    inline unsigned i(const unsigned a, const unsigned iter = 1) const {
+    inline unsigned i(const unsigned ain, const unsigned iter = 0, bool remove_offset=true) const {
         const unsigned D = getD();
-        if (a>=D) { return i(a-D+iter, iter+1); }
-        else { return a; }
+        unsigned a = remove_offset ? ain - D - 1 : ain;
+        assert(iter<D);
+        if (a>=D-iter) { return i(a-D+iter, iter+1, false); }
+        else {
+            return a+iter;
+        }
     }
 
     /**
-     * @brief Get j index of covariance parameter ;-)
+     * @brief Get j index of covariance parameter ;-) HORZ
+     * W/ OFFSET
      */
-    inline unsigned j(const unsigned a, const unsigned iter = 1) const {
+    inline unsigned j(const unsigned ain, const unsigned iter = 0, bool remove_offset=true) const {
         const unsigned D = getD();
-        if (a>=D) { return j(a-D+iter, iter+1); }
-        else { return iter-1; }
+        unsigned a = remove_offset ? ain - D - 1 : ain;
+        assert(iter<D);
+        if (a>=D-iter) { return j(a-D+iter, iter+1, false); }
+        else {
+            return iter;
+        }
     }
 
     using EMGenericMixtureModelCore::getK;

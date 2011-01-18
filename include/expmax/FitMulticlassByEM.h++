@@ -168,7 +168,7 @@ public:
         std::cerr << "FitMulticlassByEM: setData called\n";
 #endif
 
-        getDataObj() . setDataProper(data_);
+        getDataObj() -> setDataProper(data_);
         initClassif();
     }
 

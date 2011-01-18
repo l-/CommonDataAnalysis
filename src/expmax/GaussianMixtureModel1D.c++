@@ -66,7 +66,7 @@ void GaussianMixtureModel1D::update_thetas() {
     for (unsigned n=0; n<getN(); ++n) {
         for (unsigned k=0; k<getK(); ++k) {
             sumclassif[k] += classif[n](k);
-            m_theta.getModifyThetas()[k](1) += (classif[n](k) * getDataObj().getData(n));
+            m_theta.getModifyThetas()[k](1) += (classif[n](k) * getDataObj()->getData(n));
         }
     }
 
@@ -80,7 +80,7 @@ void GaussianMixtureModel1D::update_thetas() {
 
             // @todo: effizienter und numerisch besser berechnen ... aber erstmal das ganze verfahren geradebiegen.
             m_theta.getModifyThetas()[k](2) +=
-                classif[n](k) * squaredDistanceToMean(k, getDataObj().getData(n));
+                classif[n](k) * squaredDistanceToMean(k, getDataObj()->getData(n));
         }
     }
 

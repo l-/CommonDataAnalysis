@@ -33,14 +33,6 @@ namespace CDA {
 template<class datapoint_t>
 class EM {
 
-//    /**
-//     * @brief In C++, has-a works better than is-a ...
-//     *
-//     * @section NOTA
-//     * Careful, only access via accessor
-//     */
-//    EMData<datapoint_t> m_data;
-
 protected:
 
     /**
@@ -49,25 +41,17 @@ protected:
     EMThetas m_theta;
 
     /**
-     * @brief redefined by EMData
+     * @brief It's here now.
      *
      * @return m_data
      */
-    virtual EMData<datapoint_t>& getDataObj() = 0;
+    virtual EMData<datapoint_t>* getDataObj() = 0;
 
     /**
      * @brief Same in const
      * @return reference to datapoints-holding object
      */
-    virtual const EMData<datapoint_t>& getDataObj() const = 0;
-
-//    /**
-//     * @brief It is an ugly construction which allows the original EMData
-//     * object to be replaced.
-//     */
-//    void setDataObj(EMData<datapoint_t>* other) {
-//
-//    }
+    virtual const EMData<datapoint_t>* getDataObj() const = 0;
 
     /**
      * @brief Return getDataObj() . getN()
@@ -177,7 +161,11 @@ public:
         /// II must iterate over datapoint_t elements:
         BOOST_MPL_ASSERT_MSG((boost::mpl::equal<datapoint_t, typename II::value_type>::type::value), UnsupportedDatavectorType, (typename II::value_type));
 
-        getDataObj() . setDataProper(data_);
+#ifdef DETAIL_DEBUG_VERBOSE
+        std::cerr << "EM: setData called\n";
+#endif
+
+        getDataObj() -> setDataProper(data_);
     }
 };
 

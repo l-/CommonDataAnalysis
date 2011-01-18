@@ -24,11 +24,6 @@ protected:
     using FitMulticlassByEM<fvector_t>::classif;
     using FitMulticlassByEM<fvector_t>::getN;
 
-    /**
-     * @brief Data object is here now ...
-     */
-    EMData<fvector_t> m_data;
-
 public:
 
     /**
@@ -41,19 +36,9 @@ public:
      */
     using FitMulticlassByEM<fvector_t>::getK;
 
-    /**
-     * @brief redefined by EMData
-     *
-     * @return m_data
-     */
-    virtual EMData<datapoint_t>& getDataObj() { return m_data; }
+protected:
 
-    /**
-     * @brief Same in const
-     * @return reference to datapoints-holding object
-     */
-    virtual const EMData<datapoint_t>& getDataObj() const { return m_data; }
-
+    EMData<datapoint_t> m_data;
 
 public:
 
@@ -70,6 +55,11 @@ public:
     //
 
     unsigned getD() const;
+
+    EMData<datapoint_t>* getDataObj() {
+        return &m_data; }
+    const EMData<datapoint_t>* getDataObj() const {
+        return &m_data; }
 
 };
 

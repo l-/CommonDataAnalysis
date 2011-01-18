@@ -11,22 +11,9 @@
 
 using namespace CDA;
 
-// => EMData itself.
-//
-//// templates may not be virtual ...
-//template<class datapoint_t>
-//EMData<datapoint_t>& EM<datapoint_t>::getDataObj() {
-//    return m_data;
-//}
-//
-//template<class datapoint_t>
-//const EMData<datapoint_t>& EM<datapoint_t>::getDataObj() const {
-//    return m_data;
-//}
-
 template<class datapoint_t>
 unsigned int EM<datapoint_t>::getN() const {
-    return getDataObj() . getNumberOfDataPoints();
+    return getDataObj() -> getNumberOfDataPoints();
 }
 
 template<class datapoint_t>

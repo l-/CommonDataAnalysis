@@ -55,10 +55,17 @@ public:
      */
     EMData(const unsigned D_ = 1);
 
+    EMData(const EMData<T>& other)
+      : D(other.D)
+    {
+        std::cerr << "EMData copy constructor called!\n";
+        std::copy(other.data.begin(), other.data.end(), std::back_inserter(data));
+    }
+
     /**
      * @brief Const getter
      */
-    virtual const std::vector<datapoint_t>& getData() const;
+    const std::vector<datapoint_t>& getData() const;
 
     /**
      * @brief Get one data point

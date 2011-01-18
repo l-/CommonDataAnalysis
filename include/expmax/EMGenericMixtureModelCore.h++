@@ -41,8 +41,10 @@ protected:
      * @brief Parameter space dimensionality.
      *
      * @section NOTA BENE
-     * We don't count the class probability here,
-     * as it is handled differently.
+     * We didn't count the class probability before,
+     * as it was handled differently.
+     * ONCE AND FOR ALL (but not for all times),
+     * P is counted INCLUDING the class prior probability.
      */
     const unsigned P;
 
@@ -73,7 +75,11 @@ public:
      * @param[in] D_ // really belongs here? don't think so.
      */
     EMGenericMixtureModelCore(const unsigned K_, const unsigned P_, const unsigned D_)
-      : FitMultivariateMulticlassByEM(K_, D_), P(P_) {}
+      : FitMultivariateMulticlassByEM(K_, D_), P(P_) {
+#ifdef VERBOSE
+        std::cerr << "EMGenericMixtureModelCore Constructor called, P should equal " << P << std::endl;
+#endif
+        }
 
     /**
      * @brief The individual way of evaluating the PDF
