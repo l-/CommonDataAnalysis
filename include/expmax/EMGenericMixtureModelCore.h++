@@ -98,7 +98,7 @@ public:
      * @param[in] theta
      */
     EMGenericMixtureModelCore(const unsigned K_, const unsigned P_, const unsigned D_, const data_t& data, const theta_t& theta)
-      : FitMultivariateMulticlassByEM<theta_t>(K_, D_, data, theta), P(P_) {
+      : FitMultivariateMulticlassByEM<theta_t>(K_, data, theta), P(P_) {
 #ifdef VERBOSE_2
         std::cerr << "EMGenericMixtureModelCore Constructor called, P should equal " << P << std::endl;
 #endif

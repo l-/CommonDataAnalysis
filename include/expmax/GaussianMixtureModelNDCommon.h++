@@ -36,40 +36,6 @@ protected:
 
     using EM<data_t, theta_t>::getDataObj;
 
-public: // why shouldn't they? parameters are set from the outside now
-
-    /**
-     * @brief Get i index of covariance parameter ;-) VERT
-     * W/ OFFSET
-     *
-     * BNROKEN!!!
-     */
-    inline unsigned i(const unsigned ain, const unsigned iter = 0, bool remove_offset=true) const {
-        const unsigned D = getD();
-        unsigned a = remove_offset ? ain - D - 1 : ain;
-        assert(iter<D);
-        if (a>=D-iter) { return i(a-D+iter, iter+1, false); }
-        else {
-            return a+iter;
-        }
-    }
-
-    /**
-     * @brief Get j index of covariance parameter ;-) HORZ
-     * W/ OFFSET
-     *
-     * BNROKEN!!!
-     */
-    inline unsigned j(const unsigned ain, const unsigned iter = 0, bool remove_offset=true) const {
-        const unsigned D = getD();
-        unsigned a = remove_offset ? ain - D - 1 : ain;
-        assert(iter<D);
-        if (a>=D-iter) { return j(a-D+iter, iter+1, false); }
-        else {
-            return iter;
-        }
-    }
-
 public:
 
     /**
@@ -100,6 +66,10 @@ public:
      */
     double evalPDF(const unsigned k, const datapoint_t& x) const;
 
+    /**
+     * @brief yet another ...
+     */
+    size_t getD() const;
 };
 
 

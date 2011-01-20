@@ -76,7 +76,8 @@ public:
     /**
      * @brief Call superclass constructor to fill data fields
      */
-    GaussianMixtureModel1D(const unsigned K_);
+    GaussianMixtureModel1D(const unsigned K_, const data_t& data, const theta_t& theta);
+
     /**
      * @brief Estimated parameter getter.
      * Get current estimated mean vector of class k
@@ -133,6 +134,8 @@ public:
 
     /**
      * @brief Each class gets its own line, that's the easiest way
+     *
+     * @return a "\n"-terminated string.
      */
     const std::string getCSVHeader() const;
 

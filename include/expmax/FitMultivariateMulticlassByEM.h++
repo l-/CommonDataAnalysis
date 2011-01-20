@@ -55,7 +55,7 @@ public:
      * @brief Constructor
      *
      * @param[in] K_ this way round, because of default parameter in superclass
-     * @param[in] data D is not explicitly passed to this class anymore.
+     * @param[in] data D is not explicitly passed to this class anymore since not necessary, already in data.
      * @param[in] theta
      */
     FitMultivariateMulticlassByEM(const unsigned K_, const VectorEMData& data, const theta_t& theta)

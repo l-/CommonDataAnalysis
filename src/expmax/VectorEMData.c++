@@ -16,6 +16,6 @@ size_t VectorEMData::getDataDimensionality() const { return D; }
 size_t VectorEMData::getD() const { return D; }
 
 VectorEMData::VectorEMData(const VectorEMData& other)
-  : EMData(other), D(other.D) {}
+  : EMData<fvector_t>(other), D(other.D) {}
 
 VectorEMData::VectorEMData(const unsigned D_) : D(D_) {};

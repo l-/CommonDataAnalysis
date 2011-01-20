@@ -9,6 +9,11 @@
 
 #pragma once
 
+#include "common_definitions.h++"
+
+#include <boost/numeric/ublas/matrix.hpp>
+#include <boost/numeric/ublas/lu.hpp>
+
 namespace CDA {
 
 /**

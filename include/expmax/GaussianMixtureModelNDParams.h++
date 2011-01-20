@@ -26,15 +26,15 @@ namespace CDA {
 class GaussianMixtureModelNDParams : public EMThetas {
 
     /**
-    * @brief Data dimensionality, again (because it determines the dimensionality of matrices etc.)
-    */
-    const int D;
-
-    /**
     * @brief This class should also know its K.
     * @todo avoid this duplpication
     */
     const int K;
+
+    /**
+    * @brief Data dimensionality, again (because it determines the dimensionality of matrices etc.)
+    */
+    const int D;
 
 public:
 
@@ -74,6 +74,41 @@ public:
     * @brief Construct names of parameters, e.g. for output
     */
     virtual const std::string paramName(const unsigned p) const;
+
+
+public: // why shouldn't they? parameters are set from the outside now
+
+    /**
+     * @brief Get i index of covariance parameter ;-) VERT
+     * W/ OFFSET
+     *
+     * BROKEN!!!!!!!!!
+     */
+    inline unsigned i(const unsigned ain, bool remove_offset=true, const unsigned iter = 0) const {
+        const unsigned D = getD();
+        unsigned a = remove_offset ? ain - D - 1 : ain;
+        assert(iter<D);
+        if (a>=D-iter) { return i(a-D+iter, false, iter+1); }
+        else {
+            return a+iter;
+        }
+    }
+
+    /**
+     * @brief Get j index of covariance parameter ;-) HORZ
+     * W/ OFFSET
+     *
+     * BROKEN!!!!!!!!
+     */
+    inline unsigned j(const unsigned ain, bool remove_offset=true, const unsigned iter = 0) const {
+        const unsigned D = getD();
+        unsigned a = remove_offset ? ain - D - 1 : ain;
+        assert(iter<D);
+        if (a>=D-iter) { return j(a-D+iter, false, iter+1); }
+        else {
+            return iter;
+        }
+    }
 
 protected:
 
@@ -129,13 +164,14 @@ public:
     /**
     * @brief Get inverse of Sigma of Gaussian no. k
     */
-    const sym_mtx_t
+    const sym_mtx_t&
     getCachedInvSigma(const unsigned k) const;
 
     /**
     * @brief Get Mean vector of Gaussian no. k
     */
-    const boost::numeric::ublas::vector_range<const fvector_t> getMean(const unsigned k) const;
+    const fvector_t& getMean(const unsigned k) const;
+    // const boost::numeric::ublas::vector_range<const fvector_t> getMean(const unsigned k) const;
 
     /**
     * @brief get this D
