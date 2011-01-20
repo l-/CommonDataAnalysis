@@ -162,7 +162,7 @@ double GaussianMixtureModelNDParams::getThetas(const unsigned k, const unsigned 
         return thetas[k].get<0>();
     }
     else if (1<=p && p < getD()+1) {
-        return thetas[k].get<1>()(p);
+        return thetas[k].get<1>()(p-1);
     } else {
         return thetas[k].get<2>()(i(p), j(p));
     }
@@ -173,7 +173,7 @@ double& GaussianMixtureModelNDParams::getModifyThetas(const unsigned k, const un
         return thetas[k].get<0>();
     }
     else if (1<=p && p < getD()+1) {
-        return thetas[k].get<1>()(p);
+        return thetas[k].get<1>()(p-1);
     } else {
         return thetas[k].get<2>()(i(p), j(p));
     }
