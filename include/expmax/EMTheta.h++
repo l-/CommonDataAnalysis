@@ -85,6 +85,12 @@ public:
         return thetas;
     }
 
+    /**
+     * @brief Important
+     */
+    fvector_t::value_type& getModifyThetas(const unsigned k, const unsigned i) {
+        return thetas[k](i);
+    }
 };
 
 } // namespace

@@ -62,15 +62,17 @@ void GaussianMixtureModel::improveClusterModelParameters() {
     for (unsigned k=0; k<K; ++k) {
         means[k] /= sumclassif[k];
 
-        for (unsigned d=0; d<getD(); ++d) {
-
-            m_theta.getModifyThetas()[k][1+d] = means[k](d);
-
-#ifdef DETAIL_VERBOSE_2
-        std::cout << "Mean_" << d << " " << k << " now " << m_theta.getThetas()[k](1+d) << std::endl;
-#endif
-
-        }
+        getThetaObj() -> getModifyMean(k) = means[k];
+//
+//        for (unsigned d=0; d<getD(); ++d) {
+//
+//            m_theta.getModifyThetas()[k][1+d] = means[k](d);
+//
+//#ifdef DETAIL_VERBOSE_2
+//        std::cout << "Mean_" << d << " " << k << " now " << m_theta.getThetas()[k](1+d) << std::endl;
+//#endif
+//
+//        }
     }
 
     // Calculate weighted sample covariance matrix, in effect
@@ -94,9 +96,10 @@ void GaussianMixtureModel::improveClusterModelParameters() {
                 std::cerr << d << " " << e << " " << 1 + getD() + a(e,d) << std::endl;
 #endif
 
-                // @todo USE the proper functions from GaussianMixtureModelNDParams
-                getThetaObj() -> getModifyThetas()[k]
-                  [1 + getD() + getThetaObj() -> a(e,d)] = sigmas[k](d,e) / sumclassif[k];
+                // @todo USE the proper functions from GaussianMixtureModelNDParams =>
+                getThetaObj() -> getModifySigma(k) (e,d) = sigmas[k](d,e) / sumclassif[k];
+                // getThetaObj() -> getModifyThetas()[k]
+                  // [1 + getD() + getThetaObj() -> a(e,d)] = sigmas[k](d,e) / sumclassif[k];
 
             }
         }

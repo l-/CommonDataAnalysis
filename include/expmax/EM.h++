@@ -50,15 +50,15 @@ public:
 protected:
 
     /**
+     * @brief We always need this member. Just drop it in via templating, no subclass woes
+     */
+    data_t m_data;
+
+    /**
      * @brief In C++, _always_ works better than inheritance. I should have remembered ...
      * Nevertheless, now you can plug in the appropriate class as a template parameter.
      */
     theta_t m_theta;
-
-    /**
-     * @brief We always need this member. Just drop it in via templating, no subclass woes
-     */
-    data_t m_data;
 
     /**
      * @brief It's here now.

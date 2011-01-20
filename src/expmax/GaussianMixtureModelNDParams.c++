@@ -107,9 +107,28 @@ void GaussianMixtureModelNDParams::updateCached() {
 // const boost::numeric::ublas::vector_range<const fvector_t>
 const fvector_t&
 GaussianMixtureModelNDParams::getMean(const unsigned k) const {
-    using namespace boost::numeric::ublas;
+    // using namespace boost::numeric::ublas;
     // return project(m_theta.getThetas()[k], range(1, 1+getD()));
     return thetas[k].get<1>();
+}
+
+double& GaussianMixtureModelNDParams::getModifyClassProb(const unsigned k) {
+    return thetas[k].get<0>();
+}
+
+fvector_t&
+GaussianMixtureModelNDParams::getModifyMean(const unsigned k) {
+    return thetas[k].get<1>();
+}
+
+GaussianMixtureModelNDParams::sym_mtx_t&
+GaussianMixtureModelNDParams::getModifySigma(const unsigned k) {
+    return thetas[k].get<2>();
+}
+
+
+double GaussianMixtureModelNDParams::getClassProb(const unsigned k) const {
+    return thetas[k].get<0>();
 }
 
 const GaussianMixtureModelNDParams::sym_mtx_t&
@@ -125,7 +144,10 @@ GaussianMixtureModelNDParams::getCachedSigmaDet(const unsigned k) const {
 
 const std::string GaussianMixtureModelNDParams::paramName(const unsigned p) const {
     std::stringstream out;
-    if (p < getD()) {
+    if (p==0) {
+        out << "p";
+    }
+    else if (1<=p && p < getD()+1) {
         out << "m_" << p;
     } else {
         out << "s_" << i(p) << "_" << j(p);
@@ -133,3 +155,13 @@ const std::string GaussianMixtureModelNDParams::paramName(const unsigned p) cons
     return out.str();
 }
 
+double& GaussianMixtureModelNDParams::getModifyThetas(const unsigned k, const unsigned p) {
+    if (p==0) {
+        return thetas[k].get<0>();
+    }
+    else if (1<=p && p < getD()+1) {
+        return thetas[k].get<1>()(p);
+    } else {
+        return thetas[k].get<2>()(i(p), j(p));
+    }
+}

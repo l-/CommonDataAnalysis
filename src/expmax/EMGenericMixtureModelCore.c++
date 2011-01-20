@@ -33,10 +33,10 @@ void EMGenericMixtureModelCore<theta_T>::update_thetas() {
     }
 
     for (unsigned k=0; k<K; ++k) {
-        getThetaObj().getModifyThetas()[k](0) = 1/((double)(getN())) * sumclassif[k];
+        getThetaObj().getModifyThetas(k,0) = 1/((double)(getN())) * sumclassif[k];
 
 #ifdef VERBOSE
-        std::cout << "Alpha " << k << " now " << m_theta.getThetas()[k](0) << std::endl;
+        std::cout << "Alpha " << k << " now " << getThetaObj().getClassProb() << std::endl;
 #endif
     }
 

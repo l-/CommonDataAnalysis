@@ -174,6 +174,25 @@ public:
     // const boost::numeric::ublas::vector_range<const fvector_t> getMean(const unsigned k) const;
 
     /**
+     * @brief Yet another
+     * @param k class no.
+     * @return \f$alpha_k\f$
+     */
+    double getClassProb(const unsigned k) const;
+
+    double& getModifyClassProb(const unsigned k);
+
+    fvector_t& getModifyMean(const unsigned k);
+
+    sym_mtx_t& getModifySigma(const unsigned k);
+
+    /**
+     * @brief Important
+     * don't use this, use the nice ones.
+     */
+    double& getModifyThetas(const unsigned k, const unsigned i);
+
+    /**
     * @brief get this D
     */
     unsigned getD() const;
