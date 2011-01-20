@@ -80,6 +80,8 @@ public:
     using GaussianMixtureModelNDCommon::getMean;
     using GaussianMixtureModelNDCommon::getClassProb;
 
+    using FitMulticlassByEM<data_t, theta_t>::getBestClass;
+
 protected:
 
     /**
@@ -102,7 +104,6 @@ protected:
      * @return
      */
     virtual const std::string className() const;
-
 };
 
 
