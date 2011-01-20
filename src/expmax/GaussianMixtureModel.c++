@@ -94,7 +94,9 @@ void GaussianMixtureModel::improveClusterModelParameters() {
                 std::cerr << d << " " << e << " " << 1 + getD() + a(e,d) << std::endl;
 #endif
 
-                m_theta.getModifyThetas()[k][1 + getD() + a(e,d)] = sigmas[k](d,e) / sumclassif[k];
+                // @todo USE the proper functions from GaussianMixtureModelNDParams
+                getThetaObj() -> getModifyThetas()[k]
+                  [1 + getD() + getThetaObj() -> a(e,d)] = sigmas[k](d,e) / sumclassif[k];
 
             }
         }
@@ -104,7 +106,7 @@ void GaussianMixtureModel::improveClusterModelParameters() {
     #endif
     }
 
-    updateCached();
+    getThetaObj() -> updateCached();
 
     // @todo: effizienter und numerisch besser berechnen ... aber erstmal das ganze verfahren geradebiegen.
 

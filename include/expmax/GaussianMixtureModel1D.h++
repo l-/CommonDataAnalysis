@@ -33,10 +33,12 @@ public:
      * @brief Re-define datapoint type
      */
     typedef double datapoint_t;
+    typedef FitUnivariateMulticlassByEM::data_t data_t;
+    typedef FitUnivariateMulticlassByEM::theta_t theta_t;
 
 private:
-    using EM<datapoint_t>::m_theta;
-    // won't work ... using EMData<datapoint_t>::getDataObj; // rather than m_data and rather than EM::'s
+
+    using EM<data_t, theta_t>::getThetaObj;
 
     /**
      * @brief Number of clusters

@@ -1,6 +1,8 @@
 /**
  * @file FitMulticlassByEM.h++
  *
+ * @version 0.03
+ *
  * @author Erik Flick <erik.flick [AETT] informatik.uni-hamburg.de>
  *
  *  Created on: Jan 5, 2011
@@ -20,27 +22,24 @@ namespace CDA {
 /**
  * @class FitMulticlassByEM
  *
- * An abstract model fitting class
+ * @brief An abstract model fitting class
+ * The next after EM class ...
  *
- * template param: the datapoint_t (fvector_t or double)
+ * @tparam: the datapoint_t (fvector_t or double .. or anything!)
  *
  */
-template<class T>
-class FitMulticlassByEM : public EM<T> {
+template<class data_T, class theta_T>
+class FitMulticlassByEM : public EM<data_T, theta_T> {
 
 public:
-    /**
-     * @brief Propagate the datapoint_t.
-     * Why can't I give it the same name? Annoying.
-     */
-    typedef T datapoint_t;
-
-    using EM<datapoint_t>::className;
 
     /**
-     * @brief We need this all over.
+     * @brief Propagate the datapoint_t etc.
+     * Why can't we give it the same name? Annoying.
      */
-    using EM<datapoint_t>::getN;
+    typedef data_T data_t;
+    typedef typename data_T::value_type datapoint_t;
+    typedef theta_T theta_t;
 
 protected:
 
@@ -54,8 +53,31 @@ protected:
      */
     std::vector<fvector_t> classif;
 
-    using EM<datapoint_t>::m_theta;
-    using EM<datapoint_t>::getDataObj; // which is virtual, rather that m_data
+    /**
+     * Avoid exposing the data field
+     */
+    std::vector<fvector_t>& getModifyClassif();
+
+    /**
+     * @brief Which is protected ...
+     */
+    using EM<data_t, theta_t>::getDataObj; // which is virtual, rather that m_data
+
+    /**
+     * @brief same
+     */
+    using EM<data_t, theta_t>::getThetaObj;
+
+    /**
+     * @brief A template!
+     */
+    using EM<data_T, theta_T>::setData;
+
+    /**
+     * @brief Annoying! Haven't we used public inheritance of public members?
+     * Templates play a role? Don't see how.
+     */
+    using EM<data_T, theta_T>::getN;
 
     /**
      * @brief <b>E-step</b>: update hidden attributes, i.e. classification
@@ -74,10 +96,11 @@ public:
      * To be called by subclasses
      *
      * @param[in] K_ Number of Classes (~)
-     *
+     * @param[in] data
+     * @param[in] theta
      */
-    FitMulticlassByEM(const unsigned K_)
-    : EM<datapoint_t>()
+    FitMulticlassByEM(const unsigned K_, const data_t& data, const theta_t& theta)
+    : EM<data_t, theta_t>(data, theta)
     , K(K_)
       { }
 
@@ -148,6 +171,16 @@ public:
     std::vector<unsigned int> getClassifList() const;
 
     /**
+     * Avoid exposing the data field
+     */
+    const std::vector<fvector_t>& getClassif() const;
+
+    /**
+    * Avoid exposing the data field
+    */
+    const fvector_t& getClassif(const unsigned n) const;
+
+    /**
      * @brief Get current estimated class weight
      *
      * @param[in] k class no.
@@ -161,15 +194,16 @@ public:
     template<class II>
     void setData(std::pair<II, II> data_) {
 
-        // II must iterate over datapoint_t elements
-        BOOST_MPL_ASSERT_MSG((boost::mpl::equal<datapoint_t, typename II::value_type>::type::value), UnsupportedDatavectorType, (typename II::value_type));
+        EM<data_T, theta_T>::setData(data_);
 
-#ifdef VERBOSE
-        std::cerr << "FitMulticlassByEM: setData called\n";
-#endif
-
-        getDataObj() -> setDataProper(data_);
         initClassif();
+    }
+
+    /**
+     * I know, same ... bc of template params
+     */
+    virtual const std::string className() const {
+        return typeid(this).name();
     }
 
     /**

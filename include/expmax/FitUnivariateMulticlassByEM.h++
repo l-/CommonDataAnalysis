@@ -16,36 +16,24 @@ namespace CDA {
 /**
  * @brief It's been demoted to a typedef.
  */
-class FitUnivariateMulticlassByEM : public FitMulticlassByEM<double> {
-
-    EMData<double> m_data;
-
-    typedef double datapoint_t;
+class FitUnivariateMulticlassByEM : public FitMulticlassByEM<EMData<double>, EMThetas> {
 
 public:
 
-    /**
-     * @brief hmk ...
-     *
-     * @return m_data
-     */
-    EMData<datapoint_t>* getDataObj() { return &m_data; }
-
-    /**
-     * @brief Same in const
-     * @return reference to datapoints-holding object
-     */
-    const EMData<datapoint_t>* getDataObj() const { return &m_data; }
-
+    typedef double datapoint_t;
+    typedef EMData<double> data_t;
+    typedef EMThetas theta_t;
 
     /**
      * @brief Constructor
      *
      * @param[in] K_ this way round, because of default parameter in superclass
+     * @param[in] data
+     * @param[in] theta
      */
-    FitUnivariateMulticlassByEM(const unsigned K_)
-    : FitMulticlassByEM<double>(K_)
-    , m_data(1)
+    FitUnivariateMulticlassByEM(const unsigned K_, const data_t& data, const theta_t& theta)
+      : FitMulticlassByEM<EMData<double>, EMThetas>(K_, data, theta)
+    // , m_data(1)
     {}
     //
 };

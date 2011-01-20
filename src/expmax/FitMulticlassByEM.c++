@@ -7,7 +7,7 @@
 *
 */
 
-#include "expmax/FitMulticlassByEM.h++"
+#include "expmax/ProbabilisticClustering.h++"
 
 #include <boost/foreach.hpp>
 
@@ -16,13 +16,13 @@
 #include <boost/lambda/lambda.hpp>
 #include "utils/comparisons.h++"
 
+// Loop-avoiding trickery
 #include <boost/iterator/counting_iterator.hpp>
-
 
 using namespace CDA;
 
-template<class datapoint_t>
-const std::string FitMulticlassByEM<datapoint_t>::dumpParameters(const unsigned k, const boost::optional<unsigned int> iteration) const {
+template<class data_T, class theta_T>
+const std::string FitMulticlassByEM<data_T, theta_T>::dumpParameters(const unsigned k, const boost::optional<unsigned int> iteration) const {
     std::stringstream out;
 
     if (iteration)
@@ -31,10 +31,10 @@ const std::string FitMulticlassByEM<datapoint_t>::dumpParameters(const unsigned 
     out << k << ";";
 
     unsigned i=0;
-    BOOST_FOREACH ( double vi, m_theta.getThetas()[k] ) {
+    BOOST_FOREACH ( double vi, getThetaObj() -> getThetas()[k] ) {
         out << vi;
 
-        if (i < m_theta.getThetas()[k].size() - 1) {
+        if (i < getK() - 1) {
             out << ";";
         } else {
             out << "\n";
@@ -46,20 +46,20 @@ const std::string FitMulticlassByEM<datapoint_t>::dumpParameters(const unsigned 
     return out.str();
 }
 
-template<class datapoint_t>
-const std::string FitMulticlassByEM<datapoint_t>::dumpParameters(const boost::optional<unsigned int> iteration) const {
+template<class data_T, class theta_T>
+const std::string FitMulticlassByEM<data_T, theta_T>::dumpParameters(const boost::optional<unsigned int> iteration) const {
     std::stringstream out;
     for (unsigned i=0; i<K; ++i)
         out << dumpParameters(i, iteration);
     return out.str();
 }
 
-template<class datapoint_t>
-double FitMulticlassByEM<datapoint_t>::logLikelihood() const {
+template<class data_T, class theta_T>
+double FitMulticlassByEM<data_T, theta_T>::logLikelihood() const {
     double res = 0;
     for (unsigned n=0; n<getN(); ++n) {
         double beitraege = 0;
-        for (unsigned k=0; k<m_theta.getThetas().size(); ++k) {
+        for (unsigned k=0; k<getK(); ++k) {
             beitraege += getPk(k) * evalPDF(k, getDataObj()->getData(n));
         }
         res += log(beitraege);
@@ -67,13 +67,13 @@ double FitMulticlassByEM<datapoint_t>::logLikelihood() const {
     return res;
 }
 
-template<class datapoint_t>
-const fvector_t&  FitMulticlassByEM<datapoint_t>::getHiddenParamEstimate(const unsigned n) const {
+template<class data_T, class theta_T>
+const fvector_t&  FitMulticlassByEM<data_T, theta_T>::getHiddenParamEstimate(const unsigned n) const {
     return classif[n];
 }
 
-template<class datapoint_t>
-unsigned int FitMulticlassByEM<datapoint_t>::getBestClass(const unsigned n) const {
+template<class data_T, class theta_T>
+unsigned int FitMulticlassByEM<data_T, theta_T>::getBestClass(const unsigned n) const {
     const fvector_t& cs = getHiddenParamEstimate(n);
     return *( std::max_element<boost::counting_iterator<int>, compareByVectorElementValue<fvector_t, size_t> >
     (boost::counting_iterator<int>(0),
@@ -81,22 +81,37 @@ unsigned int FitMulticlassByEM<datapoint_t>::getBestClass(const unsigned n) cons
             compareByVectorElementValue<fvector_t>(cs)) );
 }
 
-template<class datapoint_t>
-std::vector<unsigned int> FitMulticlassByEM<datapoint_t>::getClassifList() const {
+template<class data_T, class theta_T>
+std::vector<fvector_t>& FitMulticlassByEM<data_T, theta_T>::getModifyClassif() {
+    return classif;
+}
+
+template<class data_T, class theta_T>
+const std::vector<fvector_t>& FitMulticlassByEM<data_T, theta_T>::getClassif() const {
+    return classif;
+}
+
+template<class data_T, class theta_T>
+const fvector_t& FitMulticlassByEM<data_T, theta_T>::getClassif(const unsigned n) const {
+    return classif[n];
+}
+
+template<class data_T, class theta_T>
+std::vector<unsigned int> FitMulticlassByEM<data_T, theta_T>::getClassifList() const {
     std::vector<unsigned int> result;
     std::for_each(boost::counting_iterator<int>(0),
             boost::counting_iterator<int>(getN()),
             boost::lambda::bind(boost::mem_fn(&std::vector<unsigned int>::push_back),
                     &result,
                     boost::lambda::bind(
-                            boost::mem_fn(&FitMulticlassByEM<datapoint_t>::getBestClass),
+                            boost::mem_fn(&FitMulticlassByEM<data_T, theta_T>::getBestClass),
                             this,
                             boost::lambda::_1)));
     return result;
 }
 
-template<class datapoint_t>
-void FitMulticlassByEM<datapoint_t>::initClassif() {
+template<class data_T, class theta_T>
+void FitMulticlassByEM<data_T, theta_T>::initClassif() {
     classif . clear();
 
     for (unsigned i=0; i<getN(); ++i) {
@@ -105,13 +120,13 @@ void FitMulticlassByEM<datapoint_t>::initClassif() {
 }
 
 
-template<class datapoint_t>
-double FitMulticlassByEM<datapoint_t>::getPk(const unsigned k) const {
-    return m_theta.getThetas()[k](0);
+template<class data_T, class theta_T>
+double FitMulticlassByEM<data_T, theta_T>::getPk(const unsigned k) const {
+    return getThetaObj() -> getThetas()[k](0);
 }
 
-template<class datatype_t>
-void FitMulticlassByEM<datatype_t>::update_hidden() {
+template<class data_T, class theta_T>
+void FitMulticlassByEM<data_T, theta_T>::update_hidden() {
 
 #ifdef VERBOSE
     std::cout << className() << ": E step.\n";
@@ -141,25 +156,22 @@ void FitMulticlassByEM<datatype_t>::update_hidden() {
             classif[n] /= norm_1(classif[n]);
 
         //                            classif[n] = FLT_EPSILON; // make sense?
-        //                        }
-
-        // std::cout << data[n] << "as" << classif[n] << std::endl;
     }
 }
 
-template<class datapoint_t>
-double FitMulticlassByEM<datapoint_t>::getParam(const unsigned k, const unsigned p) const {
-    return m_theta.getThetas()[k][p];
+template<class data_T, class theta_T>
+double FitMulticlassByEM<data_T, theta_T>::getParam(const unsigned k, const unsigned p) const {
+    return getThetaObj() -> getThetas()[k][p];
 }
 
-template<class datapoint_t>
-unsigned int FitMulticlassByEM<datapoint_t>::getK() const
+template<class data_T, class theta_T>
+unsigned int FitMulticlassByEM<data_T, theta_T>::getK() const
 {
     return K;
 }
 
-
 // Without these two declarations, the file would be useless ;-)
-template class FitMulticlassByEM<double>;
-template class FitMulticlassByEM<fvector_t>;
+template class FitMulticlassByEM<EMData<double>, EMThetas>;
+template class FitMulticlassByEM<VectorEMData, EMThetas>;
+template class FitMulticlassByEM<VectorEMData, GaussianMixtureModelNDParams>;
 

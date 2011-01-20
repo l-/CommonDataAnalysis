@@ -1,6 +1,6 @@
 /**
  * @file EM.c++
- *
+ * @version 0.12
  * @author Erik Flick <erik.flick [AETT] informatik.uni-hamburg.de>
  *
  *  Created on: Jan 17, 2011
@@ -9,15 +9,19 @@
 
 #include "expmax/EM.h++"
 
+// Common instantiations, if not in this file the code will not be compiled
+#include "expmax/VectorEMData.h++"
+#include "expmax/GaussianMixtureModelNDParams.h++"
+
 using namespace CDA;
 
-template<class datapoint_t>
-unsigned int EM<datapoint_t>::getN() const {
+template<class data_t, class theta_t>
+unsigned int EM<data_t, theta_t>::getN() const {
     return getDataObj() -> getNumberOfDataPoints();
 }
 
-template<class datapoint_t>
-void EM<datapoint_t>::EMrun(const unsigned MAXITER, const double thresh, const boost::optional<std::ostream*> output_csv) {
+template<class data_t, class theta_t>
+void EM<data_t, theta_t>::EMrun(const unsigned MAXITER, const double thresh, const boost::optional<std::ostream*> output_csv) {
 
     assert(m_theta . getThetas() . size() > 0);
 
@@ -54,9 +58,23 @@ void EM<datapoint_t>::EMrun(const unsigned MAXITER, const double thresh, const b
     std::cout << "Done, with log-likelihood " << q_likelihood << std::endl << std::flush;
 }
 
-template<class datapoint_t>
-EM<datapoint_t>::EM()
+template<class data_t, class theta_t>
+EM<data_t, theta_t>::EM(const data_t& data, const theta_t& theta) : m_data(data), m_theta(theta)
   {  }
+template<class data_t, class theta_t>
+EM<data_t, theta_t>::EM(const EM& other)
+  : m_data(other.m_data)
+  , m_theta(other.m_theta) {}
 
-template class EM<double>;
-template class EM<fvector_t>;
+template<class data_t, class theta_t>
+data_t* EM<data_t, theta_t>::getDataObj() { return &m_data; }
+template<class data_t, class theta_t>
+const data_t* EM<data_t, theta_t>::getDataObj() const { return &m_data; }
+template<class data_t, class theta_t>
+theta_t* EM<data_t, theta_t>::getThetaObj() { return &m_theta; }
+template<class data_t, class theta_t>
+const theta_t* EM<data_t, theta_t>::getThetaObj() const { return &m_theta; }
+
+template class EM<EMData<double>, EMThetas>;
+template class EM<VectorEMData, EMThetas>;
+template class EM<VectorEMData, GaussianMixtureModelNDParams>;

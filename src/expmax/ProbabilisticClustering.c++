@@ -5,8 +5,6 @@
 // *
 // * @section LICENSE
 // *
-// * This file is released under LGPL v3.0.
-// *
 // *  Created on: Dec 16, 2010
 // *
 // *  @todo crippling bugs in multivariate gaussian specialization

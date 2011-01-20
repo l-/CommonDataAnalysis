@@ -10,57 +10,60 @@
 #pragma once
 
 #include "FitMulticlassByEM.h++"
+#include "VectorEMData.h++"
 
 namespace CDA {
+
 
 /**
  * @class FitMultivariateMulticlassByEM
  *
+ * @brief Note that the EMData type is fixed: VectorEMData.
+ *
  * @brief It's no longer a simple typedef.
  */
-class FitMultivariateMulticlassByEM : public FitMulticlassByEM<fvector_t> {
+template<class theta_T>
+class FitMultivariateMulticlassByEM : public FitMulticlassByEM<VectorEMData, theta_T> {
 
 protected:
-    using FitMulticlassByEM<fvector_t>::classif;
-    using FitMulticlassByEM<fvector_t>::getN;
+
+    /**
+     * @brief We need to access this in the E(?) step
+     */
+    using FitMulticlassByEM<VectorEMData, theta_T>::getModifyClassif;
+
+    /**
+     * @brief Which is protected ...
+     */
+    using EM<VectorEMData, theta_T>::getDataObj; // which is virtual, rather that m_data
+
+    /**
+     * @same
+     */
+    using EM<VectorEMData, theta_T>::getThetaObj;
 
 public:
 
     /**
      * @brief Define the datapoint_t
      */
-    typedef fvector_t datapoint_t;
-
-    /**
-     * @brief get number of classes
-     */
-    using FitMulticlassByEM<fvector_t>::getK;
-
-protected:
-
-    EMData<datapoint_t> m_data;
-
-public:
+    typedef VectorEMData data_t;
+    typedef VectorEMData::value_type datapoint_t;
+    typedef theta_T theta_t;
 
     /**
      * @brief Constructor
      *
      * @param[in] K_ this way round, because of default parameter in superclass
-     * @param[in] D_ Data dimensionality
+     * @param[in] data D is not explicitly passed to this class anymore.
+     * @param[in] theta
      */
-    FitMultivariateMulticlassByEM(const unsigned K_, const unsigned D_)
-    : FitMulticlassByEM<fvector_t>(K_)
-    , m_data(D_)
+    FitMultivariateMulticlassByEM(const unsigned K_, const VectorEMData& data, const theta_t& theta)
+      : FitMulticlassByEM<VectorEMData, theta_t>(K_, data, theta)
     {}
     //
 
     unsigned getD() const;
-
-    EMData<datapoint_t>* getDataObj() {
-        return &m_data; }
-    const EMData<datapoint_t>* getDataObj() const {
-        return &m_data; }
-
 };
 
 } // namespace

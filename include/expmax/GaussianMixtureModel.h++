@@ -11,8 +11,8 @@
 
 #pragma once
 
-#include "GaussianMixtureModelNDCommon.h++"
-#include "FitMultivariateMulticlassByEM.h++"
+#include "expmax/GaussianMixtureModelNDCommon.h++"
+#include "expmax/FitMultivariateMulticlassByEM.h++"
 
 namespace CDA {
 
@@ -23,46 +23,37 @@ namespace CDA {
  *
  */
 class GaussianMixtureModel: public GaussianMixtureModelNDCommon {
-    // Fit ...
-    using GaussianMixtureModelNDCommon::sym_mtx_t;
-    using GaussianMixtureModelNDCommon::m_cached_invsigmas;
 
-    typedef GaussianMixtureModelNDCommon::datapoint_t datapoint_t;
-
-    using GaussianMixtureModelNDCommon::classif;
-
-    using GaussianMixtureModelNDCommon::P; // zufrieden?
+//    using GaussianMixtureModelNDCommon::getClassif;
+//
+//    using GaussianMixtureModelNDCommon::getP; // zufrieden?
 
 public:
 
     /**
-     * @brief Should be accessible from outside
+     * @brief Types
      */
-    using GaussianMixtureModelNDCommon::getP;
-    using GaussianMixtureModelNDCommon::getK;
-    using GaussianMixtureModelNDCommon::getD;
-
-    /**
-     * @even those ...
-     */
-    using GaussianMixtureModelNDCommon::a;
-    using GaussianMixtureModelNDCommon::i;
-    using GaussianMixtureModelNDCommon::j;
+    typedef GaussianMixtureModelNDCommon::datapoint_t datapoint_t;
+    typedef GaussianMixtureModelNDCommon::data_t data_t;
+    typedef GaussianMixtureModelNDCommon::theta_t theta_t;
+    typedef GaussianMixtureModelNDCommon::theta_t::sym_mtx_t sym_mtx_t;
 
     /**
      * @brief Constructor
      *
      * @param[in] K_ this way round, because of default parameter in superclass
      * @param[in] D_
+     * @param[in] data
+     * @param[in] theta
      */
-    GaussianMixtureModel(const unsigned K_, const unsigned D_)
-        : GaussianMixtureModelNDCommon(K_, D_) {}
+    GaussianMixtureModel(const unsigned K_, const unsigned D_, const data_t& data, const theta_t& theta)
+        : GaussianMixtureModelNDCommon(K_, D_, data, theta) {}
 
-    template<class II>
-    void initializeClusters(std::pair<II, II> thetas_) {
-        m_theta . setTheta(thetas_);
-        updateCached();
-    }
+//    template<class II>
+//    void initializeClusters(std::pair<II, II> thetas_) {
+//        getThetaObj() -> setTheta(thetas_);
+//        getDataObj() -> updateCached();
+//    }
 
 
 protected:
@@ -86,7 +77,7 @@ protected:
      * @brief Class name for logging
      * @return
      */
-    const std::string className() const;
+    virtual const std::string className() const;
 
 };
 

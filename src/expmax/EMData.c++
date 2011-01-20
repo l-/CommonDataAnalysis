@@ -12,8 +12,19 @@
 using namespace CDA;
 
 namespace CDA{
-template<> EMData<double>::EMData(const unsigned D_) : D(1) {}; // all's well
-template<> EMData<fvector_t>::EMData(const unsigned D_) : D(D_) {};
+template<> EMData<double>::EMData(const unsigned D_) {}; // all's well
+
+template<class T>
+EMData<T>::EMData(const EMData<T>& other)
+  // : D(other.D)
+{
+#ifdef EXTRA_VERBOSE
+    std::cerr << "EMData copy constructor called!\n";
+#endif
+    std::copy(other.data.begin(), other.data.end(), std::back_inserter(data));
+}
+
+
 } // namespace
 
 template <class datapoint_t>
@@ -37,10 +48,9 @@ size_t EMData<datapoint_t>::getNumberOfDataPoints() const {
 }
 
 template <class datapoint_t>
-size_t EMData<datapoint_t>::getDataDimensionality() const { return D; }
-
-template <class datapoint_t>
-size_t EMData<datapoint_t>::getD() const { return D; }
+void EMData<datapoint_t>::clear() {
+    data.clear();
+}
 
 // Again, without these two declarations, the file would be useless ;-)
 template class EMData<double>;

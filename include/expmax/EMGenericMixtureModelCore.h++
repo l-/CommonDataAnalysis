@@ -1,6 +1,6 @@
 /**
  * @file EMGenericMixtureModelCore.h++
- *
+ * @version 0.12
  * @author Erik Flick <erik.flick [AETT] informatik.uni-hamburg.de>
  *
  *  Created on: Jan 5, 2011
@@ -19,23 +19,42 @@ namespace CDA {
  * @brief Ideally, each model knows its data layout, parameter estimators and stuff.
  * There could be a general blueprint for dealing with models which cannot be handled
  * analytically, prompting a gradient search for the MLE step
- *
- * @section NOTE
- * for multivariate.
  */
-class EMGenericMixtureModelCore : public FitMultivariateMulticlassByEM {
+template <class theta_T>
+class EMGenericMixtureModelCore : public FitMultivariateMulticlassByEM<theta_T> {
 
 public:
     /**
      * @brief Propagate the datapoint_t
      */
-    typedef FitMultivariateMulticlassByEM::datapoint_t datapoint_t;
+    typedef typename FitMultivariateMulticlassByEM<theta_T>::data_t data_t;
+    typedef fvector_t datapoint_t;
+    typedef theta_T theta_t;
+
+    /**
+     * @brief C++ gurus: Why should this be needed?
+     */
+    using FitMulticlassByEM<data_t, theta_t>::getK;
+    using EM<data_t, theta_t>::getN;
+
+    /**
+     * @brief Which is protected ...
+     */
+    using EM<data_t, theta_t>::getDataObj; // which is virtual, rather that m_data
+
+    /**
+     * @brief same
+     */
+    using EM<data_t, theta_t>::getThetaObj;
+
+    /**
+     * @brief similar
+     */
+    using FitMultivariateMulticlassByEM<theta_t>::getClassif;
 
 protected:
 
-    using FitMultivariateMulticlassByEM::classif;
-    using FitMultivariateMulticlassByEM::getN;
-    using FitMultivariateMulticlassByEM::getD;
+    using FitMultivariateMulticlassByEM<theta_T>::getModifyClassif;
 
     /**
      * @brief Parameter space dimensionality.
@@ -51,6 +70,7 @@ protected:
     /**
      * @brief <b>M-step</b>: update parameters of model PDF
      *
+     * @section DESCRIPTION
      * It calls improveClusterModelParameters, where the implementer
      * specifies how the other parameters (beside a priori class probabilities)
      * are updated.
@@ -61,6 +81,7 @@ protected:
      * @brief The quasi-MLE step. Since this may be done in different-different ways,
      * it can be mixed in from a separate class.
      *
+     * @section DESCRIPTION
      * It is called by update_thetas
      */
     virtual void improveClusterModelParameters() = 0;
@@ -73,9 +94,11 @@ public:
      * @param[in] K_
      * @param[in] P_ specific to the model.
      * @param[in] D_ // really belongs here? don't think so.
+     * @param[in] data
+     * @param[in] theta
      */
-    EMGenericMixtureModelCore(const unsigned K_, const unsigned P_, const unsigned D_)
-      : FitMultivariateMulticlassByEM(K_, D_), P(P_) {
+    EMGenericMixtureModelCore(const unsigned K_, const unsigned P_, const unsigned D_, const data_t& data, const theta_t& theta)
+      : FitMultivariateMulticlassByEM<theta_t>(K_, D_, data, theta), P(P_) {
 #ifdef VERBOSE_2
         std::cerr << "EMGenericMixtureModelCore Constructor called, P should equal " << P << std::endl;
 #endif

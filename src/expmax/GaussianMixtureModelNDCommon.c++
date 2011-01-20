@@ -25,9 +25,9 @@
 using namespace CDA;
 
 GaussianMixtureModelNDCommon::
-GaussianMixtureModelNDCommon(const unsigned K_, const unsigned D_)
+GaussianMixtureModelNDCommon(const unsigned K_, const unsigned D_, const data_t& data, const theta_t& theta)
     // : EMData<fvector_t>(D_) // <-- don't forget!!!
-    : EMGenericMixtureModelCore(K_, 1+D_+(D_*(D_+1))/2, D_)
+    : EMGenericMixtureModelCore(K_, 1+D_+(D_*(D_+1))/2, D_, data, theta)
 {
 
 #ifdef DETAIL_VERBOSE_2
@@ -130,25 +130,6 @@ GaussianMixtureModelNDCommon::getInvSigma(const unsigned k) const {
 
 double GaussianMixtureModelNDCommon::getSigmaDet(const unsigned k) const {
     return det(getSigmaMatrix(k));
-}
-
-const boost::numeric::ublas::symmetric_matrix<double, boost::numeric::ublas::upper>
-GaussianMixtureModelNDCommon::getSigmaMatrix(const unsigned k) const {
-    boost::numeric::ublas::symmetric_matrix<double, boost::numeric::ublas::upper> Sigma(getD(), getD());
-    // @todo c'mon, just copy the memory
-    for (unsigned p = getD() + 1; p < getP(); ++p) {
-        unsigned a = p;
-        unsigned i_ = i(a);
-        unsigned j_ = j(a);
-        Sigma(i_,j_) = getParam(k, p);
-#ifdef DETAIL_VERBOSE_2
-        std::cerr << a << " " << i_ << " " << j_ << " " << k << " " << p <<" " << getParam(k,p) << std::endl;
-#endif
-    }
-#ifdef DETAIL_VERBOSE_2
-    std::cerr << Sigma;
-#endif
-    return Sigma;
 }
 
 double GaussianMixtureModelNDCommon::evalPDF(const unsigned k, const fvector_t& x) const {

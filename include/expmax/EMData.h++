@@ -18,9 +18,12 @@ namespace CDA {
 /**
  * @class EMData
  *
- * template param datapoint_t
+ * @tparam T datapoint_t, usually double or fvector_t
  *
- * @brief Any concrete EM subclass "has_a" EMData of the appropriate type (i.e. mono- or multivariate)
+ * @brief Your basic datapoint list
+ *
+ * @section DESCRIPTION
+ * Any concrete EM subclass "has_a" EMData of the appropriate type (i.e. mono- or multivariate)
  * It encapsulates access to the original data points.
  */
 template<class T>
@@ -29,19 +32,17 @@ class EMData {
 public:
 
     /**
-     * double or fvector_t
+     * @brief double or fvector_t
      */
     typedef T datapoint_t;
 
-protected:
-
     /**
-     * @brief Data dimensionality
+     * @brief Standard name
      */
-    const int D;
+    typedef datapoint_t value_type;
 
     /**
-     * Reimplemented for all univariate variants
+     * @brief Reimplemented for all univariate variants
      */
     std::vector<datapoint_t> data;
 
@@ -51,16 +52,15 @@ public:
      * @brief Constructor.
      * Constructor, to be called explicitly in multivariate case only
      *
-     * @param[in] D_ data dimensionality
+     * @param[in] D_ data dimensionality -- use it if applicable.
+     * This class does nothing with the parameter. use VectorEMData
      */
     EMData(const unsigned D_ = 1);
 
-    EMData(const EMData<T>& other)
-      : D(other.D)
-    {
-        std::cerr << "EMData copy constructor called!\n";
-        std::copy(other.data.begin(), other.data.end(), std::back_inserter(data));
-    }
+    /**
+     * @brief Copy Constr.
+     */
+    EMData(const EMData<T>& other);
 
     /**
      * @brief Const getter
@@ -89,18 +89,6 @@ public:
     size_t getNumberOfDataPoints() const;
 
     /**
-     * @brief Get D (or 1 for univariate instances)
-     *
-     * @return D
-     */
-    size_t getDataDimensionality() const;
-
-    /**
-    * @return D
-    */
-    size_t getD() const;
-
-    /**
      * @brief Call this from setData
      *
      * @param[in] iterators on data entries to copy
@@ -113,6 +101,7 @@ public:
 #endif
     }
 
+    void clear();
 };
 
 } // namespace

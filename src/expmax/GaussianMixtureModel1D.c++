@@ -17,8 +17,8 @@
 
 using namespace CDA;
 
-GaussianMixtureModel1D::GaussianMixtureModel1D(const unsigned K_)
-  : FitUnivariateMulticlassByEM(K_)
+GaussianMixtureModel1D::GaussianMixtureModel1D(const unsigned K_, const data_t& data, const theta_t& theta)
+  : FitUnivariateMulticlassByEM(K_, data, theta)
 {  }
 
 inline double GaussianMixtureModel1D::squaredDistanceToMean(const unsigned k, const datapoint_t x) const {

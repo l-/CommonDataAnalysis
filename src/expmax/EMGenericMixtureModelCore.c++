@@ -11,25 +11,29 @@
 
 using namespace CDA;
 
-void EMGenericMixtureModelCore::update_thetas() {
+template <class theta_T>
+void EMGenericMixtureModelCore<theta_T>::update_thetas() {
 
 #ifdef VERBOSE
     std::cout << className() << ": M step.\n";
 #endif
 
-    // The common part: updating of overall class probabilities
+    // The common part: updating of overall class probabilities.
+    // It is assumed to be residing at [0] of the parameter vector.
+    unsigned int K = getK();
+
     double sumclassif[K];
     for (unsigned k=0; k<K; ++k) {
         sumclassif[k] = 0.0; }
 
     for (unsigned n=0; n<getN(); ++n) {
         for (unsigned k=0; k<getK(); ++k) {
-            sumclassif[k] += classif[n](k);
+            sumclassif[k] += getClassif(n)(k);
         }
     }
 
     for (unsigned k=0; k<K; ++k) {
-        m_theta.getModifyThetas()[k](0) = 1/((double)(getN())) * sumclassif[k];
+        getThetaObj().getModifyThetas()[k](0) = 1/((double)(getN())) * sumclassif[k];
 
 #ifdef VERBOSE
         std::cout << "Alpha " << k << " now " << m_theta.getThetas()[k](0) << std::endl;
@@ -39,12 +43,13 @@ void EMGenericMixtureModelCore::update_thetas() {
     improveClusterModelParameters();
 }
 
-const std::string EMGenericMixtureModelCore::className() const {
+template <class theta_T>
+const std::string EMGenericMixtureModelCore<theta_T>::className() const {
     return std::string("EMGenericMixtureModelCore"); // shouldn't occur, class is still abstract
 }
 
-
-const std::string EMGenericMixtureModelCore::getCSVHeader() const {
+template <class theta_T>
+const std::string EMGenericMixtureModelCore<theta_T>::getCSVHeader() const {
     std::stringstream out;
 
     out << "iteration" << ";";
