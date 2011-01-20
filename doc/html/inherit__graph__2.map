@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" href="$classCDA_1_1EM.html" title="CDA::EM\&lt; EMData\&lt; double \&gt;, EMThetas \&gt;" alt="" coords="7,5,281,35"/>
-<area shape="rect" href="$classCDA_1_1FitMulticlassByEM.html" title="CDA::FitMulticlassByEM\&lt; EMData\&lt; double \&gt;, EMThetas \&gt;" alt="" coords="332,5,697,35"/>
-<area shape="rect" href="$classCDA_1_1FitUnivariateMulticlassByEM.html" title="It&#39;s been demoted to a typedef." alt="" coords="747,5,971,35"/>
-<area shape="rect" href="$classCDA_1_1GaussianMixtureModel1D.html" title="A GaussianMixtureModel class, with EM fitting routine built in." alt="" coords="1020,5,1223,35"/>
-</map>

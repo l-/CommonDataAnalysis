@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" href="$classCDA_1_1EMGenericMixtureModelCore.html#a6e444765b04615888d41c4ab6c82ae61" title="Class name for logging ..." alt="" coords="432,5,731,35"/>
-<area shape="rect" href="$classCDA_1_1FitMulticlassByEM.html#ad468afb0c45474a7400fd7efbb1ad2dd" title="CDA::FitMulticlassByEM\&lt; VectorEMData, theta_T \&gt;::getClassif" alt="" coords="385,59,777,88"/>
-<area shape="rect" href="$classCDA_1_1FitMulticlassByEM.html#ae6b0acc500e8360bee6f8e3434b6b197" title="Better have a getter for this too." alt="" coords="401,112,761,141"/>
-<area shape="rect" href="$classCDA_1_1EM.html#a12d59d14b42f67805dbf2f721323e318" title="Return getDataObj() . getN()." alt="" coords="447,165,716,195"/>
-<area shape="rect" href="$classCDA_1_1EM.html#aee121bf43a5a5d1a24cfecb2cbd97e18" title="It&#39;s here now." alt="" coords="424,219,739,248"/>
-<area shape="rect" href="$classCDA_1_1EMGenericMixtureModelCore.html#aed2b50eb2bb8582204e186e3d5834c0a" title="The quasi&#45;MLE step. Since this may be done in different&#45;different ways, it can be..." alt="" coords="371,272,792,301"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" href="$classCDA_1_1EM.html" title="CDA::EM\&lt; VectorEMData, GaussianMixtureModelNDParams \&gt;" alt="" coords="5,5,392,35"/>
-<area shape="rect" href="$classCDA_1_1FitMulticlassByEM.html" title="CDA::FitMulticlassByEM\&lt; VectorEMData, GaussianMixtureModelNDParams \&gt;" alt="" coords="441,5,916,35"/>
-<area shape="rect" href="$classCDA_1_1FitMultivariateMulticlassByEM.html" title="CDA::FitMultivariateMulticlassByEM\&lt; GaussianMixtureModelNDParams \&gt;" alt="" coords="967,5,1417,35"/>
-<area shape="rect" href="$classCDA_1_1EMGenericMixtureModelCore.html" title="CDA::EMGenericMixtureModelCore\&lt; GaussianMixtureModelNDParams \&gt;" alt="" coords="1468,5,1911,35"/>
-<area shape="rect" href="$classCDA_1_1GaussianMixtureModelNDCommon.html" title="A heteroscedastic N&#45;dimensional Gaussian Mixture Model minus the parameter optimization..." alt="" coords="1960,5,2219,35"/>
-<area shape="rect" href="$classCDA_1_1GaussianMixtureModel.html" title="CDA::GaussianMixtureModel" alt="" coords="2268,5,2455,35"/>
-</map>

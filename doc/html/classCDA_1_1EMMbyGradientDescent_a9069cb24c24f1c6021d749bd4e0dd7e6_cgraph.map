@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" href="$classCDA_1_1EMGenericMixtureModelCore.html#a3f291b20f5345b1e302bf46338d2f5f3" title="The individual way of evaluating the PDF." alt="" coords="385,5,668,35"/>
-<area shape="rect" href="$classCDA_1_1EMData.html#a0f776db698fe3871ed20a6e9af2a37ad" title="Const getter." alt="" coords="449,59,604,88"/>
-<area shape="rect" href="$classCDA_1_1EMData.html#ac0839f5918bd704f111fc96183422c17" title="Get number of data points." alt="" coords="459,112,595,141"/>
-<area shape="rect" href="$classCDA_1_1FitMulticlassByEM.html#a869530b76ee4b40d38d3fb80ea0932aa" title="Get current estimated class weight." alt="" coords="385,165,668,195"/>
-</map>

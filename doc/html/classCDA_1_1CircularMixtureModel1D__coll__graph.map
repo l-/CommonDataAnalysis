@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" href="$classCDA_1_1FitMulticlassByEM.html" title="{FitUnivariateMulticlassByEM\n|# K\l# classif\l|+ FitMulticlassByEM()\l+ dumpParameters()\l+ dumpParameters()\l+ getParam()\l+ getCSVHeader()\l+ logLikelihood()\l+ getHiddenParamEstimate()\l+ getK()\l+ getBestClass()\l+ getClassifList()\l+ getPk()\l+ setData()\l+ initClassif()\l+ evalPDF()\l# update_hidden()\l}" alt="" coords="32,1355,221,1723"/>
-<area shape="rect" href="$classCDA_1_1EM.html" title="{CDA::EM\&lt; T \&gt;\n|# m_theta\l# m_data\l|+ EM()\l+ getHiddenParamEstimate()\l+ setTheta()\l+ EMrun()\l+ dumpParameters()\l+ getCSVHeader()\l+ setData()\l# EMstep()\l# update_hidden()\l# update_thetas()\l# logLikelihood()\l# className()\l}" alt="" coords="33,992,220,1304"/>
-<area shape="rect" href="$classCDA_1_1EMThetas.html" title="Model parameters for EM." alt="" coords="5,375,144,500"/>
-<area shape="rect" href="$classCDA_1_1EM.html" title="A generic EM model fitting class. Contains the general outline of EM algorithm, details..." alt="" coords="145,613,332,925"/>
-<area shape="rect" href="$classCDA_1_1EMData.html" title="{CDA::EMData\&lt; datapoint_t \&gt;\n|# D\l# data\l|+ EMData()\l+ getData()\l+ getData()\l+ getData()\l+ getN()\l+ getDataDimensionality()\l+ setDataProper()\l}" alt="" coords="168,328,357,547"/>
-<area shape="rect" href="$classCDA_1_1EMData.html" title="Any concrete EM subclass &quot;has_a&quot; EMData of the appropriate type (i.e. mono&#45;..." alt="" coords="177,5,348,261"/>
-</map>
