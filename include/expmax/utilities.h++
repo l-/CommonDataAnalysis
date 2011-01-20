@@ -1,6 +1,6 @@
 /**
  * @file utilities.h++
- *
+ * @version 0.14
  * @author Erik Flick <erik.flick [AETT] informatik.uni-hamburg.de>
  *
  *  Created on: Jan 17, 2011
@@ -58,10 +58,13 @@ boost::shared_ptr<GaussianMixtureModel1D> thresholdFinder(const std::pair<Iter, 
     init_theta_bimodal.push_back(hintergrund);
     init_theta_bimodal.push_back(vordergrund);
 
-    boost::shared_ptr<GaussianMixtureModel1D> bimodal (new GaussianMixtureModel1D(2) );
+    GaussianMixtureModel1D::data_t data;
+    data.setDataProper(input);
+    GaussianMixtureModel1D::theta_t theta;
+    theta.setTheta(std::make_pair(init_theta_bimodal.begin(), init_theta_bimodal.end()));
 
-    bimodal -> setData(input);
-    bimodal -> setTheta(std::make_pair(init_theta_bimodal.begin(), init_theta_bimodal.end()));
+    boost::shared_ptr<GaussianMixtureModel1D> bimodal (new GaussianMixtureModel1D(2, data, theta ) );
+
     bimodal -> EMrun(50, 0.0000001, output_csv); // @todo time
 
     return bimodal;
