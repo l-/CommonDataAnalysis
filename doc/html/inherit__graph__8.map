@@ -1,3 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" href="$classCDA_1_1EnhancedDatasetView.html" title="CDA::EnhancedDatasetView" alt="" coords="7,5,191,35"/>
+<area shape="rect" href="$classCDA_1_1EMThetas.html" title="Model parameters for EM." alt="" coords="7,5,121,35"/>
+<area shape="rect" href="$classCDA_1_1GaussianMixtureModelNDParams.html" title="A heteroscedastic N&#45;dimensional Gaussian Mixture Model." alt="" coords="171,5,421,35"/>
 </map>

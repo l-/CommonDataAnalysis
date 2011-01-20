@@ -32,11 +32,14 @@ GaussianMixtureModelNDCommon(const unsigned K_, const unsigned D_, const data_t&
 #ifdef DETAIL_VERBOSE_2
         std::cerr << "GaussianMixtureModelNDCommon: constructor was called. P=" << getP() << " " << getK() << " " << getD() << std::endl;
 #endif
+
+    // Since data is already set!
+    initClassif();
 }
 
 double GaussianMixtureModelNDCommon::evalPDF(const unsigned k, const fvector_t& x) const {
 
-    assert(m_theta . getThetas() . size() > 0);
+    // assert(m_theta . getThetas() . size() > 0);
 
     namespace ublas = boost::numeric::ublas;
 

@@ -13,7 +13,7 @@
 
 using namespace CDA;
 
-const GaussianMixtureModelNDParams::sym_mtx_t
+const GaussianMixtureModelNDParams::sym_mtx_t&
 GaussianMixtureModelNDParams::getSigmaMatrix(const unsigned k) const {
     return thetas[k].get<2>();
 }
@@ -153,6 +153,19 @@ const std::string GaussianMixtureModelNDParams::paramName(const unsigned p) cons
         out << "s_" << i(p) << "_" << j(p);
     }
     return out.str();
+}
+
+double GaussianMixtureModelNDParams::getThetas(const unsigned k, const unsigned p) const {
+    assert(p>=0);
+    // assert(p<getP());
+    if (p==0) {
+        return thetas[k].get<0>();
+    }
+    else if (1<=p && p < getD()+1) {
+        return thetas[k].get<1>()(p);
+    } else {
+        return thetas[k].get<2>()(i(p), j(p));
+    }
 }
 
 double& GaussianMixtureModelNDParams::getModifyThetas(const unsigned k, const unsigned p) {

@@ -1,10 +1,10 @@
 \hypertarget{classCDA_1_1FitMultivariateMulticlassByEM}{
-\section{CDA::FitMultivariateMulticlassByEM Klassenreferenz}
+\section{CDA::FitMultivariateMulticlassByEM$<$ theta\_\-T $>$ Template-\/Klassenreferenz}
 \label{classCDA_1_1FitMultivariateMulticlassByEM}\index{CDA::FitMultivariateMulticlassByEM@{CDA::FitMultivariateMulticlassByEM}}
 }
 
 
-It's been demoted to a typedef.  
+Note that the \hyperlink{classCDA_1_1EMData}{EMData} type is fixed: \hyperlink{classCDA_1_1VectorEMData}{VectorEMData}.  
 
 
 
@@ -13,15 +13,15 @@ It's been demoted to a typedef.
 
 
 
-Abgeleitet von \hyperlink{classCDA_1_1FitMulticlassByEM}{FitMulticlassByEM$<$ fvector\_\-t $>$}.
+Abgeleitet von \hyperlink{classCDA_1_1FitMulticlassByEM}{FitMulticlassByEM$<$ VectorEMData, theta\_\-T $>$}.
 
 
 
-Basisklasse für \hyperlink{classCDA_1_1EMGenericMixtureModelCore}{CDA::EMGenericMixtureModelCore}.
+Basisklasse für \hyperlink{classCDA_1_1EMGenericMixtureModelCore}{CDA::EMGenericMixtureModelCore$<$ theta\_\-T $>$}.
 
 
 
-Zusammengehörigkeiten von CDA::FitMultivariateMulticlassByEM:\nopagebreak
+Zusammengehörigkeiten von CDA::FitMultivariateMulticlassByEM$<$ theta\_\-T $>$:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -31,42 +31,54 @@ Zusammengehörigkeiten von CDA::FitMultivariateMulticlassByEM:\nopagebreak
 \subsection*{Öffentliche Typen}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classCDA_1_1FitMultivariateMulticlassByEM_a1da490e479036c62f0cbf55dd06201a6}{
-typedef fvector\_\-t \hyperlink{classCDA_1_1FitMultivariateMulticlassByEM_a1da490e479036c62f0cbf55dd06201a6}{datapoint\_\-t}}
-\label{classCDA_1_1FitMultivariateMulticlassByEM_a1da490e479036c62f0cbf55dd06201a6}
+\hypertarget{classCDA_1_1FitMultivariateMulticlassByEM_a7831e85cafbf2f27c8944c9db1e4c4bf}{
+typedef \hyperlink{classCDA_1_1VectorEMData}{VectorEMData} \hyperlink{classCDA_1_1FitMultivariateMulticlassByEM_a7831e85cafbf2f27c8944c9db1e4c4bf}{data\_\-t}}
+\label{classCDA_1_1FitMultivariateMulticlassByEM_a7831e85cafbf2f27c8944c9db1e4c4bf}
 
-\begin{DoxyCompactList}\small\item\em Define the datapoint\_\-t. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Define the datapoint\_\-t. \item\end{DoxyCompactList}\item 
+\hypertarget{classCDA_1_1FitMultivariateMulticlassByEM_a25d1211b30d3b411a0116b8efd66efdf}{
+typedef \hyperlink{classCDA_1_1EMData_a010a85bcffac375b7b0d9dfbc0ed2626}{VectorEMData::value\_\-type} {\bfseries datapoint\_\-t}}
+\label{classCDA_1_1FitMultivariateMulticlassByEM_a25d1211b30d3b411a0116b8efd66efdf}
+
+\item 
+\hypertarget{classCDA_1_1FitMultivariateMulticlassByEM_afc08a4f0e2d114eefa4ac5e5894e78aa}{
+typedef theta\_\-T {\bfseries theta\_\-t}}
+\label{classCDA_1_1FitMultivariateMulticlassByEM_afc08a4f0e2d114eefa4ac5e5894e78aa}
+
+\end{DoxyCompactItemize}
 \subsection*{Öffentliche Methoden}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classCDA_1_1FitMultivariateMulticlassByEM_a8d6225a029e5e06f09e9820abe538286}{FitMultivariateMulticlassByEM} (const unsigned K\_\-, const unsigned D\_\-)
+\hyperlink{classCDA_1_1FitMultivariateMulticlassByEM_ab16e1e3d2592e52801d7ebe94fb8b8d3}{FitMultivariateMulticlassByEM} (const unsigned K\_\-, const \hyperlink{classCDA_1_1VectorEMData}{VectorEMData} \&data, const theta\_\-t \&theta)
 \begin{DoxyCompactList}\small\item\em Constructor. \item\end{DoxyCompactList}\item 
 \hypertarget{classCDA_1_1FitMultivariateMulticlassByEM_a61354d086a158b075beccd1a956eb1f8}{
-unsigned \hyperlink{classCDA_1_1FitMultivariateMulticlassByEM_a61354d086a158b075beccd1a956eb1f8}{getD} () const }
+unsigned {\bfseries getD} () const }
 \label{classCDA_1_1FitMultivariateMulticlassByEM_a61354d086a158b075beccd1a956eb1f8}
 
-\begin{DoxyCompactList}\small\item\em Convenience getter for D, same format as getN() and getP(). \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 
 
 \subsection{Ausführliche Beschreibung}
-It's been demoted to a typedef. 
+\subsubsection*{template$<$class theta\_\-T$>$ class CDA::FitMultivariateMulticlassByEM$<$ theta\_\-T $>$}
+
+Note that the \hyperlink{classCDA_1_1EMData}{EMData} type is fixed: \hyperlink{classCDA_1_1VectorEMData}{VectorEMData}. It's no longer a simple typedef. 
 
 \subsection{Beschreibung der Konstruktoren und Destruktoren}
-\hypertarget{classCDA_1_1FitMultivariateMulticlassByEM_a8d6225a029e5e06f09e9820abe538286}{
+\hypertarget{classCDA_1_1FitMultivariateMulticlassByEM_ab16e1e3d2592e52801d7ebe94fb8b8d3}{
 \index{CDA::FitMultivariateMulticlassByEM@{CDA::FitMultivariateMulticlassByEM}!FitMultivariateMulticlassByEM@{FitMultivariateMulticlassByEM}}
 \index{FitMultivariateMulticlassByEM@{FitMultivariateMulticlassByEM}!CDA::FitMultivariateMulticlassByEM@{CDA::FitMultivariateMulticlassByEM}}
-\subsubsection[{FitMultivariateMulticlassByEM}]{\setlength{\rightskip}{0pt plus 5cm}CDA::FitMultivariateMulticlassByEM::FitMultivariateMulticlassByEM (const unsigned {\em K\_\-}, \/  const unsigned {\em D\_\-})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
-\label{classCDA_1_1FitMultivariateMulticlassByEM_a8d6225a029e5e06f09e9820abe538286}
+\subsubsection[{FitMultivariateMulticlassByEM}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class theta\_\-T$>$ {\bf CDA::FitMultivariateMulticlassByEM}$<$ theta\_\-T $>$::{\bf FitMultivariateMulticlassByEM} (const unsigned {\em K\_\-}, \/  const {\bf VectorEMData} \& {\em data}, \/  const theta\_\-t \& {\em theta})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCDA_1_1FitMultivariateMulticlassByEM_ab16e1e3d2592e52801d7ebe94fb8b8d3}
 
 
 Constructor. 
 
 
 \begin{DoxyParams}{Parameter}
-\item[\mbox{$\leftarrow$} {\em K\_\-}]this way round, because of default parameter in superclass \item[\mbox{$\leftarrow$} {\em D\_\-}]\end{DoxyParams}
+\item[\mbox{$\leftarrow$} {\em K\_\-}]this way round, because of default parameter in superclass \item[\mbox{$\leftarrow$} {\em data}]D is not explicitly passed to this class anymore since not necessary, already in data. \item[\mbox{$\leftarrow$} {\em theta}]\end{DoxyParams}
 
 
 Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien:\begin{DoxyCompactItemize}
 \item 
-src/expmax/\hyperlink{FitMultivariateMulticlassByEM_8h_09_09}{FitMultivariateMulticlassByEM.h++}\item 
-src/expmax/\hyperlink{ProbabilisticClustering_8c_09_09}{ProbabilisticClustering.c++}\end{DoxyCompactItemize}
+include/expmax/\hyperlink{FitMultivariateMulticlassByEM_8h_09_09}{FitMultivariateMulticlassByEM.h++}\item 
+src/expmax/\hyperlink{FitMultivariateMulticlassByEM_8c_09_09}{FitMultivariateMulticlassByEM.c++}\end{DoxyCompactItemize}

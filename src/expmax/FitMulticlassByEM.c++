@@ -1,6 +1,6 @@
 /**
 * @file FitMulticlassByEM.c++
-*
+* @version 0.131
 * @author Erik Flick <erik.flick [AETT] informatik.uni-hamburg.de>
 *
 *  Created on: Jan 17, 2011
@@ -31,7 +31,8 @@ const std::string FitMulticlassByEM<data_T, theta_T>::dumpParameters(const unsig
     out << k << ";";
 
     unsigned i=0;
-    BOOST_FOREACH ( double vi, getThetaObj() -> getThetas()[k] ) {
+    for (unsigned n=0; n<getThetaObj() -> getP(); ++n) {
+        double vi = getThetaObj() -> getThetas(k,n);
         out << vi;
 
         if (i < getK() - 1) {
@@ -114,6 +115,10 @@ template<class data_T, class theta_T>
 void FitMulticlassByEM<data_T, theta_T>::initClassif() {
     classif . clear();
 
+#ifdef VERBOSE
+    std::cerr << "initClassif called\n";
+#endif
+
     for (unsigned i=0; i<getN(); ++i) {
         classif . push_back ( fvector_t(K, 1/(double)K) );
     }
@@ -122,7 +127,7 @@ void FitMulticlassByEM<data_T, theta_T>::initClassif() {
 
 template<class data_T, class theta_T>
 double FitMulticlassByEM<data_T, theta_T>::getPk(const unsigned k) const {
-    return getThetaObj() -> getThetas()[k](0);
+    return getThetaObj() -> getThetas(k, 0);
 }
 
 template<class data_T, class theta_T>
@@ -161,7 +166,7 @@ void FitMulticlassByEM<data_T, theta_T>::update_hidden() {
 
 template<class data_T, class theta_T>
 double FitMulticlassByEM<data_T, theta_T>::getParam(const unsigned k, const unsigned p) const {
-    return getThetaObj() -> getThetas()[k][p];
+    return getThetaObj() -> getThetas(k,p);
 }
 
 template<class data_T, class theta_T>
@@ -174,4 +179,3 @@ unsigned int FitMulticlassByEM<data_T, theta_T>::getK() const
 template class FitMulticlassByEM<EMData<double>, EMThetas>;
 template class FitMulticlassByEM<VectorEMData, EMThetas>;
 template class FitMulticlassByEM<VectorEMData, GaussianMixtureModelNDParams>;
-

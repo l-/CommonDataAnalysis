@@ -4,16 +4,7 @@
 }
 
 
-A heteroscedastic N-\/dimensional Gaussian Mixture Model.  
-
-
-
-
-{\ttfamily \#include $<$GaussianMixtureModelND.h++$>$}
-
-
-
-Abgeleitet von \hyperlink{classCDA_1_1EMMbyGradientDescent}{CDA::EMMbyGradientDescent}.
+Abgeleitet von \hyperlink{classCDA_1_1GaussianMixtureModelNDCommon}{CDA::GaussianMixtureModelNDCommon}.
 
 
 
@@ -24,85 +15,79 @@ Zusammengehörigkeiten von CDA::GaussianMixtureModel:\nopagebreak
 \includegraphics[width=400pt]{classCDA_1_1GaussianMixtureModel__coll__graph}
 \end{center}
 \end{figure}
+\subsection*{Öffentliche Typen}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classCDA_1_1GaussianMixtureModel_a1b5062d5be14d4e057f1cec50561057e}{
+typedef GaussianMixtureModelNDCommon::datapoint\_\-t \hyperlink{classCDA_1_1GaussianMixtureModel_a1b5062d5be14d4e057f1cec50561057e}{datapoint\_\-t}}
+\label{classCDA_1_1GaussianMixtureModel_a1b5062d5be14d4e057f1cec50561057e}
+
+\begin{DoxyCompactList}\small\item\em Types. \item\end{DoxyCompactList}\item 
+\hypertarget{classCDA_1_1GaussianMixtureModel_a97327ed10b2954b8cbb4a83c340b00da}{
+typedef \hyperlink{classCDA_1_1GaussianMixtureModelNDCommon_a95dd5e5ca98ec39788d0de3b09d07a1a}{GaussianMixtureModelNDCommon::data\_\-t} \hyperlink{classCDA_1_1GaussianMixtureModel_a97327ed10b2954b8cbb4a83c340b00da}{data\_\-t}}
+\label{classCDA_1_1GaussianMixtureModel_a97327ed10b2954b8cbb4a83c340b00da}
+
+\begin{DoxyCompactList}\small\item\em Propagate the datapoint\_\-t. \item\end{DoxyCompactList}\item 
+\hypertarget{classCDA_1_1GaussianMixtureModel_a5c0afb5b2f1626ec4b66f2f870f2cee9}{
+typedef \hyperlink{classCDA_1_1GaussianMixtureModelNDParams}{GaussianMixtureModelNDCommon::theta\_\-t} {\bfseries theta\_\-t}}
+\label{classCDA_1_1GaussianMixtureModel_a5c0afb5b2f1626ec4b66f2f870f2cee9}
+
+\item 
+\hypertarget{classCDA_1_1GaussianMixtureModel_a90bd1fd92303e6a52e8b269e7624b276}{
+typedef GaussianMixtureModelNDCommon::theta\_\-t::sym\_\-mtx\_\-t {\bfseries sym\_\-mtx\_\-t}}
+\label{classCDA_1_1GaussianMixtureModel_a90bd1fd92303e6a52e8b269e7624b276}
+
+\end{DoxyCompactItemize}
 \subsection*{Öffentliche Methoden}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classCDA_1_1GaussianMixtureModel_a5921b8eb76badb1c21f18da585fde8ce}{GaussianMixtureModel} (const unsigned D\_\-, const unsigned K\_\-)
-\begin{DoxyCompactList}\small\item\em Constructor. \item\end{DoxyCompactList}\item 
+\hyperlink{classCDA_1_1GaussianMixtureModel_a4ed542a3d6838511b11d22560f7dc9b4}{GaussianMixtureModel} (const unsigned K\_\-, const unsigned D\_\-, const \hyperlink{classCDA_1_1GaussianMixtureModel_a97327ed10b2954b8cbb4a83c340b00da}{data\_\-t} \&data, const \hyperlink{classCDA_1_1GaussianMixtureModelNDParams}{theta\_\-t} \&theta)
+\begin{DoxyCompactList}\small\item\em Constructor. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classCDA_1_1GaussianMixtureModel_afe0080d43eb7169d66e57d074f1b7efc}{improveClusterModelParameters} ()
+\begin{DoxyCompactList}\small\item\em The quasi-\/MLE step, part of {\bfseries E-\/step}. \item\end{DoxyCompactList}\item 
 \hypertarget{classCDA_1_1GaussianMixtureModel_ace9d6f0ae0c45734c78be74b2c15d36b}{
-const std::string \hyperlink{classCDA_1_1GaussianMixtureModel_ace9d6f0ae0c45734c78be74b2c15d36b}{paramName} (const unsigned p) const }
+virtual const std::string \hyperlink{classCDA_1_1GaussianMixtureModel_ace9d6f0ae0c45734c78be74b2c15d36b}{paramName} (const unsigned p) const }
 \label{classCDA_1_1GaussianMixtureModel_ace9d6f0ae0c45734c78be74b2c15d36b}
 
-\begin{DoxyCompactList}\small\item\em Construct names of parameters, e.g. for output. \item\end{DoxyCompactList}\item 
-double \hyperlink{classCDA_1_1GaussianMixtureModel_ad89163c9bc3bdd8565a1fdcd9206d762}{evalPDF} (const unsigned k, const \hyperlink{classCDA_1_1EMGenericMixtureModelCore_a59c8aa9101530e99b1392d848fd50357}{datapoint\_\-t} \&x) const 
-\begin{DoxyCompactList}\small\item\em Evaluate model PDF of cluster k. \item\end{DoxyCompactList}\item 
-double \hyperlink{classCDA_1_1GaussianMixtureModel_a5f05d1d0815a3ba669d442bb560711df}{evalPDFderivP} (const unsigned k, const \hyperlink{classCDA_1_1EMGenericMixtureModelCore_a59c8aa9101530e99b1392d848fd50357}{datapoint\_\-t} \&x, const unsigned p) const 
-\begin{DoxyCompactList}\small\item\em Get numerical value of derivateive. \item\end{DoxyCompactList}\item 
-const boost::numeric::ublas::symmetric\_\-matrix$<$ double, boost::numeric::ublas::upper $>$ \hyperlink{classCDA_1_1GaussianMixtureModel_a0950a8909e82521c0919f337d18dbe04}{getSigmaMatrix} (const unsigned k) const 
-\begin{DoxyCompactList}\small\item\em Extract the covariance matrix of Gaussian no. k. \item\end{DoxyCompactList}\item 
-double \hyperlink{classCDA_1_1GaussianMixtureModel_a65065aeca55fef7931c83911ca656a3b}{getSigmaDet} (const unsigned k) const 
-\item 
-\hypertarget{classCDA_1_1GaussianMixtureModel_a89678e8fbc1e6361ff13c68def11b548}{
-const boost::numeric::ublas::symmetric\_\-matrix$<$ double, boost::numeric::ublas::upper $>$ \hyperlink{classCDA_1_1GaussianMixtureModel_a89678e8fbc1e6361ff13c68def11b548}{getInvSigma} (const unsigned k) const }
-\label{classCDA_1_1GaussianMixtureModel_a89678e8fbc1e6361ff13c68def11b548}
+\begin{DoxyCompactList}\small\item\em Construct names of parameters, e.g. for output calls same function from ...Common. \item\end{DoxyCompactList}\item 
+virtual const std::string \hyperlink{classCDA_1_1GaussianMixtureModel_aec72323935694359e18e3363ceaa40e7}{className} () const 
+\begin{DoxyCompactList}\small\item\em Class name for logging. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
 
-\begin{DoxyCompactList}\small\item\em Get inverse of Sigma of Gaussian no. k. \item\end{DoxyCompactList}\item 
-\hypertarget{classCDA_1_1GaussianMixtureModel_a46342603d7c1d04354bdbf7664655cd4}{
-const boost::numeric::ublas::vector\_\-range$<$ const fvector\_\-t $>$ \hyperlink{classCDA_1_1GaussianMixtureModel_a46342603d7c1d04354bdbf7664655cd4}{getMean} (const unsigned k) const }
-\label{classCDA_1_1GaussianMixtureModel_a46342603d7c1d04354bdbf7664655cd4}
-
-\begin{DoxyCompactList}\small\item\em Get Mean vector of Gaussian no. k. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
-
-
-\subsection{Ausführliche Beschreibung}
-A heteroscedastic N-\/dimensional Gaussian Mixture Model. 
 
 \subsection{Beschreibung der Konstruktoren und Destruktoren}
-\hypertarget{classCDA_1_1GaussianMixtureModel_a5921b8eb76badb1c21f18da585fde8ce}{
+\hypertarget{classCDA_1_1GaussianMixtureModel_a4ed542a3d6838511b11d22560f7dc9b4}{
 \index{CDA::GaussianMixtureModel@{CDA::GaussianMixtureModel}!GaussianMixtureModel@{GaussianMixtureModel}}
 \index{GaussianMixtureModel@{GaussianMixtureModel}!CDA::GaussianMixtureModel@{CDA::GaussianMixtureModel}}
-\subsubsection[{GaussianMixtureModel}]{\setlength{\rightskip}{0pt plus 5cm}CDA::GaussianMixtureModel::GaussianMixtureModel (const unsigned {\em D\_\-}, \/  const unsigned {\em K\_\-})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
-\label{classCDA_1_1GaussianMixtureModel_a5921b8eb76badb1c21f18da585fde8ce}
+\subsubsection[{GaussianMixtureModel}]{\setlength{\rightskip}{0pt plus 5cm}CDA::GaussianMixtureModel::GaussianMixtureModel (const unsigned {\em K\_\-}, \/  const unsigned {\em D\_\-}, \/  const {\bf data\_\-t} \& {\em data}, \/  const {\bf theta\_\-t} \& {\em theta})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCDA_1_1GaussianMixtureModel_a4ed542a3d6838511b11d22560f7dc9b4}
 
 
 Constructor. 
 
 
 \begin{DoxyParams}{Parameter}
-\item[\mbox{$\leftarrow$} {\em D\_\-}]\item[\mbox{$\leftarrow$} {\em K\_\-}]\end{DoxyParams}
-\hypertarget{classCDA_1_1GaussianMixtureModel_Parameter}{}\subsection{space dimensionality}\label{classCDA_1_1GaussianMixtureModel_Parameter}
-P = D + D(D+1)/2 (mean + covariances) 
+\item[\mbox{$\leftarrow$} {\em K\_\-}]this way round, because of default parameter in superclass \item[\mbox{$\leftarrow$} {\em D\_\-}]\item[\mbox{$\leftarrow$} {\em data}]\item[\mbox{$\leftarrow$} {\em theta}]\end{DoxyParams}
+
 
 \subsection{Dokumentation der Elementfunktionen}
-\hypertarget{classCDA_1_1GaussianMixtureModel_ad89163c9bc3bdd8565a1fdcd9206d762}{
-\index{CDA::GaussianMixtureModel@{CDA::GaussianMixtureModel}!evalPDF@{evalPDF}}
-\index{evalPDF@{evalPDF}!CDA::GaussianMixtureModel@{CDA::GaussianMixtureModel}}
-\subsubsection[{evalPDF}]{\setlength{\rightskip}{0pt plus 5cm}double GaussianMixtureModel::evalPDF (const unsigned {\em k}, \/  const {\bf datapoint\_\-t} \& {\em x}) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
-\label{classCDA_1_1GaussianMixtureModel_ad89163c9bc3bdd8565a1fdcd9206d762}
+\hypertarget{classCDA_1_1GaussianMixtureModel_aec72323935694359e18e3363ceaa40e7}{
+\index{CDA::GaussianMixtureModel@{CDA::GaussianMixtureModel}!className@{className}}
+\index{className@{className}!CDA::GaussianMixtureModel@{CDA::GaussianMixtureModel}}
+\subsubsection[{className}]{\setlength{\rightskip}{0pt plus 5cm}const std::string GaussianMixtureModel::className () const\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classCDA_1_1GaussianMixtureModel_aec72323935694359e18e3363ceaa40e7}
 
 
-Evaluate model PDF of cluster k. 
+Class name for logging. 
 
-
-\begin{DoxyParams}{Parameter}
-\item[{\em k}]class no. \item[{\em x}]feature vector $\vec{x}$\end{DoxyParams}
 \begin{DoxyReturn}{Rückgabe}
-$p(x,k\vert\theta) = \frac{1}{(2\pi)^{\frac{D}{2}}\left|\Sigma_k\right|}e^{\frac{-1}{2}(\vec{x}-\vec{\mu_k})^T\Sigma_k^{-1}(\vec{x}-\vec{\mu_k})}$ 
+
 \end{DoxyReturn}
 
 
-Implementiert \hyperlink{classCDA_1_1EMGenericMixtureModelCore_a3f291b20f5345b1e302bf46338d2f5f3}{CDA::EMGenericMixtureModelCore}.
-
-
-
-Hier ist ein Graph der zeigt, was diese Funktion aufruft:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=420pt]{classCDA_1_1GaussianMixtureModel_ad89163c9bc3bdd8565a1fdcd9206d762_cgraph}
-\end{center}
-\end{figure}
-
+Erneute Implementation von \hyperlink{classCDA_1_1EMGenericMixtureModelCore_a6e444765b04615888d41c4ab6c82ae61}{CDA::EMGenericMixtureModelCore$<$ GaussianMixtureModelNDParams $>$}.
 
 
 
@@ -110,26 +95,24 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=240pt]{classCDA_1_1GaussianMixtureModel_ad89163c9bc3bdd8565a1fdcd9206d762_icgraph}
+\includegraphics[width=282pt]{classCDA_1_1GaussianMixtureModel_aec72323935694359e18e3363ceaa40e7_icgraph}
 \end{center}
 \end{figure}
 
 
-\hypertarget{classCDA_1_1GaussianMixtureModel_a5f05d1d0815a3ba669d442bb560711df}{
-\index{CDA::GaussianMixtureModel@{CDA::GaussianMixtureModel}!evalPDFderivP@{evalPDFderivP}}
-\index{evalPDFderivP@{evalPDFderivP}!CDA::GaussianMixtureModel@{CDA::GaussianMixtureModel}}
-\subsubsection[{evalPDFderivP}]{\setlength{\rightskip}{0pt plus 5cm}double GaussianMixtureModel::evalPDFderivP (const unsigned {\em k}, \/  const {\bf datapoint\_\-t} \& {\em x}, \/  const unsigned {\em p}) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
-\label{classCDA_1_1GaussianMixtureModel_a5f05d1d0815a3ba669d442bb560711df}
+\hypertarget{classCDA_1_1GaussianMixtureModel_afe0080d43eb7169d66e57d074f1b7efc}{
+\index{CDA::GaussianMixtureModel@{CDA::GaussianMixtureModel}!improveClusterModelParameters@{improveClusterModelParameters}}
+\index{improveClusterModelParameters@{improveClusterModelParameters}!CDA::GaussianMixtureModel@{CDA::GaussianMixtureModel}}
+\subsubsection[{improveClusterModelParameters}]{\setlength{\rightskip}{0pt plus 5cm}void GaussianMixtureModel::improveClusterModelParameters ()\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classCDA_1_1GaussianMixtureModel_afe0080d43eb7169d66e57d074f1b7efc}
 
 
-Get numerical value of derivateive. 
+The quasi-\/MLE step, part of {\bfseries E-\/step}. 
 
+\hypertarget{classCDA_1_1GaussianMixtureModel_CALLED-FROM}{}\subsection{CALLED-\/FROM}\label{classCDA_1_1GaussianMixtureModel_CALLED-FROM}
+It is called from update\_\-thetas, which is already defined in EMGenericMixtureModelCore.c++ 
 
-\begin{DoxyParams}{Parameter}
-\item[{\em k}]class no. \item[{\em x}]feature vector $\vec{x}$ \item[{\em p}]number of parameter (first D are mean, next D(D+1)/2 are covariances) \end{DoxyParams}
-
-
-Implementiert \hyperlink{classCDA_1_1EMMbyGradientDescent}{CDA::EMMbyGradientDescent}.
+Implementiert \hyperlink{classCDA_1_1EMGenericMixtureModelCore_aed2b50eb2bb8582204e186e3d5834c0a}{CDA::EMGenericMixtureModelCore$<$ GaussianMixtureModelNDParams $>$}.
 
 
 
@@ -137,76 +120,7 @@ Hier ist ein Graph der zeigt, was diese Funktion aufruft:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=420pt]{classCDA_1_1GaussianMixtureModel_a5f05d1d0815a3ba669d442bb560711df_cgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{classCDA_1_1GaussianMixtureModel_a65065aeca55fef7931c83911ca656a3b}{
-\index{CDA::GaussianMixtureModel@{CDA::GaussianMixtureModel}!getSigmaDet@{getSigmaDet}}
-\index{getSigmaDet@{getSigmaDet}!CDA::GaussianMixtureModel@{CDA::GaussianMixtureModel}}
-\subsubsection[{getSigmaDet}]{\setlength{\rightskip}{0pt plus 5cm}double GaussianMixtureModel::getSigmaDet (const unsigned {\em k}) const}}
-\label{classCDA_1_1GaussianMixtureModel_a65065aeca55fef7931c83911ca656a3b}
-\begin{DoxyReturn}{Rückgabe}
-det(S)
-\end{DoxyReturn}
-\begin{Desc}
-\item[\hyperlink{todo__todo000006}{Noch zu erledigen}]urgent avoid re-\/calculations. I'm not saying \char`\"{}memoize\char`\"{} but \char`\"{}be watchful\char`\"{}. \end{Desc}
-
-
-Hier ist ein Graph der zeigt, was diese Funktion aufruft:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=382pt]{classCDA_1_1GaussianMixtureModel_a65065aeca55fef7931c83911ca656a3b_cgraph}
-\end{center}
-\end{figure}
-
-
-
-
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=360pt]{classCDA_1_1GaussianMixtureModel_a65065aeca55fef7931c83911ca656a3b_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{classCDA_1_1GaussianMixtureModel_a0950a8909e82521c0919f337d18dbe04}{
-\index{CDA::GaussianMixtureModel@{CDA::GaussianMixtureModel}!getSigmaMatrix@{getSigmaMatrix}}
-\index{getSigmaMatrix@{getSigmaMatrix}!CDA::GaussianMixtureModel@{CDA::GaussianMixtureModel}}
-\subsubsection[{getSigmaMatrix}]{\setlength{\rightskip}{0pt plus 5cm}const boost::numeric::ublas::symmetric\_\-matrix$<$ double, boost::numeric::ublas::upper $>$ GaussianMixtureModel::getSigmaMatrix (const unsigned {\em k}) const}}
-\label{classCDA_1_1GaussianMixtureModel_a0950a8909e82521c0919f337d18dbe04}
-
-
-Extract the covariance matrix of Gaussian no. k. 
-
-
-\begin{DoxyParams}{Parameter}
-\item[\mbox{$\leftarrow$} {\em k}]class no.\end{DoxyParams}
-\begin{DoxyReturn}{Rückgabe}
-a ublas matrix 
-\end{DoxyReturn}
-
-
-Hier ist ein Graph der zeigt, was diese Funktion aufruft:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=262pt]{classCDA_1_1GaussianMixtureModel_a0950a8909e82521c0919f337d18dbe04_cgraph}
-\end{center}
-\end{figure}
-
-
-
-
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=420pt]{classCDA_1_1GaussianMixtureModel_a0950a8909e82521c0919f337d18dbe04_icgraph}
+\includegraphics[width=420pt]{classCDA_1_1GaussianMixtureModel_afe0080d43eb7169d66e57d074f1b7efc_cgraph}
 \end{center}
 \end{figure}
 
@@ -215,5 +129,5 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:\nopagebreak
 
 Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien:\begin{DoxyCompactItemize}
 \item 
-src/expmax/\hyperlink{GaussianMixtureModelND_8h_09_09}{GaussianMixtureModelND.h++}\item 
-src/expmax/\hyperlink{ProbabilisticClustering_8c_09_09}{ProbabilisticClustering.c++}\end{DoxyCompactItemize}
+include/expmax/\hyperlink{GaussianMixtureModel_8h_09_09}{GaussianMixtureModel.h++}\item 
+src/expmax/\hyperlink{GaussianMixtureModel_8c_09_09}{GaussianMixtureModel.c++}\end{DoxyCompactItemize}

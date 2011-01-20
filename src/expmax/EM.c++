@@ -23,7 +23,7 @@ unsigned int EM<data_t, theta_t>::getN() const {
 template<class data_t, class theta_t>
 void EM<data_t, theta_t>::EMrun(const unsigned MAXITER, const double thresh, const boost::optional<std::ostream*> output_csv) {
 
-    assert(m_theta . getThetas() . size() > 0);
+    // eigentlich schon: assert(getThetaObj() -> getThetas() . size() > 0);
 
     // @todo generic output-handler
 

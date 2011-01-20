@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>CommonDataAnalysis: src/expmax/EM.h++ Quellcode</title>
+<title>CommonDataAnalysis: include/expmax/EM.h++ Quellcode</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javaScript" src="search/search.js"></script>
@@ -41,72 +41,109 @@ var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
       <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
     </ul>
   </div>
-<h1>src/expmax/EM.h++</h1><a href="EM_8h_09_09.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<h1>include/expmax/EM.h++</h1><a href="EM_8h_09_09.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
 <a name="l00010"></a>00010 <span class="preprocessor">#pragma once</span>
 <a name="l00011"></a>00011 <span class="preprocessor"></span>
 <a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="EMData_8h_09_09.html">EMData.h++</a>&quot;</span>
 <a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="EMTheta_8h_09_09.html">EMTheta.h++</a>&quot;</span>
 <a name="l00014"></a>00014 <span class="preprocessor">#include &quot;<a class="code" href="common__definitions_8h_09_09.html">common_definitions.h++</a>&quot;</span>
 <a name="l00015"></a>00015 
-<a name="l00016"></a>00016 <span class="keyword">namespace </span>CDA {
+<a name="l00016"></a>00016 <span class="preprocessor">#include &lt;boost/optional.hpp&gt;</span>
 <a name="l00017"></a>00017 
-<a name="l00025"></a>00025 <span class="keyword">template</span>&lt;<span class="keyword">class</span> datapo<span class="keywordtype">int</span>_t&gt;
-<a name="l00026"></a><a class="code" href="classCDA_1_1EM.html">00026</a> <span class="keyword">class </span><a class="code" href="classCDA_1_1EM.html" title="A generic EM model fitting class. Contains the general outline of EM algorithm, details...">EM</a> {
-<a name="l00027"></a>00027 
-<a name="l00028"></a>00028 <span class="keyword">protected</span>:
-<a name="l00029"></a>00029 
-<a name="l00033"></a><a class="code" href="classCDA_1_1EM.html#ad1b13cd77ab036d88042a38056bdbc2b">00033</a>     <a class="code" href="classCDA_1_1EMThetas.html" title="Model parameters for EM.">EMThetas</a> <a class="code" href="classCDA_1_1EM.html#ad1b13cd77ab036d88042a38056bdbc2b" title="In C++, _always_ works better than inheritance. I should have remembered ...">m_theta</a>;
-<a name="l00034"></a>00034 
-<a name="l00038"></a><a class="code" href="classCDA_1_1EM.html#a3b79ed53bf886cd90128883e1b7132c4">00038</a>     <a class="code" href="classCDA_1_1EMData.html">EMData&lt;datapoint_t&gt;</a> <a class="code" href="classCDA_1_1EM.html#a3b79ed53bf886cd90128883e1b7132c4" title="In C++, _always_ works better than inheritance.">m_data</a>;
-<a name="l00039"></a>00039 
-<a name="l00043"></a><a class="code" href="classCDA_1_1EM.html#a27a47f19ff387ae50df6b3022a36d85b">00043</a>     <span class="keywordtype">double</span> <a class="code" href="classCDA_1_1EM.html#a27a47f19ff387ae50df6b3022a36d85b" title="One iteration.">EMstep</a>() {
-<a name="l00044"></a>00044         <a class="code" href="classCDA_1_1EM.html#af116066dfe282586d4219fb588a021d7" title="E-step: update hidden attributes, i.e. class membership probabilities">update_hidden</a>();
-<a name="l00045"></a>00045         <a class="code" href="classCDA_1_1EM.html#a58f0d0cf682d55a53e827744e03516e2" title="M-step: update parameters of model PDF">update_thetas</a>();
-<a name="l00046"></a>00046         <span class="keywordflow">return</span> <a class="code" href="classCDA_1_1EM.html#a8aa35411fba9041160319403163e92f6" title="Important. This is being optimized.">logLikelihood</a>();
-<a name="l00047"></a>00047     }
-<a name="l00048"></a>00048 
-<a name="l00052"></a>00052     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCDA_1_1EM.html#af116066dfe282586d4219fb588a021d7" title="E-step: update hidden attributes, i.e. class membership probabilities">update_hidden</a>() = 0;
-<a name="l00053"></a>00053 
-<a name="l00057"></a>00057     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCDA_1_1EM.html#a58f0d0cf682d55a53e827744e03516e2" title="M-step: update parameters of model PDF">update_thetas</a>() = 0;
-<a name="l00058"></a>00058 
-<a name="l00062"></a>00062     <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classCDA_1_1EM.html#a8aa35411fba9041160319403163e92f6" title="Important. This is being optimized.">logLikelihood</a>() <span class="keyword">const</span> = 0;
-<a name="l00063"></a>00063 
-<a name="l00067"></a><a class="code" href="classCDA_1_1EM.html#a3508ac170afdf1034134d7764a3cd016">00067</a>     <span class="keyword">virtual</span> <span class="keyword">const</span> std::string <a class="code" href="classCDA_1_1EM.html#a3508ac170afdf1034134d7764a3cd016" title="Implementer should overwrite this method, since typeid(this).name() returns crap...">className</a>()<span class="keyword"> const </span>{
-<a name="l00068"></a>00068         <span class="keywordflow">return</span> <span class="keyword">typeid</span>(<span class="keyword">this</span>).name();
-<a name="l00069"></a>00069     }
-<a name="l00070"></a>00070 
-<a name="l00071"></a>00071 <span class="keyword">public</span>:
+<a name="l00018"></a>00018 <span class="comment">// Type assertions to check input types</span>
+<a name="l00019"></a>00019 <span class="preprocessor">#include &lt;boost/mpl/equal.hpp&gt;</span>
+<a name="l00020"></a>00020 <span class="preprocessor">#include &lt;boost/mpl/assert.hpp&gt;</span>
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022 <span class="keyword">namespace </span>CDA {
+<a name="l00023"></a>00023 
+<a name="l00038"></a><a class="code" href="classCDA_1_1EM.html#a3f4735ec5ea6c523ebc4c9f2b51be762">00038</a> <span class="keyword">template</span>&lt;<span class="keyword">class</span> data_T, <span class="keyword">class</span> theta_T&gt;
+<a name="l00039"></a>00039 <span class="keyword">class </span><a class="code" href="classCDA_1_1EM.html" title="A generic EM model fitting class.">EM</a> {
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041 <span class="keyword">public</span>:
+<a name="l00042"></a>00042 
+<a name="l00046"></a>00046     <span class="keyword">typedef</span> data_T <a class="code" href="classCDA_1_1EMData.html">data_t</a>;
+<a name="l00047"></a><a class="code" href="classCDA_1_1EM.html#a261037c3e786c1615ea23562a23f3cce">00047</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> data_T::value_type datapoint_t;
+<a name="l00048"></a>00048     <span class="keyword">typedef</span> theta_T <a class="code" href="classCDA_1_1EMThetas.html" title="Model parameters for EM.">theta_t</a>;
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050 <span class="keyword">protected</span>:
+<a name="l00051"></a>00051 
+<a name="l00055"></a>00055     <a class="code" href="classCDA_1_1EMData.html">data_t</a> <a class="code" href="classCDA_1_1EM.html#a261037c3e786c1615ea23562a23f3cce" title="We always need this member. Just drop it in via templating, no subclass woes.">m_data</a>;
+<a name="l00056"></a>00056 
+<a name="l00061"></a>00061     <a class="code" href="classCDA_1_1EMThetas.html" title="Model parameters for EM.">theta_t</a> <a class="code" href="classCDA_1_1EM.html#a64fa0e44a0204dee110cf1095f69ab5c" title="In C++, _always_ works better than inheritance. I should have remembered ... Nevertheless...">m_theta</a>;
+<a name="l00062"></a>00062 
+<a name="l00071"></a>00071     <span class="keyword">virtual</span> <a class="code" href="classCDA_1_1EMData.html">data_t</a>* <a class="code" href="classCDA_1_1EM.html#a15809e2026eaea4c68b2e3e11c807fff" title="It&amp;#39;s here now.">getDataObj</a>();
 <a name="l00072"></a>00072 
-<a name="l00076"></a><a class="code" href="classCDA_1_1EM.html#ad18a674dbf206303ba61571d5b385732">00076</a>     <a class="code" href="classCDA_1_1EM.html#ad18a674dbf206303ba61571d5b385732" title="Constructor, to be called explicitly in multivariate case.">EM</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> D_ = 1)
-<a name="l00077"></a>00077     : <a class="code" href="classCDA_1_1EM.html#a3b79ed53bf886cd90128883e1b7132c4" title="In C++, _always_ works better than inheritance.">m_data</a>(D_) { }
-<a name="l00078"></a>00078 
-<a name="l00082"></a>00082     <span class="keyword">virtual</span> <span class="keyword">const</span> fvector_t&amp; <a class="code" href="classCDA_1_1EM.html#a8fa4fea4987c54f6ae1499492cc9130c" title="Getter for estimate.">getHiddenParamEstimate</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> n) <span class="keyword">const</span> = 0;
-<a name="l00083"></a>00083 
-<a name="l00092"></a>00092     <span class="keyword">template</span>&lt;<span class="keyword">class</span> II&gt;
-<a name="l00093"></a><a class="code" href="classCDA_1_1EM.html#a9e02e070fa25ab5bd9c2badbbd157f13">00093</a>     <span class="keywordtype">void</span> <a class="code" href="classCDA_1_1EM.html#a9e02e070fa25ab5bd9c2badbbd157f13" title="Initial guess for model parameters -- strictly needed.">setTheta</a>(std::pair&lt;II, II&gt; thetas) {
-<a name="l00094"></a>00094         <a class="code" href="classCDA_1_1EM.html#ad1b13cd77ab036d88042a38056bdbc2b" title="In C++, _always_ works better than inheritance. I should have remembered ...">m_theta</a> . <a class="code" href="classCDA_1_1EM.html#a9e02e070fa25ab5bd9c2badbbd157f13" title="Initial guess for model parameters -- strictly needed.">setTheta</a>(thetas);
-<a name="l00095"></a>00095     }
-<a name="l00096"></a>00096 
-<a name="l00097"></a>00097 
-<a name="l00106"></a>00106     <span class="keywordtype">void</span> <a class="code" href="classCDA_1_1EM.html#a1c8fa9008da1f168f211f48c578dce5f" title="Run Expectation Maximization.">EMrun</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> MAXITER, <span class="keyword">const</span> <span class="keywordtype">double</span> thresh, <span class="keyword">const</span> boost::optional&lt;std::ostream*&gt; output_csv = boost::none);
-<a name="l00107"></a>00107 
-<a name="l00114"></a>00114     <span class="keyword">virtual</span> <span class="keyword">const</span> std::string <a class="code" href="classCDA_1_1EM.html#ad2655bd878821e73ba18beff576a2b4a" title="Output CSV.">dumpParameters</a>(<span class="keyword">const</span> boost::optional&lt;unsigned int&gt; iteration) <span class="keyword">const</span> = 0;
-<a name="l00115"></a>00115 
-<a name="l00120"></a>00120     <span class="keyword">virtual</span> <span class="keyword">const</span> std::string <a class="code" href="classCDA_1_1EM.html#ad29bbf755c6a32215881efca2d90d6a9" title="Möchte es nicht zu kompliziert machen (14/12/2010), daher bekommen die ganzen Klassen...">getCSVHeader</a>() <span class="keyword">const</span> = 0;
+<a name="l00081"></a>00081     <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="classCDA_1_1EMData.html">data_t</a>* <a class="code" href="classCDA_1_1EM.html#a15809e2026eaea4c68b2e3e11c807fff" title="It&amp;#39;s here now.">getDataObj</a>() <span class="keyword">const</span>;
+<a name="l00082"></a>00082 
+<a name="l00091"></a>00091     <span class="keyword">virtual</span> <a class="code" href="classCDA_1_1EMThetas.html" title="Model parameters for EM.">theta_t</a>* <a class="code" href="classCDA_1_1EM.html#aee121bf43a5a5d1a24cfecb2cbd97e18" title="It&amp;#39;s here now.">getThetaObj</a>();
+<a name="l00092"></a>00092 
+<a name="l00101"></a>00101     <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="classCDA_1_1EMThetas.html" title="Model parameters for EM.">theta_t</a>* <a class="code" href="classCDA_1_1EM.html#aee121bf43a5a5d1a24cfecb2cbd97e18" title="It&amp;#39;s here now.">getThetaObj</a>() <span class="keyword">const</span>;
+<a name="l00102"></a>00102 
+<a name="l00116"></a>00116     <span class="keywordtype">double</span> <a class="code" href="classCDA_1_1EM.html#a33684f64b72aff4c65150e12ea23e6aa" title="One iteration.">EMstep</a>() {
+<a name="l00117"></a>00117         <a class="code" href="classCDA_1_1EM.html#a587d80945cad21df1233dc22cb95671d" title="E-step: update hidden attributes">update_hidden</a>();
+<a name="l00118"></a>00118         <a class="code" href="classCDA_1_1EM.html#a479e5c57713312a4089e89bb522e2769" title="M-step: update accessible parameters of model PDF">update_thetas</a>();
+<a name="l00119"></a>00119         <span class="keywordflow">return</span> <a class="code" href="classCDA_1_1EM.html#affb4273a70cd7562cc5d517412c4fcdb" title="Important. This is being optimized.">logLikelihood</a>();
+<a name="l00120"></a>00120     }
 <a name="l00121"></a>00121 
-<a name="l00126"></a>00126     <span class="keyword">template</span>&lt;<span class="keyword">class</span> II&gt;
-<a name="l00127"></a><a class="code" href="classCDA_1_1EM.html#a8f779d18072975dc994bd4370f19a238">00127</a>     <span class="keywordtype">void</span> <a class="code" href="classCDA_1_1EM.html#a8f779d18072975dc994bd4370f19a238" title="Initialize known samples, i.e. your data points Also initialize the classif vector...">setData</a>(std::pair&lt;II, II&gt; data_) {
-<a name="l00128"></a>00128 
-<a name="l00129"></a>00129         <span class="comment">// II must iterate over datapoint_t elements</span>
-<a name="l00130"></a>00130         BOOST_MPL_ASSERT_MSG((boost::mpl::equal&lt;datapoint_t, typename II::value_type&gt;::type::value), UnsupportedDatavectorType, (<span class="keyword">typename</span> II::value_type));
+<a name="l00125"></a>00125     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCDA_1_1EM.html#a587d80945cad21df1233dc22cb95671d" title="E-step: update hidden attributes">update_hidden</a>() = 0;
+<a name="l00126"></a>00126 
+<a name="l00130"></a>00130     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCDA_1_1EM.html#a479e5c57713312a4089e89bb522e2769" title="M-step: update accessible parameters of model PDF">update_thetas</a>() = 0;
 <a name="l00131"></a>00131 
-<a name="l00132"></a>00132         <a class="code" href="classCDA_1_1EM.html#a3b79ed53bf886cd90128883e1b7132c4" title="In C++, _always_ works better than inheritance.">m_data</a> . setDataProper(data_);
-<a name="l00133"></a>00133     }
-<a name="l00134"></a>00134 };
-<a name="l00135"></a>00135 
+<a name="l00135"></a>00135     <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classCDA_1_1EM.html#affb4273a70cd7562cc5d517412c4fcdb" title="Important. This is being optimized.">logLikelihood</a>() <span class="keyword">const</span> = 0;
 <a name="l00136"></a>00136 
-<a name="l00137"></a>00137 
-<a name="l00138"></a>00138 } <span class="comment">//ns</span>
+<a name="l00137"></a>00137 <span class="keyword">public</span>:
+<a name="l00138"></a>00138 
+<a name="l00145"></a>00145     <a class="code" href="classCDA_1_1EM.html#a1b30d405dee72fbf3ef58efffb52add4" title="default constructor">EM</a>(<span class="keyword">const</span> <a class="code" href="classCDA_1_1EM.html#a3f4735ec5ea6c523ebc4c9f2b51be762" title="Three basic typedefs.">data_t</a>&amp; data, <span class="keyword">const</span> theta_t&amp; theta);
+<a name="l00146"></a>00146 
+<a name="l00151"></a>00151     <a class="code" href="classCDA_1_1EM.html#a1b30d405dee72fbf3ef58efffb52add4" title="default constructor">EM</a>(<span class="keyword">const</span> <a class="code" href="classCDA_1_1EM.html" title="A generic EM model fitting class.">EM</a>&amp; other);
+<a name="l00152"></a>00152 
+<a name="l00156"></a>00156     <span class="keyword">virtual</span> <span class="keyword">const</span> fvector_t&amp; <a class="code" href="classCDA_1_1EM.html#aad68b7444dac8fa5e1b0d7413c8ed87c" title="Getter for estimate.">getHiddenParamEstimate</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> n) <span class="keyword">const</span> = 0;
+<a name="l00157"></a>00157 
+<a name="l00167"></a>00167     <span class="keywordtype">void</span> <a class="code" href="classCDA_1_1EM.html#a1c8fa9008da1f168f211f48c578dce5f" title="Run Expectation Maximization.">EMrun</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> MAXITER,
+<a name="l00168"></a>00168                <span class="keyword">const</span> <span class="keywordtype">double</span> thresh,
+<a name="l00169"></a>00169                <span class="keyword">const</span> boost::optional&lt;std::ostream*&gt; output_csv = boost::none);
+<a name="l00170"></a>00170 
+<a name="l00177"></a>00177     <span class="keyword">virtual</span> <span class="keyword">const</span> std::string <a class="code" href="classCDA_1_1EM.html#ad2deb0f1d94dc57a6e431caebeb34cbe" title="Output CSV.">dumpParameters</a>(<span class="keyword">const</span> boost::optional&lt;unsigned int&gt; iteration) <span class="keyword">const</span> = 0;
+<a name="l00178"></a>00178 
+<a name="l00183"></a>00183     <span class="keyword">virtual</span> <span class="keyword">const</span> std::string <a class="code" href="classCDA_1_1EM.html#a50155b932fe3a55103550fd69318b45f" title="Möchte es nicht zu kompliziert machen (14/12/2010), daher bekommen die ganzen Klassen...">getCSVHeader</a>() <span class="keyword">const</span> = 0;
+<a name="l00184"></a>00184 
+<a name="l00194"></a>00194     <span class="keyword">template</span>&lt;<span class="keyword">class</span> II&gt;
+<a name="l00195"></a>00195     <span class="keywordtype">void</span> <a class="code" href="classCDA_1_1EM.html#ae71052b178877852d34c3aa17e85f8ef" title="Initial guess for model parameters -- strictly needed.">setTheta</a>(std::pair&lt;II, II&gt; thetas) {
+<a name="l00196"></a>00196         <span class="comment">// Make sure the parameters are in the right format</span>
+<a name="l00197"></a>00197         BOOST_MPL_ASSERT_MSG((boost::mpl::equal&lt;<span class="keyword">typename</span> theta_t::value_type,
+<a name="l00198"></a><a class="code" href="classCDA_1_1EM.html#aa3edb551271b47675c817fa6c302741d">00198</a>                                                 <span class="keyword">typename</span> II::value_type&gt;::type::value),
+<a name="l00199"></a>00199                               UnsupportedDatavectorType, (<span class="keyword">typename</span> II::value_type));
+<a name="l00200"></a>00200         <a class="code" href="classCDA_1_1EM.html#a64fa0e44a0204dee110cf1095f69ab5c" title="In C++, _always_ works better than inheritance. I should have remembered ... Nevertheless...">m_theta</a> . <a class="code" href="classCDA_1_1EM.html#ae71052b178877852d34c3aa17e85f8ef" title="Initial guess for model parameters -- strictly needed.">setTheta</a>(thetas);
+<a name="l00201"></a>00201     }
+<a name="l00202"></a>00202 
+<a name="l00206"></a>00206     <span class="keyword">virtual</span> <span class="keyword">const</span> std::string <a class="code" href="classCDA_1_1EM.html#aa3edb551271b47675c817fa6c302741d" title="Implementer should overwrite this method, since typeid(this).name() returns crap...">className</a>()<span class="keyword"> const </span>{
+<a name="l00207"></a>00207         <span class="keywordflow">return</span> <span class="keyword">typeid</span>(<span class="keyword">this</span>).name();
+<a name="l00208"></a>00208     }
+<a name="l00209"></a>00209 
+<a name="l00215"></a>00215     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classCDA_1_1EM.html#a12d59d14b42f67805dbf2f721323e318" title="Return getDataObj() . getN().">getN</a>() <span class="keyword">const</span>;
+<a name="l00216"></a><a class="code" href="classCDA_1_1EM.html#ad1ee8ed5cef87cfabf708fe8d469b77f">00216</a> 
+<a name="l00217"></a>00217 <span class="keyword">protected</span>:
+<a name="l00218"></a>00218 
+<a name="l00223"></a>00223     <span class="keyword">template</span>&lt;<span class="keyword">class</span> II&gt;
+<a name="l00224"></a>00224     <span class="keywordtype">void</span> <a class="code" href="classCDA_1_1EM.html#ad1ee8ed5cef87cfabf708fe8d469b77f" title="Initialize known samples, i.e. your data points Also initialize the classif vector...">setData</a>(std::pair&lt;II, II&gt; data_) {
+<a name="l00225"></a>00225 
+<a name="l00227"></a>00227         <span class="comment">// checked again in EMData</span>
+<a name="l00228"></a>00228         BOOST_MPL_ASSERT_MSG((boost::mpl::equal&lt;datapoint_t,
+<a name="l00229"></a>00229                               <span class="keyword">typename</span> II::value_type&gt;::type::value),
+<a name="l00230"></a>00230                               UnsupportedDatavectorType, (<span class="keyword">typename</span> II::value_type));
+<a name="l00231"></a>00231 
+<a name="l00232"></a>00232 <span class="preprocessor">#ifdef DETAIL_DEBUG_VERBOSE</span>
+<a name="l00233"></a>00233 <span class="preprocessor"></span>        std::cerr &lt;&lt; <span class="stringliteral">&quot;EM: setData called\n&quot;</span>;
+<a name="l00234"></a>00234 <span class="preprocessor">#endif</span>
+<a name="l00235"></a>00235 <span class="preprocessor"></span>
+<a name="l00236"></a>00236         <a class="code" href="classCDA_1_1EM.html#a15809e2026eaea4c68b2e3e11c807fff" title="It&amp;#39;s here now.">getDataObj</a>() -&gt; clear();
+<a name="l00237"></a>00237         <a class="code" href="classCDA_1_1EM.html#a15809e2026eaea4c68b2e3e11c807fff" title="It&amp;#39;s here now.">getDataObj</a>() -&gt; appendData(data_);
+<a name="l00238"></a>00238     }
+<a name="l00239"></a>00239 
+<a name="l00240"></a>00240 };
+<a name="l00241"></a>00241 
+<a name="l00242"></a>00242 
+<a name="l00243"></a>00243 } <span class="comment">// namespace</span>
 </pre></div></div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -122,7 +159,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Erzeugt am Thu Jan 6 09:53:46 2011 für CommonDataAnalysis von&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Erzeugt am Thu Jan 20 14:07:32 2011 für CommonDataAnalysis von&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

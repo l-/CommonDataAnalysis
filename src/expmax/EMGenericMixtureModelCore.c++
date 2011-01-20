@@ -8,6 +8,8 @@
  */
 
 #include "expmax/EMGenericMixtureModelCore.h++"
+#include "expmax/GaussianMixtureModelNDParams.h++"
+#include "expmax/EMTheta.h++"
 
 using namespace CDA;
 
@@ -33,10 +35,10 @@ void EMGenericMixtureModelCore<theta_T>::update_thetas() {
     }
 
     for (unsigned k=0; k<K; ++k) {
-        getThetaObj().getModifyThetas(k,0) = 1/((double)(getN())) * sumclassif[k];
+        getThetaObj() -> getModifyThetas(k,0) = 1/((double)(getN())) * sumclassif[k];
 
 #ifdef VERBOSE
-        std::cout << "Alpha " << k << " now " << getThetaObj().getClassProb() << std::endl;
+        std::cout << "Alpha " << k << " now " << getThetaObj() -> getThetas(k,0) << std::endl;
 #endif
     }
 
@@ -66,3 +68,17 @@ const std::string EMGenericMixtureModelCore<theta_T>::getCSVHeader() const {
 
     return out.str();
 }
+
+template <class theta_T>
+const std::string EMGenericMixtureModelCore<theta_T>::paramName(const unsigned p) const {
+    std::stringstream sstr; sstr<<"p"<<p;
+    return sstr.str();
+}
+
+// The 2 specializations
+namespace CDA {
+template
+class EMGenericMixtureModelCore<GaussianMixtureModelNDParams>;
+template
+class EMGenericMixtureModelCore<EMThetas>;
+} // namespace

@@ -1,10 +1,19 @@
 <map id="G" name="G">
-<area shape="rect" href="$FitMulticlassByEM_8h_09_09.html" title="src/expmax/FitMulticlassByEM.h++" alt="" coords="301,83,531,112"/>
-<area shape="rect" href="$FitMultivariateMulticlassByEM_8h_09_09.html" title="src/expmax/FitMultivariateMulticlassByEM.h++" alt="" coords="268,160,564,189"/>
-<area shape="rect" href="$EMCustomOptimization_8h_09_09.html" title="src/expmax/EMCustomOptimization.h++" alt="" coords="5,237,264,267"/>
-<area shape="rect" href="$ProbabilisticClustering_8c_09_09.html" title="src/expmax/ProbabilisticClustering.c++" alt="" coords="76,315,324,344"/>
-<area shape="rect" href="$EMGenericMixtureModelCore_8h_09_09.html" title="src/expmax/EMGenericMixtureModelCore.h++" alt="" coords="363,237,653,267"/>
-<area shape="rect" href="$GaussianMixtureModel1D_8h_09_09.html" title="src/expmax/GaussianMixtureModel1D.h++" alt="" coords="692,315,961,344"/>
-<area shape="rect" href="$GaussianMixtureModelND_8h_09_09.html" title="src/expmax/GaussianMixtureModelND.h++" alt="" coords="372,315,644,344"/>
-<area shape="rect" href="$ProbabilisticClustering_8h_09_09.html" title="src/expmax/ProbabilisticClustering.h++" alt="" coords="543,392,791,421"/>
+<area shape="rect" href="$EM_8c_09_09.html" title="src/expmax/EM.c++" alt="" coords="5,83,144,112"/>
+<area shape="rect" href="$EMGenericMixtureModelCore_8h_09_09.html" title="include/expmax/EMGenericMixtureModelCore.h++" alt="" coords="168,83,480,112"/>
+<area shape="rect" href="$FitMulticlassByEM_8h_09_09.html" title="include/expmax/FitMulticlassByEM.h++" alt="" coords="612,83,865,112"/>
+<area shape="rect" href="$EMGenericMixtureModelCore_8c_09_09.html" title="src/expmax/EMGenericMixtureModelCore.c++" alt="" coords="93,160,384,189"/>
+<area shape="rect" href="$FitMultivariateMulticlassByEM_8h_09_09.html" title="include/expmax/FitMultivariateMulticlassByEM.h++" alt="" coords="408,160,728,189"/>
+<area shape="rect" href="$FitUnivariateMulticlassByEM_8h_09_09.html" title="include/expmax/FitUnivariateMulticlassByEM.h++" alt="" coords="752,160,1064,189"/>
+<area shape="rect" href="$GaussianMixtureModel1D_8h_09_09.html" title="include/expmax/GaussianMixtureModel1D.h++" alt="" coords="957,237,1248,267"/>
+<area shape="rect" href="$FitMultivariateMulticlassByEM_8c_09_09.html" title="src/expmax/FitMultivariateMulticlassByEM.c++" alt="" coords="33,237,329,267"/>
+<area shape="rect" href="$GaussianMixtureModel_8h_09_09.html" title="include/expmax/GaussianMixtureModel.h++" alt="" coords="75,315,349,344"/>
+<area shape="rect" href="$GaussianMixtureModelNDCommon_8h_09_09.html" title="include/expmax/GaussianMixtureModelNDCommon.h++" alt="" coords="404,237,751,267"/>
+<area shape="rect" href="$ProbabilisticClustering_8h_09_09.html" title="include/expmax/ProbabilisticClustering.h++" alt="" coords="771,315,1043,344"/>
+<area shape="rect" href="$GaussianMixtureModel_8c_09_09.html" title="src/expmax/GaussianMixtureModel.c++" alt="" coords="85,392,339,421"/>
+<area shape="rect" href="$GaussianMixtureModelNDCommon_8c_09_09.html" title="src/expmax/GaussianMixtureModelNDCommon.c++" alt="" coords="424,315,747,344"/>
+<area shape="rect" href="$FitMulticlassByEM_8c_09_09.html" title="src/expmax/FitMulticlassByEM.c++" alt="" coords="363,392,592,421"/>
+<area shape="rect" href="$GaussianMixtureModel1D_8c_09_09.html" title="src/expmax/GaussianMixtureModel1D.c++" alt="" coords="1096,392,1365,421"/>
+<area shape="rect" href="$ProbabilisticClustering_8c_09_09.html" title="src/expmax/ProbabilisticClustering.c++" alt="" coords="616,392,864,421"/>
+<area shape="rect" href="$utilities_8h_09_09.html" title="include/expmax/utilities.h++" alt="" coords="888,392,1072,421"/>
 </map>

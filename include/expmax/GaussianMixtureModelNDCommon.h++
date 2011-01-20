@@ -31,10 +31,12 @@ public:
 
     typedef EMGenericMixtureModelCore<GaussianMixtureModelNDParams>::data_t data_t;
     typedef GaussianMixtureModelNDParams theta_t;
+    typedef GaussianMixtureModelNDParams::sym_mtx_t sym_mtx_t;
 
 protected:
 
     using EM<data_t, theta_t>::getDataObj;
+    using EM<data_t, theta_t>::getThetaObj;
 
 public:
 
@@ -70,6 +72,21 @@ public:
      * @brief yet another ...
      */
     size_t getD() const;
+
+    void setSigma(const unsigned k, const sym_mtx_t& sigma) { getThetaObj() -> getModifySigma(k) = sigma; }
+    void setMean(const unsigned k, const fvector_t& param) { getThetaObj() -> getModifyMean(k) = param; }
+    void setClassProb(const unsigned k, const double prob) { getThetaObj() -> getModifyClassProb(k) = prob; }
+
+    /**
+     * @todo this is only because the public getThetaObj() of EM:: isn't accessible somehow ...
+     * I'm in need of a C++ expert here.
+     * @param k
+     * @param sigma
+     */
+    const sym_mtx_t& getSigma(const unsigned k) const { return getThetaObj() -> getSigmaMatrix(k); }
+    const double getCachedSigmaDet(const unsigned k) const { return getThetaObj() -> getCachedSigmaDet(k); }
+    const fvector_t& getMean(const unsigned k) const { return getThetaObj() -> getMean(k); }
+    const double getClassProb(const unsigned k) const { return getThetaObj() -> getClassProb(k); }
 };
 
 

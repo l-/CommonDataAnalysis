@@ -1,22 +1,23 @@
 \hypertarget{classCDA_1_1FitMulticlassByEM}{
-\section{CDA::FitMulticlassByEM$<$ T $>$ Template-\/Klassenreferenz}
+\section{CDA::FitMulticlassByEM$<$ data\_\-T, theta\_\-T $>$ Template-\/Klassenreferenz}
 \label{classCDA_1_1FitMulticlassByEM}\index{CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}}
 }
+
+
+An abstract model fitting class The next after \hyperlink{classCDA_1_1EM}{EM} class ...  
+
+
 
 
 {\ttfamily \#include $<$FitMulticlassByEM.h++$>$}
 
 
 
-Abgeleitet von \hyperlink{classCDA_1_1EM}{EM$<$ T $>$}.
+Abgeleitet von \hyperlink{classCDA_1_1EM}{CDA::EM$<$ data\_\-T, theta\_\-T $>$}.
 
 
 
-Basisklasse für \hyperlink{classCDA_1_1CircularMixtureModel1D}{CDA::CircularMixtureModel1D} und \hyperlink{classCDA_1_1GaussianMixtureModel1D}{CDA::GaussianMixtureModel1D}.
-
-
-
-Zusammengehörigkeiten von CDA::FitMulticlassByEM$<$ T $>$:\nopagebreak
+Zusammengehörigkeiten von CDA::FitMulticlassByEM$<$ data\_\-T, theta\_\-T $>$:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -26,15 +27,25 @@ Zusammengehörigkeiten von CDA::FitMulticlassByEM$<$ T $>$:\nopagebreak
 \subsection*{Öffentliche Typen}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classCDA_1_1FitMulticlassByEM_a4828ccd2a6a7e66211588ceabdce4d70}{
-typedef T \hyperlink{classCDA_1_1FitMulticlassByEM_a4828ccd2a6a7e66211588ceabdce4d70}{datapoint\_\-t}}
-\label{classCDA_1_1FitMulticlassByEM_a4828ccd2a6a7e66211588ceabdce4d70}
+\hypertarget{classCDA_1_1FitMulticlassByEM_a05aa6cf01041a71df27a4b8be40298ba}{
+typedef data\_\-T \hyperlink{classCDA_1_1FitMulticlassByEM_a05aa6cf01041a71df27a4b8be40298ba}{data\_\-t}}
+\label{classCDA_1_1FitMulticlassByEM_a05aa6cf01041a71df27a4b8be40298ba}
 
-\begin{DoxyCompactList}\small\item\em Propagate the datapoint\_\-t. Why can't I give it the same name? Annoying. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Propagate the datapoint\_\-t etc. Why can't we give it the same name? Annoying. \item\end{DoxyCompactList}\item 
+\hypertarget{classCDA_1_1FitMulticlassByEM_a3ddfc994fa8e2960feb82e5e6a4103b2}{
+typedef data\_\-T::value\_\-type {\bfseries datapoint\_\-t}}
+\label{classCDA_1_1FitMulticlassByEM_a3ddfc994fa8e2960feb82e5e6a4103b2}
+
+\item 
+\hypertarget{classCDA_1_1FitMulticlassByEM_afc23366fb0906a43ae74e0b7c9b26db4}{
+typedef theta\_\-T {\bfseries theta\_\-t}}
+\label{classCDA_1_1FitMulticlassByEM_afc23366fb0906a43ae74e0b7c9b26db4}
+
+\end{DoxyCompactItemize}
 \subsection*{Öffentliche Methoden}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classCDA_1_1FitMulticlassByEM_a832fd114a95fc194a632eabed92fb4c5}{FitMulticlassByEM} (const unsigned K\_\-, const unsigned D\_\-=1)
+\hyperlink{classCDA_1_1FitMulticlassByEM_a42ba3e452dfee55767219ab9571b0dd5}{FitMulticlassByEM} (const unsigned K\_\-, const \hyperlink{classCDA_1_1FitMulticlassByEM_a05aa6cf01041a71df27a4b8be40298ba}{data\_\-t} \&data, const theta\_\-t \&theta)
 \item 
 const std::string \hyperlink{classCDA_1_1FitMulticlassByEM_aa5598f1ced5c95045f59c99610ab53e5}{dumpParameters} (const unsigned k, const boost::optional$<$ unsigned int $>$ iteration) const 
 \begin{DoxyCompactList}\small\item\em Output CSV. \item\end{DoxyCompactList}\item 
@@ -42,85 +53,115 @@ const std::string \hyperlink{classCDA_1_1FitMulticlassByEM_abd04a7135250a427a100
 \begin{DoxyCompactList}\small\item\em Output CSV. \item\end{DoxyCompactList}\item 
 double \hyperlink{classCDA_1_1FitMulticlassByEM_a4185d0f323087ef9112e903a2782fdfd}{getParam} (const unsigned k, const unsigned p) const 
 \begin{DoxyCompactList}\small\item\em Conveniently encapsulate access ofm\_\-theta. \item\end{DoxyCompactList}\item 
-\hypertarget{classCDA_1_1FitMulticlassByEM_a6d7bf7ba4d3421d5dfef7bffb91d85c7}{
-virtual const std::string \hyperlink{classCDA_1_1FitMulticlassByEM_a6d7bf7ba4d3421d5dfef7bffb91d85c7}{getCSVHeader} () const =0}
-\label{classCDA_1_1FitMulticlassByEM_a6d7bf7ba4d3421d5dfef7bffb91d85c7}
+\hypertarget{classCDA_1_1FitMulticlassByEM_aec99fc55d806d855e02b9a2fc96887a0}{
+virtual const std::string \hyperlink{classCDA_1_1FitMulticlassByEM_aec99fc55d806d855e02b9a2fc96887a0}{getCSVHeader} () const =0}
+\label{classCDA_1_1FitMulticlassByEM_aec99fc55d806d855e02b9a2fc96887a0}
 
 \begin{DoxyCompactList}\small\item\em Header to go with the CSV output. Must be reimplemented. \item\end{DoxyCompactList}\item 
-\hypertarget{classCDA_1_1FitMulticlassByEM_abaea206aef382360246cf2a64dadc74c}{
-double \hyperlink{classCDA_1_1FitMulticlassByEM_abaea206aef382360246cf2a64dadc74c}{logLikelihood} () const }
-\label{classCDA_1_1FitMulticlassByEM_abaea206aef382360246cf2a64dadc74c}
-
+double \hyperlink{classCDA_1_1FitMulticlassByEM_abaea206aef382360246cf2a64dadc74c}{logLikelihood} () const 
 \begin{DoxyCompactList}\small\item\em Implemented here. \item\end{DoxyCompactList}\item 
-const fvector\_\-t \& \hyperlink{classCDA_1_1FitMulticlassByEM_a62588d5a6dcc8bc7af432b26ee5be5ab}{getHiddenParamEstimate} (const unsigned n) const 
+const fvector\_\-t \& \hyperlink{classCDA_1_1FitMulticlassByEM_ae5a9232f142123c9ffaf6ec956b44f00}{getHiddenParamEstimate} (const unsigned n) const 
 \begin{DoxyCompactList}\small\item\em Getter for estimate. \item\end{DoxyCompactList}\item 
-\hypertarget{classCDA_1_1FitMulticlassByEM_a0c70d98a25e259ef610faab0f376ed38}{
-unsigned int \hyperlink{classCDA_1_1FitMulticlassByEM_a0c70d98a25e259ef610faab0f376ed38}{getK} () const }
-\label{classCDA_1_1FitMulticlassByEM_a0c70d98a25e259ef610faab0f376ed38}
+\hypertarget{classCDA_1_1FitMulticlassByEM_ae6b0acc500e8360bee6f8e3434b6b197}{
+unsigned int \hyperlink{classCDA_1_1FitMulticlassByEM_ae6b0acc500e8360bee6f8e3434b6b197}{getK} () const }
+\label{classCDA_1_1FitMulticlassByEM_ae6b0acc500e8360bee6f8e3434b6b197}
 
 \begin{DoxyCompactList}\small\item\em Better have a getter for this too. \item\end{DoxyCompactList}\item 
-unsigned int \hyperlink{classCDA_1_1FitMulticlassByEM_a69d730c94245ec23b9a96cccee951129}{getBestClass} (const unsigned n) const 
+unsigned int \hyperlink{classCDA_1_1FitMulticlassByEM_a60164ed52d11dc10b4faee5de96d42a7}{getBestClass} (const unsigned n) const 
 \begin{DoxyCompactList}\small\item\em Get class with best estimated membership probability. \item\end{DoxyCompactList}\item 
-std::vector$<$ unsigned int $>$ \hyperlink{classCDA_1_1FitMulticlassByEM_a967f5380f84a679ca07f1fd9ac1a9e65}{getClassifList} () const 
+std::vector$<$ unsigned int $>$ \hyperlink{classCDA_1_1FitMulticlassByEM_a915e6a0aaae5f74c5802b53fbed8278a}{getClassifList} () const 
 \begin{DoxyCompactList}\small\item\em Read classification results (1). \item\end{DoxyCompactList}\item 
+const std::vector$<$ fvector\_\-t $>$ \& \hyperlink{classCDA_1_1FitMulticlassByEM_ad468afb0c45474a7400fd7efbb1ad2dd}{getClassif} () const 
+\item 
+const fvector\_\-t \& \hyperlink{classCDA_1_1FitMulticlassByEM_addcc14007ec1f00046391c3ac7572e34}{getClassif} (const unsigned n) const 
+\item 
 double \hyperlink{classCDA_1_1FitMulticlassByEM_a869530b76ee4b40d38d3fb80ea0932aa}{getPk} (const unsigned k) const 
 \begin{DoxyCompactList}\small\item\em Get current estimated class weight. \item\end{DoxyCompactList}\item 
-\hypertarget{classCDA_1_1FitMulticlassByEM_a7381428ebb707dbdd0553d6bc0e7113b}{
-{\footnotesize template$<$class II $>$ }\\void \hyperlink{classCDA_1_1FitMulticlassByEM_a7381428ebb707dbdd0553d6bc0e7113b}{setData} (std::pair$<$ II, II $>$ data\_\-)}
-\label{classCDA_1_1FitMulticlassByEM_a7381428ebb707dbdd0553d6bc0e7113b}
+\hypertarget{classCDA_1_1FitMulticlassByEM_a7247bfcad3c828f9cf372b6c414e93f0}{
+{\footnotesize template$<$class II $>$ }\\void \hyperlink{classCDA_1_1FitMulticlassByEM_a7247bfcad3c828f9cf372b6c414e93f0}{setData} (std::pair$<$ II, II $>$ data\_\-)}
+\label{classCDA_1_1FitMulticlassByEM_a7247bfcad3c828f9cf372b6c414e93f0}
 
 \begin{DoxyCompactList}\small\item\em Initialize known samples, i.e. your data points Also initialize the classif vector. \item\end{DoxyCompactList}\item 
-void \hyperlink{classCDA_1_1FitMulticlassByEM_a10d9a6e699530aa071dd33ea7b980f53}{initClassif} ()
+virtual const std::string \hyperlink{classCDA_1_1FitMulticlassByEM_a885947f2c93b4a05cb3eb153d774cb75}{className} () const 
+\item 
+void \hyperlink{classCDA_1_1FitMulticlassByEM_aceb43b0a386c8f8e112562cc3288b23d}{initClassif} ()
 \begin{DoxyCompactList}\small\item\em Initialize class membership beliefs. \item\end{DoxyCompactList}\item 
-virtual double \hyperlink{classCDA_1_1FitMulticlassByEM_a5853c1889b12e567d2d9ab6c395dfe0d}{evalPDF} (const unsigned k, const \hyperlink{classCDA_1_1FitMulticlassByEM_a4828ccd2a6a7e66211588ceabdce4d70}{datapoint\_\-t} \&x) const =0
+virtual double \hyperlink{classCDA_1_1FitMulticlassByEM_a747d8926ab25896e4a5db08b169fccde}{evalPDF} (const unsigned k, const datapoint\_\-t \&x) const =0
 \begin{DoxyCompactList}\small\item\em Evaluate the cluster model PDF with class parameters $k$ at $\vec{x}$. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Geschützte Methoden}
 \begin{DoxyCompactItemize}
+\item 
+std::vector$<$ fvector\_\-t $>$ \& \hyperlink{classCDA_1_1FitMulticlassByEM_a07c7f0fb577bb28b7987e80bb93d6707}{getModifyClassif} ()
 \item 
 void \hyperlink{classCDA_1_1FitMulticlassByEM_a7c40c5528a4b8b32e2455056f60d76de}{update\_\-hidden} ()
 \begin{DoxyCompactList}\small\item\em {\bfseries E-\/step}: update hidden attributes, i.e. classification \item\end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Geschützte Attribute}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classCDA_1_1FitMulticlassByEM_a85afbb296883c5de3364b161151d9e38}{
-const unsigned \hyperlink{classCDA_1_1FitMulticlassByEM_a85afbb296883c5de3364b161151d9e38}{K}}
-\label{classCDA_1_1FitMulticlassByEM_a85afbb296883c5de3364b161151d9e38}
+\hypertarget{classCDA_1_1FitMulticlassByEM_a315d727c0edf745ae12f63a20db0e79e}{
+const unsigned \hyperlink{classCDA_1_1FitMulticlassByEM_a315d727c0edf745ae12f63a20db0e79e}{K}}
+\label{classCDA_1_1FitMulticlassByEM_a315d727c0edf745ae12f63a20db0e79e}
 
 \begin{DoxyCompactList}\small\item\em Number of individual Distributions. \item\end{DoxyCompactList}\item 
-\hypertarget{classCDA_1_1FitMulticlassByEM_a645a39acd7ead9d005499cbbe533bc73}{
-std::vector$<$ fvector\_\-t $>$ \hyperlink{classCDA_1_1FitMulticlassByEM_a645a39acd7ead9d005499cbbe533bc73}{classif}}
-\label{classCDA_1_1FitMulticlassByEM_a645a39acd7ead9d005499cbbe533bc73}
+\hypertarget{classCDA_1_1FitMulticlassByEM_aebd80b2bdf01b62d279023cfb50cf3e6}{
+std::vector$<$ fvector\_\-t $>$ \hyperlink{classCDA_1_1FitMulticlassByEM_aebd80b2bdf01b62d279023cfb50cf3e6}{classif}}
+\label{classCDA_1_1FitMulticlassByEM_aebd80b2bdf01b62d279023cfb50cf3e6}
 
-\begin{DoxyCompactList}\small\item\em N stück: class appartenance probabilities. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em N classes: class appartenance probabilities. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Ausführliche Beschreibung}
-\subsubsection*{template$<$class T$>$ class CDA::FitMulticlassByEM$<$ T $>$}
+\subsubsection*{template$<$class data\_\-T, class theta\_\-T$>$ class CDA::FitMulticlassByEM$<$ data\_\-T, theta\_\-T $>$}
 
-An abstract model fitting class
+An abstract model fitting class The next after \hyperlink{classCDA_1_1EM}{EM} class ... 
+\begin{DoxyTemplParams}{Template Parameters}
+\item[{\em }]the datapoint\_\-t (fvector\_\-t or double .. or anything!) \end{DoxyTemplParams}
 
-template param: the datapoint\_\-t 
 
 \subsection{Beschreibung der Konstruktoren und Destruktoren}
-\hypertarget{classCDA_1_1FitMulticlassByEM_a832fd114a95fc194a632eabed92fb4c5}{
+\hypertarget{classCDA_1_1FitMulticlassByEM_a42ba3e452dfee55767219ab9571b0dd5}{
 \index{CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}!FitMulticlassByEM@{FitMulticlassByEM}}
 \index{FitMulticlassByEM@{FitMulticlassByEM}!CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}}
-\subsubsection[{FitMulticlassByEM}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf CDA::FitMulticlassByEM}$<$ T $>$::{\bf FitMulticlassByEM} (const unsigned {\em K\_\-}, \/  const unsigned {\em D\_\-} = {\ttfamily 1})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
-\label{classCDA_1_1FitMulticlassByEM_a832fd114a95fc194a632eabed92fb4c5}
+\subsubsection[{FitMulticlassByEM}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class data\_\-T, class theta\_\-T$>$ {\bf CDA::FitMulticlassByEM}$<$ data\_\-T, theta\_\-T $>$::{\bf FitMulticlassByEM} (const unsigned {\em K\_\-}, \/  const {\bf data\_\-t} \& {\em data}, \/  const theta\_\-t \& {\em theta})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCDA_1_1FitMulticlassByEM_a42ba3e452dfee55767219ab9571b0dd5}
 Constructor
 
 To be called by subclasses
 
 
 \begin{DoxyParams}{Parameter}
-\item[\mbox{$\leftarrow$} {\em D\_\-}]Data Dimensionality \item[\mbox{$\leftarrow$} {\em K\_\-}]Number of Classes ($\sim$) \end{DoxyParams}
+\item[\mbox{$\leftarrow$} {\em K\_\-}]Number of Classes ($\sim$) \item[\mbox{$\leftarrow$} {\em data}]\item[\mbox{$\leftarrow$} {\em theta}]\end{DoxyParams}
 
 
 \subsection{Dokumentation der Elementfunktionen}
+\hypertarget{classCDA_1_1FitMulticlassByEM_a885947f2c93b4a05cb3eb153d774cb75}{
+\index{CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}!className@{className}}
+\index{className@{className}!CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}}
+\subsubsection[{className}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class data\_\-T, class theta\_\-T$>$ virtual const std::string {\bf CDA::FitMulticlassByEM}$<$ data\_\-T, theta\_\-T $>$::className () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{classCDA_1_1FitMulticlassByEM_a885947f2c93b4a05cb3eb153d774cb75}
+I know, same ... bc of template params 
+
+Erneute Implementation von \hyperlink{classCDA_1_1EM_aa3edb551271b47675c817fa6c302741d}{CDA::EM$<$ data\_\-T, theta\_\-T $>$}.
+
+
+
+Erneute Implementation in \hyperlink{classCDA_1_1EMGenericMixtureModelCore_a6e444765b04615888d41c4ab6c82ae61}{CDA::EMGenericMixtureModelCore$<$ theta\_\-T $>$}, \hyperlink{classCDA_1_1GaussianMixtureModel_aec72323935694359e18e3363ceaa40e7}{CDA::GaussianMixtureModel}, \hyperlink{classCDA_1_1GaussianMixtureModel1D_a08a734c5b74bccda43429df49db58edf}{CDA::GaussianMixtureModel1D} und \hyperlink{classCDA_1_1EMGenericMixtureModelCore_a6e444765b04615888d41c4ab6c82ae61}{CDA::EMGenericMixtureModelCore$<$ GaussianMixtureModelNDParams $>$}.
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{classCDA_1_1FitMulticlassByEM_a885947f2c93b4a05cb3eb153d774cb75_icgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{classCDA_1_1FitMulticlassByEM_abd04a7135250a427a100c95bf2bf43a9}{
 \index{CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}!dumpParameters@{dumpParameters}}
 \index{dumpParameters@{dumpParameters}!CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}}
-\subsubsection[{dumpParameters}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class datapoint\_\-t $>$ const std::string FitMulticlassByEM::dumpParameters (const boost::optional$<$ unsigned int $>$ {\em iteration}) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\subsubsection[{dumpParameters}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class data\_\-T , class theta\_\-T $>$ const std::string FitMulticlassByEM::dumpParameters (const boost::optional$<$ unsigned int $>$ {\em iteration}) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
 \label{classCDA_1_1FitMulticlassByEM_abd04a7135250a427a100c95bf2bf43a9}
 
 
@@ -134,7 +175,7 @@ multiple CSV lines
 \end{DoxyReturn}
 
 
-Implementiert \hyperlink{classCDA_1_1EM_ad2655bd878821e73ba18beff576a2b4a}{CDA::EM$<$ T $>$}.
+Implementiert \hyperlink{classCDA_1_1EM_ad2deb0f1d94dc57a6e431caebeb34cbe}{CDA::EM$<$ data\_\-T, theta\_\-T $>$}.
 
 
 
@@ -142,7 +183,7 @@ Hier ist ein Graph der zeigt, was diese Funktion aufruft:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=330pt]{classCDA_1_1FitMulticlassByEM_abd04a7135250a427a100c95bf2bf43a9_cgraph}
+\includegraphics[width=337pt]{classCDA_1_1FitMulticlassByEM_abd04a7135250a427a100c95bf2bf43a9_cgraph}
 \end{center}
 \end{figure}
 
@@ -150,7 +191,7 @@ Hier ist ein Graph der zeigt, was diese Funktion aufruft:\nopagebreak
 \hypertarget{classCDA_1_1FitMulticlassByEM_aa5598f1ced5c95045f59c99610ab53e5}{
 \index{CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}!dumpParameters@{dumpParameters}}
 \index{dumpParameters@{dumpParameters}!CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}}
-\subsubsection[{dumpParameters}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class datapoint\_\-t $>$ const std::string FitMulticlassByEM::dumpParameters (const unsigned {\em k}, \/  const boost::optional$<$ unsigned int $>$ {\em iteration}) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\subsubsection[{dumpParameters}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class data\_\-T , class theta\_\-T $>$ const std::string FitMulticlassByEM::dumpParameters (const unsigned {\em k}, \/  const boost::optional$<$ unsigned int $>$ {\em iteration}) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
 \label{classCDA_1_1FitMulticlassByEM_aa5598f1ced5c95045f59c99610ab53e5}
 
 
@@ -168,7 +209,7 @@ Hier ist ein Graph der zeigt, was diese Funktion aufruft:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=210pt]{classCDA_1_1FitMulticlassByEM_aa5598f1ced5c95045f59c99610ab53e5_cgraph}
+\includegraphics[width=217pt]{classCDA_1_1FitMulticlassByEM_aa5598f1ced5c95045f59c99610ab53e5_cgraph}
 \end{center}
 \end{figure}
 
@@ -184,11 +225,11 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:\nopagebreak
 \end{figure}
 
 
-\hypertarget{classCDA_1_1FitMulticlassByEM_a5853c1889b12e567d2d9ab6c395dfe0d}{
+\hypertarget{classCDA_1_1FitMulticlassByEM_a747d8926ab25896e4a5db08b169fccde}{
 \index{CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}!evalPDF@{evalPDF}}
 \index{evalPDF@{evalPDF}!CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}}
-\subsubsection[{evalPDF}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ virtual double {\bf CDA::FitMulticlassByEM}$<$ T $>$::evalPDF (const unsigned {\em k}, \/  const {\bf datapoint\_\-t} \& {\em x}) const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
-\label{classCDA_1_1FitMulticlassByEM_a5853c1889b12e567d2d9ab6c395dfe0d}
+\subsubsection[{evalPDF}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class data\_\-T, class theta\_\-T$>$ virtual double {\bf CDA::FitMulticlassByEM}$<$ data\_\-T, theta\_\-T $>$::evalPDF (const unsigned {\em k}, \/  const datapoint\_\-t \& {\em x}) const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classCDA_1_1FitMulticlassByEM_a747d8926ab25896e4a5db08b169fccde}
 
 
 Evaluate the cluster model PDF with class parameters $k$ at $\vec{x}$. 
@@ -201,7 +242,7 @@ probability $p(x,k\vert\theta)$
 \end{DoxyReturn}
 
 
-Implementiert in \hyperlink{classCDA_1_1GaussianMixtureModel1D_a0ee83653e92c833951631f300cfe338d}{CDA::GaussianMixtureModel1D}.
+Implementiert in \hyperlink{classCDA_1_1GaussianMixtureModelNDCommon_aeac07962bd15c826561c68af7ac9c6d1}{CDA::GaussianMixtureModelNDCommon} und \hyperlink{classCDA_1_1EMGenericMixtureModelCore_ad8722983ea6f58d6e0b4a6bd117b050a}{CDA::EMGenericMixtureModelCore$<$ GaussianMixtureModelNDParams $>$}.
 
 
 
@@ -209,16 +250,16 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=221pt]{classCDA_1_1FitMulticlassByEM_a5853c1889b12e567d2d9ab6c395dfe0d_icgraph}
+\includegraphics[width=221pt]{classCDA_1_1FitMulticlassByEM_a747d8926ab25896e4a5db08b169fccde_icgraph}
 \end{center}
 \end{figure}
 
 
-\hypertarget{classCDA_1_1FitMulticlassByEM_a69d730c94245ec23b9a96cccee951129}{
+\hypertarget{classCDA_1_1FitMulticlassByEM_a60164ed52d11dc10b4faee5de96d42a7}{
 \index{CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}!getBestClass@{getBestClass}}
 \index{getBestClass@{getBestClass}!CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}}
-\subsubsection[{getBestClass}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ unsigned int {\bf CDA::FitMulticlassByEM}$<$ T $>$::getBestClass (const unsigned {\em n}) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
-\label{classCDA_1_1FitMulticlassByEM_a69d730c94245ec23b9a96cccee951129}
+\subsubsection[{getBestClass}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class data\_\-T , class theta\_\-T $>$ unsigned int FitMulticlassByEM::getBestClass (const unsigned {\em n}) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCDA_1_1FitMulticlassByEM_a60164ed52d11dc10b4faee5de96d42a7}
 
 
 Get class with best estimated membership probability. 
@@ -226,11 +267,32 @@ Get class with best estimated membership probability.
 
 \begin{DoxyParams}{Parameter}
 \item[\mbox{$\leftarrow$} {\em n}]Point number n \end{DoxyParams}
-\hypertarget{classCDA_1_1FitMulticlassByEM_a967f5380f84a679ca07f1fd9ac1a9e65}{
+
+
+Hier ist ein Graph der zeigt, was diese Funktion aufruft:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=255pt]{classCDA_1_1FitMulticlassByEM_a60164ed52d11dc10b4faee5de96d42a7_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classCDA_1_1FitMulticlassByEM_addcc14007ec1f00046391c3ac7572e34}{
+\index{CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}!getClassif@{getClassif}}
+\index{getClassif@{getClassif}!CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}}
+\subsubsection[{getClassif}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class data\_\-T , class theta\_\-T $>$ const fvector\_\-t \& FitMulticlassByEM::getClassif (const unsigned {\em n}) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCDA_1_1FitMulticlassByEM_addcc14007ec1f00046391c3ac7572e34}
+Avoid exposing the data field \hypertarget{classCDA_1_1FitMulticlassByEM_ad468afb0c45474a7400fd7efbb1ad2dd}{
+\index{CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}!getClassif@{getClassif}}
+\index{getClassif@{getClassif}!CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}}
+\subsubsection[{getClassif}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class data\_\-T , class theta\_\-T $>$ const std::vector$<$ fvector\_\-t $>$ \& FitMulticlassByEM::getClassif () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCDA_1_1FitMulticlassByEM_ad468afb0c45474a7400fd7efbb1ad2dd}
+Avoid exposing the data field \hypertarget{classCDA_1_1FitMulticlassByEM_a915e6a0aaae5f74c5802b53fbed8278a}{
 \index{CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}!getClassifList@{getClassifList}}
 \index{getClassifList@{getClassifList}!CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}}
-\subsubsection[{getClassifList}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ std::vector$<$unsigned int$>$ {\bf CDA::FitMulticlassByEM}$<$ T $>$::getClassifList () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
-\label{classCDA_1_1FitMulticlassByEM_a967f5380f84a679ca07f1fd9ac1a9e65}
+\subsubsection[{getClassifList}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class data\_\-T , class theta\_\-T $>$ std::vector$<$ unsigned int $>$ FitMulticlassByEM::getClassifList () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCDA_1_1FitMulticlassByEM_a915e6a0aaae5f74c5802b53fbed8278a}
 
 
 Read classification results (1). 
@@ -238,11 +300,22 @@ Read classification results (1).
 \begin{DoxyReturn}{Rückgabe}
 Best class for each point, in the same order as the points were entered (so you can just access 'em by index, as everywhere) 
 \end{DoxyReturn}
-\hypertarget{classCDA_1_1FitMulticlassByEM_a62588d5a6dcc8bc7af432b26ee5be5ab}{
+
+
+Hier ist ein Graph der zeigt, was diese Funktion aufruft:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=251pt]{classCDA_1_1FitMulticlassByEM_a915e6a0aaae5f74c5802b53fbed8278a_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classCDA_1_1FitMulticlassByEM_ae5a9232f142123c9ffaf6ec956b44f00}{
 \index{CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}!getHiddenParamEstimate@{getHiddenParamEstimate}}
 \index{getHiddenParamEstimate@{getHiddenParamEstimate}!CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}}
-\subsubsection[{getHiddenParamEstimate}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ const fvector\_\-t\& {\bf CDA::FitMulticlassByEM}$<$ T $>$::getHiddenParamEstimate (const unsigned {\em n}) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
-\label{classCDA_1_1FitMulticlassByEM_a62588d5a6dcc8bc7af432b26ee5be5ab}
+\subsubsection[{getHiddenParamEstimate}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class data\_\-T , class theta\_\-T $>$ const fvector\_\-t \& FitMulticlassByEM::getHiddenParamEstimate (const unsigned {\em n}) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{classCDA_1_1FitMulticlassByEM_ae5a9232f142123c9ffaf6ec956b44f00}
 
 
 Getter for estimate. 
@@ -252,7 +325,7 @@ Getter for estimate.
 \item[\mbox{$\leftarrow$} {\em n}]Point number n \end{DoxyParams}
 
 
-Implementiert \hyperlink{classCDA_1_1EM_a8fa4fea4987c54f6ae1499492cc9130c}{CDA::EM$<$ T $>$}.
+Implementiert \hyperlink{classCDA_1_1EM_aad68b7444dac8fa5e1b0d7413c8ed87c}{CDA::EM$<$ data\_\-T, theta\_\-T $>$}.
 
 
 
@@ -260,27 +333,32 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=283pt]{classCDA_1_1FitMulticlassByEM_a62588d5a6dcc8bc7af432b26ee5be5ab_icgraph}
+\includegraphics[width=255pt]{classCDA_1_1FitMulticlassByEM_ae5a9232f142123c9ffaf6ec956b44f00_icgraph}
 \end{center}
 \end{figure}
 
 
-\hypertarget{classCDA_1_1FitMulticlassByEM_a4185d0f323087ef9112e903a2782fdfd}{
+\hypertarget{classCDA_1_1FitMulticlassByEM_a07c7f0fb577bb28b7987e80bb93d6707}{
+\index{CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}!getModifyClassif@{getModifyClassif}}
+\index{getModifyClassif@{getModifyClassif}!CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}}
+\subsubsection[{getModifyClassif}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class data\_\-T , class theta\_\-T $>$ std::vector$<$ fvector\_\-t $>$ \& FitMulticlassByEM::getModifyClassif ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline, protected\mbox{]}}}}
+\label{classCDA_1_1FitMulticlassByEM_a07c7f0fb577bb28b7987e80bb93d6707}
+Avoid exposing the data field \hypertarget{classCDA_1_1FitMulticlassByEM_a4185d0f323087ef9112e903a2782fdfd}{
 \index{CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}!getParam@{getParam}}
 \index{getParam@{getParam}!CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}}
-\subsubsection[{getParam}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class datapoint\_\-t $>$ double FitMulticlassByEM::getParam (const unsigned {\em k}, \/  const unsigned {\em p}) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\subsubsection[{getParam}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class data\_\-T , class theta\_\-T $>$ double FitMulticlassByEM::getParam (const unsigned {\em k}, \/  const unsigned {\em p}) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
 \label{classCDA_1_1FitMulticlassByEM_a4185d0f323087ef9112e903a2782fdfd}
 
 
 Conveniently encapsulate access ofm\_\-theta. 
 
-all parameters except the outer probability 
+all parameters! 
 
 Hier ist ein Graph der zeigt, was diese Funktion aufruft:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=194pt]{classCDA_1_1FitMulticlassByEM_a4185d0f323087ef9112e903a2782fdfd_cgraph}
+\includegraphics[width=184pt]{classCDA_1_1FitMulticlassByEM_a4185d0f323087ef9112e903a2782fdfd_cgraph}
 \end{center}
 \end{figure}
 
@@ -288,7 +366,7 @@ Hier ist ein Graph der zeigt, was diese Funktion aufruft:\nopagebreak
 \hypertarget{classCDA_1_1FitMulticlassByEM_a869530b76ee4b40d38d3fb80ea0932aa}{
 \index{CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}!getPk@{getPk}}
 \index{getPk@{getPk}!CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}}
-\subsubsection[{getPk}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class datapoint\_\-t $>$ double FitMulticlassByEM::getPk (const unsigned {\em k}) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\subsubsection[{getPk}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class data\_\-T , class theta\_\-T $>$ double FitMulticlassByEM::getPk (const unsigned {\em k}) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
 \label{classCDA_1_1FitMulticlassByEM_a869530b76ee4b40d38d3fb80ea0932aa}
 
 
@@ -303,7 +381,7 @@ Hier ist ein Graph der zeigt, was diese Funktion aufruft:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=186pt]{classCDA_1_1FitMulticlassByEM_a869530b76ee4b40d38d3fb80ea0932aa_cgraph}
+\includegraphics[width=176pt]{classCDA_1_1FitMulticlassByEM_a869530b76ee4b40d38d3fb80ea0932aa_cgraph}
 \end{center}
 \end{figure}
 
@@ -319,11 +397,11 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:\nopagebreak
 \end{figure}
 
 
-\hypertarget{classCDA_1_1FitMulticlassByEM_a10d9a6e699530aa071dd33ea7b980f53}{
+\hypertarget{classCDA_1_1FitMulticlassByEM_aceb43b0a386c8f8e112562cc3288b23d}{
 \index{CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}!initClassif@{initClassif}}
 \index{initClassif@{initClassif}!CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}}
-\subsubsection[{initClassif}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ void {\bf CDA::FitMulticlassByEM}$<$ T $>$::initClassif ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
-\label{classCDA_1_1FitMulticlassByEM_a10d9a6e699530aa071dd33ea7b980f53}
+\subsubsection[{initClassif}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class data\_\-T , class theta\_\-T $>$ void FitMulticlassByEM::initClassif ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCDA_1_1FitMulticlassByEM_aceb43b0a386c8f8e112562cc3288b23d}
 
 
 Initialize class membership beliefs. 
@@ -331,28 +409,41 @@ Initialize class membership beliefs.
 \hypertarget{GaussianMixtureModel1D_8h_09_09_NOTE}{}\subsection{NOTE}\label{GaussianMixtureModel1D_8h_09_09_NOTE}
 setData of derived classes must call this =$>$ done, defined setData here. can one be \char`\"{}using\char`\"{} a template fn? 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:\nopagebreak
+Hier ist ein Graph der zeigt, was diese Funktion aufruft:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=237pt]{classCDA_1_1FitMulticlassByEM_a10d9a6e699530aa071dd33ea7b980f53_icgraph}
+\includegraphics[width=243pt]{classCDA_1_1FitMulticlassByEM_aceb43b0a386c8f8e112562cc3288b23d_cgraph}
 \end{center}
 \end{figure}
 
 
-\hypertarget{classCDA_1_1FitMulticlassByEM_a7c40c5528a4b8b32e2455056f60d76de}{
-\index{CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}!update\_\-hidden@{update\_\-hidden}}
-\index{update\_\-hidden@{update\_\-hidden}!CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}}
-\subsubsection[{update\_\-hidden}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class datatype\_\-t $>$ void FitMulticlassByEM::update\_\-hidden ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline, protected, virtual\mbox{]}}}}
-\label{classCDA_1_1FitMulticlassByEM_a7c40c5528a4b8b32e2455056f60d76de}
 
 
-{\bfseries E-\/step}: update hidden attributes, i.e. classification 
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{classCDA_1_1FitMulticlassByEM_aceb43b0a386c8f8e112562cc3288b23d_icgraph}
+\end{center}
+\end{figure}
 
-\hypertarget{GaussianMixtureModel1D_8h_09_09_NOTE}{}\subsection{NOTE}\label{GaussianMixtureModel1D_8h_09_09_NOTE}
-It is common to all multiclass (mixture model) problem formulations. 
 
-Implementiert \hyperlink{classCDA_1_1EM_af116066dfe282586d4219fb588a021d7}{CDA::EM$<$ T $>$}.
+\hypertarget{classCDA_1_1FitMulticlassByEM_abaea206aef382360246cf2a64dadc74c}{
+\index{CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}!logLikelihood@{logLikelihood}}
+\index{logLikelihood@{logLikelihood}!CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}}
+\subsubsection[{logLikelihood}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class data\_\-T , class theta\_\-T $>$ double FitMulticlassByEM::logLikelihood () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{classCDA_1_1FitMulticlassByEM_abaea206aef382360246cf2a64dadc74c}
+
+
+Implemented here. 
+
+\begin{DoxyReturn}{Rückgabe}
+If you really wanna know the logLikelihood value at current iteration. 
+\end{DoxyReturn}
+
+
+Implementiert \hyperlink{classCDA_1_1EM_affb4273a70cd7562cc5d517412c4fcdb}{CDA::EM$<$ data\_\-T, theta\_\-T $>$}.
 
 
 
@@ -360,7 +451,32 @@ Hier ist ein Graph der zeigt, was diese Funktion aufruft:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=307pt]{classCDA_1_1FitMulticlassByEM_a7c40c5528a4b8b32e2455056f60d76de_cgraph}
+\includegraphics[width=293pt]{classCDA_1_1FitMulticlassByEM_abaea206aef382360246cf2a64dadc74c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classCDA_1_1FitMulticlassByEM_a7c40c5528a4b8b32e2455056f60d76de}{
+\index{CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}!update\_\-hidden@{update\_\-hidden}}
+\index{update\_\-hidden@{update\_\-hidden}!CDA::FitMulticlassByEM@{CDA::FitMulticlassByEM}}
+\subsubsection[{update\_\-hidden}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class data\_\-T , class theta\_\-T $>$ void FitMulticlassByEM::update\_\-hidden ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline, protected, virtual\mbox{]}}}}
+\label{classCDA_1_1FitMulticlassByEM_a7c40c5528a4b8b32e2455056f60d76de}
+
+
+{\bfseries E-\/step}: update hidden attributes, i.e. classification 
+
+\hypertarget{GaussianMixtureModel1D_8h_09_09_NOTE}{}\subsection{NOTE}\label{GaussianMixtureModel1D_8h_09_09_NOTE}
+It is common to all multiclass (mixture model) problem formulations, thus not redefined in subclasses. 
+
+Implementiert \hyperlink{classCDA_1_1EM_a587d80945cad21df1233dc22cb95671d}{CDA::EM$<$ data\_\-T, theta\_\-T $>$}.
+
+
+
+Hier ist ein Graph der zeigt, was diese Funktion aufruft:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=303pt]{classCDA_1_1FitMulticlassByEM_a7c40c5528a4b8b32e2455056f60d76de_cgraph}
 \end{center}
 \end{figure}
 
@@ -369,5 +485,5 @@ Hier ist ein Graph der zeigt, was diese Funktion aufruft:\nopagebreak
 
 Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien:\begin{DoxyCompactItemize}
 \item 
-src/expmax/\hyperlink{FitMulticlassByEM_8h_09_09}{FitMulticlassByEM.h++}\item 
-src/expmax/\hyperlink{ProbabilisticClustering_8c_09_09}{ProbabilisticClustering.c++}\end{DoxyCompactItemize}
+include/expmax/\hyperlink{FitMulticlassByEM_8h_09_09}{FitMulticlassByEM.h++}\item 
+src/expmax/\hyperlink{FitMulticlassByEM_8c_09_09}{FitMulticlassByEM.c++}\end{DoxyCompactItemize}

@@ -1,16 +1,29 @@
 \section{Klassenhierarchie}
 Die Liste der Ableitungen ist -\/mit Einschränkungen-\/ alphabetisch sortiert:\begin{DoxyCompactList}
 \item \contentsline{section}{CDA::compareByVectorElementValue$<$ vector\_\-t, idx\_\-t, LT $>$}{\pageref{structCDA_1_1compareByVectorElementValue}}{}
-\item \contentsline{section}{CDA::EM$<$ datapoint\_\-t $>$}{\pageref{classCDA_1_1EM}}{}
-\item \contentsline{section}{CDA::EM$<$ fvector\_\-t $>$}{\pageref{classCDA_1_1EM}}{}
+\item \contentsline{section}{CDA::EM$<$ data\_\-T, theta\_\-T $>$}{\pageref{classCDA_1_1EM}}{}
 \begin{DoxyCompactList}
-\item \contentsline{section}{CDA::FitMulticlassByEM$<$ fvector\_\-t $>$}{\pageref{classCDA_1_1FitMulticlassByEM}}{}
+\item \contentsline{section}{CDA::FitMulticlassByEM$<$ data\_\-T, theta\_\-T $>$}{\pageref{classCDA_1_1FitMulticlassByEM}}{}
+\end{DoxyCompactList}
+\item \contentsline{section}{CDA::EM$<$ EMData$<$ double $>$, EMThetas $>$}{\pageref{classCDA_1_1EM}}{}
 \begin{DoxyCompactList}
-\item \contentsline{section}{CDA::FitMultivariateMulticlassByEM}{\pageref{classCDA_1_1FitMultivariateMulticlassByEM}}{}
+\item \contentsline{section}{CDA::FitMulticlassByEM$<$ EMData$<$ double $>$, EMThetas $>$}{\pageref{classCDA_1_1FitMulticlassByEM}}{}
 \begin{DoxyCompactList}
-\item \contentsline{section}{CDA::EMGenericMixtureModelCore}{\pageref{classCDA_1_1EMGenericMixtureModelCore}}{}
+\item \contentsline{section}{CDA::FitUnivariateMulticlassByEM}{\pageref{classCDA_1_1FitUnivariateMulticlassByEM}}{}
 \begin{DoxyCompactList}
-\item \contentsline{section}{CDA::EMMbyGradientDescent}{\pageref{classCDA_1_1EMMbyGradientDescent}}{}
+\item \contentsline{section}{CDA::GaussianMixtureModel1D}{\pageref{classCDA_1_1GaussianMixtureModel1D}}{}
+\end{DoxyCompactList}
+\end{DoxyCompactList}
+\end{DoxyCompactList}
+\item \contentsline{section}{CDA::EM$<$ VectorEMData, GaussianMixtureModelNDParams $>$}{\pageref{classCDA_1_1EM}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{CDA::FitMulticlassByEM$<$ VectorEMData, GaussianMixtureModelNDParams $>$}{\pageref{classCDA_1_1FitMulticlassByEM}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{CDA::FitMultivariateMulticlassByEM$<$ GaussianMixtureModelNDParams $>$}{\pageref{classCDA_1_1FitMultivariateMulticlassByEM}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{CDA::EMGenericMixtureModelCore$<$ GaussianMixtureModelNDParams $>$}{\pageref{classCDA_1_1EMGenericMixtureModelCore}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{CDA::GaussianMixtureModelNDCommon}{\pageref{classCDA_1_1GaussianMixtureModelNDCommon}}{}
 \begin{DoxyCompactList}
 \item \contentsline{section}{CDA::GaussianMixtureModel}{\pageref{classCDA_1_1GaussianMixtureModel}}{}
 \end{DoxyCompactList}
@@ -18,18 +31,28 @@ Die Liste der Ableitungen ist -\/mit Einschränkungen-\/ alphabetisch sortiert:\
 \end{DoxyCompactList}
 \end{DoxyCompactList}
 \end{DoxyCompactList}
-\item \contentsline{section}{CDA::EM$<$ T $>$}{\pageref{classCDA_1_1EM}}{}
+\item \contentsline{section}{CDA::EM$<$ VectorEMData, theta\_\-T $>$}{\pageref{classCDA_1_1EM}}{}
 \begin{DoxyCompactList}
-\item \contentsline{section}{CDA::FitMulticlassByEM$<$ T $>$}{\pageref{classCDA_1_1FitMulticlassByEM}}{}
+\item \contentsline{section}{CDA::FitMulticlassByEM$<$ VectorEMData, theta\_\-T $>$}{\pageref{classCDA_1_1FitMulticlassByEM}}{}
 \begin{DoxyCompactList}
-\item \contentsline{section}{CDA::CircularMixtureModel1D}{\pageref{classCDA_1_1CircularMixtureModel1D}}{}
-\item \contentsline{section}{CDA::GaussianMixtureModel1D}{\pageref{classCDA_1_1GaussianMixtureModel1D}}{}
+\item \contentsline{section}{CDA::FitMultivariateMulticlassByEM$<$ theta\_\-T $>$}{\pageref{classCDA_1_1FitMultivariateMulticlassByEM}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{CDA::EMGenericMixtureModelCore$<$ theta\_\-T $>$}{\pageref{classCDA_1_1EMGenericMixtureModelCore}}{}
+\end{DoxyCompactList}
 \end{DoxyCompactList}
 \end{DoxyCompactList}
 \item \contentsline{section}{CDA::EMData$<$ T $>$}{\pageref{classCDA_1_1EMData}}{}
+\item \contentsline{section}{CDA::EMData$<$ double $>$}{\pageref{classCDA_1_1EMData}}{}
 \item \contentsline{section}{CDA::EMData$<$ fvector\_\-t $>$}{\pageref{classCDA_1_1EMData}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{CDA::VectorEMData}{\pageref{classCDA_1_1VectorEMData}}{}
+\end{DoxyCompactList}
 \item \contentsline{section}{CDA::EMThetas}{\pageref{classCDA_1_1EMThetas}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{CDA::GaussianMixtureModelNDParams}{\pageref{classCDA_1_1GaussianMixtureModelNDParams}}{}
+\end{DoxyCompactList}
 \item \contentsline{section}{CDA::EnhancedDataset}{\pageref{classCDA_1_1EnhancedDataset}}{}
 \item \contentsline{section}{CDA::EnhancedDatasetView}{\pageref{classCDA_1_1EnhancedDatasetView}}{}
+\item \contentsline{section}{GaussianMixtureModelNDClosedForm}{\pageref{classGaussianMixtureModelNDClosedForm}}{}
 \item \contentsline{section}{CDA::VonMises}{\pageref{structCDA_1_1VonMises}}{}
 \end{DoxyCompactList}

@@ -110,16 +110,16 @@ public: // why shouldn't they? parameters are set from the outside now
         }
     }
 
+    /**
+    * @brief Structured datatype! Much cleaner and easier and less error-prone than before ...
+    */
+    typedef boost::tuple<double, fvector_t, sym_mtx_t> pdfparams_t;
+
 protected:
 
     std::vector<sym_mtx_t> m_cached_invsigmas;
 
     std::vector<double> m_cached_sigmadet;
-
-    /**
-    * @brief Structured datatype! Much cleaner and easier and less error-prone than before ...
-    */
-    typedef boost::tuple<double, fvector_t, sym_mtx_t> pdfparams_t;
 
     std::vector<pdfparams_t> thetas;
 
@@ -150,9 +150,9 @@ public:
     *
     * @param[in] k class no.
     *
-    * @return a ublas matrix
+    * @return reference to a ublas matrix
     */
-    const sym_mtx_t getSigmaMatrix(const unsigned k) const;
+    const sym_mtx_t& getSigmaMatrix(const unsigned k) const;
 
     /**
     * @brief
@@ -174,7 +174,7 @@ public:
     // const boost::numeric::ublas::vector_range<const fvector_t> getMean(const unsigned k) const;
 
     /**
-     * @brief Yet another
+     * @brief Yet another getter
      * @param k class no.
      * @return \f$alpha_k\f$
      */
@@ -189,8 +189,17 @@ public:
     /**
      * @brief Important
      * don't use this, use the nice ones.
+     *
      */
     double& getModifyThetas(const unsigned k, const unsigned i);
+
+    /**
+     * @brief const getter for normal access
+     *
+     * @param[in] k class no.
+     * @param[in] i param no. >=0 <P
+     */
+    double getThetas(const unsigned k, const unsigned i) const;
 
     /**
     * @brief get this D
@@ -234,6 +243,8 @@ public:
      * @param k: class number
      */
     void setProb(const unsigned k);
+
+    unsigned int getP() const { return 1+D+D*(D+1)/2; }
 };
 
 } // namespace

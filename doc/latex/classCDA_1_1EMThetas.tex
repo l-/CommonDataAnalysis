@@ -11,21 +11,49 @@ Model parameters for \hyperlink{classCDA_1_1EM}{EM}.
 
 {\ttfamily \#include $<$EMTheta.h++$>$}
 
+
+
+Basisklasse für \hyperlink{classCDA_1_1GaussianMixtureModelNDParams}{CDA::GaussianMixtureModelNDParams}.
+
+\subsection*{Öffentliche Typen}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classCDA_1_1EMThetas_aba47b3e7d71ea344695798e68471cc69}{
+typedef fvector\_\-t \hyperlink{classCDA_1_1EMThetas_aba47b3e7d71ea344695798e68471cc69}{value\_\-type}}
+\label{classCDA_1_1EMThetas_aba47b3e7d71ea344695798e68471cc69}
+
+\begin{DoxyCompactList}\small\item\em Basic TYpedef. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Öffentliche Methoden}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$class II $>$ }\\void \hyperlink{classCDA_1_1EMThetas_a1c8058269e4d8a32a2dd58f13ad94369}{setTheta} (std::pair$<$ II, II $>$ thetas\_\-)
+\hyperlink{classCDA_1_1EMThetas_a97b7888efc058416d40ab7a24c80a2a0}{EMThetas} ()
 \item 
+\hyperlink{classCDA_1_1EMThetas_aaa3c2d20ee5d95a8b38d40e7c6d0b1a7}{EMThetas} (const \hyperlink{classCDA_1_1EMThetas}{EMThetas} \&other)
+\item 
+{\footnotesize template$<$class II $>$ }\\void \hyperlink{classCDA_1_1EMThetas_a1c8058269e4d8a32a2dd58f13ad94369}{setTheta} (std::pair$<$ II, II $>$ thetas\_\-)
+\begin{DoxyCompactList}\small\item\em Initial guess for model parameters -\/-\/ strictly needed. \item\end{DoxyCompactList}\item 
 \hypertarget{classCDA_1_1EMThetas_aadd9127ef459eda6eb890e1f3bd5a1bc}{
 const std::vector$<$ fvector\_\-t $>$ \& \hyperlink{classCDA_1_1EMThetas_aadd9127ef459eda6eb890e1f3bd5a1bc}{getThetas} () const }
 \label{classCDA_1_1EMThetas_aadd9127ef459eda6eb890e1f3bd5a1bc}
 
-\begin{DoxyCompactList}\small\item\em const getter \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em const getter for normal access \item\end{DoxyCompactList}\item 
+\hypertarget{classCDA_1_1EMThetas_a0d5cc0f815c7a78a42d2d64b2fd5bfdb}{
+double \hyperlink{classCDA_1_1EMThetas_a0d5cc0f815c7a78a42d2d64b2fd5bfdb}{getThetas} (unsigned int k, unsigned int n) const }
+\label{classCDA_1_1EMThetas_a0d5cc0f815c7a78a42d2d64b2fd5bfdb}
+
+\begin{DoxyCompactList}\small\item\em const getter for normal access \item\end{DoxyCompactList}\item 
 \hypertarget{classCDA_1_1EMThetas_ab5cc3d05862d41aa16a38b7c4ec51bd3}{
 std::vector$<$ fvector\_\-t $>$ \& \hyperlink{classCDA_1_1EMThetas_ab5cc3d05862d41aa16a38b7c4ec51bd3}{getModifyThetas} ()}
 \label{classCDA_1_1EMThetas_ab5cc3d05862d41aa16a38b7c4ec51bd3}
 
-\begin{DoxyCompactList}\small\item\em non-\/const getter. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em non-\/const getter for updates only. \item\end{DoxyCompactList}\item 
+\hypertarget{classCDA_1_1EMThetas_acc1246f42ca1fa55d8f7d1338dee39ef}{
+fvector\_\-t::value\_\-type \& \hyperlink{classCDA_1_1EMThetas_acc1246f42ca1fa55d8f7d1338dee39ef}{getModifyThetas} (const unsigned k, const unsigned i)}
+\label{classCDA_1_1EMThetas_acc1246f42ca1fa55d8f7d1338dee39ef}
+
+\begin{DoxyCompactList}\small\item\em Important. \item\end{DoxyCompactList}\item 
+unsigned int \hyperlink{classCDA_1_1EMThetas_aeafa1d8926150ea06a4f76228817d38e}{getP} () const 
+\end{DoxyCompactItemize}
 \subsection*{Geschützte Attribute}
 \begin{DoxyCompactItemize}
 \item 
@@ -39,33 +67,51 @@ std::vector$<$ fvector\_\-t $>$ \hyperlink{classCDA_1_1EMThetas_a2fb1c00c889f9a5
 \subsection{Ausführliche Beschreibung}
 Model parameters for \hyperlink{classCDA_1_1EM}{EM}. \hypertarget{ProbabilisticClustering_8h_09_09_DESCRIPTION}{}\subsection{DESCRIPTION}\label{ProbabilisticClustering_8h_09_09_DESCRIPTION}
 To avoid duplication. Can't just put it into \hyperlink{classCDA_1_1EM}{EM} and inherit because of duplicate class problems\hypertarget{classCDA_1_1EMThetas_ARCHITECTURE}{}\subsection{CAVEAT}\label{classCDA_1_1EMThetas_ARCHITECTURE}
-I dislike having this class around, this should all be in \hyperlink{classCDA_1_1EM}{EM} in any proper programming language, it would be possible. 
+I dislike having this class around\hypertarget{classCDA_1_1EMThetas_ANYWAY}{}\subsection{ANYWAY}\label{classCDA_1_1EMThetas_ANYWAY}
+TODO it should be possible to subclass this an handle all the parameter management (i.e. extraction of the right fields, some calculations) in here. 
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\hypertarget{classCDA_1_1EMThetas_a97b7888efc058416d40ab7a24c80a2a0}{
+\index{CDA::EMThetas@{CDA::EMThetas}!EMThetas@{EMThetas}}
+\index{EMThetas@{EMThetas}!CDA::EMThetas@{CDA::EMThetas}}
+\subsubsection[{EMThetas}]{\setlength{\rightskip}{0pt plus 5cm}EMThetas::EMThetas ()}}
+\label{classCDA_1_1EMThetas_a97b7888efc058416d40ab7a24c80a2a0}
+\hyperlink{classCDA_1_1EMThetas}{EMThetas} initialize empty \hypertarget{classCDA_1_1EMThetas_aaa3c2d20ee5d95a8b38d40e7c6d0b1a7}{
+\index{CDA::EMThetas@{CDA::EMThetas}!EMThetas@{EMThetas}}
+\index{EMThetas@{EMThetas}!CDA::EMThetas@{CDA::EMThetas}}
+\subsubsection[{EMThetas}]{\setlength{\rightskip}{0pt plus 5cm}EMThetas::EMThetas (const {\bf EMThetas} \& {\em other})}}
+\label{classCDA_1_1EMThetas_aaa3c2d20ee5d95a8b38d40e7c6d0b1a7}
+\hyperlink{classCDA_1_1EMThetas}{EMThetas} copy constructor 
 
 \subsection{Dokumentation der Elementfunktionen}
+\hypertarget{classCDA_1_1EMThetas_aeafa1d8926150ea06a4f76228817d38e}{
+\index{CDA::EMThetas@{CDA::EMThetas}!getP@{getP}}
+\index{getP@{getP}!CDA::EMThetas@{CDA::EMThetas}}
+\subsubsection[{getP}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int CDA::EMThetas::getP () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCDA_1_1EMThetas_aeafa1d8926150ea06a4f76228817d38e}
+\begin{Desc}
+\item[\hyperlink{todo__todo000004}{Noch zu erledigen}]TODO umHimmels Willen! \end{Desc}
+
+
+Erneute Implementation in \hyperlink{classCDA_1_1GaussianMixtureModelNDParams_a381c2e9b2f537dfb8558d202a9cb12ea}{CDA::GaussianMixtureModelNDParams}.
+
 \hypertarget{classCDA_1_1EMThetas_a1c8058269e4d8a32a2dd58f13ad94369}{
 \index{CDA::EMThetas@{CDA::EMThetas}!setTheta@{setTheta}}
 \index{setTheta@{setTheta}!CDA::EMThetas@{CDA::EMThetas}}
 \subsubsection[{setTheta}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class II $>$ void CDA::EMThetas::setTheta (std::pair$<$ II, II $>$ {\em thetas\_\-})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
 \label{classCDA_1_1EMThetas_a1c8058269e4d8a32a2dd58f13ad94369}
-Initial guess for model parameters -\/-\/ strictly needed
 
-Input data format differs for each individual distribution, be careful and read the documentation.
+
+Initial guess for model parameters -\/-\/ strictly needed. 
+
+\hypertarget{classCDA_1_1EMThetas_CAREFUL}{}\subsection{CAREFUL}\label{classCDA_1_1EMThetas_CAREFUL}
+Input data format differs for each individual distribution, be careful and read the documentation. =$>$ will be solved by {\bfseries subclassing} and creating specific setters/getters
 
 \begin{Desc}
-\item[\hyperlink{todo__todo000002}{Noch zu erledigen}]random numbers when none given \end{Desc}
+\item[\hyperlink{todo__todo000003}{Noch zu erledigen}]random numbers or something when none given \end{Desc}
 
 
-Hier ist ein Graph der zeigt, was diese Funktion aufruft:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=189pt]{classCDA_1_1EMThetas_a1c8058269e4d8a32a2dd58f13ad94369_cgraph}
-\end{center}
-\end{figure}
-
-
-
-
-Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei:\begin{DoxyCompactItemize}
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien:\begin{DoxyCompactItemize}
 \item 
-src/expmax/\hyperlink{EMTheta_8h_09_09}{EMTheta.h++}\end{DoxyCompactItemize}
+include/expmax/\hyperlink{EMTheta_8h_09_09}{EMTheta.h++}\item 
+src/expmax/\hyperlink{EMTheta_8c_09_09}{EMTheta.c++}\end{DoxyCompactItemize}

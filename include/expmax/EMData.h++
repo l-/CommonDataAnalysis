@@ -1,6 +1,6 @@
 /**
  * @file EMData.h++
- *
+ * @version 0.1
  * @author Erik Flick <erik.flick [AETT] informatik.uni-hamburg.de>
  *
  *  Created on: Jan 5, 2011
@@ -94,7 +94,7 @@ public:
      * @param[in] iterators on data entries to copy
      */
     template<class II>
-    void setDataProper(std::pair<II, II> data_) {
+    void appendData(std::pair<II, II> data_) {
         std::copy(data_.first, data_.second, std::back_inserter(data));
 #ifdef VERBOSE
         std::cout << typeid(this).name() << ": accepted " << data.size() << " data points.\n";

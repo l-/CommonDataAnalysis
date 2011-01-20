@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>CommonDataAnalysis: src/expmax/FitMultivariateMulticlassByEM.h++ Quellcode</title>
+<title>CommonDataAnalysis: include/expmax/FitMultivariateMulticlassByEM.h++ Quellcode</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javaScript" src="search/search.js"></script>
@@ -41,32 +41,41 @@ var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
       <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
     </ul>
   </div>
-<h1>src/expmax/FitMultivariateMulticlassByEM.h++</h1><a href="FitMultivariateMulticlassByEM_8h_09_09.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<h1>include/expmax/FitMultivariateMulticlassByEM.h++</h1><a href="FitMultivariateMulticlassByEM_8h_09_09.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
 <a name="l00010"></a>00010 <span class="preprocessor">#pragma once</span>
 <a name="l00011"></a>00011 <span class="preprocessor"></span>
 <a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="FitMulticlassByEM_8h_09_09.html">FitMulticlassByEM.h++</a>&quot;</span>
-<a name="l00013"></a>00013 
-<a name="l00014"></a>00014 <span class="keyword">namespace </span>CDA {
-<a name="l00015"></a>00015 
+<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="VectorEMData_8h_09_09.html">VectorEMData.h++</a>&quot;</span>
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 <span class="keyword">namespace </span>CDA {
 <a name="l00016"></a>00016 
-<a name="l00020"></a>00020 <span class="keyword">typedef</span> FitMulticlassByEM&lt;double&gt; FitUnivariateMulticlassByEM;
-<a name="l00021"></a>00021 
-<a name="l00025"></a><a class="code" href="classCDA_1_1FitMultivariateMulticlassByEM.html">00025</a> <span class="keyword">class </span><a class="code" href="classCDA_1_1FitMultivariateMulticlassByEM.html" title="It&amp;#39;s been demoted to a typedef.">FitMultivariateMulticlassByEM</a> : <span class="keyword">public</span> <a class="code" href="classCDA_1_1FitMulticlassByEM.html">FitMulticlassByEM</a>&lt;fvector_t&gt; {
-<a name="l00026"></a>00026 
-<a name="l00027"></a>00027 <span class="keyword">public</span>:
-<a name="l00028"></a>00028 
-<a name="l00032"></a><a class="code" href="classCDA_1_1FitMultivariateMulticlassByEM.html#a1da490e479036c62f0cbf55dd06201a6">00032</a>     <span class="keyword">typedef</span> fvector_t <a class="code" href="classCDA_1_1FitMultivariateMulticlassByEM.html#a1da490e479036c62f0cbf55dd06201a6" title="Define the datapoint_t.">datapoint_t</a>;
-<a name="l00033"></a>00033 
-<a name="l00034"></a>00034 <span class="keyword">public</span>:
-<a name="l00035"></a>00035 
-<a name="l00042"></a><a class="code" href="classCDA_1_1FitMultivariateMulticlassByEM.html#a8d6225a029e5e06f09e9820abe538286">00042</a>     <a class="code" href="classCDA_1_1FitMultivariateMulticlassByEM.html#a8d6225a029e5e06f09e9820abe538286" title="Constructor.">FitMultivariateMulticlassByEM</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> K_, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> D_)
-<a name="l00043"></a>00043     : <a class="code" href="classCDA_1_1FitMulticlassByEM.html">FitMulticlassByEM</a>&lt;fvector_t&gt;(K_, D_) {}
-<a name="l00044"></a>00044     <span class="comment">// , EM&lt;fvector_t&gt;(D_) {}</span>
-<a name="l00045"></a>00045 
-<a name="l00049"></a>00049     <span class="keywordtype">unsigned</span> <a class="code" href="classCDA_1_1FitMultivariateMulticlassByEM.html#a61354d086a158b075beccd1a956eb1f8" title="Convenience getter for D, same format as getN() and getP().">getD</a>() <span class="keyword">const</span>;
-<a name="l00050"></a>00050 };
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052 } <span class="comment">// ns</span>
+<a name="l00017"></a>00017 
+<a name="l00025"></a>00025 <span class="keyword">template</span>&lt;<span class="keyword">class</span> theta_T&gt;
+<a name="l00026"></a><a class="code" href="classCDA_1_1FitMultivariateMulticlassByEM.html">00026</a> <span class="keyword">class </span><a class="code" href="classCDA_1_1FitMultivariateMulticlassByEM.html" title="Note that the EMData type is fixed: VectorEMData.">FitMultivariateMulticlassByEM</a> : <span class="keyword">public</span> <a class="code" href="classCDA_1_1FitMulticlassByEM.html" title="An abstract model fitting class The next after EM class ...">FitMulticlassByEM</a>&lt;VectorEMData, theta_T&gt; {
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028 <span class="keyword">protected</span>:
+<a name="l00029"></a>00029 
+<a name="l00033"></a>00033     <span class="keyword">using</span> <a class="code" href="classCDA_1_1FitMulticlassByEM.html" title="An abstract model fitting class The next after EM class ...">FitMulticlassByEM&lt;VectorEMData, theta_T&gt;::getModifyClassif</a>;
+<a name="l00034"></a>00034 
+<a name="l00038"></a>00038     <span class="keyword">using</span> <a class="code" href="classCDA_1_1EM.html" title="A generic EM model fitting class.">EM&lt;VectorEMData, theta_T&gt;::getDataObj</a>; <span class="comment">// which is virtual, rather that m_data</span>
+<a name="l00039"></a>00039 
+<a name="l00043"></a>00043     <span class="keyword">using</span> <a class="code" href="classCDA_1_1EM.html" title="A generic EM model fitting class.">EM&lt;VectorEMData, theta_T&gt;::getThetaObj</a>;
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045 <span class="keyword">public</span>:
+<a name="l00046"></a>00046 
+<a name="l00050"></a><a class="code" href="classCDA_1_1FitMultivariateMulticlassByEM.html#a7831e85cafbf2f27c8944c9db1e4c4bf">00050</a>     <span class="keyword">typedef</span> <a class="code" href="classCDA_1_1VectorEMData.html" title="Data which comes in vectors.">VectorEMData</a> <a class="code" href="classCDA_1_1VectorEMData.html" title="Data which comes in vectors.">data_t</a>;
+<a name="l00051"></a>00051     <span class="keyword">typedef</span> <a class="code" href="classCDA_1_1EMData.html#a010a85bcffac375b7b0d9dfbc0ed2626" title="Standard name.">VectorEMData::value_type</a> datapoint_t;
+<a name="l00052"></a>00052     <span class="keyword">typedef</span> theta_T <a class="code" href="classCDA_1_1GaussianMixtureModelNDParams.html" title="A heteroscedastic N-dimensional Gaussian Mixture Model.">theta_t</a>;
+<a name="l00053"></a>00053 
+<a name="l00061"></a><a class="code" href="classCDA_1_1FitMultivariateMulticlassByEM.html#ab16e1e3d2592e52801d7ebe94fb8b8d3">00061</a>     <a class="code" href="classCDA_1_1FitMultivariateMulticlassByEM.html#ab16e1e3d2592e52801d7ebe94fb8b8d3" title="Constructor.">FitMultivariateMulticlassByEM</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> K_, <span class="keyword">const</span> <a class="code" href="classCDA_1_1VectorEMData.html" title="Data which comes in vectors.">VectorEMData</a>&amp; data, <span class="keyword">const</span> <a class="code" href="classCDA_1_1GaussianMixtureModelNDParams.html" title="A heteroscedastic N-dimensional Gaussian Mixture Model.">theta_t</a>&amp; theta)
+<a name="l00062"></a>00062       : <a class="code" href="classCDA_1_1FitMulticlassByEM.html" title="An abstract model fitting class The next after EM class ...">FitMulticlassByEM</a>&lt;<a class="code" href="classCDA_1_1VectorEMData.html" title="Data which comes in vectors.">VectorEMData</a>, <a class="code" href="classCDA_1_1GaussianMixtureModelNDParams.html" title="A heteroscedastic N-dimensional Gaussian Mixture Model.">theta_t</a>&gt;(K_, data, theta)
+<a name="l00063"></a>00063     {}
+<a name="l00064"></a>00064     <span class="comment">//</span>
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066     <span class="keywordtype">unsigned</span> getD() <span class="keyword">const</span>;
+<a name="l00067"></a>00067 };
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069 } <span class="comment">// namespace</span>
 </pre></div></div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -82,7 +91,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Erzeugt am Thu Jan 6 09:53:46 2011 für CommonDataAnalysis von&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Erzeugt am Thu Jan 20 14:07:32 2011 für CommonDataAnalysis von&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

@@ -48,7 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
 </div>
 <div class="contents">
 <h1>CDA::EMData&lt; T &gt; Template-Klassenreferenz</h1><!-- doxytag: class="CDA::EMData" -->
-<p>Any concrete <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class. Contains the general outline of EM algorithm, details...">EM</a> subclass "has_a" <a class="el" href="classCDA_1_1EMData.html" title="Any concrete EM subclass &quot;has_a&quot; EMData of the appropriate type (i.e. mono-...">EMData</a> of the appropriate type (i.e. mono- or multivariate).  
+<p>Your basic datapoint list.  
 <a href="#_details">Mehr ...</a></p>
 
 <p><code>#include &lt;<a class="el" href="EMData_8h_09_09_source.html">EMData.h++</a>&gt;</code></p>
@@ -56,68 +56,58 @@ var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
 <p><a href="classCDA_1_1EMData-members.html">Aufstellung aller Elemente</a></p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="2"><h2>Öffentliche Typen</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef T&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMData.html#a320dfbd3ad13091a99602a140688a05d">datapoint_t</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a320dfbd3ad13091a99602a140688a05d"></a><!-- doxytag: member="CDA::EMData::datapoint_t" ref="a320dfbd3ad13091a99602a140688a05d" args="" -->
+typedef T&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMData.html#a320dfbd3ad13091a99602a140688a05d">datapoint_t</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">double or fvector_t <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a010a85bcffac375b7b0d9dfbc0ed2626"></a><!-- doxytag: member="CDA::EMData::value_type" ref="a010a85bcffac375b7b0d9dfbc0ed2626" args="" -->
+typedef <a class="el" href="classCDA_1_1EMData.html#a320dfbd3ad13091a99602a140688a05d">datapoint_t</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMData.html#a010a85bcffac375b7b0d9dfbc0ed2626">value_type</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Standard name. <br/></td></tr>
 <tr><td colspan="2"><h2>Öffentliche Methoden</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMData.html#ae81ba273dcb87842699fcc1f6bd7b62a">EMData</a> (const unsigned D_=1)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#ae81ba273dcb87842699fcc1f6bd7b62a"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0f776db698fe3871ed20a6e9af2a37ad"></a><!-- doxytag: member="CDA::EMData::getData" ref="a0f776db698fe3871ed20a6e9af2a37ad" args="() const " -->
-const std::vector&lt; <a class="el" href="classCDA_1_1EMData.html#a320dfbd3ad13091a99602a140688a05d">datapoint_t</a> &gt; &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMData.html#a0f776db698fe3871ed20a6e9af2a37ad">getData</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor. Constructor, to be called explicitly in multivariate case only.  <a href="#ae81ba273dcb87842699fcc1f6bd7b62a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6199358e23873c8024194c45bd3a53d2"></a><!-- doxytag: member="CDA::EMData::EMData" ref="a6199358e23873c8024194c45bd3a53d2" args="(const EMData&lt; T &gt; &amp;other)" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMData.html#a6199358e23873c8024194c45bd3a53d2">EMData</a> (const <a class="el" href="classCDA_1_1EMData.html">EMData</a>&lt; T &gt; &amp;other)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Copy Constr. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aacb5bb5554e8c8fea1b5937c4f922608"></a><!-- doxytag: member="CDA::EMData::getData" ref="aacb5bb5554e8c8fea1b5937c4f922608" args="() const " -->
+const std::vector&lt; <a class="el" href="classCDA_1_1EMData.html#a320dfbd3ad13091a99602a140688a05d">datapoint_t</a> &gt; &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMData.html#aacb5bb5554e8c8fea1b5937c4f922608">getData</a> () const </td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Const getter. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDA_1_1EMData.html#a320dfbd3ad13091a99602a140688a05d">datapoint_t</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMData.html#ab1acf83827d4595d2cb68c90bf7fa175">getData</a> (const unsigned n) const </td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get one data point.  <a href="#ab1acf83827d4595d2cb68c90bf7fa175"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaab989fb0f59c828ce0c82ffaa36aace"></a><!-- doxytag: member="CDA::EMData::getData" ref="aaab989fb0f59c828ce0c82ffaa36aace" args="()" -->
-std::vector&lt; <a class="el" href="classCDA_1_1EMData.html#a320dfbd3ad13091a99602a140688a05d">datapoint_t</a> &gt; &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMData.html#aaab989fb0f59c828ce0c82ffaa36aace">getData</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDA_1_1EMData.html#a320dfbd3ad13091a99602a140688a05d">datapoint_t</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMData.html#a750090eb9d6bc95f5ca58d502dd9c455">getData</a> (const unsigned n) const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get one data point.  <a href="#a750090eb9d6bc95f5ca58d502dd9c455"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae6d4dd943479cefc24ad1a9696f768b5"></a><!-- doxytag: member="CDA::EMData::getData" ref="ae6d4dd943479cefc24ad1a9696f768b5" args="()" -->
+std::vector&lt; <a class="el" href="classCDA_1_1EMData.html#a320dfbd3ad13091a99602a140688a05d">datapoint_t</a> &gt; &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMData.html#ae6d4dd943479cefc24ad1a9696f768b5">getData</a> ()</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Const getter. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac0839f5918bd704f111fc96183422c17"></a><!-- doxytag: member="CDA::EMData::getN" ref="ac0839f5918bd704f111fc96183422c17" args="() const " -->
-size_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMData.html#ac0839f5918bd704f111fc96183422c17">getN</a> () const </td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get number of data points. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">size_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMData.html#afa10d17ad30e4f69523ae38f83e31d43">getDataDimensionality</a> () const </td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get D (or 1 for univariate instances).  <a href="#afa10d17ad30e4f69523ae38f83e31d43"></a><br/></td></tr>
-<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="afb77ebc6925ea093d9845404eb7a655a"></a><!-- doxytag: member="CDA::EMData::setDataProper" ref="afb77ebc6925ea093d9845404eb7a655a" args="(std::pair&lt; II, II &gt; data_)" -->
-template&lt;class II &gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">void&nbsp;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMData.html#afb77ebc6925ea093d9845404eb7a655a">setDataProper</a> (std::pair&lt; II, II &gt; data_)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Call this from setData. <br/></td></tr>
-<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="ace81aa73248341304cc5c3f07b393d2f"></a><!-- doxytag: member="CDA::EMData::EMData" ref="ace81aa73248341304cc5c3f07b393d2f" args="(const unsigned D_)" -->
-template&lt;&gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">&nbsp;</td><td class="memTemplItemRight" valign="bottom"><b>EMData</b> (const unsigned D_)</td></tr>
-<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a2e60deb860b4b777b439cbd1d96829e7"></a><!-- doxytag: member="CDA::EMData::EMData" ref="a2e60deb860b4b777b439cbd1d96829e7" args="(const unsigned D_)" -->
-template&lt;&gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">&nbsp;</td><td class="memTemplItemRight" valign="bottom"><b>EMData</b> (const unsigned D_)</td></tr>
-<tr><td colspan="2"><h2>Geschützte Attribute</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6cf6b6652a2cd7a236823a6d46b9b2ca"></a><!-- doxytag: member="CDA::EMData::D" ref="a6cf6b6652a2cd7a236823a6d46b9b2ca" args="" -->
-const int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMData.html#a6cf6b6652a2cd7a236823a6d46b9b2ca">D</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Data dimensionality. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classCDA_1_1EMData.html#a320dfbd3ad13091a99602a140688a05d">datapoint_t</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMData.html#a2c3eec1a4ba1476128790235bf814a21">data</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">size_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMData.html#a9017a2d49d784e6bf0da22a1ef533496">getNumberOfDataPoints</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get number of data points.  <a href="#a9017a2d49d784e6bf0da22a1ef533496"></a><br/></td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class II &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&nbsp;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMData.html#aeb4dcfb6c410636f5f88a9cbcbda407c">appendData</a> (std::pair&lt; II, II &gt; data_)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Call this from setData.  <a href="#aeb4dcfb6c410636f5f88a9cbcbda407c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a498e9e7ea3463a58c2623b0b40d10a50"></a><!-- doxytag: member="CDA::EMData::clear" ref="a498e9e7ea3463a58c2623b0b40d10a50" args="()" -->
+void&nbsp;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr>
+<tr><td colspan="2"><h2>Öffentliche Attribute</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2c3eec1a4ba1476128790235bf814a21"></a><!-- doxytag: member="CDA::EMData::data" ref="a2c3eec1a4ba1476128790235bf814a21" args="" -->
+std::vector&lt; <a class="el" href="classCDA_1_1EMData.html#a320dfbd3ad13091a99602a140688a05d">datapoint_t</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMData.html#a2c3eec1a4ba1476128790235bf814a21">data</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Reimplemented for all univariate variants. <br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
 <h3>template&lt;class T&gt;<br/>
  class CDA::EMData&lt; T &gt;</h3>
 
-<p>Any concrete <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class. Contains the general outline of EM algorithm, details...">EM</a> subclass "has_a" <a class="el" href="classCDA_1_1EMData.html" title="Any concrete EM subclass &quot;has_a&quot; EMData of the appropriate type (i.e. mono-...">EMData</a> of the appropriate type (i.e. mono- or multivariate). </p>
-<p>template param datapoint_t </p>
-<hr/><h2>Dokumentation der benutzerdefinierten Datentypen</h2>
-<a class="anchor" id="a320dfbd3ad13091a99602a140688a05d"></a><!-- doxytag: member="CDA::EMData::datapoint_t" ref="a320dfbd3ad13091a99602a140688a05d" args="" -->
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef T <a class="el" href="classCDA_1_1EMData.html">CDA::EMData</a>&lt; T &gt;::<a class="el" href="classCDA_1_1EMData.html#a320dfbd3ad13091a99602a140688a05d">datapoint_t</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>double or fvector_t </p>
-
-</div>
-</div>
+<p>Your basic datapoint list. </p>
+<dl><dt><b>Template Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>T</em>&nbsp;</td><td>datapoint_t, usually double or fvector_t</td></tr>
+  </table>
+  </dd>
+</dl>
+<h2><a class="anchor" id="DESCRIPTION">
+DESCRIPTION</a></h2>
+<p>Any concrete <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class.">EM</a> subclass "has_a" <a class="el" href="classCDA_1_1EMData.html" title="Your basic datapoint list.">EMData</a> of the appropriate type (i.e. mono- or multivariate) It encapsulates access to the original data points. </p>
 <hr/><h2>Beschreibung der Konstruktoren und Destruktoren</h2>
 <a class="anchor" id="ae81ba273dcb87842699fcc1f6bd7b62a"></a><!-- doxytag: member="CDA::EMData::EMData" ref="ae81ba273dcb87842699fcc1f6bd7b62a" args="(const unsigned D_=1)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class T&gt; </div>
+template&lt;class T &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classCDA_1_1EMData.html">CDA::EMData</a>&lt; T &gt;::<a class="el" href="classCDA_1_1EMData.html">EMData</a> </td>
@@ -125,26 +115,61 @@ template&lt;class T&gt; </div>
           <td class="paramtype">const unsigned&nbsp;</td>
           <td class="paramname"> <em>D_</em> = <code>1</code></td>
           <td>&nbsp;)&nbsp;</td>
-          <td></td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Constructor. </p>
-<p>param[in] D_ data dimensionality </p>
+<p>Constructor. Constructor, to be called explicitly in multivariate case only. </p>
+<dl><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>D_</em>&nbsp;</td><td>data dimensionality -- use it if applicable. This class does nothing with the parameter. use <a class="el" href="classCDA_1_1VectorEMData.html" title="Data which comes in vectors.">VectorEMData</a> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
 <hr/><h2>Dokumentation der Elementfunktionen</h2>
-<a class="anchor" id="ab1acf83827d4595d2cb68c90bf7fa175"></a><!-- doxytag: member="CDA::EMData::getData" ref="ab1acf83827d4595d2cb68c90bf7fa175" args="(const unsigned n) const " -->
+<a class="anchor" id="aeb4dcfb6c410636f5f88a9cbcbda407c"></a><!-- doxytag: member="CDA::EMData::appendData" ref="aeb4dcfb6c410636f5f88a9cbcbda407c" args="(std::pair&lt; II, II &gt; data_)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T&gt; </div>
+<div class="memtemplate">
+template&lt;class II &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="classCDA_1_1EMData.html#a320dfbd3ad13091a99602a140688a05d">datapoint_t</a>&amp; <a class="el" href="classCDA_1_1EMData.html">CDA::EMData</a>&lt; T &gt;::getData </td>
+          <td class="memname">void <a class="el" href="classCDA_1_1EMData.html">CDA::EMData</a>&lt; T &gt;::appendData </td>
+          <td>(</td>
+          <td class="paramtype">std::pair&lt; II, II &gt;&nbsp;</td>
+          <td class="paramname"> <em>data_</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Call this from setData. </p>
+<dl><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>iterators</em>&nbsp;</td><td>on data entries to copy </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a750090eb9d6bc95f5ca58d502dd9c455"></a><!-- doxytag: member="CDA::EMData::getData" ref="a750090eb9d6bc95f5ca58d502dd9c455" args="(const unsigned n) const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class datapoint_t &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classCDA_1_1EMData.html#a320dfbd3ad13091a99602a140688a05d">datapoint_t</a> &amp; EMData::getData </td>
           <td>(</td>
           <td class="paramtype">const unsigned&nbsp;</td>
           <td class="paramname"> <em>n</em></td>
@@ -158,7 +183,7 @@ template&lt;class T&gt; </div>
 <p>Get one data point. </p>
 <dl><dt><b>Parameter:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>n</em>&nbsp;</td><td>which one (0&lt;=n&lt;<a class="el" href="classCDA_1_1EMData.html#ac0839f5918bd704f111fc96183422c17" title="Get number of data points.">getN()</a>)</td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>n</em>&nbsp;</td><td>which one (0&lt;=n&lt;getN())</td></tr>
   </table>
   </dd>
 </dl>
@@ -166,14 +191,14 @@ template&lt;class T&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="afa10d17ad30e4f69523ae38f83e31d43"></a><!-- doxytag: member="CDA::EMData::getDataDimensionality" ref="afa10d17ad30e4f69523ae38f83e31d43" args="() const " -->
+<a class="anchor" id="a9017a2d49d784e6bf0da22a1ef533496"></a><!-- doxytag: member="CDA::EMData::getNumberOfDataPoints" ref="a9017a2d49d784e6bf0da22a1ef533496" args="() const " -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class T&gt; </div>
+template&lt;class datapoint_t &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">size_t <a class="el" href="classCDA_1_1EMData.html">CDA::EMData</a>&lt; T &gt;::getDataDimensionality </td>
+          <td class="memname">size_t EMData::getNumberOfDataPoints </td>
           <td>(</td>
           <td class="paramname"></td>
           <td>&nbsp;)&nbsp;</td>
@@ -183,30 +208,14 @@ template&lt;class T&gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Get D (or 1 for univariate instances). </p>
-<dl class="return"><dt><b>Rückgabe:</b></dt><dd>D </dd></dl>
+<p>Get number of data points. </p>
+<p>formerly getN(); this is now a function in the class possessing this one </p>
 
 </div>
 </div>
-<hr/><h2>Dokumentation der Datenelemente</h2>
-<a class="anchor" id="a2c3eec1a4ba1476128790235bf814a21"></a><!-- doxytag: member="CDA::EMData::data" ref="a2c3eec1a4ba1476128790235bf814a21" args="" -->
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="classCDA_1_1EMData.html#a320dfbd3ad13091a99602a140688a05d">datapoint_t</a>&gt; <a class="el" href="classCDA_1_1EMData.html">CDA::EMData</a>&lt; T &gt;::<a class="el" href="classCDA_1_1EMData.html#a2c3eec1a4ba1476128790235bf814a21">data</a><code> [protected]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>Reimplemented for all univariate variants </p>
-
-</div>
-</div>
-<hr/>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei:<ul>
-<li>src/expmax/<a class="el" href="EMData_8h_09_09_source.html">EMData.h++</a></li>
+<hr/>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien:<ul>
+<li>include/expmax/<a class="el" href="EMData_8h_09_09_source.html">EMData.h++</a></li>
+<li>src/expmax/<a class="el" href="EMData_8c_09_09.html">EMData.c++</a></li>
 </ul>
 </div>
 <!--- window showing the filter options -->
@@ -223,7 +232,7 @@ template&lt;class T&gt; </div>
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Erzeugt am Thu Jan 6 09:53:47 2011 für CommonDataAnalysis von&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Erzeugt am Thu Jan 20 14:07:33 2011 für CommonDataAnalysis von&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

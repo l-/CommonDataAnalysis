@@ -1,7 +1,7 @@
 /**
  * @file FitMulticlassByEM.h++
  *
- * @version 0.03
+ * @version 0.13
  *
  * @author Erik Flick <erik.flick [AETT] informatik.uni-hamburg.de>
  *
@@ -194,6 +194,9 @@ public:
     template<class II>
     void setData(std::pair<II, II> data_) {
 
+#ifdef VERBOSE
+        std::cerr << "FM::setData called" << std::endl;
+#endif
         EM<data_T, theta_T>::setData(data_);
 
         initClassif();

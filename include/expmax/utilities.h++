@@ -59,7 +59,7 @@ boost::shared_ptr<GaussianMixtureModel1D> thresholdFinder(const std::pair<Iter, 
     init_theta_bimodal.push_back(vordergrund);
 
     GaussianMixtureModel1D::data_t data;
-    data.setDataProper(input);
+    data.appendData(input);
     GaussianMixtureModel1D::theta_t theta;
     theta.setTheta(std::make_pair(init_theta_bimodal.begin(), init_theta_bimodal.end()));
 

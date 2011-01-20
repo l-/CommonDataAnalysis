@@ -62,8 +62,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
 <a name="l00035"></a>00035 <span class="preprocessor">#include &lt;boost/iterator/filter_iterator.hpp&gt;</span>
 <a name="l00036"></a>00036 <span class="preprocessor">#include &lt;boost/iterator/transform_iterator.hpp&gt;</span>
 <a name="l00037"></a>00037 <span class="preprocessor">#include &lt;boost/function.hpp&gt;</span>
-<a name="l00038"></a>00038 <span class="preprocessor">#include &lt;boost/lambda/lambda.hpp&gt;</span>
-<a name="l00039"></a>00039 <span class="preprocessor">#include &lt;boost/lambda/bind.hpp&gt;</span>
+<a name="l00038"></a>00038 <span class="comment">// #include &lt;boost/lambda/lambda.hpp&gt;</span>
+<a name="l00039"></a>00039 <span class="comment">// #include &lt;boost/lambda/bind.hpp&gt;</span>
 <a name="l00040"></a>00040 <span class="preprocessor">#include &lt;boost/mem_fn.hpp&gt;</span>
 <a name="l00041"></a>00041 
 <a name="l00042"></a>00042 <span class="preprocessor">#include &lt;boost/bind.hpp&gt;</span>
@@ -71,9 +71,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
 <a name="l00044"></a>00044 <span class="preprocessor">#include &lt;boost/bind/placeholders.hpp&gt;</span>
 <a name="l00045"></a>00045 <span class="preprocessor">#include &lt;boost/bind/mem_fn.hpp&gt;</span>
 <a name="l00046"></a>00046 
-<a name="l00047"></a>00047 <span class="keyword">namespace </span>CDA {
+<a name="l00047"></a>00047 <span class="preprocessor">#include &quot;<a class="code" href="common__definitions_8h_09_09.html">common_definitions.h++</a>&quot;</span>
 <a name="l00048"></a>00048 
-<a name="l00049"></a>00049 <span class="keyword">typedef</span> boost::numeric::ublas::vector&lt;double&gt; fvector_t;
+<a name="l00049"></a>00049 <span class="keyword">namespace </span>CDA {
 <a name="l00050"></a>00050 
 <a name="l00051"></a>00051 <span class="keyword">using namespace </span>boost::accumulators;
 <a name="l00052"></a>00052 <span class="keyword">namespace </span>ublas = boost::numeric::ublas;
@@ -212,63 +212,99 @@ var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
 <a name="l00202"></a>00202         <span class="keywordflow">return</span> result;
 <a name="l00203"></a>00203     }
 <a name="l00204"></a>00204 
-<a name="l00205"></a>00205     <span class="comment">// vv mit ublas::slice</span>
-<a name="l00206"></a>00206     <span class="comment">//</span>
-<a name="l00207"></a>00207     <span class="keyword">typedef</span> boost::transform_iterator&lt;boost::function&lt;const fvector_t&amp;(const fvector_t&amp;)&gt;,
-<a name="l00208"></a>00208             dataframe_t::const_iterator
-<a name="l00209"></a>00209             &gt; vtrit_t;
-<a name="l00210"></a>00210     <span class="comment">//</span>
-<a name="l00211"></a>00211     std::pair&lt;vtrit_t, vtrit_t&gt; getNormalizedIterPair()<span class="keyword"> const </span>{
-<a name="l00212"></a>00212         <span class="comment">//</span>
-<a name="l00213"></a>00213         <span class="comment">//        // http://stackoverflow.com/questions/3413044/declaring-and-defining-a-function-object-inside-a-class-member-function</span>
-<a name="l00214"></a>00214 
-<a name="l00215"></a>00215         boost::function&lt;const fvector_t&amp;(const fvector_t&amp;)&gt; fn
-<a name="l00216"></a>00216                 (boost::bind(boost::mem_fn(&amp;EnhancedDataset::normalize), <span class="keyword">this</span>, _1 ));
-<a name="l00217"></a>00217 
-<a name="l00218"></a>00218         <span class="keywordflow">return</span> std::make_pair(
-<a name="l00219"></a>00219                 boost::make_transform_iterator(m_data.begin(), fn),
-<a name="l00220"></a>00220                 boost::make_transform_iterator(m_data.end(), fn)
-<a name="l00221"></a>00221         );
-<a name="l00222"></a>00222     }
-<a name="l00223"></a>00223 
-<a name="l00224"></a>00224     std::pair&lt;dataframe_t::const_iterator, dataframe_t::const_iterator&gt; getIterPair()<span class="keyword"> const </span>{
-<a name="l00225"></a>00225         <span class="keywordflow">return</span> std::make_pair(m_data.begin(), m_data.end());
-<a name="l00226"></a>00226     }
-<a name="l00227"></a>00227 
-<a name="l00228"></a>00228     <span class="comment">// EnhancedDatasetView projection()</span>
-<a name="l00229"></a>00229 
-<a name="l00230"></a>00230     <span class="keyword">template</span>&lt;<span class="keyword">class</span> F&gt;
-<a name="l00231"></a>00231     std::pair&lt;boost::filter_iterator&lt;F, dataframe_t::const_iterator&gt;,
-<a name="l00232"></a>00232               boost::filter_iterator&lt;F, dataframe_t::const_iterator&gt;
-<a name="l00233"></a>00233              &gt; getFilteredIterPair(F&amp; function)<span class="keyword"> const </span>{
-<a name="l00234"></a>00234         <span class="keywordflow">return</span> std::make_pair(boost::make_filter_iterator(m_data.begin(), function),
-<a name="l00235"></a>00235                               boost::make_filter_iterator(m_data.end(), function));
-<a name="l00236"></a>00236     }
-<a name="l00237"></a>00237 
-<a name="l00238"></a>00238 <span class="comment">//    template &lt;class Coll&gt;</span>
-<a name="l00239"></a>00239 <span class="comment">//    std::pair&lt;boost::filter_iterator&lt;boost::function&lt;bool(dataframe_t::value_type)&gt;, dataframe_t::const_iterator&gt;,</span>
-<a name="l00240"></a>00240 <span class="comment">//              boost::filter_iterator&lt;boost::function&lt;bool(dataframe_t::value_type)&gt;, dataframe_t::const_iterator&gt; &gt;</span>
-<a name="l00241"></a>00241 <span class="comment">//        getFilteredIterPair_above(Coll ) const {</span>
-<a name="l00242"></a>00242 <span class="comment">//    // Coll is a  list of thresholds</span>
-<a name="l00243"></a>00243 <span class="comment">//        boost::function&lt;bool(const fvector_t&amp;)&gt; fn</span>
-<a name="l00244"></a>00244 <span class="comment">//                        (boost::bind(std::less&lt;double&gt;,  boost::mem_fn(&amp;EnhancedDataset::normalize), this, _1 ));</span>
-<a name="l00245"></a>00245 <span class="comment">//</span>
-<a name="l00246"></a>00246 <span class="comment">//    }</span>
-<a name="l00247"></a>00247     <span class="comment">//</span>
+<a name="l00205"></a>00205     <span class="keyword">typedef</span> boost::function&lt;fvector_t(const fvector_t&amp;)&gt; vector_transform_t;
+<a name="l00206"></a>00206 
+<a name="l00207"></a>00207     <span class="comment">// vv mit ublas::slice</span>
+<a name="l00208"></a>00208     <span class="comment">//</span>
+<a name="l00209"></a>00209     <span class="keyword">typedef</span> boost::transform_iterator&lt;vector_transform_t,
+<a name="l00210"></a>00210             dataframe_t::const_iterator
+<a name="l00211"></a>00211             &gt; vtrit_t;
+<a name="l00212"></a>00212     <span class="comment">//</span>
+<a name="l00213"></a>00213     std::pair&lt;vtrit_t, vtrit_t&gt; getNormalizedIterPair()<span class="keyword"> const </span>{
+<a name="l00214"></a>00214         <span class="comment">//</span>
+<a name="l00215"></a>00215         <span class="comment">//        // http://stackoverflow.com/questions/3413044/declaring-and-defining-a-function-object-inside-a-class-member-function</span>
+<a name="l00216"></a>00216 
+<a name="l00217"></a>00217         boost::function&lt;const fvector_t&amp;(const fvector_t&amp;)&gt; fn
+<a name="l00218"></a>00218                 (boost::bind(boost::mem_fn(&amp;EnhancedDataset::normalize), <span class="keyword">this</span>, _1 ));
+<a name="l00219"></a>00219 
+<a name="l00220"></a>00220         <span class="keywordflow">return</span> std::make_pair(
+<a name="l00221"></a>00221                 boost::make_transform_iterator(m_data.begin(), fn),
+<a name="l00222"></a>00222                 boost::make_transform_iterator(m_data.end(), fn)
+<a name="l00223"></a>00223         );
+<a name="l00224"></a>00224     }
+<a name="l00225"></a>00225 
+<a name="l00229"></a><a class="code" href="classCDA_1_1EnhancedDataset.html#a7882f2a098711508ca8a9c7a6e24dbed">00229</a>     std::pair&lt;vtrit_t, vtrit_t&gt; <a class="code" href="classCDA_1_1EnhancedDataset.html#a7882f2a098711508ca8a9c7a6e24dbed">getTransformedIterPair</a>(vector_transform_t&amp; f)<span class="keyword"> const </span>{
+<a name="l00230"></a>00230         <span class="keywordflow">return</span> std::make_pair(
+<a name="l00231"></a>00231                 boost::make_transform_iterator(m_data.begin(), f),
+<a name="l00232"></a>00232                 boost::make_transform_iterator(m_data.end(), f)
+<a name="l00233"></a>00233         );
+<a name="l00234"></a>00234     }
+<a name="l00235"></a>00235 
+<a name="l00236"></a>00236 
+<a name="l00237"></a>00237     <span class="keyword">typedef</span> boost::transform_iterator&lt;boost::function&lt;fvector_t::value_type(const fvector_t&amp;)&gt;,
+<a name="l00238"></a>00238             dataframe_t::const_iterator
+<a name="l00239"></a>00239             &gt; vtrit_1d_t;
+<a name="l00245"></a><a class="code" href="classCDA_1_1EnhancedDataset.html#ae94abbc9c4249e7c8dd7219e94c2d387">00245</a>     std::pair&lt;vtrit_1d_t, vtrit_1d_t&gt; <a class="code" href="classCDA_1_1EnhancedDataset.html#ae94abbc9c4249e7c8dd7219e94c2d387" title="Extract one dimension only, in case the user needs a simple list of scalars.">getScalarIterPair</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> i)<span class="keyword"> const </span>{
+<a name="l00246"></a>00246         <span class="comment">//</span>
+<a name="l00247"></a>00247         <span class="comment">//        // http://stackoverflow.com/questions/3413044/declaring-and-defining-a-function-object-inside-a-class-member-function</span>
 <a name="l00248"></a>00248 
-<a name="l00249"></a>00249     <span class="comment">//    std::pair&lt;boost::filter_iterator&lt;boost::less&gt;, dataframe_t::iterator&gt;</span>
-<a name="l00250"></a>00250     <span class="comment">//      getFilteredIterPair_UpwardsFromNStddev() const {</span>
-<a name="l00251"></a>00251     <span class="comment">//</span>
-<a name="l00252"></a>00252     <span class="comment">//    }</span>
-<a name="l00253"></a>00253 
-<a name="l00254"></a>00254 <span class="keyword">private</span>:
-<a name="l00255"></a>00255     EnhancedDataset(<span class="keyword">const</span> EnhancedDataset&amp;) {
-<a name="l00256"></a>00256         <span class="keyword">const</span> <span class="keywordtype">bool</span> no_copy_constructor_yet = <span class="keyword">false</span>;
-<a name="l00257"></a>00257         assert(no_copy_constructor_yet);
-<a name="l00258"></a>00258     }
-<a name="l00259"></a>00259 };
+<a name="l00249"></a>00249         <span class="keyword">typedef</span> <span class="keyword">const</span> fvector_t::value_type&amp; crap;
+<a name="l00250"></a>00250         <span class="comment">// what kind of unsightly stuff is this???</span>
+<a name="l00251"></a>00251         <span class="keyword">typedef</span> crap (fvector_t::*ttt)(<span class="keywordtype">unsigned</span> int) <span class="keyword">const</span>;
+<a name="l00252"></a>00252 
+<a name="l00253"></a>00253         boost::function&lt;crap(const fvector_t&amp;)&gt; fn
+<a name="l00254"></a>00254                 (boost::bind(
+<a name="l00255"></a>00255                         boost::mem_fn(
+<a name="l00256"></a>00256                              <span class="comment">// This way it is not a &quot;non-member function type&quot;</span>
+<a name="l00257"></a>00257                              static_cast&lt;ttt&gt;(
+<a name="l00258"></a>00258                              &amp;fvector_t::operator())), _1, i ));
+<a name="l00259"></a>00259                         <span class="comment">// boost::mem_fn((const fvector_t::value_type&amp;(const fvector_t&amp;, unsigned int))(&amp;fvector_t::operator())), _1, i ));</span>
 <a name="l00260"></a>00260 
-<a name="l00261"></a>00261 } <span class="comment">// namespace</span>
+<a name="l00261"></a>00261         <span class="keywordflow">return</span> std::make_pair(
+<a name="l00262"></a>00262                 boost::make_transform_iterator(m_data.begin(), fn),
+<a name="l00263"></a>00263                 boost::make_transform_iterator(m_data.end(), fn)
+<a name="l00264"></a>00264         );
+<a name="l00265"></a>00265     }
+<a name="l00266"></a>00266 
+<a name="l00267"></a>00267 
+<a name="l00273"></a><a class="code" href="classCDA_1_1EnhancedDataset.html#a7545c4c91dff1ccea71b02b5acdba507">00273</a>     std::pair&lt;dataframe_t::const_iterator, dataframe_t::const_iterator&gt; <a class="code" href="classCDA_1_1EnhancedDataset.html#a7545c4c91dff1ccea71b02b5acdba507" title="Get a simple iterator pair.">getIterPair</a>()<span class="keyword"> const </span>{
+<a name="l00274"></a>00274         <span class="keywordflow">return</span> std::make_pair(m_data.begin(), m_data.end());
+<a name="l00275"></a>00275     }
+<a name="l00276"></a>00276 
+<a name="l00277"></a>00277     <span class="comment">// EnhancedDatasetView projection()</span>
+<a name="l00278"></a>00278 
+<a name="l00279"></a>00279     <span class="keyword">template</span>&lt;<span class="keyword">class</span> F&gt;
+<a name="l00280"></a>00280     std::pair&lt;boost::filter_iterator&lt;F, dataframe_t::const_iterator&gt;,
+<a name="l00281"></a>00281               boost::filter_iterator&lt;F, dataframe_t::const_iterator&gt;
+<a name="l00282"></a>00282              &gt; getFilteredIterPair(F&amp; function)<span class="keyword"> const </span>{
+<a name="l00283"></a>00283         <span class="keywordflow">return</span> std::make_pair(boost::make_filter_iterator(m_data.begin(), function),
+<a name="l00284"></a>00284                               boost::make_filter_iterator(m_data.end(), function));
+<a name="l00285"></a>00285     }
+<a name="l00286"></a>00286 
+<a name="l00287"></a>00287 <span class="comment">//    template &lt;class Coll&gt;</span>
+<a name="l00288"></a>00288 <span class="comment">//    std::pair&lt;boost::filter_iterator&lt;boost::function&lt;bool(dataframe_t::value_type)&gt;, dataframe_t::const_iterator&gt;,</span>
+<a name="l00289"></a>00289 <span class="comment">//              boost::filter_iterator&lt;boost::function&lt;bool(dataframe_t::value_type)&gt;, dataframe_t::const_iterator&gt; &gt;</span>
+<a name="l00290"></a>00290 <span class="comment">//        getFilteredIterPair_above(Coll ) const {</span>
+<a name="l00291"></a>00291 <span class="comment">//    // Coll is a  list of thresholds</span>
+<a name="l00292"></a>00292 <span class="comment">//        boost::function&lt;bool(const fvector_t&amp;)&gt; fn</span>
+<a name="l00293"></a>00293 <span class="comment">//                        (boost::bind(std::less&lt;double&gt;,  boost::mem_fn(&amp;EnhancedDataset::normalize), this, _1 ));</span>
+<a name="l00294"></a>00294 <span class="comment">//</span>
+<a name="l00295"></a>00295 <span class="comment">//    }</span>
+<a name="l00296"></a>00296     <span class="comment">//</span>
+<a name="l00297"></a>00297 
+<a name="l00298"></a>00298     <span class="comment">//    std::pair&lt;boost::filter_iterator&lt;boost::less&gt;, dataframe_t::iterator&gt;</span>
+<a name="l00299"></a>00299     <span class="comment">//      getFilteredIterPair_UpwardsFromNStddev() const {</span>
+<a name="l00300"></a>00300     <span class="comment">//</span>
+<a name="l00301"></a>00301     <span class="comment">//    }</span>
+<a name="l00302"></a>00302 
+<a name="l00303"></a>00303 <span class="keyword">private</span>:
+<a name="l00304"></a>00304     EnhancedDataset(<span class="keyword">const</span> EnhancedDataset&amp;) {
+<a name="l00305"></a>00305         <span class="keyword">const</span> <span class="keywordtype">bool</span> no_copy_constructor_yet = <span class="keyword">false</span>;
+<a name="l00306"></a>00306         assert(no_copy_constructor_yet);
+<a name="l00307"></a>00307     }
+<a name="l00308"></a>00308 };
+<a name="l00309"></a>00309 
+<a name="l00310"></a>00310 } <span class="comment">// namespace</span>
 </pre></div></div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -284,7 +320,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Erzeugt am Thu Jan 6 09:53:46 2011 für CommonDataAnalysis von&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Erzeugt am Thu Jan 20 14:07:32 2011 für CommonDataAnalysis von&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

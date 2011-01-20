@@ -65,12 +65,21 @@ typedef accumulator_set<br class="typebreak"/>
 &lt; double, stats&lt; tag::mean, <br class="typebreak"/>
 tag::variance, tag::max, <br class="typebreak"/>
 tag::min &gt; &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><b>boost_statistics_t</b></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adecd4f314f8fc01ba75b08ca053ba561"></a><!-- doxytag: member="CDA::EnhancedDataset::vtrit_t" ref="adecd4f314f8fc01ba75b08ca053ba561" args="" -->
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a93468e65b796f0c5679a735e40ea3c5f"></a><!-- doxytag: member="CDA::EnhancedDataset::vector_transform_t" ref="a93468e65b796f0c5679a735e40ea3c5f" args="" -->
+typedef boost::function<br class="typebreak"/>
+&lt; fvector_t(const fvector_t &amp;)&gt;&nbsp;</td><td class="memItemRight" valign="bottom"><b>vector_transform_t</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a47a10eb08e8ab193f801e5a82a3d7a36"></a><!-- doxytag: member="CDA::EnhancedDataset::vtrit_t" ref="a47a10eb08e8ab193f801e5a82a3d7a36" args="" -->
 typedef <br class="typebreak"/>
 boost::transform_iterator<br class="typebreak"/>
-&lt; boost::function&lt; const <br class="typebreak"/>
-fvector_t &amp;(const fvector_t &amp;)&gt;<br class="typebreak"/>
-, dataframe_t::const_iterator &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><b>vtrit_t</b></td></tr>
+&lt; vector_transform_t, <br class="typebreak"/>
+dataframe_t::const_iterator &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><b>vtrit_t</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aea3187cde8e4548c48cb238e571563e7"></a><!-- doxytag: member="CDA::EnhancedDataset::vtrit_1d_t" ref="aea3187cde8e4548c48cb238e571563e7" args="" -->
+typedef <br class="typebreak"/>
+boost::transform_iterator<br class="typebreak"/>
+&lt; boost::function<br class="typebreak"/>
+&lt; fvector_t::value_type(const <br class="typebreak"/>
+fvector_t &amp;)&gt;<br class="typebreak"/>
+, dataframe_t::const_iterator &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><b>vtrit_1d_t</b></td></tr>
 <tr><td colspan="2"><h2>Öffentliche Methoden</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a38188f6537aecfdb93351da5d0814b4a"></a><!-- doxytag: member="CDA::EnhancedDataset::EnhancedDataset" ref="a38188f6537aecfdb93351da5d0814b4a" args="(unsigned D_)" -->
 &nbsp;</td><td class="memItemRight" valign="bottom"><b>EnhancedDataset</b> (unsigned D_)</td></tr>
@@ -107,10 +116,13 @@ template&lt;class indexcoll_t &gt; </td></tr>
 &lt; <a class="el" href="classCDA_1_1EnhancedDataset.html">EnhancedDataset</a> &gt;&nbsp;</td><td class="memTemplItemRight" valign="bottom"><b>projected</b> (indexcoll_t &amp;slc) const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a27f451c43eb9ca54b10b2463047af559"></a><!-- doxytag: member="CDA::EnhancedDataset::getNormalizedIterPair" ref="a27f451c43eb9ca54b10b2463047af559" args="() const " -->
 std::pair&lt; vtrit_t, vtrit_t &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><b>getNormalizedIterPair</b> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7545c4c91dff1ccea71b02b5acdba507"></a><!-- doxytag: member="CDA::EnhancedDataset::getIterPair" ref="a7545c4c91dff1ccea71b02b5acdba507" args="() const " -->
-std::pair<br class="typebreak"/>
+<tr><td class="memItemLeft" align="right" valign="top">std::pair&lt; vtrit_t, vtrit_t &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EnhancedDataset.html#a7882f2a098711508ca8a9c7a6e24dbed">getTransformedIterPair</a> (vector_transform_t &amp;f) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::pair&lt; vtrit_1d_t, vtrit_1d_t &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EnhancedDataset.html#ae94abbc9c4249e7c8dd7219e94c2d387">getScalarIterPair</a> (const int i) const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Extract one dimension only, in case the user needs a simple list of scalars.  <a href="#ae94abbc9c4249e7c8dd7219e94c2d387"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::pair<br class="typebreak"/>
 &lt; dataframe_t::const_iterator, <br class="typebreak"/>
-dataframe_t::const_iterator &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><b>getIterPair</b> () const </td></tr>
+dataframe_t::const_iterator &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EnhancedDataset.html#a7545c4c91dff1ccea71b02b5acdba507">getIterPair</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get a simple iterator pair.  <a href="#a7545c4c91dff1ccea71b02b5acdba507"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a52334e7e5f1fb68e0414a42cbb4a6d6d"></a><!-- doxytag: member="CDA::EnhancedDataset::getFilteredIterPair" ref="a52334e7e5f1fb68e0414a42cbb4a6d6d" args="(F &amp;function) const " -->
 template&lt;class F &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">std::pair<br class="typebreak"/>
@@ -129,6 +141,72 @@ std::vector&lt; boost_statistics_t &gt;&nbsp;</td><td class="memItemRight" valig
 </table>
 <hr/><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
 <p>aware of basic statistics for normalization etc. </p>
+<hr/><h2>Dokumentation der Elementfunktionen</h2>
+<a class="anchor" id="a7545c4c91dff1ccea71b02b5acdba507"></a><!-- doxytag: member="CDA::EnhancedDataset::getIterPair" ref="a7545c4c91dff1ccea71b02b5acdba507" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt;dataframe_t::const_iterator, dataframe_t::const_iterator&gt; CDA::EnhancedDataset::getIterPair </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Get a simple iterator pair. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd></dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae94abbc9c4249e7c8dd7219e94c2d387"></a><!-- doxytag: member="CDA::EnhancedDataset::getScalarIterPair" ref="ae94abbc9c4249e7c8dd7219e94c2d387" args="(const int i) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt;vtrit_1d_t, vtrit_1d_t&gt; CDA::EnhancedDataset::getScalarIterPair </td>
+          <td>(</td>
+          <td class="paramtype">const int&nbsp;</td>
+          <td class="paramname"> <em>i</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Extract one dimension only, in case the user needs a simple list of scalars. </p>
+<dl><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>i</em>&nbsp;</td><td>select this dimension. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a7882f2a098711508ca8a9c7a6e24dbed"></a><!-- doxytag: member="CDA::EnhancedDataset::getTransformedIterPair" ref="a7882f2a098711508ca8a9c7a6e24dbed" args="(vector_transform_t &amp;f) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt;vtrit_t, vtrit_t&gt; CDA::EnhancedDataset::getTransformedIterPair </td>
+          <td>(</td>
+          <td class="paramtype">vector_transform_t &amp;&nbsp;</td>
+          <td class="paramname"> <em>f</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Transform data vectors by user-defined function! </p>
+
+</div>
+</div>
 <hr/>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei:<ul>
 <li>include/data/<a class="el" href="Data_8h_09_09_source.html">Data.h++</a></li>
 </ul>
@@ -147,7 +225,7 @@ std::vector&lt; boost_statistics_t &gt;&nbsp;</td><td class="memItemRight" valig
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Erzeugt am Thu Jan 6 09:53:47 2011 für CommonDataAnalysis von&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Erzeugt am Thu Jan 20 14:07:33 2011 für CommonDataAnalysis von&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

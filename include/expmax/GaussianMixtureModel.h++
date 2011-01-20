@@ -55,6 +55,11 @@ public:
 //        getDataObj() -> updateCached();
 //    }
 
+    // this is turning ugly once more and not what I want when I order inheritance
+    using GaussianMixtureModelNDCommon::getSigma;
+    using GaussianMixtureModelNDCommon::getCachedSigmaDet;
+    using GaussianMixtureModelNDCommon::getMean;
+    using GaussianMixtureModelNDCommon::getClassProb;
 
 protected:
 

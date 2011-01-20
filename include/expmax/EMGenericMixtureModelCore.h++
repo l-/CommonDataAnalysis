@@ -123,9 +123,11 @@ public:
      * @brief Name of a parameter p=\f$\theta_p\f$
      * (For output)
      *
+     * avoid this variant; redefine it.
+     *
      * @param[in] p 0<=p<P
      */
-    virtual const std::string paramName(const unsigned p) const = 0;
+    virtual const std::string paramName(const unsigned p) const;
 
     /**
      * @brief Each class gets its own line, that's the easiest way

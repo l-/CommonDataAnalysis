@@ -1,15 +1,11 @@
 <map id="G" name="G">
-<area shape="rect" href="$CircularStatistics_8h_09_09.html" title="Special functions for circular statistics." alt="" coords="3448,160,3627,189"/>
-<area shape="rect" href="$numeric__optimization_8h_09_09.html" title="math/numeric_optimization.h++" alt="" coords="611,83,813,112"/>
-<area shape="rect" href="$comparisons_8h_09_09.html" title="utils/comparisons.h++" alt="" coords="4157,83,4307,112"/>
-<area shape="rect" href="$common__definitions_8h_09_09.html" title="common_definitions.h++" alt="" coords="3828,547,3991,576"/>
-<area shape="rect" href="$GaussianMixtureModel1D_8h_09_09.html" title="GaussianMixtureModel1D.h++" alt="" coords="3859,160,4056,189"/>
-<area shape="rect" href="$GaussianMixtureModelND_8h_09_09.html" title="GaussianMixtureModelND.h++" alt="" coords="3909,83,4109,112"/>
-<area shape="rect" href="$CircularMixtureModel1D_8h_09_09.html" title="CircularMixtureModel1D.h++" alt="" coords="3573,83,3760,112"/>
-<area shape="rect" href="$FitMultivariateMulticlassByEM_8h_09_09.html" title="FitMultivariateMulticlassByEM.h++" alt="" coords="3885,237,4109,267"/>
-<area shape="rect" href="$FitMulticlassByEM_8h_09_09.html" title="FitMulticlassByEM.h++" alt="" coords="3919,315,4076,344"/>
-<area shape="rect" href="$EM_8h_09_09.html" title="EM.h++" alt="" coords="3964,392,4031,421"/>
-<area shape="rect" href="$EMData_8h_09_09.html" title="EMData.h++" alt="" coords="4035,469,4131,499"/>
-<area shape="rect" href="$EMTheta_8h_09_09.html" title="EMTheta.h++" alt="" coords="3859,469,3960,499"/>
-<area shape="rect" href="$EMGenericMixtureModelCore_8h_09_09.html" title="EMGenericMixtureModelCore.h++" alt="" coords="4080,160,4299,189"/>
+<area shape="rect" href="$FitUnivariateMulticlassByEM_8h_09_09.html" title="FitUnivariateMulticlassByEM.h++" alt="" coords="147,160,363,189"/>
+<area shape="rect" href="$GaussianMixtureModelNDCommon_8h_09_09.html" title="expmax/GaussianMixtureModelNDCommon.h++" alt="" coords="579,83,880,112"/>
+<area shape="rect" href="$FitMultivariateMulticlassByEM_8h_09_09.html" title="FitMultivariateMulticlassByEM.h++" alt="" coords="449,160,673,189"/>
+<area shape="rect" href="$FitMulticlassByEM_8h_09_09.html" title="expmax/FitMulticlassByEM.h++" alt="" coords="145,237,353,267"/>
+<area shape="rect" href="$EM_8h_09_09.html" title="expmax/EM.h++" alt="" coords="285,315,403,344"/>
+<area shape="rect" href="$common__definitions_8h_09_09.html" title="common_definitions.h++" alt="" coords="579,392,741,421"/>
+<area shape="rect" href="$EMData_8h_09_09.html" title="EMData.h++" alt="" coords="568,315,664,344"/>
+<area shape="rect" href="$EMTheta_8h_09_09.html" title="EMTheta.h++" alt="" coords="748,237,849,267"/>
+<area shape="rect" href="$VectorEMData_8h_09_09.html" title="VectorEMData.h++" alt="" coords="499,237,629,267"/>
 </map>

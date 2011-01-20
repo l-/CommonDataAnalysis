@@ -1,6 +1,6 @@
 /**
  * @file EMTheta.h++
- * @version 0.12
+ * @version 0.13
  * @author Erik Flick <erik.flick [AETT] informatik.uni-hamburg.de>
  *
  *  Created on: Jan 5, 2011
@@ -68,7 +68,7 @@ public:
      */
     template<class II>
     void setTheta(std::pair<II, II> thetas_) {
-        std::copy(thetas_.first, thetas_.second, std::back_inserter(getModifyThetas()));
+        std::copy(thetas_.first, thetas_.second, std::back_inserter(thetas));
     }
 
     /**
@@ -76,6 +76,13 @@ public:
      */
     const std::vector<fvector_t>& getThetas() const {
         return thetas;
+    }
+
+    /**
+     * @brief const getter for normal access
+     */
+    double getThetas(unsigned int k, unsigned int n) const {
+        return thetas[k](n);
     }
 
     /**
@@ -90,6 +97,12 @@ public:
      */
     fvector_t::value_type& getModifyThetas(const unsigned k, const unsigned i) {
         return thetas[k](i);
+    }
+
+    /// @todo TODO umHimmels Willen!
+    unsigned int getP() const {
+        assert(thetas.size());
+        return thetas.begin()->size();
     }
 };
 

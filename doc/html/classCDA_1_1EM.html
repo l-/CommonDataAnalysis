@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>CommonDataAnalysis: CDA::EM&lt; datapoint_t &gt; Template-Klassenreferenz</title>
+<title>CommonDataAnalysis: CDA::EM&lt; data_T, theta_T &gt; Template-Klassenreferenz</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javaScript" src="search/search.js"></script>
@@ -47,80 +47,148 @@ var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
   </div>
 </div>
 <div class="contents">
-<h1>CDA::EM&lt; datapoint_t &gt; Template-Klassenreferenz</h1><!-- doxytag: class="CDA::EM" -->
-<p>A generic <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class. Contains the general outline of EM algorithm, details...">EM</a> model fitting class. Contains the general outline of <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class. Contains the general outline of EM algorithm, details...">EM</a> algorithm, details to be filled in by implementations (not that easy in C++ ...).  
+<h1>CDA::EM&lt; data_T, theta_T &gt; Template-Klassenreferenz</h1><!-- doxytag: class="CDA::EM" -->
+<p>A generic <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class.">EM</a> model fitting class.  
 <a href="#_details">Mehr ...</a></p>
 
 <p><code>#include &lt;<a class="el" href="EM_8h_09_09_source.html">EM.h++</a>&gt;</code></p>
+
+<p>Basisklasse für <a class="el" href="classCDA_1_1FitMulticlassByEM.html">CDA::FitMulticlassByEM&lt; data_T, theta_T &gt;</a>.</p>
 <div class="dynheader">
-Zusammengehörigkeiten von CDA::EM&lt; datapoint_t &gt;:</div>
+Zusammengehörigkeiten von CDA::EM&lt; data_T, theta_T &gt;:</div>
 <div class="dynsection">
-<div class="center"><img src="classCDA_1_1EM__coll__graph.png" border="0" usemap="#CDA_1_1EM_3_01datapoint__t_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="CDA_1_1EM_3_01datapoint__t_01_4_coll__map" id="CDA_1_1EM_3_01datapoint__t_01_4_coll__map">
-<area shape="rect" href="classCDA_1_1EMData.html" title="{CDA::EMData\&lt; datapoint_t \&gt;\n|# D\l# data\l|+ EMData()\l+ getData()\l+ getData()\l+ getData()\l+ getN()\l+ getDataDimensionality()\l+ setDataProper()\l}" alt="" coords="5,328,195,547"/><area shape="rect" href="classCDA_1_1EMData.html" title="Any concrete EM subclass &quot;has_a&quot; EMData of the appropriate type (i.e. mono&#45;..." alt="" coords="15,5,185,261"/><area shape="rect" href="classCDA_1_1EMThetas.html" title="Model parameters for EM." alt="" coords="219,375,357,500"/></map>
+<div class="center"><img src="classCDA_1_1EM__coll__graph.png" border="0" usemap="#CDA_1_1EM_3_01data__T_00_01theta__T_01_4_coll__map" alt="Collaboration graph"/></div>
 <center><span class="legend">[<a href="graph_legend.html">Legende</a>]</span></center></div>
 
 <p><a href="classCDA_1_1EM-members.html">Aufstellung aller Elemente</a></p>
 <table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Öffentliche Typen</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3f4735ec5ea6c523ebc4c9f2b51be762"></a><!-- doxytag: member="CDA::EM::data_t" ref="a3f4735ec5ea6c523ebc4c9f2b51be762" args="" -->
+typedef data_T&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#a3f4735ec5ea6c523ebc4c9f2b51be762">data_t</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Three basic typedefs. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3cdb34eebfa56d948080b28ca349bc6b"></a><!-- doxytag: member="CDA::EM::datapoint_t" ref="a3cdb34eebfa56d948080b28ca349bc6b" args="" -->
+typedef data_T::value_type&nbsp;</td><td class="memItemRight" valign="bottom"><b>datapoint_t</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0f059ae36feb9040200627b78fb416e6"></a><!-- doxytag: member="CDA::EM::theta_t" ref="a0f059ae36feb9040200627b78fb416e6" args="" -->
+typedef theta_T&nbsp;</td><td class="memItemRight" valign="bottom"><b>theta_t</b></td></tr>
 <tr><td colspan="2"><h2>Öffentliche Methoden</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad18a674dbf206303ba61571d5b385732"></a><!-- doxytag: member="CDA::EM::EM" ref="ad18a674dbf206303ba61571d5b385732" args="(const unsigned D_=1)" -->
-&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#ad18a674dbf206303ba61571d5b385732">EM</a> (const unsigned D_=1)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor, to be called explicitly in multivariate case. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8fa4fea4987c54f6ae1499492cc9130c"></a><!-- doxytag: member="CDA::EM::getHiddenParamEstimate" ref="a8fa4fea4987c54f6ae1499492cc9130c" args="(const unsigned n) const =0" -->
-virtual const fvector_t &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#a8fa4fea4987c54f6ae1499492cc9130c">getHiddenParamEstimate</a> (const unsigned n) const =0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#a1b30d405dee72fbf3ef58efffb52add4">EM</a> (const <a class="el" href="classCDA_1_1EM.html#a3f4735ec5ea6c523ebc4c9f2b51be762">data_t</a> &amp;data, const theta_t &amp;theta)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">default constructor  <a href="#a1b30d405dee72fbf3ef58efffb52add4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a933f9974eec46113eadf9f35ac9b7552"></a><!-- doxytag: member="CDA::EM::EM" ref="a933f9974eec46113eadf9f35ac9b7552" args="(const EM &amp;other)" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#a933f9974eec46113eadf9f35ac9b7552">EM</a> (const <a class="el" href="classCDA_1_1EM.html">EM</a> &amp;other)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">copy constructor Should be implemented throughout <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aad68b7444dac8fa5e1b0d7413c8ed87c"></a><!-- doxytag: member="CDA::EM::getHiddenParamEstimate" ref="aad68b7444dac8fa5e1b0d7413c8ed87c" args="(const unsigned n) const =0" -->
+virtual const fvector_t &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#aad68b7444dac8fa5e1b0d7413c8ed87c">getHiddenParamEstimate</a> (const unsigned n) const =0</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Getter for estimate. <br/></td></tr>
-<tr><td class="memTemplParams" colspan="2">template&lt;class II &gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">void&nbsp;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#a9e02e070fa25ab5bd9c2badbbd157f13">setTheta</a> (std::pair&lt; II, II &gt; thetas)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Initial guess for model parameters -- strictly needed.  <a href="#a9e02e070fa25ab5bd9c2badbbd157f13"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#a1c8fa9008da1f168f211f48c578dce5f">EMrun</a> (const unsigned MAXITER, const double thresh, const boost::optional&lt; std::ostream * &gt; output_csv=boost::none)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Run Expectation Maximization.  <a href="#a1c8fa9008da1f168f211f48c578dce5f"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual const std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#ad2655bd878821e73ba18beff576a2b4a">dumpParameters</a> (const boost::optional&lt; unsigned int &gt; iteration) const =0</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Output CSV.  <a href="#ad2655bd878821e73ba18beff576a2b4a"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad29bbf755c6a32215881efca2d90d6a9"></a><!-- doxytag: member="CDA::EM::getCSVHeader" ref="ad29bbf755c6a32215881efca2d90d6a9" args="() const =0" -->
-virtual const std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#ad29bbf755c6a32215881efca2d90d6a9">getCSVHeader</a> () const =0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual const std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#ad2deb0f1d94dc57a6e431caebeb34cbe">dumpParameters</a> (const boost::optional&lt; unsigned int &gt; iteration) const =0</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Output CSV.  <a href="#ad2deb0f1d94dc57a6e431caebeb34cbe"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a50155b932fe3a55103550fd69318b45f"></a><!-- doxytag: member="CDA::EM::getCSVHeader" ref="a50155b932fe3a55103550fd69318b45f" args="() const =0" -->
+virtual const std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#a50155b932fe3a55103550fd69318b45f">getCSVHeader</a> () const =0</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Möchte es nicht zu kompliziert machen (14/12/2010), daher bekommen die ganzen Klassen erst einmal CSV-Ausgabe hardwired. <br/></td></tr>
-<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a8f779d18072975dc994bd4370f19a238"></a><!-- doxytag: member="CDA::EM::setData" ref="a8f779d18072975dc994bd4370f19a238" args="(std::pair&lt; II, II &gt; data_)" -->
-template&lt;class II &gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">void&nbsp;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#a8f779d18072975dc994bd4370f19a238">setData</a> (std::pair&lt; II, II &gt; data_)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Initialize known samples, i.e. your data points Also initialize the classif vector. <br/></td></tr>
-<tr><td colspan="2"><h2>Geschützte Methoden</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a27a47f19ff387ae50df6b3022a36d85b"></a><!-- doxytag: member="CDA::EM::EMstep" ref="a27a47f19ff387ae50df6b3022a36d85b" args="()" -->
-double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#a27a47f19ff387ae50df6b3022a36d85b">EMstep</a> ()</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">One iteration. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af116066dfe282586d4219fb588a021d7"></a><!-- doxytag: member="CDA::EM::update_hidden" ref="af116066dfe282586d4219fb588a021d7" args="()=0" -->
-virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#af116066dfe282586d4219fb588a021d7">update_hidden</a> ()=0</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><b>E-step</b>: update hidden attributes, i.e. class membership probabilities <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a58f0d0cf682d55a53e827744e03516e2"></a><!-- doxytag: member="CDA::EM::update_thetas" ref="a58f0d0cf682d55a53e827744e03516e2" args="()=0" -->
-virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#a58f0d0cf682d55a53e827744e03516e2">update_thetas</a> ()=0</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><b>M-step</b>: update parameters of model PDF <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8aa35411fba9041160319403163e92f6"></a><!-- doxytag: member="CDA::EM::logLikelihood" ref="a8aa35411fba9041160319403163e92f6" args="() const =0" -->
-virtual double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#a8aa35411fba9041160319403163e92f6">logLikelihood</a> () const =0</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Important. This is being optimized. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3508ac170afdf1034134d7764a3cd016"></a><!-- doxytag: member="CDA::EM::className" ref="a3508ac170afdf1034134d7764a3cd016" args="() const " -->
-virtual const std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#a3508ac170afdf1034134d7764a3cd016">className</a> () const </td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class II &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&nbsp;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#ae71052b178877852d34c3aa17e85f8ef">setTheta</a> (std::pair&lt; II, II &gt; thetas)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Initial guess for model parameters -- strictly needed.  <a href="#ae71052b178877852d34c3aa17e85f8ef"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa3edb551271b47675c817fa6c302741d"></a><!-- doxytag: member="CDA::EM::className" ref="aa3edb551271b47675c817fa6c302741d" args="() const " -->
+virtual const std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#aa3edb551271b47675c817fa6c302741d">className</a> () const </td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Implementer should overwrite this method, since typeid(this).name() returns crap. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#a12d59d14b42f67805dbf2f721323e318">getN</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Return <a class="el" href="classCDA_1_1EM.html#a15809e2026eaea4c68b2e3e11c807fff" title="It&#39;s here now.">getDataObj()</a> . <a class="el" href="classCDA_1_1EM.html#a12d59d14b42f67805dbf2f721323e318" title="Return getDataObj() . getN().">getN()</a>.  <a href="#a12d59d14b42f67805dbf2f721323e318"></a><br/></td></tr>
+<tr><td colspan="2"><h2>Geschützte Methoden</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classCDA_1_1EM.html#a3f4735ec5ea6c523ebc4c9f2b51be762">data_t</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#a15809e2026eaea4c68b2e3e11c807fff">getDataObj</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">It's here now.  <a href="#a15809e2026eaea4c68b2e3e11c807fff"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classCDA_1_1EM.html#a3f4735ec5ea6c523ebc4c9f2b51be762">data_t</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#ac8ac2e223a295ee8f98e13c50bfec454">getDataObj</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Same in const.  <a href="#ac8ac2e223a295ee8f98e13c50bfec454"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual theta_t *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#aee121bf43a5a5d1a24cfecb2cbd97e18">getThetaObj</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">It's here now.  <a href="#aee121bf43a5a5d1a24cfecb2cbd97e18"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual const theta_t *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#aa44545f82da81d3edaee49e34077f58e">getThetaObj</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Same in const.  <a href="#aa44545f82da81d3edaee49e34077f58e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#a33684f64b72aff4c65150e12ea23e6aa">EMstep</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">One iteration.  <a href="#a33684f64b72aff4c65150e12ea23e6aa"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a587d80945cad21df1233dc22cb95671d"></a><!-- doxytag: member="CDA::EM::update_hidden" ref="a587d80945cad21df1233dc22cb95671d" args="()=0" -->
+virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#a587d80945cad21df1233dc22cb95671d">update_hidden</a> ()=0</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><b>E-step</b>: update hidden attributes <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a479e5c57713312a4089e89bb522e2769"></a><!-- doxytag: member="CDA::EM::update_thetas" ref="a479e5c57713312a4089e89bb522e2769" args="()=0" -->
+virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#a479e5c57713312a4089e89bb522e2769">update_thetas</a> ()=0</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><b>M-step</b>: update accessible parameters of model PDF <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="affb4273a70cd7562cc5d517412c4fcdb"></a><!-- doxytag: member="CDA::EM::logLikelihood" ref="affb4273a70cd7562cc5d517412c4fcdb" args="() const =0" -->
+virtual double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#affb4273a70cd7562cc5d517412c4fcdb">logLikelihood</a> () const =0</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Important. This is being optimized. <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class II &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&nbsp;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#ad1ee8ed5cef87cfabf708fe8d469b77f">setData</a> (std::pair&lt; II, II &gt; data_)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Initialize known samples, i.e. your data points Also initialize the classif vector.  <a href="#ad1ee8ed5cef87cfabf708fe8d469b77f"></a><br/></td></tr>
 <tr><td colspan="2"><h2>Geschützte Attribute</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad1b13cd77ab036d88042a38056bdbc2b"></a><!-- doxytag: member="CDA::EM::m_theta" ref="ad1b13cd77ab036d88042a38056bdbc2b" args="" -->
-<a class="el" href="classCDA_1_1EMThetas.html">EMThetas</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#ad1b13cd77ab036d88042a38056bdbc2b">m_theta</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">In C++, _always_ works better than inheritance. I should have remembered ... <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3b79ed53bf886cd90128883e1b7132c4"></a><!-- doxytag: member="CDA::EM::m_data" ref="a3b79ed53bf886cd90128883e1b7132c4" args="" -->
-<a class="el" href="classCDA_1_1EMData.html">EMData</a>&lt; datapoint_t &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#a3b79ed53bf886cd90128883e1b7132c4">m_data</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">In C++, _always_ works better than inheritance. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a261037c3e786c1615ea23562a23f3cce"></a><!-- doxytag: member="CDA::EM::m_data" ref="a261037c3e786c1615ea23562a23f3cce" args="" -->
+<a class="el" href="classCDA_1_1EM.html#a3f4735ec5ea6c523ebc4c9f2b51be762">data_t</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#a261037c3e786c1615ea23562a23f3cce">m_data</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">We always need this member. Just drop it in via templating, no subclass woes. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a64fa0e44a0204dee110cf1095f69ab5c"></a><!-- doxytag: member="CDA::EM::m_theta" ref="a64fa0e44a0204dee110cf1095f69ab5c" args="" -->
+theta_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EM.html#a64fa0e44a0204dee110cf1095f69ab5c">m_theta</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">In C++, _always_ works better than inheritance. I should have remembered ... Nevertheless, now you can plug in the appropriate class as a template parameter. <br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
-<h3>template&lt;class datapoint_t&gt;<br/>
- class CDA::EM&lt; datapoint_t &gt;</h3>
+<h3>template&lt;class data_T, class theta_T&gt;<br/>
+ class CDA::EM&lt; data_T, theta_T &gt;</h3>
 
-<p>A generic <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class. Contains the general outline of EM algorithm, details...">EM</a> model fitting class. Contains the general outline of <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class. Contains the general outline of EM algorithm, details...">EM</a> algorithm, details to be filled in by implementations (not that easy in C++ ...). </p>
-<hr/><h2>Dokumentation der Elementfunktionen</h2>
-<a class="anchor" id="ad2655bd878821e73ba18beff576a2b4a"></a><!-- doxytag: member="CDA::EM::dumpParameters" ref="ad2655bd878821e73ba18beff576a2b4a" args="(const boost::optional&lt; unsigned int &gt; iteration) const =0" -->
+<p>A generic <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class.">EM</a> model fitting class. </p>
+<dl class="author"><dt><b>Autor:</b></dt><dd>flick</dd></dl>
+<h2><a class="anchor" id="Description">
+Description</a></h2>
+<p>Contains the general outline of <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class.">EM</a> algorithm, details to be filled in by implementations</p>
+<dl><dt><b>Template Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>data_t</em>&nbsp;</td><td>The data-point holding class. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>theta_t</em>&nbsp;</td><td>The model-parameter-holding class. </td></tr>
+  </table>
+  </dd>
+</dl>
+<hr/><h2>Beschreibung der Konstruktoren und Destruktoren</h2>
+<a class="anchor" id="a1b30d405dee72fbf3ef58efffb52add4"></a><!-- doxytag: member="CDA::EM::EM" ref="a1b30d405dee72fbf3ef58efffb52add4" args="(const data_t &amp;data, const theta_t &amp;theta)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class datapoint_t&gt; </div>
+template&lt;class data_t , class theta_t &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">virtual const std::string <a class="el" href="classCDA_1_1EM.html">CDA::EM</a>&lt; datapoint_t &gt;::dumpParameters </td>
+          <td class="memname">EM::EM </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCDA_1_1EM.html#a3f4735ec5ea6c523ebc4c9f2b51be762">data_t</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const theta_t &amp;&nbsp;</td>
+          <td class="paramname"> <em>theta</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>default constructor </p>
+<dl><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>data_t</em>&nbsp;</td><td>(sometimes this needs special initialization) </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>theta_t</em>&nbsp;</td><td>(sometimes this needs special initialization) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/><h2>Dokumentation der Elementfunktionen</h2>
+<a class="anchor" id="ad2deb0f1d94dc57a6e431caebeb34cbe"></a><!-- doxytag: member="CDA::EM::dumpParameters" ref="ad2deb0f1d94dc57a6e431caebeb34cbe" args="(const boost::optional&lt; unsigned int &gt; iteration) const =0" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class data_T, class theta_T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const std::string <a class="el" href="classCDA_1_1EM.html">CDA::EM</a>&lt; data_T, theta_T &gt;::dumpParameters </td>
           <td>(</td>
           <td class="paramtype">const boost::optional&lt; unsigned int &gt;&nbsp;</td>
           <td class="paramname"> <em>iteration</em></td>
@@ -139,13 +207,13 @@ template&lt;class datapoint_t&gt; </div>
   </dd>
 </dl>
 
-<p>Implementiert in <a class="el" href="classCDA_1_1FitMulticlassByEM.html#abd04a7135250a427a100c95bf2bf43a9">CDA::FitMulticlassByEM&lt; T &gt;</a> und <a class="el" href="classCDA_1_1FitMulticlassByEM.html#abd04a7135250a427a100c95bf2bf43a9">CDA::FitMulticlassByEM&lt; fvector_t &gt;</a>.</p>
+<p>Implementiert in <a class="el" href="classCDA_1_1FitMulticlassByEM.html#abd04a7135250a427a100c95bf2bf43a9">CDA::FitMulticlassByEM&lt; data_T, theta_T &gt;</a>, <a class="el" href="classCDA_1_1FitMulticlassByEM.html#abd04a7135250a427a100c95bf2bf43a9">CDA::FitMulticlassByEM&lt; VectorEMData, GaussianMixtureModelNDParams &gt;</a>, <a class="el" href="classCDA_1_1FitMulticlassByEM.html#abd04a7135250a427a100c95bf2bf43a9">CDA::FitMulticlassByEM&lt; VectorEMData, theta_T &gt;</a> und <a class="el" href="classCDA_1_1FitMulticlassByEM.html#abd04a7135250a427a100c95bf2bf43a9">CDA::FitMulticlassByEM&lt; EMData&lt; double &gt;, EMThetas &gt;</a>.</p>
 
 <p><div class="dynheader">
 Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <div class="dynsection">
-<div class="center"><img src="classCDA_1_1EM_ad2655bd878821e73ba18beff576a2b4a_icgraph.png" border="0" usemap="#classCDA_1_1EM_ad2655bd878821e73ba18beff576a2b4a_icgraph_map" alt=""></div>
-<map name="classCDA_1_1EM_ad2655bd878821e73ba18beff576a2b4a_icgraph_map" id="classCDA_1_1EM_ad2655bd878821e73ba18beff576a2b4a_icgraph">
+<div class="center"><img src="classCDA_1_1EM_ad2deb0f1d94dc57a6e431caebeb34cbe_icgraph.png" border="0" usemap="#classCDA_1_1EM_ad2deb0f1d94dc57a6e431caebeb34cbe_icgraph_map" alt=""></div>
+<map name="classCDA_1_1EM_ad2deb0f1d94dc57a6e431caebeb34cbe_icgraph_map" id="classCDA_1_1EM_ad2deb0f1d94dc57a6e431caebeb34cbe_icgraph">
 <area shape="rect" href="classCDA_1_1EM.html#a1c8fa9008da1f168f211f48c578dce5f" title="Run Expectation Maximization." alt="" coords="236,5,356,35"/></map>
 </div>
 </p>
@@ -156,7 +224,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class datapoint_t &gt; </div>
+template&lt;class data_t , class theta_t &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void EM::EMrun </td>
@@ -194,28 +262,253 @@ template&lt;class datapoint_t &gt; </div>
   </table>
   </dd>
 </dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Noch zu erledigen:</a></b></dt><dd>replace the ostream with an <a class="el" href="classCDA_1_1EnhancedDataset.html" title="aware of basic statistics for normalization etc.">EnhancedDataset</a>. </dd></dl>
 
 <p><div class="dynheader">
 Hier ist ein Graph der zeigt, was diese Funktion aufruft:</div>
 <div class="dynsection">
 <div class="center"><img src="classCDA_1_1EM_a1c8fa9008da1f168f211f48c578dce5f_cgraph.png" border="0" usemap="#classCDA_1_1EM_a1c8fa9008da1f168f211f48c578dce5f_cgraph_map" alt=""></div>
 <map name="classCDA_1_1EM_a1c8fa9008da1f168f211f48c578dce5f_cgraph_map" id="classCDA_1_1EM_a1c8fa9008da1f168f211f48c578dce5f_cgraph">
-<area shape="rect" href="classCDA_1_1EM.html#ad2655bd878821e73ba18beff576a2b4a" title="Output CSV." alt="" coords="176,5,357,35"/><area shape="rect" href="classCDA_1_1EM.html#a27a47f19ff387ae50df6b3022a36d85b" title="One iteration." alt="" coords="203,59,331,88"/><area shape="rect" href="classCDA_1_1EM.html#ad29bbf755c6a32215881efca2d90d6a9" title="Möchte es nicht zu kompliziert machen (14/12/2010), daher bekommen die ganzen Klassen..." alt="" coords="183,112,351,141"/><area shape="rect" href="classCDA_1_1EM.html#a8aa35411fba9041160319403163e92f6" title="Important. This is being optimized." alt="" coords="188,165,345,195"/></map>
+<area shape="rect" href="classCDA_1_1EM.html#ad2deb0f1d94dc57a6e431caebeb34cbe" title="Output CSV." alt="" coords="176,5,357,35"/><area shape="rect" href="classCDA_1_1EM.html#a33684f64b72aff4c65150e12ea23e6aa" title="One iteration." alt="" coords="203,59,331,88"/><area shape="rect" href="classCDA_1_1EM.html#a50155b932fe3a55103550fd69318b45f" title="Möchte es nicht zu kompliziert machen (14/12/2010), daher bekommen die ganzen Klassen..." alt="" coords="183,112,351,141"/><area shape="rect" href="classCDA_1_1EM.html#affb4273a70cd7562cc5d517412c4fcdb" title="Important. This is being optimized." alt="" coords="188,165,345,195"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a9e02e070fa25ab5bd9c2badbbd157f13"></a><!-- doxytag: member="CDA::EM::setTheta" ref="a9e02e070fa25ab5bd9c2badbbd157f13" args="(std::pair&lt; II, II &gt; thetas)" -->
+<a class="anchor" id="a33684f64b72aff4c65150e12ea23e6aa"></a><!-- doxytag: member="CDA::EM::EMstep" ref="a33684f64b72aff4c65150e12ea23e6aa" args="()" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class datapoint_t&gt; </div>
+template&lt;class data_T, class theta_T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="classCDA_1_1EM.html">CDA::EM</a>&lt; data_T, theta_T &gt;::EMstep </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>One iteration. </p>
+<h2><a class="anchor" id="DESCRIPTION">
+DESCRIPTION</a></h2>
+<p>This is the basic <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class.">EM</a> (not extended <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class.">EM</a> etc.) algorithm, by virtue of calls to virtual functions you can adapt the procedure to your problem.</p>
+<h2><a class="anchor" id="SIDE-EFFECTS">
+SIDE-EFFECTS</a></h2>
+<p>This will update the model parameters stored in the <a class="el" href="classCDA_1_1EMThetas.html" title="Model parameters for EM.">EMThetas</a> class.</p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>The new log-likelihood value after performing the iteration. </dd></dl>
+
+<p><div class="dynheader">
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div class="dynsection">
+<div class="center"><img src="classCDA_1_1EM_a33684f64b72aff4c65150e12ea23e6aa_icgraph.png" border="0" usemap="#classCDA_1_1EM_a33684f64b72aff4c65150e12ea23e6aa_icgraph_map" alt=""></div>
+<map name="classCDA_1_1EM_a33684f64b72aff4c65150e12ea23e6aa_icgraph_map" id="classCDA_1_1EM_a33684f64b72aff4c65150e12ea23e6aa_icgraph">
+<area shape="rect" href="classCDA_1_1EM.html#a1c8fa9008da1f168f211f48c578dce5f" title="Run Expectation Maximization." alt="" coords="183,5,303,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ac8ac2e223a295ee8f98e13c50bfec454"></a><!-- doxytag: member="CDA::EM::getDataObj" ref="ac8ac2e223a295ee8f98e13c50bfec454" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class data_t , class theta_t &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classCDA_1_1EM.html#a3f4735ec5ea6c523ebc4c9f2b51be762">data_t</a> * EM::getDataObj </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline, protected, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Same in const. </p>
+<h2><a class="anchor" id="NOTE">
+NOTE</a></h2>
+<p>It's virtual for historic reasons, don't replace it</p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>reference to datapoints-holding object </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a15809e2026eaea4c68b2e3e11c807fff"></a><!-- doxytag: member="CDA::EM::getDataObj" ref="a15809e2026eaea4c68b2e3e11c807fff" args="()" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class data_t , class theta_t &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCDA_1_1EM.html#a3f4735ec5ea6c523ebc4c9f2b51be762">data_t</a> * EM::getDataObj </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline, protected, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>It's here now. </p>
+<h2><a class="anchor" id="NOTE">
+NOTE</a></h2>
+<p>It's virtual for historic reasons, don't replace it</p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>m_data </dd></dl>
+
+<p><div class="dynheader">
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div class="dynsection">
+<div class="center"><img src="classCDA_1_1EM_a15809e2026eaea4c68b2e3e11c807fff_icgraph.png" border="0" usemap="#classCDA_1_1EM_a15809e2026eaea4c68b2e3e11c807fff_icgraph_map" alt=""></div>
+<map name="classCDA_1_1EM_a15809e2026eaea4c68b2e3e11c807fff_icgraph_map" id="classCDA_1_1EM_a15809e2026eaea4c68b2e3e11c807fff_icgraph">
+<area shape="rect" href="classCDA_1_1EM.html#a12d59d14b42f67805dbf2f721323e318" title="Return getDataObj() . getN()." alt="" coords="313,61,423,91"/><area shape="rect" href="classCDA_1_1FitMulticlassByEM.html#abaea206aef382360246cf2a64dadc74c" title="Implemented here." alt="" coords="587,112,835,141"/><area shape="rect" href="classCDA_1_1FitMulticlassByEM.html#a7c40c5528a4b8b32e2455056f60d76de" title="E&#45;step: update hidden attributes, i.e. classification" alt="" coords="583,165,839,195"/><area shape="rect" href="classCDA_1_1EM.html#ad1ee8ed5cef87cfabf708fe8d469b77f" title="Initialize known samples, i.e. your data points Also initialize the classif vector..." alt="" coords="204,216,532,245"/><area shape="rect" href="classCDA_1_1FitMulticlassByEM.html#a915e6a0aaae5f74c5802b53fbed8278a" title="Read classification results (1)." alt="" coords="585,5,836,35"/><area shape="rect" href="classCDA_1_1FitMulticlassByEM.html#aceb43b0a386c8f8e112562cc3288b23d" title="Initialize class membership beliefs." alt="" coords="596,59,825,88"/><area shape="rect" href="classCDA_1_1FitMulticlassByEM.html#a7247bfcad3c828f9cf372b6c414e93f0" title="Initialize known samples, i.e. your data points Also initialize the classif vector..." alt="" coords="889,59,1308,88"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a12d59d14b42f67805dbf2f721323e318"></a><!-- doxytag: member="CDA::EM::getN" ref="a12d59d14b42f67805dbf2f721323e318" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class data_t , class theta_t &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int EM::getN </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Return <a class="el" href="classCDA_1_1EM.html#a15809e2026eaea4c68b2e3e11c807fff" title="It&#39;s here now.">getDataObj()</a> . <a class="el" href="classCDA_1_1EM.html#a12d59d14b42f67805dbf2f721323e318" title="Return getDataObj() . getN().">getN()</a>. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>Number of data points </dd></dl>
+
+<p><div class="dynheader">
+Hier ist ein Graph der zeigt, was diese Funktion aufruft:</div>
+<div class="dynsection">
+<div class="center"><img src="classCDA_1_1EM_a12d59d14b42f67805dbf2f721323e318_cgraph.png" border="0" usemap="#classCDA_1_1EM_a12d59d14b42f67805dbf2f721323e318_cgraph_map" alt=""></div>
+<map name="classCDA_1_1EM_a12d59d14b42f67805dbf2f721323e318_cgraph_map" id="classCDA_1_1EM_a12d59d14b42f67805dbf2f721323e318_cgraph">
+<area shape="rect" href="classCDA_1_1EM.html#a15809e2026eaea4c68b2e3e11c807fff" title="It&#39;s here now." alt="" coords="167,5,313,35"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div class="dynsection">
+<div class="center"><img src="classCDA_1_1EM_a12d59d14b42f67805dbf2f721323e318_icgraph.png" border="0" usemap="#classCDA_1_1EM_a12d59d14b42f67805dbf2f721323e318_icgraph_map" alt=""></div>
+<map name="classCDA_1_1EM_a12d59d14b42f67805dbf2f721323e318_icgraph_map" id="classCDA_1_1EM_a12d59d14b42f67805dbf2f721323e318_icgraph">
+<area shape="rect" href="classCDA_1_1FitMulticlassByEM.html#a915e6a0aaae5f74c5802b53fbed8278a" title="Read classification results (1)." alt="" coords="169,5,420,35"/><area shape="rect" href="classCDA_1_1FitMulticlassByEM.html#aceb43b0a386c8f8e112562cc3288b23d" title="Initialize class membership beliefs." alt="" coords="180,59,409,88"/><area shape="rect" href="classCDA_1_1FitMulticlassByEM.html#abaea206aef382360246cf2a64dadc74c" title="Implemented here." alt="" coords="171,112,419,141"/><area shape="rect" href="classCDA_1_1FitMulticlassByEM.html#a7c40c5528a4b8b32e2455056f60d76de" title="E&#45;step: update hidden attributes, i.e. classification" alt="" coords="167,165,423,195"/><area shape="rect" href="classCDA_1_1FitMulticlassByEM.html#a7247bfcad3c828f9cf372b6c414e93f0" title="Initialize known samples, i.e. your data points Also initialize the classif vector..." alt="" coords="473,59,892,88"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aa44545f82da81d3edaee49e34077f58e"></a><!-- doxytag: member="CDA::EM::getThetaObj" ref="aa44545f82da81d3edaee49e34077f58e" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class data_t , class theta_t &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const theta_t * EM::getThetaObj </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline, protected, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Same in const. </p>
+<h2><a class="anchor" id="NOTE">
+NOTE</a></h2>
+<p>It's virtual for historic reasons, don't replace it</p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>reference to parameter-holding object </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aee121bf43a5a5d1a24cfecb2cbd97e18"></a><!-- doxytag: member="CDA::EM::getThetaObj" ref="aee121bf43a5a5d1a24cfecb2cbd97e18" args="()" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class data_t , class theta_t &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">theta_t * EM::getThetaObj </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline, protected, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>It's here now. </p>
+<h2><a class="anchor" id="NOTE">
+NOTE</a></h2>
+<p>It's virtual for historic reasons, don't replace it</p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>m_theta </dd></dl>
+
+<p><div class="dynheader">
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div class="dynsection">
+<div class="center"><img src="classCDA_1_1EM_aee121bf43a5a5d1a24cfecb2cbd97e18_icgraph.png" border="0" usemap="#classCDA_1_1EM_aee121bf43a5a5d1a24cfecb2cbd97e18_icgraph_map" alt=""></div>
+<map name="classCDA_1_1EM_aee121bf43a5a5d1a24cfecb2cbd97e18_icgraph_map" id="classCDA_1_1EM_aee121bf43a5a5d1a24cfecb2cbd97e18_icgraph">
+<area shape="rect" href="classCDA_1_1FitMulticlassByEM.html#aa5598f1ced5c95045f59c99610ab53e5" title="Output CSV." alt="" coords="208,5,480,35"/><area shape="rect" href="classCDA_1_1FitMulticlassByEM.html#a4185d0f323087ef9112e903a2782fdfd" title="Conveniently encapsulate access ofm_theta." alt="" coords="231,59,457,88"/><area shape="rect" href="classCDA_1_1FitMulticlassByEM.html#a869530b76ee4b40d38d3fb80ea0932aa" title="Get current estimated class weight." alt="" coords="240,112,448,141"/><area shape="rect" href="classCDA_1_1FitMulticlassByEM.html#abd04a7135250a427a100c95bf2bf43a9" title="Output CSV." alt="" coords="528,5,800,35"/><area shape="rect" href="classCDA_1_1FitMulticlassByEM.html#abaea206aef382360246cf2a64dadc74c" title="Implemented here." alt="" coords="540,85,788,115"/><area shape="rect" href="classCDA_1_1FitMulticlassByEM.html#a7c40c5528a4b8b32e2455056f60d76de" title="E&#45;step: update hidden attributes, i.e. classification" alt="" coords="536,139,792,168"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad1ee8ed5cef87cfabf708fe8d469b77f"></a><!-- doxytag: member="CDA::EM::setData" ref="ad1ee8ed5cef87cfabf708fe8d469b77f" args="(std::pair&lt; II, II &gt; data_)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class data_T, class theta_T&gt; </div>
 <div class="memtemplate">
 template&lt;class II &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classCDA_1_1EM.html">CDA::EM</a>&lt; datapoint_t &gt;::setTheta </td>
+          <td class="memname">void <a class="el" href="classCDA_1_1EM.html">CDA::EM</a>&lt; data_T, theta_T &gt;::setData </td>
+          <td>(</td>
+          <td class="paramtype">std::pair&lt; II, II &gt;&nbsp;</td>
+          <td class="paramname"> <em>data_</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Initialize known samples, i.e. your data points Also initialize the classif vector. </p>
+
+<p><p>II must iterate over datapoint_t elements: </p>
+</p>
+
+<p>Erneute Implementation in <a class="el" href="classCDA_1_1FitMulticlassByEM.html#a7247bfcad3c828f9cf372b6c414e93f0">CDA::FitMulticlassByEM&lt; data_T, theta_T &gt;</a>, <a class="el" href="classCDA_1_1GaussianMixtureModel1D.html#ada5a646f31d12697bc0fc66934a54dab">CDA::GaussianMixtureModel1D</a>, <a class="el" href="classCDA_1_1FitMulticlassByEM.html#a7247bfcad3c828f9cf372b6c414e93f0">CDA::FitMulticlassByEM&lt; VectorEMData, GaussianMixtureModelNDParams &gt;</a>, <a class="el" href="classCDA_1_1FitMulticlassByEM.html#a7247bfcad3c828f9cf372b6c414e93f0">CDA::FitMulticlassByEM&lt; VectorEMData, theta_T &gt;</a> und <a class="el" href="classCDA_1_1FitMulticlassByEM.html#a7247bfcad3c828f9cf372b6c414e93f0">CDA::FitMulticlassByEM&lt; EMData&lt; double &gt;, EMThetas &gt;</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae71052b178877852d34c3aa17e85f8ef"></a><!-- doxytag: member="CDA::EM::setTheta" ref="ae71052b178877852d34c3aa17e85f8ef" args="(std::pair&lt; II, II &gt; thetas)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class data_T, class theta_T&gt; </div>
+<div class="memtemplate">
+template&lt;class II &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCDA_1_1EM.html">CDA::EM</a>&lt; data_T, theta_T &gt;::setTheta </td>
           <td>(</td>
           <td class="paramtype">std::pair&lt; II, II &gt;&nbsp;</td>
           <td class="paramname"> <em>thetas</em></td>
@@ -227,7 +520,9 @@ template&lt;class II &gt; </div>
 <div class="memdoc">
 
 <p>Initial guess for model parameters -- strictly needed. </p>
-<p>Input data format differs for each individual distribution, be careful and read the documentation.</p>
+<h2><a class="anchor" id="NOTA">
+BENE</a></h2>
+<p>Input data format differs for each individual distribution, be careful and read the documentation. Should be in protected</p>
 <dl><dt><b>Parameter:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>thetas</em>&nbsp;</td><td></td></tr>
@@ -235,18 +530,11 @@ template&lt;class II &gt; </div>
   </dd>
 </dl>
 
-<p><div class="dynheader">
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
-<div class="dynsection">
-<div class="center"><img src="classCDA_1_1EM_a9e02e070fa25ab5bd9c2badbbd157f13_icgraph.png" border="0" usemap="#classCDA_1_1EM_a9e02e070fa25ab5bd9c2badbbd157f13_icgraph_map" alt=""></div>
-</div>
-</p>
-
 </div>
 </div>
 <hr/>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien:<ul>
-<li>src/expmax/<a class="el" href="EM_8h_09_09_source.html">EM.h++</a></li>
-<li>src/expmax/<a class="el" href="ProbabilisticClustering_8c_09_09.html">ProbabilisticClustering.c++</a></li>
+<li>include/expmax/<a class="el" href="EM_8h_09_09_source.html">EM.h++</a></li>
+<li>src/expmax/<a class="el" href="EM_8c_09_09.html">EM.c++</a></li>
 </ul>
 </div>
 <!--- window showing the filter options -->
@@ -263,7 +551,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Erzeugt am Thu Jan 6 09:53:47 2011 für CommonDataAnalysis von&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Erzeugt am Thu Jan 20 14:07:33 2011 für CommonDataAnalysis von&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

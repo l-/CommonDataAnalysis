@@ -1,10 +1,11 @@
 /**
  * @file VectorEMData.h++
- *
+ * @version 0.1
  * @author Erik Flick <erik.flick [AETT] informatik.uni-hamburg.de>
  *
  *  Created on: Jan 20, 2011
  *
+ * Almost fit for consumption!
  */
 
 #pragma once

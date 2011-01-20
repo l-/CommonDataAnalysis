@@ -1,3 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" href="$classCDA_1_1EMData.html" title="CDA::EMData\&lt; fvector_t \&gt;" alt="" coords="7,5,183,35"/>
+<area shape="rect" href="$classCDA_1_1EM.html" title="CDA::EM\&lt; VectorEMData, theta_T \&gt;" alt="" coords="7,5,241,35"/>
+<area shape="rect" href="$classCDA_1_1FitMulticlassByEM.html" title="CDA::FitMulticlassByEM\&lt; VectorEMData, theta_T \&gt;" alt="" coords="291,5,616,35"/>
+<area shape="rect" href="$classCDA_1_1FitMultivariateMulticlassByEM.html" title="Note that the EMData type is fixed: VectorEMData." alt="" coords="665,5,964,35"/>
+<area shape="rect" href="$classCDA_1_1EMGenericMixtureModelCore.html" title="Ideally, each model knows its data layout, parameter estimators and stuff. There..." alt="" coords="1013,5,1307,35"/>
 </map>

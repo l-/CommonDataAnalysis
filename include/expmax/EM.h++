@@ -1,6 +1,6 @@
 /**
  * @file EM.h++
- * @version 0.12
+ * @version 0.121
  * @author Erik Flick <erik.flick [AETT] informatik.uni-hamburg.de>
  *
  *  Created on: Jan 5, 2011
@@ -71,16 +71,6 @@ protected:
     virtual data_t* getDataObj();
 
     /**
-     * @brief Same in const
-     *
-     * @section NOTE
-     * It's virtual for historic reasons, don't replace it
-     *
-     * @return reference to datapoints-holding object
-     */
-    virtual const data_t* getDataObj() const;
-
-    /**
      * @brief It's here now.
      *
      * @section NOTE
@@ -89,16 +79,6 @@ protected:
      * @return m_theta
      */
     virtual theta_t* getThetaObj();
-
-    /**
-     * @brief Same in const
-     *
-     * @section NOTE
-     * It's virtual for historic reasons, don't replace it
-     *
-     * @return reference to parameter-holding object
-     */
-    virtual const theta_t* getThetaObj() const;
 
     /**
      * @brief One iteration.
@@ -214,6 +194,28 @@ public:
      */
     unsigned int getN() const;
 
+
+    /**
+     * @brief Same in const
+     *
+     * @section NOTE
+     * It's virtual for historic reasons, don't replace it
+     *
+     * if it's harmless, let it remain public ...
+     * @return reference to datapoints-holding object
+     */
+    virtual const data_t* getDataObj() const;
+
+    /**
+     * @brief Same in const
+     *
+     * @section NOTE
+     * It's virtual for historic reasons, don't replace it
+     *
+     * @return reference to parameter-holding object
+     */
+    virtual const theta_t* getThetaObj() const;
+
 protected:
 
     /**
@@ -234,7 +236,7 @@ protected:
 #endif
 
         getDataObj() -> clear();
-        getDataObj() -> setDataProper(data_);
+        getDataObj() -> appendData(data_);
     }
 
 };

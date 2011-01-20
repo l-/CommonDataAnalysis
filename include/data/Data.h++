@@ -8,7 +8,7 @@
  * @section LICENSE
  * LGPL v3.0
  *
- * @comment
+ * @section COMMENT
  * Sense the POWER!
  *
  * Beginnings of a GNU R-like dataframe infrastructure.

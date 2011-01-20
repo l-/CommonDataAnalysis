@@ -48,36 +48,113 @@ var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
 </div>
 <div class="contents">
 <h1>CDA::EMThetas Klassenreferenz</h1><!-- doxytag: class="CDA::EMThetas" -->
-<p>Model parameters for <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class. Contains the general outline of EM algorithm, details...">EM</a>.  
+<p>Model parameters for <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class.">EM</a>.  
 <a href="#_details">Mehr ...</a></p>
 
 <p><code>#include &lt;<a class="el" href="EMTheta_8h_09_09_source.html">EMTheta.h++</a>&gt;</code></p>
 
+<p>Basisklasse für <a class="el" href="classCDA_1_1GaussianMixtureModelNDParams.html">CDA::GaussianMixtureModelNDParams</a>.</p>
+
 <p><a href="classCDA_1_1EMThetas-members.html">Aufstellung aller Elemente</a></p>
 <table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Öffentliche Typen</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aba47b3e7d71ea344695798e68471cc69"></a><!-- doxytag: member="CDA::EMThetas::value_type" ref="aba47b3e7d71ea344695798e68471cc69" args="" -->
+typedef fvector_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMThetas.html#aba47b3e7d71ea344695798e68471cc69">value_type</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Basic TYpedef. <br/></td></tr>
 <tr><td colspan="2"><h2>Öffentliche Methoden</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMThetas.html#a97b7888efc058416d40ab7a24c80a2a0">EMThetas</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMThetas.html#aaa3c2d20ee5d95a8b38d40e7c6d0b1a7">EMThetas</a> (const <a class="el" href="classCDA_1_1EMThetas.html">EMThetas</a> &amp;other)</td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;class II &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">void&nbsp;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMThetas.html#a1c8058269e4d8a32a2dd58f13ad94369">setTheta</a> (std::pair&lt; II, II &gt; thetas_)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Initial guess for model parameters -- strictly needed.  <a href="#a1c8058269e4d8a32a2dd58f13ad94369"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aadd9127ef459eda6eb890e1f3bd5a1bc"></a><!-- doxytag: member="CDA::EMThetas::getThetas" ref="aadd9127ef459eda6eb890e1f3bd5a1bc" args="() const " -->
 const std::vector&lt; fvector_t &gt; &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMThetas.html#aadd9127ef459eda6eb890e1f3bd5a1bc">getThetas</a> () const </td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">const getter <br/></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">const getter for normal access <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0d5cc0f815c7a78a42d2d64b2fd5bfdb"></a><!-- doxytag: member="CDA::EMThetas::getThetas" ref="a0d5cc0f815c7a78a42d2d64b2fd5bfdb" args="(unsigned int k, unsigned int n) const " -->
+double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMThetas.html#a0d5cc0f815c7a78a42d2d64b2fd5bfdb">getThetas</a> (unsigned int k, unsigned int n) const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">const getter for normal access <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab5cc3d05862d41aa16a38b7c4ec51bd3"></a><!-- doxytag: member="CDA::EMThetas::getModifyThetas" ref="ab5cc3d05862d41aa16a38b7c4ec51bd3" args="()" -->
 std::vector&lt; fvector_t &gt; &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMThetas.html#ab5cc3d05862d41aa16a38b7c4ec51bd3">getModifyThetas</a> ()</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">non-const getter. <br/></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">non-const getter for updates only. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acc1246f42ca1fa55d8f7d1338dee39ef"></a><!-- doxytag: member="CDA::EMThetas::getModifyThetas" ref="acc1246f42ca1fa55d8f7d1338dee39ef" args="(const unsigned k, const unsigned i)" -->
+fvector_t::value_type &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMThetas.html#acc1246f42ca1fa55d8f7d1338dee39ef">getModifyThetas</a> (const unsigned k, const unsigned i)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Important. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMThetas.html#aeafa1d8926150ea06a4f76228817d38e">getP</a> () const </td></tr>
 <tr><td colspan="2"><h2>Geschützte Attribute</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2fb1c00c889f9a5bfe95e65ba1c4b132"></a><!-- doxytag: member="CDA::EMThetas::thetas" ref="a2fb1c00c889f9a5bfe95e65ba1c4b132" args="" -->
 std::vector&lt; fvector_t &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDA_1_1EMThetas.html#a2fb1c00c889f9a5bfe95e65ba1c4b132">thetas</a></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Model parameters possibly a single vector, or K PDF parameter vectors, one per class =&gt; these belong in the concrete classes? I hate duplication! <br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
-<p>Model parameters for <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class. Contains the general outline of EM algorithm, details...">EM</a>. </p>
+<p>Model parameters for <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class.">EM</a>. </p>
 <h2><a class="anchor" id="DESCRIPTION">
 DESCRIPTION</a></h2>
-<p>To avoid duplication. Can't just put it into <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class. Contains the general outline of EM algorithm, details...">EM</a> and inherit because of duplicate class problems</p>
+<p>To avoid duplication. Can't just put it into <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class.">EM</a> and inherit because of duplicate class problems</p>
 <h2><a class="anchor" id="ARCHITECTURE">
 CAVEAT</a></h2>
-<p>I dislike having this class around, this should all be in <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class. Contains the general outline of EM algorithm, details...">EM</a> in any proper programming language, it would be possible. </p>
+<p>I dislike having this class around</p>
+<h2><a class="anchor" id="ANYWAY">
+ANYWAY</a></h2>
+<p>TODO it should be possible to subclass this an handle all the parameter management (i.e. extraction of the right fields, some calculations) in here. </p>
+<hr/><h2>Beschreibung der Konstruktoren und Destruktoren</h2>
+<a class="anchor" id="a97b7888efc058416d40ab7a24c80a2a0"></a><!-- doxytag: member="CDA::EMThetas::EMThetas" ref="a97b7888efc058416d40ab7a24c80a2a0" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EMThetas::EMThetas </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p><a class="el" href="classCDA_1_1EMThetas.html" title="Model parameters for EM.">EMThetas</a> initialize empty </p>
+
+</div>
+</div>
+<a class="anchor" id="aaa3c2d20ee5d95a8b38d40e7c6d0b1a7"></a><!-- doxytag: member="CDA::EMThetas::EMThetas" ref="aaa3c2d20ee5d95a8b38d40e7c6d0b1a7" args="(const EMThetas &amp;other)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EMThetas::EMThetas </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCDA_1_1EMThetas.html">EMThetas</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>other</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p><a class="el" href="classCDA_1_1EMThetas.html" title="Model parameters for EM.">EMThetas</a> copy constructor </p>
+
+</div>
+</div>
 <hr/><h2>Dokumentation der Elementfunktionen</h2>
+<a class="anchor" id="aeafa1d8926150ea06a4f76228817d38e"></a><!-- doxytag: member="CDA::EMThetas::getP" ref="aeafa1d8926150ea06a4f76228817d38e" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int CDA::EMThetas::getP </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Noch zu erledigen:</a></b></dt><dd>TODO umHimmels Willen! </dd></dl>
+
+<p>Erneute Implementation in <a class="el" href="classCDA_1_1GaussianMixtureModelNDParams.html#a381c2e9b2f537dfb8558d202a9cb12ea">CDA::GaussianMixtureModelNDParams</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a1c8058269e4d8a32a2dd58f13ad94369"></a><!-- doxytag: member="CDA::EMThetas::setTheta" ref="a1c8058269e4d8a32a2dd58f13ad94369" args="(std::pair&lt; II, II &gt; thetas_)" -->
 <div class="memitem">
 <div class="memproto">
@@ -95,23 +172,18 @@ template&lt;class II &gt; </div>
       </table>
 </div>
 <div class="memdoc">
-<p>Initial guess for model parameters -- strictly needed</p>
-<p>Input data format differs for each individual distribution, be careful and read the documentation.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Noch zu erledigen:</a></b></dt><dd>random numbers when none given </dd></dl>
 
-<p><div class="dynheader">
-Hier ist ein Graph der zeigt, was diese Funktion aufruft:</div>
-<div class="dynsection">
-<div class="center"><img src="classCDA_1_1EMThetas_a1c8058269e4d8a32a2dd58f13ad94369_cgraph.png" border="0" usemap="#classCDA_1_1EMThetas_a1c8058269e4d8a32a2dd58f13ad94369_cgraph_map" alt=""></div>
-<map name="classCDA_1_1EMThetas_a1c8058269e4d8a32a2dd58f13ad94369_cgraph_map" id="classCDA_1_1EMThetas_a1c8058269e4d8a32a2dd58f13ad94369_cgraph">
-<area shape="rect" href="classCDA_1_1EMThetas.html#ab5cc3d05862d41aa16a38b7c4ec51bd3" title="non&#45;const getter." alt="" coords="231,5,449,35"/></map>
-</div>
-</p>
+<p>Initial guess for model parameters -- strictly needed. </p>
+<h2><a class="anchor" id="CAREFUL">
+CAREFUL</a></h2>
+<p>Input data format differs for each individual distribution, be careful and read the documentation. =&gt; will be solved by <b>subclassing</b> and creating specific setters/getters</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Noch zu erledigen:</a></b></dt><dd>random numbers or something when none given </dd></dl>
 
 </div>
 </div>
-<hr/>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei:<ul>
-<li>src/expmax/<a class="el" href="EMTheta_8h_09_09_source.html">EMTheta.h++</a></li>
+<hr/>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien:<ul>
+<li>include/expmax/<a class="el" href="EMTheta_8h_09_09_source.html">EMTheta.h++</a></li>
+<li>src/expmax/<a class="el" href="EMTheta_8c_09_09.html">EMTheta.c++</a></li>
 </ul>
 </div>
 <!--- window showing the filter options -->
@@ -128,7 +200,7 @@ Hier ist ein Graph der zeigt, was diese Funktion aufruft:</div>
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Erzeugt am Thu Jan 6 09:53:47 2011 für CommonDataAnalysis von&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Erzeugt am Thu Jan 20 14:07:35 2011 für CommonDataAnalysis von&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

@@ -46,19 +46,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
 </div>
 <div class="contents">
 <h1>Auflistung der Klassen</h1>Hier folgt die Aufzählung aller Klassen, Strukturen, Varianten und Schnittstellen mit einer Kurzbeschreibung:<table>
-  <tr><td class="indexkey"><a class="el" href="classCDA_1_1CircularMixtureModel1D.html">CDA::CircularMixtureModel1D</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey"><a class="el" href="structCDA_1_1compareByVectorElementValue.html">CDA::compareByVectorElementValue&lt; vector_t, idx_t, LT &gt;</a></td><td class="indexvalue">Use this as a <b>functor</b> to compare numbers a and b by the values v[a] and v[b] </td></tr>
-  <tr><td class="indexkey"><a class="el" href="classCDA_1_1EM.html">CDA::EM&lt; datapoint_t &gt;</a></td><td class="indexvalue">A generic <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class. Contains the general outline of EM algorithm, details...">EM</a> model fitting class. Contains the general outline of <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class. Contains the general outline of EM algorithm, details...">EM</a> algorithm, details to be filled in by implementations (not that easy in C++ ...) </td></tr>
-  <tr><td class="indexkey"><a class="el" href="classCDA_1_1EMData.html">CDA::EMData&lt; T &gt;</a></td><td class="indexvalue">Any concrete <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class. Contains the general outline of EM algorithm, details...">EM</a> subclass "has_a" <a class="el" href="classCDA_1_1EMData.html" title="Any concrete EM subclass &quot;has_a&quot; EMData of the appropriate type (i.e. mono-...">EMData</a> of the appropriate type (i.e. mono- or multivariate) </td></tr>
-  <tr><td class="indexkey"><a class="el" href="classCDA_1_1EMGenericMixtureModelCore.html">CDA::EMGenericMixtureModelCore</a></td><td class="indexvalue">Ideally, each model knows its data layout, parameter estimators and stuff. There could be a general blueprint for dealing with models which cannot be handled analytically, prompting a gradient search for the MLE step </td></tr>
-  <tr><td class="indexkey"><a class="el" href="classCDA_1_1EMMbyGradientDescent.html">CDA::EMMbyGradientDescent</a></td><td class="indexvalue"><a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class. Contains the general outline of EM algorithm, details...">EM</a> whose M-step is done by gradient descent </td></tr>
-  <tr><td class="indexkey"><a class="el" href="classCDA_1_1EMThetas.html">CDA::EMThetas</a></td><td class="indexvalue">Model parameters for <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class. Contains the general outline of EM algorithm, details...">EM</a> </td></tr>
+  <tr><td class="indexkey"><a class="el" href="classCDA_1_1EM.html">CDA::EM&lt; data_T, theta_T &gt;</a></td><td class="indexvalue">A generic <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class.">EM</a> model fitting class </td></tr>
+  <tr><td class="indexkey"><a class="el" href="classCDA_1_1EMData.html">CDA::EMData&lt; T &gt;</a></td><td class="indexvalue">Your basic datapoint list </td></tr>
+  <tr><td class="indexkey"><a class="el" href="classCDA_1_1EMGenericMixtureModelCore.html">CDA::EMGenericMixtureModelCore&lt; theta_T &gt;</a></td><td class="indexvalue">Ideally, each model knows its data layout, parameter estimators and stuff. There could be a general blueprint for dealing with models which cannot be handled analytically, prompting a gradient search for the MLE step </td></tr>
+  <tr><td class="indexkey"><a class="el" href="classCDA_1_1EMThetas.html">CDA::EMThetas</a></td><td class="indexvalue">Model parameters for <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class.">EM</a> </td></tr>
   <tr><td class="indexkey"><a class="el" href="classCDA_1_1EnhancedDataset.html">CDA::EnhancedDataset</a></td><td class="indexvalue">Aware of basic statistics for normalization etc </td></tr>
   <tr><td class="indexkey"><a class="el" href="classCDA_1_1EnhancedDatasetView.html">CDA::EnhancedDatasetView</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="classCDA_1_1FitMulticlassByEM.html">CDA::FitMulticlassByEM&lt; T &gt;</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="classCDA_1_1FitMultivariateMulticlassByEM.html">CDA::FitMultivariateMulticlassByEM</a></td><td class="indexvalue">It's been demoted to a typedef </td></tr>
-  <tr><td class="indexkey"><a class="el" href="classCDA_1_1GaussianMixtureModel.html">CDA::GaussianMixtureModel</a></td><td class="indexvalue">A heteroscedastic N-dimensional Gaussian Mixture Model </td></tr>
-  <tr><td class="indexkey"><a class="el" href="classCDA_1_1GaussianMixtureModel1D.html">CDA::GaussianMixtureModel1D</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="classCDA_1_1FitMulticlassByEM.html">CDA::FitMulticlassByEM&lt; data_T, theta_T &gt;</a></td><td class="indexvalue">An abstract model fitting class The next after <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class.">EM</a> class .. </td></tr>
+  <tr><td class="indexkey"><a class="el" href="classCDA_1_1FitMultivariateMulticlassByEM.html">CDA::FitMultivariateMulticlassByEM&lt; theta_T &gt;</a></td><td class="indexvalue">Note that the <a class="el" href="classCDA_1_1EMData.html" title="Your basic datapoint list.">EMData</a> type is fixed: <a class="el" href="classCDA_1_1VectorEMData.html" title="Data which comes in vectors.">VectorEMData</a> </td></tr>
+  <tr><td class="indexkey"><a class="el" href="classCDA_1_1FitUnivariateMulticlassByEM.html">CDA::FitUnivariateMulticlassByEM</a></td><td class="indexvalue">It's been demoted to a typedef </td></tr>
+  <tr><td class="indexkey"><a class="el" href="classCDA_1_1GaussianMixtureModel.html">CDA::GaussianMixtureModel</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="classCDA_1_1GaussianMixtureModel1D.html">CDA::GaussianMixtureModel1D</a></td><td class="indexvalue">A <a class="el" href="classCDA_1_1GaussianMixtureModel.html">GaussianMixtureModel</a> class, with <a class="el" href="classCDA_1_1EM.html" title="A generic EM model fitting class.">EM</a> fitting routine built in </td></tr>
+  <tr><td class="indexkey"><a class="el" href="classGaussianMixtureModelNDClosedForm.html">GaussianMixtureModelNDClosedForm</a></td><td class="indexvalue">A heteroscedastic N-dimensional Gaussian Mixture Model </td></tr>
+  <tr><td class="indexkey"><a class="el" href="classCDA_1_1GaussianMixtureModelNDCommon.html">CDA::GaussianMixtureModelNDCommon</a></td><td class="indexvalue">A heteroscedastic N-dimensional Gaussian Mixture Model minus the parameter optimization part, which is left purevirtual thus a replacement for the <a class="el" href="classCDA_1_1EMData.html">EMData&lt;fvector_t&gt;</a> class </td></tr>
+  <tr><td class="indexkey"><a class="el" href="classCDA_1_1GaussianMixtureModelNDParams.html">CDA::GaussianMixtureModelNDParams</a></td><td class="indexvalue">A heteroscedastic N-dimensional Gaussian Mixture Model </td></tr>
+  <tr><td class="indexkey"><a class="el" href="classCDA_1_1VectorEMData.html">CDA::VectorEMData</a></td><td class="indexvalue">Data which comes in vectors </td></tr>
   <tr><td class="indexkey"><a class="el" href="structCDA_1_1VonMises.html">CDA::VonMises</a></td><td class="indexvalue"></td></tr>
 </table>
 </div>
@@ -76,7 +79,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Erzeugt am Thu Jan 6 09:53:47 2011 für CommonDataAnalysis von&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Erzeugt am Thu Jan 20 14:07:33 2011 für CommonDataAnalysis von&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

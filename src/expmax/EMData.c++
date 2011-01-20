@@ -1,6 +1,6 @@
 /**
 * @file EMData.c++
-*
+* @version 0.13
 * @author Erik Flick <erik.flick [AETT] informatik.uni-hamburg.de>
 *
 * Created on: Jan 17, 2011
@@ -12,7 +12,8 @@
 using namespace CDA;
 
 namespace CDA{
-template<> EMData<double>::EMData(const unsigned D_) {}; // all's well
+// template<> EMData<double>::EMData(const unsigned D_) {}; // all's well
+template<class T> EMData<T>::EMData(const unsigned D_) {}; // ?
 
 template<class T>
 EMData<T>::EMData(const EMData<T>& other)

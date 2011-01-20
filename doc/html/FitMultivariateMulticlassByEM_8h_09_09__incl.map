@@ -1,7 +1,7 @@
 <map id="G" name="G">
-<area shape="rect" href="$FitMulticlassByEM_8h_09_09.html" title="FitMulticlassByEM.h++" alt="" coords="75,83,232,112"/>
-<area shape="rect" href="$EM_8h_09_09.html" title="EM.h++" alt="" coords="120,160,187,189"/>
-<area shape="rect" href="$EMData_8h_09_09.html" title="EMData.h++" alt="" coords="20,237,116,267"/>
-<area shape="rect" href="$common__definitions_8h_09_09.html" title="common_definitions.h++" alt="" coords="72,315,235,344"/>
-<area shape="rect" href="$EMTheta_8h_09_09.html" title="EMTheta.h++" alt="" coords="191,237,292,267"/>
+<area shape="rect" href="$FitMulticlassByEM_8h_09_09.html" title="FitMulticlassByEM.h++" alt="" coords="432,83,589,112"/>
+<area shape="rect" href="$VectorEMData_8h_09_09.html" title="VectorEMData.h++" alt="" coords="256,83,387,112"/>
+<area shape="rect" href="$EM_8h_09_09.html" title="expmax/EM.h++" alt="" coords="452,160,569,189"/>
+<area shape="rect" href="$common__definitions_8h_09_09.html" title="common_definitions.h++" alt="" coords="132,237,295,267"/>
+<area shape="rect" href="$EMData_8h_09_09.html" title="EMData.h++" alt="" coords="252,160,348,189"/>
 </map>

@@ -1,10 +1,10 @@
 \hypertarget{classCDA_1_1EM}{
-\section{CDA::EM$<$ datapoint\_\-t $>$ Template-\/Klassenreferenz}
+\section{CDA::EM$<$ data\_\-T, theta\_\-T $>$ Template-\/Klassenreferenz}
 \label{classCDA_1_1EM}\index{CDA::EM@{CDA::EM}}
 }
 
 
-A generic \hyperlink{classCDA_1_1EM}{EM} model fitting class. Contains the general outline of \hyperlink{classCDA_1_1EM}{EM} algorithm, details to be filled in by implementations (not that easy in C++ ...).  
+A generic \hyperlink{classCDA_1_1EM}{EM} model fitting class.  
 
 
 
@@ -13,96 +13,148 @@ A generic \hyperlink{classCDA_1_1EM}{EM} model fitting class. Contains the gener
 
 
 
-Zusammengehörigkeiten von CDA::EM$<$ datapoint\_\-t $>$:\nopagebreak
+Basisklasse für \hyperlink{classCDA_1_1FitMulticlassByEM}{CDA::FitMulticlassByEM$<$ data\_\-T, theta\_\-T $>$}.
+
+
+
+Zusammengehörigkeiten von CDA::EM$<$ data\_\-T, theta\_\-T $>$:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=400pt]{classCDA_1_1EM__coll__graph}
 \end{center}
 \end{figure}
+\subsection*{Öffentliche Typen}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classCDA_1_1EM_a3f4735ec5ea6c523ebc4c9f2b51be762}{
+typedef data\_\-T \hyperlink{classCDA_1_1EM_a3f4735ec5ea6c523ebc4c9f2b51be762}{data\_\-t}}
+\label{classCDA_1_1EM_a3f4735ec5ea6c523ebc4c9f2b51be762}
+
+\begin{DoxyCompactList}\small\item\em Three basic typedefs. \item\end{DoxyCompactList}\item 
+\hypertarget{classCDA_1_1EM_a3cdb34eebfa56d948080b28ca349bc6b}{
+typedef data\_\-T::value\_\-type {\bfseries datapoint\_\-t}}
+\label{classCDA_1_1EM_a3cdb34eebfa56d948080b28ca349bc6b}
+
+\item 
+\hypertarget{classCDA_1_1EM_a0f059ae36feb9040200627b78fb416e6}{
+typedef theta\_\-T {\bfseries theta\_\-t}}
+\label{classCDA_1_1EM_a0f059ae36feb9040200627b78fb416e6}
+
+\end{DoxyCompactItemize}
 \subsection*{Öffentliche Methoden}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classCDA_1_1EM_ad18a674dbf206303ba61571d5b385732}{
-\hyperlink{classCDA_1_1EM_ad18a674dbf206303ba61571d5b385732}{EM} (const unsigned D\_\-=1)}
-\label{classCDA_1_1EM_ad18a674dbf206303ba61571d5b385732}
+\hyperlink{classCDA_1_1EM_a1b30d405dee72fbf3ef58efffb52add4}{EM} (const \hyperlink{classCDA_1_1EM_a3f4735ec5ea6c523ebc4c9f2b51be762}{data\_\-t} \&data, const theta\_\-t \&theta)
+\begin{DoxyCompactList}\small\item\em default constructor \item\end{DoxyCompactList}\item 
+\hypertarget{classCDA_1_1EM_a933f9974eec46113eadf9f35ac9b7552}{
+\hyperlink{classCDA_1_1EM_a933f9974eec46113eadf9f35ac9b7552}{EM} (const \hyperlink{classCDA_1_1EM}{EM} \&other)}
+\label{classCDA_1_1EM_a933f9974eec46113eadf9f35ac9b7552}
 
-\begin{DoxyCompactList}\small\item\em Constructor, to be called explicitly in multivariate case. \item\end{DoxyCompactList}\item 
-\hypertarget{classCDA_1_1EM_a8fa4fea4987c54f6ae1499492cc9130c}{
-virtual const fvector\_\-t \& \hyperlink{classCDA_1_1EM_a8fa4fea4987c54f6ae1499492cc9130c}{getHiddenParamEstimate} (const unsigned n) const =0}
-\label{classCDA_1_1EM_a8fa4fea4987c54f6ae1499492cc9130c}
+\begin{DoxyCompactList}\small\item\em copy constructor Should be implemented throughout \item\end{DoxyCompactList}\item 
+\hypertarget{classCDA_1_1EM_aad68b7444dac8fa5e1b0d7413c8ed87c}{
+virtual const fvector\_\-t \& \hyperlink{classCDA_1_1EM_aad68b7444dac8fa5e1b0d7413c8ed87c}{getHiddenParamEstimate} (const unsigned n) const =0}
+\label{classCDA_1_1EM_aad68b7444dac8fa5e1b0d7413c8ed87c}
 
 \begin{DoxyCompactList}\small\item\em Getter for estimate. \item\end{DoxyCompactList}\item 
-{\footnotesize template$<$class II $>$ }\\void \hyperlink{classCDA_1_1EM_a9e02e070fa25ab5bd9c2badbbd157f13}{setTheta} (std::pair$<$ II, II $>$ thetas)
-\begin{DoxyCompactList}\small\item\em Initial guess for model parameters -\/-\/ strictly needed. \item\end{DoxyCompactList}\item 
 void \hyperlink{classCDA_1_1EM_a1c8fa9008da1f168f211f48c578dce5f}{EMrun} (const unsigned MAXITER, const double thresh, const boost::optional$<$ std::ostream $\ast$ $>$ output\_\-csv=boost::none)
 \begin{DoxyCompactList}\small\item\em Run Expectation Maximization. \item\end{DoxyCompactList}\item 
-virtual const std::string \hyperlink{classCDA_1_1EM_ad2655bd878821e73ba18beff576a2b4a}{dumpParameters} (const boost::optional$<$ unsigned int $>$ iteration) const =0
+virtual const std::string \hyperlink{classCDA_1_1EM_ad2deb0f1d94dc57a6e431caebeb34cbe}{dumpParameters} (const boost::optional$<$ unsigned int $>$ iteration) const =0
 \begin{DoxyCompactList}\small\item\em Output CSV. \item\end{DoxyCompactList}\item 
-\hypertarget{classCDA_1_1EM_ad29bbf755c6a32215881efca2d90d6a9}{
-virtual const std::string \hyperlink{classCDA_1_1EM_ad29bbf755c6a32215881efca2d90d6a9}{getCSVHeader} () const =0}
-\label{classCDA_1_1EM_ad29bbf755c6a32215881efca2d90d6a9}
+\hypertarget{classCDA_1_1EM_a50155b932fe3a55103550fd69318b45f}{
+virtual const std::string \hyperlink{classCDA_1_1EM_a50155b932fe3a55103550fd69318b45f}{getCSVHeader} () const =0}
+\label{classCDA_1_1EM_a50155b932fe3a55103550fd69318b45f}
 
 \begin{DoxyCompactList}\small\item\em Möchte es nicht zu kompliziert machen (14/12/2010), daher bekommen die ganzen Klassen erst einmal CSV-\/Ausgabe hardwired. \item\end{DoxyCompactList}\item 
-\hypertarget{classCDA_1_1EM_a8f779d18072975dc994bd4370f19a238}{
-{\footnotesize template$<$class II $>$ }\\void \hyperlink{classCDA_1_1EM_a8f779d18072975dc994bd4370f19a238}{setData} (std::pair$<$ II, II $>$ data\_\-)}
-\label{classCDA_1_1EM_a8f779d18072975dc994bd4370f19a238}
+{\footnotesize template$<$class II $>$ }\\void \hyperlink{classCDA_1_1EM_ae71052b178877852d34c3aa17e85f8ef}{setTheta} (std::pair$<$ II, II $>$ thetas)
+\begin{DoxyCompactList}\small\item\em Initial guess for model parameters -\/-\/ strictly needed. \item\end{DoxyCompactList}\item 
+\hypertarget{classCDA_1_1EM_aa3edb551271b47675c817fa6c302741d}{
+virtual const std::string \hyperlink{classCDA_1_1EM_aa3edb551271b47675c817fa6c302741d}{className} () const }
+\label{classCDA_1_1EM_aa3edb551271b47675c817fa6c302741d}
 
-\begin{DoxyCompactList}\small\item\em Initialize known samples, i.e. your data points Also initialize the classif vector. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Implementer should overwrite this method, since typeid(this).name() returns crap. \item\end{DoxyCompactList}\item 
+unsigned int \hyperlink{classCDA_1_1EM_a12d59d14b42f67805dbf2f721323e318}{getN} () const 
+\begin{DoxyCompactList}\small\item\em Return \hyperlink{classCDA_1_1EM_a15809e2026eaea4c68b2e3e11c807fff}{getDataObj()} . \hyperlink{classCDA_1_1EM_a12d59d14b42f67805dbf2f721323e318}{getN()}. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Geschützte Methoden}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classCDA_1_1EM_a27a47f19ff387ae50df6b3022a36d85b}{
-double \hyperlink{classCDA_1_1EM_a27a47f19ff387ae50df6b3022a36d85b}{EMstep} ()}
-\label{classCDA_1_1EM_a27a47f19ff387ae50df6b3022a36d85b}
-
+virtual \hyperlink{classCDA_1_1EM_a3f4735ec5ea6c523ebc4c9f2b51be762}{data\_\-t} $\ast$ \hyperlink{classCDA_1_1EM_a15809e2026eaea4c68b2e3e11c807fff}{getDataObj} ()
+\begin{DoxyCompactList}\small\item\em It's here now. \item\end{DoxyCompactList}\item 
+virtual const \hyperlink{classCDA_1_1EM_a3f4735ec5ea6c523ebc4c9f2b51be762}{data\_\-t} $\ast$ \hyperlink{classCDA_1_1EM_ac8ac2e223a295ee8f98e13c50bfec454}{getDataObj} () const 
+\begin{DoxyCompactList}\small\item\em Same in const. \item\end{DoxyCompactList}\item 
+virtual theta\_\-t $\ast$ \hyperlink{classCDA_1_1EM_aee121bf43a5a5d1a24cfecb2cbd97e18}{getThetaObj} ()
+\begin{DoxyCompactList}\small\item\em It's here now. \item\end{DoxyCompactList}\item 
+virtual const theta\_\-t $\ast$ \hyperlink{classCDA_1_1EM_aa44545f82da81d3edaee49e34077f58e}{getThetaObj} () const 
+\begin{DoxyCompactList}\small\item\em Same in const. \item\end{DoxyCompactList}\item 
+double \hyperlink{classCDA_1_1EM_a33684f64b72aff4c65150e12ea23e6aa}{EMstep} ()
 \begin{DoxyCompactList}\small\item\em One iteration. \item\end{DoxyCompactList}\item 
-\hypertarget{classCDA_1_1EM_af116066dfe282586d4219fb588a021d7}{
-virtual void \hyperlink{classCDA_1_1EM_af116066dfe282586d4219fb588a021d7}{update\_\-hidden} ()=0}
-\label{classCDA_1_1EM_af116066dfe282586d4219fb588a021d7}
+\hypertarget{classCDA_1_1EM_a587d80945cad21df1233dc22cb95671d}{
+virtual void \hyperlink{classCDA_1_1EM_a587d80945cad21df1233dc22cb95671d}{update\_\-hidden} ()=0}
+\label{classCDA_1_1EM_a587d80945cad21df1233dc22cb95671d}
 
-\begin{DoxyCompactList}\small\item\em {\bfseries E-\/step}: update hidden attributes, i.e. class membership probabilities \item\end{DoxyCompactList}\item 
-\hypertarget{classCDA_1_1EM_a58f0d0cf682d55a53e827744e03516e2}{
-virtual void \hyperlink{classCDA_1_1EM_a58f0d0cf682d55a53e827744e03516e2}{update\_\-thetas} ()=0}
-\label{classCDA_1_1EM_a58f0d0cf682d55a53e827744e03516e2}
+\begin{DoxyCompactList}\small\item\em {\bfseries E-\/step}: update hidden attributes \item\end{DoxyCompactList}\item 
+\hypertarget{classCDA_1_1EM_a479e5c57713312a4089e89bb522e2769}{
+virtual void \hyperlink{classCDA_1_1EM_a479e5c57713312a4089e89bb522e2769}{update\_\-thetas} ()=0}
+\label{classCDA_1_1EM_a479e5c57713312a4089e89bb522e2769}
 
-\begin{DoxyCompactList}\small\item\em {\bfseries M-\/step}: update parameters of model PDF \item\end{DoxyCompactList}\item 
-\hypertarget{classCDA_1_1EM_a8aa35411fba9041160319403163e92f6}{
-virtual double \hyperlink{classCDA_1_1EM_a8aa35411fba9041160319403163e92f6}{logLikelihood} () const =0}
-\label{classCDA_1_1EM_a8aa35411fba9041160319403163e92f6}
+\begin{DoxyCompactList}\small\item\em {\bfseries M-\/step}: update accessible parameters of model PDF \item\end{DoxyCompactList}\item 
+\hypertarget{classCDA_1_1EM_affb4273a70cd7562cc5d517412c4fcdb}{
+virtual double \hyperlink{classCDA_1_1EM_affb4273a70cd7562cc5d517412c4fcdb}{logLikelihood} () const =0}
+\label{classCDA_1_1EM_affb4273a70cd7562cc5d517412c4fcdb}
 
 \begin{DoxyCompactList}\small\item\em Important. This is being optimized. \item\end{DoxyCompactList}\item 
-\hypertarget{classCDA_1_1EM_a3508ac170afdf1034134d7764a3cd016}{
-virtual const std::string \hyperlink{classCDA_1_1EM_a3508ac170afdf1034134d7764a3cd016}{className} () const }
-\label{classCDA_1_1EM_a3508ac170afdf1034134d7764a3cd016}
-
-\begin{DoxyCompactList}\small\item\em Implementer should overwrite this method, since typeid(this).name() returns crap. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+{\footnotesize template$<$class II $>$ }\\void \hyperlink{classCDA_1_1EM_ad1ee8ed5cef87cfabf708fe8d469b77f}{setData} (std::pair$<$ II, II $>$ data\_\-)
+\begin{DoxyCompactList}\small\item\em Initialize known samples, i.e. your data points Also initialize the classif vector. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Geschützte Attribute}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classCDA_1_1EM_ad1b13cd77ab036d88042a38056bdbc2b}{
-\hyperlink{classCDA_1_1EMThetas}{EMThetas} \hyperlink{classCDA_1_1EM_ad1b13cd77ab036d88042a38056bdbc2b}{m\_\-theta}}
-\label{classCDA_1_1EM_ad1b13cd77ab036d88042a38056bdbc2b}
+\hypertarget{classCDA_1_1EM_a261037c3e786c1615ea23562a23f3cce}{
+\hyperlink{classCDA_1_1EM_a3f4735ec5ea6c523ebc4c9f2b51be762}{data\_\-t} \hyperlink{classCDA_1_1EM_a261037c3e786c1615ea23562a23f3cce}{m\_\-data}}
+\label{classCDA_1_1EM_a261037c3e786c1615ea23562a23f3cce}
 
-\begin{DoxyCompactList}\small\item\em In C++, \_\-always\_\- works better than inheritance. I should have remembered ... \item\end{DoxyCompactList}\item 
-\hypertarget{classCDA_1_1EM_a3b79ed53bf886cd90128883e1b7132c4}{
-\hyperlink{classCDA_1_1EMData}{EMData}$<$ datapoint\_\-t $>$ \hyperlink{classCDA_1_1EM_a3b79ed53bf886cd90128883e1b7132c4}{m\_\-data}}
-\label{classCDA_1_1EM_a3b79ed53bf886cd90128883e1b7132c4}
+\begin{DoxyCompactList}\small\item\em We always need this member. Just drop it in via templating, no subclass woes. \item\end{DoxyCompactList}\item 
+\hypertarget{classCDA_1_1EM_a64fa0e44a0204dee110cf1095f69ab5c}{
+theta\_\-t \hyperlink{classCDA_1_1EM_a64fa0e44a0204dee110cf1095f69ab5c}{m\_\-theta}}
+\label{classCDA_1_1EM_a64fa0e44a0204dee110cf1095f69ab5c}
 
-\begin{DoxyCompactList}\small\item\em In C++, \_\-always\_\- works better than inheritance. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em In C++, \_\-always\_\- works better than inheritance. I should have remembered ... Nevertheless, now you can plug in the appropriate class as a template parameter. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Ausführliche Beschreibung}
-\subsubsection*{template$<$class datapoint\_\-t$>$ class CDA::EM$<$ datapoint\_\-t $>$}
+\subsubsection*{template$<$class data\_\-T, class theta\_\-T$>$ class CDA::EM$<$ data\_\-T, theta\_\-T $>$}
 
-A generic \hyperlink{classCDA_1_1EM}{EM} model fitting class. Contains the general outline of \hyperlink{classCDA_1_1EM}{EM} algorithm, details to be filled in by implementations (not that easy in C++ ...). 
+A generic \hyperlink{classCDA_1_1EM}{EM} model fitting class. \begin{DoxyAuthor}{Autor}
+flick
+\end{DoxyAuthor}
+\hypertarget{GaussianMixtureModel_8h_09_09_Description}{}\subsection{Description}\label{GaussianMixtureModel_8h_09_09_Description}
+Contains the general outline of \hyperlink{classCDA_1_1EM}{EM} algorithm, details to be filled in by implementations
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+\item[{\em data\_\-t}]The data-\/point holding class. \item[{\em theta\_\-t}]The model-\/parameter-\/holding class. \end{DoxyTemplParams}
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\hypertarget{classCDA_1_1EM_a1b30d405dee72fbf3ef58efffb52add4}{
+\index{CDA::EM@{CDA::EM}!EM@{EM}}
+\index{EM@{EM}!CDA::EM@{CDA::EM}}
+\subsubsection[{EM}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class data\_\-t , class theta\_\-t $>$ EM::EM (const {\bf data\_\-t} \& {\em data}, \/  const theta\_\-t \& {\em theta})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCDA_1_1EM_a1b30d405dee72fbf3ef58efffb52add4}
+
+
+default constructor 
+
+
+\begin{DoxyParams}{Parameter}
+\item[\mbox{$\leftarrow$} {\em data\_\-t}](sometimes this needs special initialization) \item[\mbox{$\leftarrow$} {\em theta\_\-t}](sometimes this needs special initialization) \end{DoxyParams}
+
 
 \subsection{Dokumentation der Elementfunktionen}
-\hypertarget{classCDA_1_1EM_ad2655bd878821e73ba18beff576a2b4a}{
+\hypertarget{classCDA_1_1EM_ad2deb0f1d94dc57a6e431caebeb34cbe}{
 \index{CDA::EM@{CDA::EM}!dumpParameters@{dumpParameters}}
 \index{dumpParameters@{dumpParameters}!CDA::EM@{CDA::EM}}
-\subsubsection[{dumpParameters}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class datapoint\_\-t$>$ virtual const std::string {\bf CDA::EM}$<$ datapoint\_\-t $>$::dumpParameters (const boost::optional$<$ unsigned int $>$ {\em iteration}) const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
-\label{classCDA_1_1EM_ad2655bd878821e73ba18beff576a2b4a}
+\subsubsection[{dumpParameters}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class data\_\-T, class theta\_\-T$>$ virtual const std::string {\bf CDA::EM}$<$ data\_\-T, theta\_\-T $>$::dumpParameters (const boost::optional$<$ unsigned int $>$ {\em iteration}) const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classCDA_1_1EM_ad2deb0f1d94dc57a6e431caebeb34cbe}
 
 
 Output CSV. 
@@ -112,7 +164,7 @@ Output CSV.
 \item[\mbox{$\leftarrow$} {\em iteration}](optional) output iteration no. in first column \end{DoxyParams}
 
 
-Implementiert in \hyperlink{classCDA_1_1FitMulticlassByEM_abd04a7135250a427a100c95bf2bf43a9}{CDA::FitMulticlassByEM$<$ T $>$} und \hyperlink{classCDA_1_1FitMulticlassByEM_abd04a7135250a427a100c95bf2bf43a9}{CDA::FitMulticlassByEM$<$ fvector\_\-t $>$}.
+Implementiert in \hyperlink{classCDA_1_1FitMulticlassByEM_abd04a7135250a427a100c95bf2bf43a9}{CDA::FitMulticlassByEM$<$ data\_\-T, theta\_\-T $>$}, \hyperlink{classCDA_1_1FitMulticlassByEM_abd04a7135250a427a100c95bf2bf43a9}{CDA::FitMulticlassByEM$<$ VectorEMData, GaussianMixtureModelNDParams $>$}, \hyperlink{classCDA_1_1FitMulticlassByEM_abd04a7135250a427a100c95bf2bf43a9}{CDA::FitMulticlassByEM$<$ VectorEMData, theta\_\-T $>$} und \hyperlink{classCDA_1_1FitMulticlassByEM_abd04a7135250a427a100c95bf2bf43a9}{CDA::FitMulticlassByEM$<$ EMData$<$ double $>$, EMThetas $>$}.
 
 
 
@@ -120,7 +172,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=154pt]{classCDA_1_1EM_ad2655bd878821e73ba18beff576a2b4a_icgraph}
+\includegraphics[width=154pt]{classCDA_1_1EM_ad2deb0f1d94dc57a6e431caebeb34cbe_icgraph}
 \end{center}
 \end{figure}
 
@@ -128,7 +180,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:\nopagebreak
 \hypertarget{classCDA_1_1EM_a1c8fa9008da1f168f211f48c578dce5f}{
 \index{CDA::EM@{CDA::EM}!EMrun@{EMrun}}
 \index{EMrun@{EMrun}!CDA::EM@{CDA::EM}}
-\subsubsection[{EMrun}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class datapoint\_\-t $>$ void EM::EMrun (const unsigned {\em MAXITER}, \/  const double {\em thresh}, \/  const boost::optional$<$ std::ostream $\ast$ $>$ {\em output\_\-csv} = {\ttfamily boost::none})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\subsubsection[{EMrun}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class data\_\-t , class theta\_\-t $>$ void EM::EMrun (const unsigned {\em MAXITER}, \/  const double {\em thresh}, \/  const boost::optional$<$ std::ostream $\ast$ $>$ {\em output\_\-csv} = {\ttfamily boost::none})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
 \label{classCDA_1_1EM_a1c8fa9008da1f168f211f48c578dce5f}
 
 
@@ -137,6 +189,8 @@ Run Expectation Maximization.
 
 \begin{DoxyParams}{Parameter}
 \item[\mbox{$\leftarrow$} {\em MAXITER}]up to a certain number of iterations \item[\mbox{$\leftarrow$} {\em thresh}]stop when loglikelihood difference below threshold \item[\mbox{$\leftarrow$} {\em output\_\-csv}]\end{DoxyParams}
+\begin{Desc}
+\item[\hyperlink{todo__todo000002}{Noch zu erledigen}]replace the ostream with an \hyperlink{classCDA_1_1EnhancedDataset}{EnhancedDataset}. \end{Desc}
 
 
 Hier ist ein Graph der zeigt, was diese Funktion aufruft:\nopagebreak
@@ -148,34 +202,184 @@ Hier ist ein Graph der zeigt, was diese Funktion aufruft:\nopagebreak
 \end{figure}
 
 
-\hypertarget{classCDA_1_1EM_a9e02e070fa25ab5bd9c2badbbd157f13}{
-\index{CDA::EM@{CDA::EM}!setTheta@{setTheta}}
-\index{setTheta@{setTheta}!CDA::EM@{CDA::EM}}
-\subsubsection[{setTheta}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class datapoint\_\-t$>$ template$<$class II $>$ void {\bf CDA::EM}$<$ datapoint\_\-t $>$::setTheta (std::pair$<$ II, II $>$ {\em thetas})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
-\label{classCDA_1_1EM_a9e02e070fa25ab5bd9c2badbbd157f13}
+\hypertarget{classCDA_1_1EM_a33684f64b72aff4c65150e12ea23e6aa}{
+\index{CDA::EM@{CDA::EM}!EMstep@{EMstep}}
+\index{EMstep@{EMstep}!CDA::EM@{CDA::EM}}
+\subsubsection[{EMstep}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class data\_\-T, class theta\_\-T$>$ double {\bf CDA::EM}$<$ data\_\-T, theta\_\-T $>$::EMstep ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline, protected\mbox{]}}}}
+\label{classCDA_1_1EM_a33684f64b72aff4c65150e12ea23e6aa}
 
 
-Initial guess for model parameters -\/-\/ strictly needed. 
+One iteration. 
 
-Input data format differs for each individual distribution, be careful and read the documentation.
+\hypertarget{ProbabilisticClustering_8h_09_09_DESCRIPTION}{}\subsection{DESCRIPTION}\label{ProbabilisticClustering_8h_09_09_DESCRIPTION}
+This is the basic \hyperlink{classCDA_1_1EM}{EM} (not extended \hyperlink{classCDA_1_1EM}{EM} etc.) algorithm, by virtue of calls to virtual functions you can adapt the procedure to your problem.\hypertarget{classCDA_1_1EM_SIDE-EFFECTS}{}\subsection{SIDE-\/EFFECTS}\label{classCDA_1_1EM_SIDE-EFFECTS}
+This will update the model parameters stored in the \hyperlink{classCDA_1_1EMThetas}{EMThetas} class.
 
-
-\begin{DoxyParams}{Parameter}
-\item[\mbox{$\leftarrow$} {\em thetas}]\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+The new log-\/likelihood value after performing the iteration. 
+\end{DoxyReturn}
 
 
 Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=73pt]{classCDA_1_1EM_a9e02e070fa25ab5bd9c2badbbd157f13_icgraph}
+\includegraphics[width=134pt]{classCDA_1_1EM_a33684f64b72aff4c65150e12ea23e6aa_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classCDA_1_1EM_ac8ac2e223a295ee8f98e13c50bfec454}{
+\index{CDA::EM@{CDA::EM}!getDataObj@{getDataObj}}
+\index{getDataObj@{getDataObj}!CDA::EM@{CDA::EM}}
+\subsubsection[{getDataObj}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class data\_\-t , class theta\_\-t $>$ const {\bf data\_\-t} $\ast$ EM::getDataObj () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, protected, virtual\mbox{]}}}}
+\label{classCDA_1_1EM_ac8ac2e223a295ee8f98e13c50bfec454}
+
+
+Same in const. 
+
+\hypertarget{GaussianMixtureModel1D_8h_09_09_NOTE}{}\subsection{NOTE}\label{GaussianMixtureModel1D_8h_09_09_NOTE}
+It's virtual for historic reasons, don't replace it
+
+\begin{DoxyReturn}{Rückgabe}
+reference to datapoints-\/holding object 
+\end{DoxyReturn}
+\hypertarget{classCDA_1_1EM_a15809e2026eaea4c68b2e3e11c807fff}{
+\index{CDA::EM@{CDA::EM}!getDataObj@{getDataObj}}
+\index{getDataObj@{getDataObj}!CDA::EM@{CDA::EM}}
+\subsubsection[{getDataObj}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class data\_\-t , class theta\_\-t $>$ {\bf data\_\-t} $\ast$ EM::getDataObj ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline, protected, virtual\mbox{]}}}}
+\label{classCDA_1_1EM_a15809e2026eaea4c68b2e3e11c807fff}
+
+
+It's here now. 
+
+\hypertarget{GaussianMixtureModel1D_8h_09_09_NOTE}{}\subsection{NOTE}\label{GaussianMixtureModel1D_8h_09_09_NOTE}
+It's virtual for historic reasons, don't replace it
+
+\begin{DoxyReturn}{Rückgabe}
+m\_\-data 
+\end{DoxyReturn}
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=420pt]{classCDA_1_1EM_a15809e2026eaea4c68b2e3e11c807fff_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classCDA_1_1EM_a12d59d14b42f67805dbf2f721323e318}{
+\index{CDA::EM@{CDA::EM}!getN@{getN}}
+\index{getN@{getN}!CDA::EM@{CDA::EM}}
+\subsubsection[{getN}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class data\_\-t , class theta\_\-t $>$ unsigned int EM::getN () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCDA_1_1EM_a12d59d14b42f67805dbf2f721323e318}
+
+
+Return \hyperlink{classCDA_1_1EM_a15809e2026eaea4c68b2e3e11c807fff}{getDataObj()} . \hyperlink{classCDA_1_1EM_a12d59d14b42f67805dbf2f721323e318}{getN()}. 
+
+\begin{DoxyReturn}{Rückgabe}
+Number of data points 
+\end{DoxyReturn}
+
+
+Hier ist ein Graph der zeigt, was diese Funktion aufruft:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=138pt]{classCDA_1_1EM_a12d59d14b42f67805dbf2f721323e318_cgraph}
 \end{center}
 \end{figure}
 
 
 
 
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=355pt]{classCDA_1_1EM_a12d59d14b42f67805dbf2f721323e318_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classCDA_1_1EM_aa44545f82da81d3edaee49e34077f58e}{
+\index{CDA::EM@{CDA::EM}!getThetaObj@{getThetaObj}}
+\index{getThetaObj@{getThetaObj}!CDA::EM@{CDA::EM}}
+\subsubsection[{getThetaObj}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class data\_\-t , class theta\_\-t $>$ const theta\_\-t $\ast$ EM::getThetaObj () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, protected, virtual\mbox{]}}}}
+\label{classCDA_1_1EM_aa44545f82da81d3edaee49e34077f58e}
+
+
+Same in const. 
+
+\hypertarget{GaussianMixtureModel1D_8h_09_09_NOTE}{}\subsection{NOTE}\label{GaussianMixtureModel1D_8h_09_09_NOTE}
+It's virtual for historic reasons, don't replace it
+
+\begin{DoxyReturn}{Rückgabe}
+reference to parameter-\/holding object 
+\end{DoxyReturn}
+\hypertarget{classCDA_1_1EM_aee121bf43a5a5d1a24cfecb2cbd97e18}{
+\index{CDA::EM@{CDA::EM}!getThetaObj@{getThetaObj}}
+\index{getThetaObj@{getThetaObj}!CDA::EM@{CDA::EM}}
+\subsubsection[{getThetaObj}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class data\_\-t , class theta\_\-t $>$ theta\_\-t $\ast$ EM::getThetaObj ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline, protected, virtual\mbox{]}}}}
+\label{classCDA_1_1EM_aee121bf43a5a5d1a24cfecb2cbd97e18}
+
+
+It's here now. 
+
+\hypertarget{GaussianMixtureModel1D_8h_09_09_NOTE}{}\subsection{NOTE}\label{GaussianMixtureModel1D_8h_09_09_NOTE}
+It's virtual for historic reasons, don't replace it
+
+\begin{DoxyReturn}{Rückgabe}
+m\_\-theta 
+\end{DoxyReturn}
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{classCDA_1_1EM_aee121bf43a5a5d1a24cfecb2cbd97e18_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classCDA_1_1EM_ad1ee8ed5cef87cfabf708fe8d469b77f}{
+\index{CDA::EM@{CDA::EM}!setData@{setData}}
+\index{setData@{setData}!CDA::EM@{CDA::EM}}
+\subsubsection[{setData}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class data\_\-T, class theta\_\-T$>$ template$<$class II $>$ void {\bf CDA::EM}$<$ data\_\-T, theta\_\-T $>$::setData (std::pair$<$ II, II $>$ {\em data\_\-})\hspace{0.3cm}{\ttfamily  \mbox{[}inline, protected\mbox{]}}}}
+\label{classCDA_1_1EM_ad1ee8ed5cef87cfabf708fe8d469b77f}
+
+
+Initialize known samples, i.e. your data points Also initialize the classif vector. 
+
+
+
+II must iterate over datapoint\_\-t elements: 
+
+
+
+Erneute Implementation in \hyperlink{classCDA_1_1FitMulticlassByEM_a7247bfcad3c828f9cf372b6c414e93f0}{CDA::FitMulticlassByEM$<$ data\_\-T, theta\_\-T $>$}, \hyperlink{classCDA_1_1GaussianMixtureModel1D_ada5a646f31d12697bc0fc66934a54dab}{CDA::GaussianMixtureModel1D}, \hyperlink{classCDA_1_1FitMulticlassByEM_a7247bfcad3c828f9cf372b6c414e93f0}{CDA::FitMulticlassByEM$<$ VectorEMData, GaussianMixtureModelNDParams $>$}, \hyperlink{classCDA_1_1FitMulticlassByEM_a7247bfcad3c828f9cf372b6c414e93f0}{CDA::FitMulticlassByEM$<$ VectorEMData, theta\_\-T $>$} und \hyperlink{classCDA_1_1FitMulticlassByEM_a7247bfcad3c828f9cf372b6c414e93f0}{CDA::FitMulticlassByEM$<$ EMData$<$ double $>$, EMThetas $>$}.
+
+\hypertarget{classCDA_1_1EM_ae71052b178877852d34c3aa17e85f8ef}{
+\index{CDA::EM@{CDA::EM}!setTheta@{setTheta}}
+\index{setTheta@{setTheta}!CDA::EM@{CDA::EM}}
+\subsubsection[{setTheta}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class data\_\-T, class theta\_\-T$>$ template$<$class II $>$ void {\bf CDA::EM}$<$ data\_\-T, theta\_\-T $>$::setTheta (std::pair$<$ II, II $>$ {\em thetas})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCDA_1_1EM_ae71052b178877852d34c3aa17e85f8ef}
+
+
+Initial guess for model parameters -\/-\/ strictly needed. 
+
+\hypertarget{classCDA_1_1GaussianMixtureModelNDParams_NOTA}{}\subsection{BENE}\label{classCDA_1_1GaussianMixtureModelNDParams_NOTA}
+Input data format differs for each individual distribution, be careful and read the documentation. Should be in protected
+
+
+\begin{DoxyParams}{Parameter}
+\item[\mbox{$\leftarrow$} {\em thetas}]\end{DoxyParams}
+
+
 Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien:\begin{DoxyCompactItemize}
 \item 
-src/expmax/\hyperlink{EM_8h_09_09}{EM.h++}\item 
-src/expmax/\hyperlink{ProbabilisticClustering_8c_09_09}{ProbabilisticClustering.c++}\end{DoxyCompactItemize}
+include/expmax/\hyperlink{EM_8h_09_09}{EM.h++}\item 
+src/expmax/\hyperlink{EM_8c_09_09}{EM.c++}\end{DoxyCompactItemize}
