@@ -35,6 +35,7 @@ GaussianMixtureModelNDCommon(const unsigned K_, const unsigned D_, const data_t&
 
     // Since data is already set!
     initClassif();
+    getThetaObj() -> updateCached();
 }
 
 double GaussianMixtureModelNDCommon::evalPDF(const unsigned k, const fvector_t& x) const {

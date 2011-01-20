@@ -104,6 +104,9 @@ public:
         assert(thetas.size());
         return thetas.begin()->size();
     }
+
+    // only makes sense for mixture models
+    double getClassProb(const unsigned k) const { return thetas[k](0); }
 };
 
 } // namespace

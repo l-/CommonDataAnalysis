@@ -34,8 +34,17 @@ public:
      * @brief Types
      */
     typedef GaussianMixtureModelNDCommon::datapoint_t datapoint_t;
+    /**
+     * @brief Types
+     */
     typedef GaussianMixtureModelNDCommon::data_t data_t;
+    /**
+     * @brief Types
+     */
     typedef GaussianMixtureModelNDCommon::theta_t theta_t;
+    /**
+     * @brief Types
+     */
     typedef GaussianMixtureModelNDCommon::theta_t::sym_mtx_t sym_mtx_t;
 
     /**
@@ -48,6 +57,16 @@ public:
      */
     GaussianMixtureModel(const unsigned K_, const unsigned D_, const data_t& data, const theta_t& theta)
         : GaussianMixtureModelNDCommon(K_, D_, data, theta) {}
+
+    /**
+     * @brief Constructor, initializing data etc. appropriately
+     *
+     * @param[in] K_ this way round, because of default parameter in superclass
+     * @param[in] D_
+     *
+     */
+    GaussianMixtureModel(const unsigned K_, const unsigned D_)
+            : GaussianMixtureModelNDCommon(K_, D_, data_t(D_), theta_t(K_, D_)) {}
 
 //    template<class II>
 //    void initializeClusters(std::pair<II, II> thetas_) {

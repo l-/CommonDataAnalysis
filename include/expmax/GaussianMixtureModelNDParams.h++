@@ -54,6 +54,11 @@ public:
     */
     GaussianMixtureModelNDParams(const unsigned K_, const unsigned D_);
 
+    /**
+     * @brief Copy constructor
+     * @param other
+     * @return
+     */
     GaussianMixtureModelNDParams(const GaussianMixtureModelNDParams& other);
 
     /**
@@ -180,7 +185,7 @@ public:
      */
     double getClassProb(const unsigned k) const;
 
-    double& getModifyClassProb(const unsigned k);
+    void setClassProb(const unsigned k, const double prob);
 
     fvector_t& getModifyMean(const unsigned k);
 

@@ -37,11 +37,11 @@ const std::string GaussianMixtureModel1D::getCSVHeader() const {
 }
 
 double GaussianMixtureModel1D::getMean(const unsigned k) const {
-    return m_theta.getThetas()[k](1);
+    return m_theta.getThetas(k,1);
 }
 
 double GaussianMixtureModel1D::getSigma(const unsigned k) const {
-    return m_theta.getThetas()[k](2);
+    return m_theta.getThetas(k,2);
 }
 
 double GaussianMixtureModel1D::evalPDF(const unsigned k, const double& x) const {

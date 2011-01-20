@@ -17,7 +17,7 @@ template <class theta_T>
 void EMGenericMixtureModelCore<theta_T>::update_thetas() {
 
 #ifdef VERBOSE
-    std::cout << className() << ": M step.\n";
+    std::cout << className() << ": MixtureModel M step.\n";
 #endif
 
     // The common part: updating of overall class probabilities.
@@ -37,8 +37,10 @@ void EMGenericMixtureModelCore<theta_T>::update_thetas() {
     for (unsigned k=0; k<K; ++k) {
         getThetaObj() -> getModifyThetas(k,0) = 1/((double)(getN())) * sumclassif[k];
 
-#ifdef VERBOSE
-        std::cout << "Alpha " << k << " now " << getThetaObj() -> getThetas(k,0) << std::endl;
+#ifdef VERBOSE_2
+        std::cout << "Alpha " << k << "/" << getK() << " now " << getThetaObj() -> getThetas(k,0) << std::endl;
+
+        std::cout << "Sumclassif " << k << " = " << sumclassif[k] << std::endl;
 #endif
     }
 
@@ -56,10 +58,10 @@ const std::string EMGenericMixtureModelCore<theta_T>::getCSVHeader() const {
 
     out << "iteration" << ";";
     out << "k" << ";";
-    out << "p" << ";";
-    for (unsigned p=0; p<P; ++p) {
+    // out << "p" << ";";
+    for (unsigned p=0; p<getP(); ++p) {
         out << paramName(p);
-        if (p < P - 1) {
+        if (p < getP()-1) {
             out << ";";
         } else {
             out << "\n";
@@ -67,12 +69,6 @@ const std::string EMGenericMixtureModelCore<theta_T>::getCSVHeader() const {
     }
 
     return out.str();
-}
-
-template <class theta_T>
-const std::string EMGenericMixtureModelCore<theta_T>::paramName(const unsigned p) const {
-    std::stringstream sstr; sstr<<"p"<<p;
-    return sstr.str();
 }
 
 // The 2 specializations

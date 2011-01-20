@@ -53,13 +53,19 @@ void GaussianMixtureModel::improveClusterModelParameters() {
     // Preparation
     for (unsigned n=0; n<getN(); ++n) {
         for (unsigned k=0; k<getK(); ++k) {
-            sumclassif[k] += classif[n](k);
-            means[k] += classif[n](k) * getDataObj() -> getData(n);
+            sumclassif[k] += getClassif(n)(k);
+            means[k] += getClassif(n)(k) * getDataObj() -> getData(n);
         }
     }
 
     // Calculate weighted sample mean, in effect
     for (unsigned k=0; k<K; ++k) {
+
+#ifdef DETAIL_VERBOSE_2
+    std::cout << "Sumclassif " << k << " = " << sumclassif[k] << " .\n";
+#endif
+
+
         means[k] /= sumclassif[k];
 
         getThetaObj() -> getModifyMean(k) = means[k];
@@ -68,9 +74,9 @@ void GaussianMixtureModel::improveClusterModelParameters() {
 //
 //            m_theta.getModifyThetas()[k][1+d] = means[k](d);
 //
-//#ifdef DETAIL_VERBOSE_2
-//        std::cout << "Mean_" << d << " " << k << " now " << m_theta.getThetas()[k](1+d) << std::endl;
-//#endif
+#ifdef DETAIL_VERBOSE_2
+        std::cout << "Mean " << k << " now " << getThetaObj() -> getMean(k) << std::endl;
+#endif
 //
 //        }
     }
@@ -88,31 +94,21 @@ void GaussianMixtureModel::improveClusterModelParameters() {
     }
 
     // Somehow, I doubt this is correct ...
+    // getThetaObj() ->
+
+
+
     for (unsigned k=0; k<getK(); ++k) {
-        for (unsigned d=0; d<getD(); ++d) {
-            for (unsigned e=d; e<getD(); ++e) {
-
+        setSigma(k, sigmas[k]/sumclassif[k]);
 #ifdef DETAIL_VERBOSE_2
-                std::cerr << d << " " << e << " " << 1 + getD() + a(e,d) << std::endl;
+        std::cout << "Sigmas" << " " << k << " now " << sigmas[k]/sumclassif[k] << std::endl;
 #endif
-
-                // @todo USE the proper functions from GaussianMixtureModelNDParams =>
-                getThetaObj() -> getModifySigma(k) (e,d) = sigmas[k](d,e) / sumclassif[k];
-                // getThetaObj() -> getModifyThetas()[k]
-                  // [1 + getD() + getThetaObj() -> a(e,d)] = sigmas[k](d,e) / sumclassif[k];
-
-            }
-        }
-
-    #ifdef DETAIL_VERBOSE_2
-            std::cout << "Sigmas" << " " << k << " now " << sigmas[k]/sumclassif[k] << std::endl;
-    #endif
     }
+
 
     getThetaObj() -> updateCached();
 
     // @todo: effizienter und numerisch besser berechnen ... aber erstmal das ganze verfahren geradebiegen.
 
-    // @todo atomic
 }
 

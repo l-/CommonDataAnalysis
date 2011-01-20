@@ -40,7 +40,7 @@ double GaussianMixtureModelNDParams::getSigmaDet(const unsigned k) const {
     return det(getSigmaMatrix(k));
 }
 
-const boost::numeric::ublas::symmetric_matrix<double, boost::numeric::ublas::upper>
+const GaussianMixtureModelNDParams::sym_mtx_t
 GaussianMixtureModelNDParams::getInvSigma(const unsigned k) const {
 
     // @todo improve
@@ -57,16 +57,25 @@ GaussianMixtureModelNDParams::getInvSigma(const unsigned k) const {
     permatrix pm(A.size1());
 
     // perform LU-factorization with pivoting
-    lu_factorize(A,pm);
+    int lures = lu_factorize(A,pm);
+
+    if( lures != 0 ) {
+        std::cerr << "LU factorization of " << getSigmaMatrix(k) << " failed." << std::endl;
+        std::cerr << "you are stuck with: " << A << pm << std::endl;
+    }
 
     // create identity matrix of "inverse"
     inverse.assign(ublas::identity_matrix<double>(A.size1()));
 
-    // backsubstitute to get the inverse
-
+    // backsubstitute to get the inverse. lots of bad things can happen, but
+    // they're not reasons to kill the program.
     try {
         try {
-            lu_substitute(A, pm, inverse);
+            try {
+                lu_substitute(A, pm, inverse);
+            } catch (boost::numeric::ublas::singular& e) {
+                std::cerr << e.what() << std::endl;
+            }
         } catch ( boost::numeric::ublas::internal_logic& e ) {
             std::cerr << e.what() << std::endl;
         }
@@ -78,7 +87,7 @@ GaussianMixtureModelNDParams::getInvSigma(const unsigned k) const {
 
     sym_mtx_t result;
     try {
-        result = boost::numeric::ublas::triangular_adaptor<boost::numeric::ublas::matrix<double>, boost::numeric::ublas::upper>(inverse);
+        result = inverse; // boost::numeric::ublas::triangular_adaptor<boost::numeric::ublas::matrix<double>, boost::numeric::ublas::upper>(inverse);
         // Is there a problem? Just give ZERO
     } catch ( boost::numeric::ublas::external_logic& e ) {
         std::cerr << e.what() << std::endl;
@@ -97,7 +106,10 @@ void GaussianMixtureModelNDParams::updateCached() {
         m_cached_sigmadet.push_back(getSigmaDet(k));
         // Now only once per turn
 #ifdef VERBOSE
-        std::cerr << "SIGMA " << getSigmaMatrix(k) << std::endl;
+        std::cerr << "Updatecached called.\n";
+        std::cerr << "ALPHA(anyway) " << getClassProb(k) << std::endl;
+        std::cerr << "MEAN(anyway)  " << getMean(k) << std::endl;
+        std::cerr << "SIGMA(anyway) " << getSigmaMatrix(k) << std::endl;
         std::cerr << "INV SIGMA " << getInvSigma(k) << std::endl;
         std::cerr << "DET(SIGMA)" << getSigmaDet(k) << std::endl;
 #endif
@@ -112,8 +124,8 @@ GaussianMixtureModelNDParams::getMean(const unsigned k) const {
     return thetas[k].get<1>();
 }
 
-double& GaussianMixtureModelNDParams::getModifyClassProb(const unsigned k) {
-    return thetas[k].get<0>();
+void GaussianMixtureModelNDParams::setClassProb(const unsigned k, const double prob) {
+    thetas[k].get<0>()=prob;
 }
 
 fvector_t&
@@ -140,7 +152,6 @@ double
 GaussianMixtureModelNDParams::getCachedSigmaDet(const unsigned k) const {
     return m_cached_sigmadet[k];
 }
-
 
 const std::string GaussianMixtureModelNDParams::paramName(const unsigned p) const {
     std::stringstream out;

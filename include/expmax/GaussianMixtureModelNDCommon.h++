@@ -75,7 +75,7 @@ public:
 
     void setSigma(const unsigned k, const sym_mtx_t& sigma) { getThetaObj() -> getModifySigma(k) = sigma; }
     void setMean(const unsigned k, const fvector_t& param) { getThetaObj() -> getModifyMean(k) = param; }
-    void setClassProb(const unsigned k, const double prob) { getThetaObj() -> getModifyClassProb(k) = prob; }
+    void setClassProb(const unsigned k, const double prob) { getThetaObj() -> setClassProb(k, prob); }
 
     /**
      * @todo this is only because the public getThetaObj() of EM:: isn't accessible somehow ...

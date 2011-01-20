@@ -35,7 +35,7 @@ const std::string FitMulticlassByEM<data_T, theta_T>::dumpParameters(const unsig
         double vi = getThetaObj() -> getThetas(k,n);
         out << vi;
 
-        if (i < getK() - 1) {
+        if (i < getThetaObj() -> getP() - 1) {
             out << ";";
         } else {
             out << "\n";
@@ -116,25 +116,24 @@ void FitMulticlassByEM<data_T, theta_T>::initClassif() {
     classif . clear();
 
 #ifdef VERBOSE
-    std::cerr << "initClassif called\n";
+    std::cerr << "initClassif called on " << getN() << " datapoints.\n";
 #endif
 
     for (unsigned i=0; i<getN(); ++i) {
-        classif . push_back ( fvector_t(K, 1/(double)K) );
+        classif . push_back ( fvector_t(getK(), 1/(double)getK()) );
     }
 }
 
-
 template<class data_T, class theta_T>
 double FitMulticlassByEM<data_T, theta_T>::getPk(const unsigned k) const {
-    return getThetaObj() -> getThetas(k, 0);
+    return getThetaObj() -> getClassProb(k);
 }
 
 template<class data_T, class theta_T>
 void FitMulticlassByEM<data_T, theta_T>::update_hidden() {
 
 #ifdef VERBOSE
-    std::cout << className() << ": E step.\n";
+    std::cout << className() << ": MultiClass E step.\n";
 #endif
 
     // @todo triple-check everything
@@ -147,6 +146,7 @@ void FitMulticlassByEM<data_T, theta_T>::update_hidden() {
              std::cout << "Paramset number " << k << " -- " << getPk(k) << " " << evalPDF(k, getDataObj()->getData(n)) << " " << classif[n](k) << std::endl;
 #endif
             classif[n](k) = getPk(k) * evalPDF(k, getDataObj()->getData(n));
+
             if (isnan(classif[n](k))) {
                 classif[n](k) = 0.0;
 #ifdef VERBOSE_2
@@ -160,7 +160,12 @@ void FitMulticlassByEM<data_T, theta_T>::update_hidden() {
         if (norm_1(classif[n]) != 0)
             classif[n] /= norm_1(classif[n]);
 
-        //                            classif[n] = FLT_EPSILON; // make sense?
+#ifdef DETAIL_VERBOSE_2
+             std::cout << "Classif of point " << n << " is " << classif[n] << std::endl;
+#endif
+
+
+        // classif[n] = FLT_EPSILON; // make sense?
     }
 }
 

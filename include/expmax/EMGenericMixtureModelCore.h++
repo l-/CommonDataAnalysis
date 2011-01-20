@@ -127,7 +127,10 @@ public:
      *
      * @param[in] p 0<=p<P
      */
-    virtual const std::string paramName(const unsigned p) const;
+    virtual const std::string paramName(const unsigned p) const {
+        std::stringstream sstr; sstr<<"p"<<p;
+        return sstr.str();
+    }
 
     /**
      * @brief Each class gets its own line, that's the easiest way
