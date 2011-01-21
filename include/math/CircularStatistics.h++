@@ -39,7 +39,7 @@ struct VonMises {
         return exp(kappa * cos(phi - mu)) / (2 * M_PI * gsl_sf_bessel_I0 ( kappa ));
     }
 
-    // @todo WHY CAN'T THIS BE STATIC????????
+    // @todo should be static. 
 
     /**
      * Get the value of \f$\frac{\partial M}{\partial \mu}\f$

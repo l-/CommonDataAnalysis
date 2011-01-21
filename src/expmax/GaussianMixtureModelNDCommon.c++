@@ -44,7 +44,7 @@ double GaussianMixtureModelNDCommon::evalPDF(const unsigned k, const fvector_t& 
 
     namespace ublas = boost::numeric::ublas;
 
-    ublas::vector<double> zwe(getD()); // vector Zwischenergebnis
+    ublas::vector<double> zwe(getD()); // vector intermediary result
     ublas::vector<double> xmu = x - getThetaObj() -> getMean(k);
     zwe = ublas::prod(getThetaObj() -> getCachedInvSigma(k), xmu);
 

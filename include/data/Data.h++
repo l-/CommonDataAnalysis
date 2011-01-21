@@ -12,7 +12,7 @@
  * Sense the POWER!
  *
  * Beginnings of a GNU R-like dataframe infrastructure.
- *
+ * Very unfinished
  */
 
 #pragma once

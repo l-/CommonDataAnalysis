@@ -19,6 +19,8 @@ namespace CDA {
 /**
  * @brief Calculate the determinant of a small matrix.
  *
+ * Adapted from  some usage examples found on the net.
+ *
  * used internally
  */
 template<class matrix_t>

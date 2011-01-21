@@ -5,7 +5,7 @@
  *
  * @section LICENSE
  *
- * This file is released under LGPL v3.0.
+ * see note ...
  *
  * @section DESCRIPTION
  *

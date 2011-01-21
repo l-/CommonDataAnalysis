@@ -108,7 +108,7 @@ void GaussianMixtureModel::improveClusterModelParameters() {
 
     getThetaObj() -> updateCached();
 
-    // @todo: effizienter und numerisch besser berechnen ... aber erstmal das ganze verfahren geradebiegen.
+    // @todo: improve efficiency and calculations.
 
 }
 
