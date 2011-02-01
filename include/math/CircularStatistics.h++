@@ -11,6 +11,9 @@
 
 #pragma once
 
+// When this is re-activated, GSL or something is needed for the Bessel functions
+#if 0
+
 // Special functions from GSL
 #include <gsl/gsl_sf_bessel.h>
 #include <cmath>
@@ -80,4 +83,7 @@ struct VonMises {
 
 };
 
+
 } // namespace
+
+#endif

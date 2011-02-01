@@ -1,6 +1,7 @@
 #!/bin/bash
 
-CCDEBUG="ccache g++ -I. -Iinclude -Isrc -I/informatik/home/flick/include -I/usr/include -c -fmessage-length=0 -DVERBOSE -DEXTRA_VERBOSE -DDETAIL_VERBOSE"
+# GSLINCLUDE=`pkg-config gsl --cflags`
+CCDEBUG="ccache g++ ${GSLINCLUDE} -I. -Iinclude -Isrc -I/usr/include -c -fmessage-length=0 -DVERBOSE -DEXTRA_VERBOSE -DDETAIL_VERBOSE"
 CC=${CCDEBUG}
 LD="g++ -L/usr/lib -shared"
 
