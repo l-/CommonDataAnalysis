@@ -1,0 +1,26 @@
+Project name
+------------
+CommonDataAnalysis
+
+Author/initiator
+----------------
+N. E. Flick (flick <AETT> informatik <DOT> uni-hamburg <DOT> de
+
+License
+-------
+GNU General Public License v3.0
+
+Project type
+------------
+C++ shared library
+
+Project description
+-------------------
+Mainly EM fitting of Gaussian Mixture Models in C++/boost for now, with a GNU-R-like dataframe infrastructure under construction
+
+Dependencies
+------------
+A computer with a C++ toolchain and boost libraries
+
+
+
