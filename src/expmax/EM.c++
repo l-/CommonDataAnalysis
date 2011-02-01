@@ -13,6 +13,8 @@
 #include "expmax/VectorEMData.h++"
 #include "expmax/GaussianMixtureModelNDParams.h++"
 
+#include <cfloat>
+
 using namespace CDA;
 
 template<class data_t, class theta_t>
@@ -24,10 +26,11 @@ template<class data_t, class theta_t>
 void EM<data_t, theta_t>::EMrun(const unsigned MAXITER, const double thresh, const boost::optional<std::ostream*> output_csv) {
 
     // eigentlich schon: assert(getThetaObj() -> getThetas() . size() > 0);
+    // whoever can think of clever (and correct) assertions, please put them in.
 
     // @todo generic output-handler
 
-    double q_likelihood = -INFINITY, q_likelihood_old = -INFINITY;
+    double q_likelihood = DBL_MIN, q_likelihood_old = DBL_MIN;
     double improvement = 0;
 
     if (output_csv)

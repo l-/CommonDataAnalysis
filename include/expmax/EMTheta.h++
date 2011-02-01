@@ -29,7 +29,7 @@ namespace CDA {
  * the parameter management (i.e. extraction of the right fields,
  * some calculations) in here.
  */
-class EMThetas {
+class MYEXPORT EMThetas {
 
 protected:
     /**
@@ -99,13 +99,16 @@ public:
         return thetas[k](i);
     }
 
-    /// @todo TODO umHimmels Willen!
+    /// @todo TODO for heaven's sake!
     unsigned int getP() const {
         assert(thetas.size());
         return thetas.begin()->size();
     }
 
-    // only makes sense for mixture models
+    /**
+     * @brief only makes sense for mixture models
+     * @todo Why is it here?
+     */
     double getClassProb(const unsigned k) const { return thetas[k](0); }
 };
 

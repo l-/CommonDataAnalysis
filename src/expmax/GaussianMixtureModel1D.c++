@@ -1,11 +1,11 @@
 /**
-* @file GaussianMixtureModel1D.c++
-*
-* @author Erik Flick <erik.flick [AETT] informatik.uni-hamburg.de>
-*
-*  Created on: Jan 17, 2011
-*
-*/
+ * @file GaussianMixtureModel1D.c++
+ *
+ * @author Erik Flick <erik.flick [AETT] informatik.uni-hamburg.de>
+ *
+ *  Created on: Jan 17, 2011
+ *
+ */
 
 #include "expmax/ProbabilisticClustering.h++"
 #include "expmax/GaussianMixtureModel1D.h++"
@@ -54,7 +54,7 @@ void GaussianMixtureModel1D::update_thetas() {
     std::cout << className() << ": M step.\n";
 #endif
 
-    double sumclassif[K];
+    std::vector<double> sumclassif(K);
     for (unsigned k=0; k<K; ++k) {
         sumclassif[k] = 0.0;
     }
@@ -79,9 +79,6 @@ void GaussianMixtureModel1D::update_thetas() {
 
     for (unsigned n=0; n<getN(); ++n) {
         for (unsigned k=0; k<getK(); ++k) {
-            // using NEW mean, thus in extra step.
-
-            // @todo: effizienter und numerisch besser berechnen ... aber erstmal das ganze verfahren geradebiegen.
             m_theta.getModifyThetas()[k](2) +=
                 classif[n](k) * squaredDistanceToMean(k, getDataObj()->getData(n));
         }
@@ -95,20 +92,39 @@ void GaussianMixtureModel1D::update_thetas() {
     // @todo atomic
 }
 
+/**
+ * @class StupidCompilerHelper
+ * @brief for MSVC2008. I don't want to know. Just make it work
+ */
+struct StupidCompilerHelper {
+  double m_mean1, m_mean2, m_sigma1, m_sigma2;
+  StupidCompilerHelper(double mean1, double mean2, double sigma1, double sigma2)
+    : m_mean1(mean1),  m_mean2(mean2), m_sigma1(sigma1), m_sigma2(sigma2) {}
+  double operator()(const double& x) {
+    return fabs(x - m_mean1) * pow(m_sigma2,2) - 
+           fabs(x - m_mean2) * pow(m_sigma1,2) -
+           2 * log ( m_sigma2/m_sigma1 ) * pow(m_sigma2 * m_sigma1,2);
+  }
+};
 
 boost::function<double(const double)>
 GaussianMixtureModel1D::getDiscriminantFunction(const int k1, const int k2) const {
     // @todo double-check
 
     assert(k1 != k2);
-
-    return boost::function<double(const double)>(
-            boost::lambda::bind(fabs, (boost::lambda::_1 - getMean(k1))) * pow(getSigma(k2),2)
+    // MSVC 2008 doesn't understand that
+    // return boost::function<double(const double)>( // gnu G++ only
+#ifdef _WIN32
+    return StupidCompilerHelper(getMean(k1), getMean(k2), getSigma(k1), getSigma(k2));
+#else
+    return boost::function1<double, const double>(
+    // MSVC 2008 doesn't understand that (C2780)
+              boost::lambda::bind(fabs, (boost::lambda::_1 - getMean(k1))) * pow(getSigma(k2),2)
             - boost::lambda::bind(fabs, (boost::lambda::_1 - getMean(k2)))  * pow(getSigma(k1),2)
             - 2 * log ( getSigma(k2) / getSigma(k1) ) * pow(getSigma(k2),2) * pow(getSigma(k1),2));
+#endif            
     //          < 0  ? k1 : k2 );
 
-    // eh? ist auch falsch ...
 }
 
 double GaussianMixtureModel1D::findDecisionLimit(const int k1, const int k2) const {

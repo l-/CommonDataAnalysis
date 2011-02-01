@@ -25,7 +25,7 @@ namespace CDA {
  *
  * Is-a EM.
  */
-class GaussianMixtureModelNDCommon : public EMGenericMixtureModelCore<GaussianMixtureModelNDParams> {
+class MYEXPORT GaussianMixtureModelNDCommon : public EMGenericMixtureModelCore<GaussianMixtureModelNDParams> {
 
 public:
 
@@ -88,6 +88,5 @@ public:
     const fvector_t& getMean(const unsigned k) const { return getThetaObj() -> getMean(k); }
     const double getClassProb(const unsigned k) const { return getThetaObj() -> getClassProb(k); }
 };
-
 
 } // namespace

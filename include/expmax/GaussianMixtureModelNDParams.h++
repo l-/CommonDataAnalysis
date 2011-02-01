@@ -5,6 +5,8 @@
 *
 *  Created on: Jan 20, 2011
 *
+* @section DESCRIPTION
+* This class stores, and offers accessors specifically for, ND GMM model parameters.
 */
 
 #pragma once

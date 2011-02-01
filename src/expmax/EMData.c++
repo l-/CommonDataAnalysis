@@ -25,7 +25,6 @@ EMData<T>::EMData(const EMData<T>& other)
     std::copy(other.data.begin(), other.data.end(), std::back_inserter(data));
 }
 
-
 } // namespace
 
 template <class datapoint_t>

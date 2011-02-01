@@ -27,7 +27,7 @@ namespace CDA {
  * It encapsulates access to the original data points.
  */
 template<class T>
-class EMData {
+class MYEXPORT EMData {
 
 public:
 

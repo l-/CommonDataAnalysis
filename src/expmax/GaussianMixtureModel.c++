@@ -34,7 +34,7 @@ void GaussianMixtureModel::improveClusterModelParameters() {
 
     unsigned K = getK();
 
-    double sumclassif[K];
+    std::vector<double> sumclassif(K);
     for (unsigned k=0; k<K; ++k) {
         sumclassif[k] = 0.0;
     }
@@ -93,11 +93,6 @@ void GaussianMixtureModel::improveClusterModelParameters() {
         }
     }
 
-    // Somehow, I doubt this is correct ...
-    // getThetaObj() ->
-
-
-
     for (unsigned k=0; k<getK(); ++k) {
         setSigma(k, sigmas[k]/sumclassif[k]);
 #ifdef DETAIL_VERBOSE_2
@@ -105,10 +100,9 @@ void GaussianMixtureModel::improveClusterModelParameters() {
 #endif
     }
 
-
     getThetaObj() -> updateCached();
 
-    // @todo: improve efficiency and calculations.
+    // @todo: improve efficiency of calculations.
 
 }
 

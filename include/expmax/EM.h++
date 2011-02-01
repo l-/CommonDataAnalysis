@@ -36,7 +36,7 @@ namespace CDA {
  * @tparam theta_t The model-parameter-holding class.
  */
 template<class data_T, class theta_T>
-class EM {
+class MYEXPORT EM {
 
 public:
 

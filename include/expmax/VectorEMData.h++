@@ -5,7 +5,7 @@
  *
  *  Created on: Jan 20, 2011
  *
- * Almost fit for consumption!
+ * when data comes in vectors of floating-point values
  */
 
 #pragma once

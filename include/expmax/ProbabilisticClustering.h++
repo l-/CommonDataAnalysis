@@ -18,18 +18,11 @@
 
 #pragma once
 
-#include <typeinfo> // Just to print names of classes, I promise
-//
-//#include <boost/foreach.hpp>
-//#include <boost/optional.hpp>
-//
+// Just to print names of classes, I promise
+#include <typeinfo>
+
 // Type assertions.
 #include <boost/mpl/equal.hpp>
-
-//#include <boost/function.hpp>
-//#include <boost/lambda/bind.hpp>
-//#include <boost/lambda/lambda.hpp>
-//using namespace boost::lambda;
 
 // Loop-avoiding trickery
 #include <algorithm>
@@ -38,29 +31,9 @@
 // Sine qua non of modern C++
 #include <boost/shared_ptr.hpp>
 
-//// #include <boost/array.hpp>
-//#include <boost/numeric/ublas/matrix.hpp>
-//#include <boost/numeric/ublas/symmetric.hpp>
-//#include <boost/numeric/ublas/vector.hpp>
-//#include <boost/numeric/ublas/vector_proxy.hpp>
-//#include <boost/numeric/ublas/io.hpp>
-//#include <boost/numeric/ublas/lu.hpp>
-//
-//// Numeric limits
-//#include <limits>
-//
-//#include <iostream> // argh, verflechtung
-//
-//#include "math/CircularStatistics.h++"
-//#include "math/numeric_optimization.h++"
-//#include "utils/comparisons.h++"
-//
-//#include "common_definitions.h++"
-
 #include "GaussianMixtureModel1D.h++"
 #include "GaussianMixtureModel.h++"
-//#include "CircularMixtureModel1D.h++"
-//
+
 namespace CDA {
 
 } // namespace

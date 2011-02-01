@@ -6,7 +6,7 @@
  *  Created on: Jan 14, 2011
  *
  * @section Description
- * ... nicht wahr?
+ * This is the class for ND GMM which can actually be used
  */
 
 #pragma once
@@ -17,13 +17,14 @@
 namespace CDA {
 
 /**
- * @class GaussianMixtureModelNDClosedForm
+ * @class GaussianMixtureModel
  *
  * @brief A heteroscedastic N-dimensional Gaussian Mixture Model
  *
  */
-class GaussianMixtureModel: public GaussianMixtureModelNDCommon {
+class MYEXPORT GaussianMixtureModel: public GaussianMixtureModelNDCommon {
 
+// NDClosedForm
 //    using GaussianMixtureModelNDCommon::getClassif;
 //
 //    using GaussianMixtureModelNDCommon::getP; // zufrieden?
@@ -104,7 +105,7 @@ protected:
      * @return
      */
     virtual const std::string className() const;
-};
 
+};
 
 }

@@ -23,8 +23,8 @@ void EMGenericMixtureModelCore<theta_T>::update_thetas() {
     // The common part: updating of overall class probabilities.
     // It is assumed to be residing at [0] of the parameter vector.
     unsigned int K = getK();
+    std::vector<double> sumclassif(K); // MSVC
 
-    double sumclassif[K];
     for (unsigned k=0; k<K; ++k) {
         sumclassif[k] = 0.0; }
 

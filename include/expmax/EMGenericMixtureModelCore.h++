@@ -21,7 +21,7 @@ namespace CDA {
  * analytically, prompting a gradient search for the MLE step
  */
 template <class theta_T>
-class EMGenericMixtureModelCore : public FitMultivariateMulticlassByEM<theta_T> {
+class MYEXPORT EMGenericMixtureModelCore : public FitMultivariateMulticlassByEM<theta_T> {
 
 public:
     /**
@@ -148,6 +148,5 @@ public:
     unsigned int getP() const { assert(P!=0); return P; }
 
 };
-
 
 } //ns

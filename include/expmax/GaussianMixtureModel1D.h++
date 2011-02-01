@@ -6,7 +6,7 @@
  *  Created on: Jan 5, 2011
  *
  * @section NOTE
- * This one, the easiest one, actually works.
+ * This is the class for 1D GMM which can actually be used.
  *
  */
 
@@ -26,7 +26,7 @@ namespace CDA {
  * @brief
  * A GaussianMixtureModel class, with EM fitting routine built in
  */
-class GaussianMixtureModel1D : public FitUnivariateMulticlassByEM {
+class MYEXPORT GaussianMixtureModel1D : public FitUnivariateMulticlassByEM {
 
 public:
     /**

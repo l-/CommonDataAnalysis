@@ -31,6 +31,7 @@ namespace CDA {
  * The classical application, from BV1 lecture actually!
  */
 template<class Iter>
+MYEXPORT
 boost::shared_ptr<GaussianMixtureModel1D> thresholdFinder(const std::pair<Iter, Iter> input,
         double bgprob = 0.5,
         const boost::optional<std::ostream*> output_csv = boost::none

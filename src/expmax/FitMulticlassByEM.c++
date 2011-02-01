@@ -136,7 +136,7 @@ void FitMulticlassByEM<data_T, theta_T>::update_hidden() {
     std::cout << className() << ": MultiClass E step.\n";
 #endif
 
-    // @todo triple-check everything
+    /// @todo better error handling
 
     for (unsigned n=0; n<getN(); ++n) {
         for (unsigned k=0; k<getK(); ++k) { // m_theta.getThetas().size()
@@ -153,8 +153,7 @@ void FitMulticlassByEM<data_T, theta_T>::update_hidden() {
                 // maybe only the first time
             std::cerr << "Error: encountered NaN\n";
 #endif
-            } // wtf?
-            // @todo better error handling
+            }
         }
 
         if (norm_1(classif[n]) != 0)
@@ -163,7 +162,6 @@ void FitMulticlassByEM<data_T, theta_T>::update_hidden() {
 #ifdef DETAIL_VERBOSE_2
              std::cout << "Classif of point " << n << " is " << classif[n] << std::endl;
 #endif
-
 
         // classif[n] = FLT_EPSILON; // make sense?
     }

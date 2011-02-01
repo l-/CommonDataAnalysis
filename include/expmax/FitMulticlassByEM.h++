@@ -29,7 +29,7 @@ namespace CDA {
  *
  */
 template<class data_T, class theta_T>
-class FitMulticlassByEM : public EM<data_T, theta_T> {
+class MYEXPORT FitMulticlassByEM : public EM<data_T, theta_T> {
 
 public:
 
@@ -229,6 +229,5 @@ public:
     virtual double evalPDF(const unsigned k, const datapoint_t& x) const = 0;
 
 };
-
 
 } // namespace

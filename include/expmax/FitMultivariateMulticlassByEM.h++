@@ -14,7 +14,6 @@
 
 namespace CDA {
 
-
 /**
  * @class FitMultivariateMulticlassByEM
  *
@@ -23,7 +22,7 @@ namespace CDA {
  * @brief It's no longer a simple typedef.
  */
 template<class theta_T>
-class FitMultivariateMulticlassByEM : public FitMulticlassByEM<VectorEMData, theta_T> {
+class MYEXPORT FitMultivariateMulticlassByEM : public FitMulticlassByEM<VectorEMData, theta_T> {
 
 protected:
 

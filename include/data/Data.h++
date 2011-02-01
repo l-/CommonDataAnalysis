@@ -56,11 +56,26 @@ class EnhancedDatasetView {
 };
 
 /**
+ * @class VectorComponentExtractor
+ * @brief This is much clearer than the dopey boost::function version anyway
+ */
+struct VectorComponentExtractor {
+  /**
+   * @brief So as to conform with interface required by transform_iterator
+   */
+  typedef fvector_t::value_type result_type;
+  const int i;
+  VectorComponentExtractor(const int i_) : i(i_) {}
+  fvector_t::value_type operator()(const fvector_t& v) { return v(i); }
+};
+
+
+/**
  * @class EnhancedDataset
  *
  * @brief aware of basic statistics for normalization etc.
  */
-class EnhancedDataset {
+class MYEXPORT EnhancedDataset {
 
     // @todo Assign data types (for example, is it a real number, an angle, etc.)
 
@@ -233,7 +248,6 @@ public:
         );
     }
 
-
     typedef boost::transform_iterator<boost::function<fvector_t::value_type(const fvector_t&)>,
             dataframe_t::const_iterator
             > vtrit_1d_t;
@@ -246,17 +260,20 @@ public:
         //
         //        // http://stackoverflow.com/questions/3413044/declaring-and-defining-a-function-object-inside-a-class-member-function
 
-        typedef const fvector_t::value_type& crap;
-        // what kind of unsightly stuff is this???
-        typedef crap (fvector_t::*ttt)(unsigned int) const;
+//        typedef const fvector_t::value_type& crap;
+//        // what kind of unsightly stuff is this???
+//        // What's more, it only JUST works with G++ and not at all with MSVC ...
+//        typedef crap (fvector_t::*ttt)(unsigned int) const;
+//
+//        boost::function<crap(const fvector_t&)> fn
+//                (boost::bind(
+//                        boost::mem_fn(
+//                             // This way it is not a "non-member function type"
+//                             static_cast<ttt>(
+//                             &fvector_t::operator())), _1, i ));
+//                        // boost::mem_fn((const fvector_t::value_type&(const fvector_t&, unsigned int))(&fvector_t::operator())), _1, i ));
 
-        boost::function<crap(const fvector_t&)> fn
-                (boost::bind(
-                        boost::mem_fn(
-                             // This way it is not a "non-member function type"
-                             static_cast<ttt>(
-                             &fvector_t::operator())), _1, i ));
-                        // boost::mem_fn((const fvector_t::value_type&(const fvector_t&, unsigned int))(&fvector_t::operator())), _1, i ));
+        VectorComponentExtractor fn(i);
 
         return std::make_pair(
                 boost::make_transform_iterator(m_data.begin(), fn),

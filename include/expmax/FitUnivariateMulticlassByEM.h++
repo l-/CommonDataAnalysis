@@ -16,7 +16,7 @@ namespace CDA {
 /**
  * @brief It's been demoted to a typedef.
  */
-class FitUnivariateMulticlassByEM : public FitMulticlassByEM<EMData<double>, EMThetas> {
+class MYEXPORT FitUnivariateMulticlassByEM : public FitMulticlassByEM<EMData<double>, EMThetas> {
 
 public:
 
